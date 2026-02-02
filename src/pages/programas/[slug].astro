@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../features/navigation';
+import { ProgramaDetail } from '../../features/programas';
+import { programas, getProgramaBySlug } from '../../data/programas';
+
+export async function getStaticPaths() {
+  return programas.map((programa) => ({
+    params: { slug: programa.slug },
+    props: { programa },
+  }));
+}
+
+const { slug } = Astro.params;
+const { programa } = Astro.props;
+
+// Fallback in case props don't work as expected
+const programaData = programa || getProgramaBySlug(slug);
+
+if (!programaData) {
+  return Astro.redirect('/404');
+}
+
+const tipoLabels: Record<string, string> = {
+  maestria: 'Maestría',
+  doctorado: 'Doctorado',
+  diplomado: 'Diplomado',
+  curso: 'Curso',
+};
+---
+
+<Layout 
+  title={`${programaData.nombre} | EPG UNAP`}
+  description={programaData.descripcionCorta}
+>
+  <Navbar client:load />
+  <main>
+    <ProgramaDetail programa={programaData} client:load />
+  </main>
+</Layout>

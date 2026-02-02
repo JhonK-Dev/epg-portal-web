@@ -1,0 +1,385 @@
+import { useState, useMemo } from 'react';
+import type { Programa, TipoPrograma } from '@/types';
+import { programas } from '@/data/programas';
+import { 
+  Search, 
+  Filter, 
+  GraduationCap, 
+  Clock, 
+  MapPin,
+  BookOpen,
+  X,
+  ChevronDown
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+
+type Modalidad = 'presencial' | 'semipresencial' | 'virtual' | 'todos';
+type TipoFiltro = TipoPrograma | 'todos';
+
+const tipoLabels: Record<string, string> = {
+  todos: 'Todos los programas',
+  maestria: 'Maestrías',
+  doctorado: 'Doctorados',
+  diplomado: 'Diplomados',
+  curso: 'Cursos',
+};
+
+const tipoColors: Record<string, string> = {
+  maestria: 'bg-blue-600 hover:bg-blue-700',
+  doctorado: 'bg-purple-600 hover:bg-purple-700',
+  diplomado: 'bg-emerald-600 hover:bg-emerald-700',
+  curso: 'bg-amber-600 hover:bg-amber-700',
+};
+
+const tipoBadgeColors: Record<string, string> = {
+  maestria: 'bg-blue-100 text-blue-800',
+  doctorado: 'bg-purple-100 text-purple-800',
+  diplomado: 'bg-emerald-100 text-emerald-800',
+  curso: 'bg-amber-100 text-amber-800',
+};
+
+const modalidadLabels: Record<string, string> = {
+  todos: 'Todas las modalidades',
+  presencial: 'Presencial',
+  semipresencial: 'Semipresencial',
+  virtual: 'Virtual',
+};
+
+const modalidadColors: Record<string, string> = {
+  presencial: 'bg-blue-100 text-blue-800',
+  semipresencial: 'bg-purple-100 text-purple-800',
+  virtual: 'bg-green-100 text-green-800',
+};
+
+interface ProgramaCardProps {
+  programa: Programa;
+}
+
+function ProgramaCard({ programa }: ProgramaCardProps) {
+  return (
+    <a 
+      href={`/programas/${programa.slug}`}
+      className="group block"
+    >
+      <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-transparent hover:border-l-[#E6A817]">
+        <CardHeader className="pb-3">
+          <div className="flex items-start justify-between gap-2 mb-2">
+            <Badge className={tipoBadgeColors[programa.tipo]}>
+              {tipoLabels[programa.tipo]}
+            </Badge>
+            <Badge className={modalidadColors[programa.modalidad]}>
+              {modalidadLabels[programa.modalidad]}
+            </Badge>
+          </div>
+          <CardTitle className="text-lg group-hover:text-[#001F3F] transition-colors leading-tight">
+            {programa.nombre}
+          </CardTitle>
+          <CardDescription className="line-clamp-2">
+            {programa.descripcionCorta}
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <Clock className="h-4 w-4 text-gray-400" />
+              <span>{programa.duracion}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <BookOpen className="h-4 w-4 text-gray-400" />
+              <span>{programa.creditos} créditos</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-gray-400" />
+              <span className="truncate">{programa.facultad}</span>
+            </div>
+          </div>
+          
+          {programa.inversion && (
+            <div className="mt-4 pt-4 border-t">
+              <p className="text-sm text-gray-500">Inversión</p>
+              <p className="font-semibold text-[#001F3F]">{programa.inversion}</p>
+            </div>
+          )}
+
+          <div className="mt-4">
+            <span className="text-[#E6A817] font-medium text-sm group-hover:underline">
+              Ver detalles →
+            </span>
+          </div>
+        </CardContent>
+      </Card>
+    </a>
+  );
+}
+
+export function ProgramasLista() {
+  const [tipoFiltro, setTipoFiltro] = useState<TipoFiltro>('todos');
+  const [modalidadFiltro, setModalidadFiltro] = useState<Modalidad>('todos');
+  const [busqueda, setBusqueda] = useState('');
+  const [mostrarFiltros, setMostrarFiltros] = useState(false);
+
+  const programasFiltrados = useMemo(() => {
+    return programas.filter((programa) => {
+      // Filtro por tipo
+      if (tipoFiltro !== 'todos' && programa.tipo !== tipoFiltro) {
+        return false;
+      }
+
+      // Filtro por modalidad
+      if (modalidadFiltro !== 'todos' && programa.modalidad !== modalidadFiltro) {
+        return false;
+      }
+
+      // Filtro por búsqueda
+      if (busqueda.trim()) {
+        const searchLower = busqueda.toLowerCase();
+        return (
+          programa.nombre.toLowerCase().includes(searchLower) ||
+          programa.descripcion.toLowerCase().includes(searchLower) ||
+          programa.facultad.toLowerCase().includes(searchLower)
+        );
+      }
+
+      return true;
+    });
+  }, [tipoFiltro, modalidadFiltro, busqueda]);
+
+  const conteosPorTipo = useMemo(() => {
+    const conteos: Record<string, number> = { todos: programas.length };
+    programas.forEach((p) => {
+      conteos[p.tipo] = (conteos[p.tipo] || 0) + 1;
+    });
+    return conteos;
+  }, []);
+
+  const limpiarFiltros = () => {
+    setTipoFiltro('todos');
+    setModalidadFiltro('todos');
+    setBusqueda('');
+  };
+
+  const hayFiltrosActivos = tipoFiltro !== 'todos' || modalidadFiltro !== 'todos' || busqueda.trim() !== '';
+
+  return (
+    <div>
+      {/* Barra de búsqueda y filtros */}
+      <div className="bg-white rounded-xl shadow-sm p-4 mb-8">
+        <div className="flex flex-col lg:flex-row gap-4">
+          {/* Búsqueda */}
+          <div className="flex-1 relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Buscar por nombre, descripción o facultad..."
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001F3F] focus:border-transparent"
+            />
+            {busqueda && (
+              <button
+                onClick={() => setBusqueda('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            )}
+          </div>
+
+          {/* Botón de filtros (móvil) */}
+          <Button
+            variant="outline"
+            className="lg:hidden gap-2"
+            onClick={() => setMostrarFiltros(!mostrarFiltros)}
+          >
+            <Filter className="h-4 w-4" />
+            Filtros
+            <ChevronDown className={`h-4 w-4 transition-transform ${mostrarFiltros ? 'rotate-180' : ''}`} />
+          </Button>
+
+          {/* Filtros (desktop) */}
+          <div className="hidden lg:flex gap-4">
+            {/* Tipo de programa */}
+            <select
+              value={tipoFiltro}
+              onChange={(e) => setTipoFiltro(e.target.value as TipoFiltro)}
+              className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001F3F] bg-white min-w-[180px]"
+            >
+              <option value="todos">Todos los tipos</option>
+              <option value="maestria">Maestrías ({conteosPorTipo.maestria || 0})</option>
+              <option value="doctorado">Doctorados ({conteosPorTipo.doctorado || 0})</option>
+              <option value="diplomado">Diplomados ({conteosPorTipo.diplomado || 0})</option>
+              <option value="curso">Cursos ({conteosPorTipo.curso || 0})</option>
+            </select>
+
+            {/* Modalidad */}
+            <select
+              value={modalidadFiltro}
+              onChange={(e) => setModalidadFiltro(e.target.value as Modalidad)}
+              className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001F3F] bg-white min-w-[180px]"
+            >
+              <option value="todos">Todas las modalidades</option>
+              <option value="presencial">Presencial</option>
+              <option value="semipresencial">Semipresencial</option>
+              <option value="virtual">Virtual</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Filtros móvil expandidos */}
+        {mostrarFiltros && (
+          <div className="lg:hidden mt-4 pt-4 border-t grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Tipo de programa
+              </label>
+              <select
+                value={tipoFiltro}
+                onChange={(e) => setTipoFiltro(e.target.value as TipoFiltro)}
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001F3F] bg-white"
+              >
+                <option value="todos">Todos los tipos</option>
+                <option value="maestria">Maestrías ({conteosPorTipo.maestria || 0})</option>
+                <option value="doctorado">Doctorados ({conteosPorTipo.doctorado || 0})</option>
+                <option value="diplomado">Diplomados ({conteosPorTipo.diplomado || 0})</option>
+                <option value="curso">Cursos ({conteosPorTipo.curso || 0})</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Modalidad
+              </label>
+              <select
+                value={modalidadFiltro}
+                onChange={(e) => setModalidadFiltro(e.target.value as Modalidad)}
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001F3F] bg-white"
+              >
+                <option value="todos">Todas las modalidades</option>
+                <option value="presencial">Presencial</option>
+                <option value="semipresencial">Semipresencial</option>
+                <option value="virtual">Virtual</option>
+              </select>
+            </div>
+          </div>
+        )}
+
+        {/* Filtros activos */}
+        {hayFiltrosActivos && (
+          <div className="mt-4 pt-4 border-t flex flex-wrap items-center gap-2">
+            <span className="text-sm text-gray-500">Filtros activos:</span>
+            
+            {tipoFiltro !== 'todos' && (
+              <Badge variant="secondary" className="gap-1">
+                {tipoLabels[tipoFiltro]}
+                <button onClick={() => setTipoFiltro('todos')}>
+                  <X className="h-3 w-3" />
+                </button>
+              </Badge>
+            )}
+            
+            {modalidadFiltro !== 'todos' && (
+              <Badge variant="secondary" className="gap-1">
+                {modalidadLabels[modalidadFiltro]}
+                <button onClick={() => setModalidadFiltro('todos')}>
+                  <X className="h-3 w-3" />
+                </button>
+              </Badge>
+            )}
+            
+            {busqueda.trim() && (
+              <Badge variant="secondary" className="gap-1">
+                "{busqueda}"
+                <button onClick={() => setBusqueda('')}>
+                  <X className="h-3 w-3" />
+                </button>
+              </Badge>
+            )}
+
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={limpiarFiltros}
+              className="text-red-600 hover:text-red-700 hover:bg-red-50"
+            >
+              Limpiar todo
+            </Button>
+          </div>
+        )}
+      </div>
+
+      {/* Tabs de tipo rápido */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {(['todos', 'maestria', 'doctorado', 'diplomado', 'curso'] as const).map((tipo) => (
+          <Button
+            key={tipo}
+            variant={tipoFiltro === tipo ? 'default' : 'outline'}
+            size="sm"
+            onClick={() => setTipoFiltro(tipo)}
+            className={tipoFiltro === tipo ? 'bg-[#001F3F] hover:bg-[#001A33]' : ''}
+          >
+            {tipoLabels[tipo]}
+            <span className="ml-1 text-xs opacity-70">
+              ({conteosPorTipo[tipo] || 0})
+            </span>
+          </Button>
+        ))}
+      </div>
+
+      {/* Resultados */}
+      <div className="mb-4 flex items-center justify-between">
+        <p className="text-gray-600">
+          {programasFiltrados.length === 1
+            ? '1 programa encontrado'
+            : `${programasFiltrados.length} programas encontrados`}
+        </p>
+      </div>
+
+      {/* Grid de programas */}
+      {programasFiltrados.length > 0 ? (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {programasFiltrados.map((programa) => (
+            <ProgramaCard key={programa.id} programa={programa} />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-16 bg-white rounded-xl">
+          <GraduationCap className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-gray-700 mb-2">
+            No se encontraron programas
+          </h3>
+          <p className="text-gray-500 mb-6">
+            Intenta ajustar los filtros o el término de búsqueda.
+          </p>
+          <Button onClick={limpiarFiltros} variant="outline">
+            Limpiar filtros
+          </Button>
+        </div>
+      )}
+
+      {/* CTA de contacto */}
+      <div className="mt-12 text-center bg-gradient-to-r from-[#001F3F] to-[#003366] rounded-xl p-8 text-white">
+        <h3 className="text-2xl font-bold mb-4">¿No encuentras lo que buscas?</h3>
+        <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          Nuestro equipo de admisión puede ayudarte a encontrar el programa ideal según tu perfil profesional y objetivos académicos.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button 
+            size="lg" 
+            className="bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227] font-semibold"
+            asChild
+          >
+            <a href="/admision">Iniciar proceso de admisión</a>
+          </Button>
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="border-white text-white hover:bg-white/10"
+          >
+            Contactar asesor
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}

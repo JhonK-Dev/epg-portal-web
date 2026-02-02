@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../features/navigation';
+import { ProgramasLista } from '../../features/programas';
+---
+
+<Layout 
+  title="Programas Académicos | EPG UNAP"
+  description="Descubre nuestra oferta de maestrías, doctorados, diplomados y cursos de especialización. Programas acreditados por SUNEDU con docentes de alto nivel."
+>
+  <Navbar client:load />
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-[#001F3F] to-[#003366] text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="text-sm mb-4">
+          <ol class="flex items-center gap-2">
+            <li><a href="/" class="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
+            <li class="text-gray-400">/</li>
+            <li class="text-[#E6A817]">Programas Académicos</li>
+          </ol>
+        </nav>
+        <div class="max-w-3xl">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Programas Académicos
+          </h1>
+          <p class="text-xl text-gray-300 mb-6">
+            Descubre nuestra oferta de maestrías, doctorados y programas de formación continua diseñados para impulsar tu carrera profesional y contribuir al desarrollo de la región.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2">
+              <span class="text-2xl font-bold text-[#E6A817]">14</span>
+              <span class="text-gray-300 ml-2">Programas activos</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2">
+              <span class="text-2xl font-bold text-[#E6A817]">5</span>
+              <span class="text-gray-300 ml-2">Maestrías</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2">
+              <span class="text-2xl font-bold text-[#E6A817]">3</span>
+              <span class="text-gray-300 ml-2">Doctorados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de Programas -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ProgramasLista client:load />
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,11 +1,35 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Navbar } from '../features/navigation';
+import { 
+  Hero, 
+  ProgramSearch, 
+  FeaturedPrograms,
+  StatsSection,
+  NewsAndEvents,
+  AdmissionCTA
+} from '../features/home';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="EPG UNAP - Escuela de Posgrado" description="Escuela de Posgrado de la Universidad Nacional del Altiplano Puno. Maestrías, Doctorados, Diplomados y Cursos de especialización con licenciamiento SUNEDU.">
+  <Navbar client:load />
+  <main>
+    <!-- Hero Section con búsqueda y estadísticas -->
+    <Hero client:load />
+    
+    <!-- Búsqueda de Programas -->
+    <ProgramSearch client:load />
+    
+    <!-- Programas Destacados -->
+    <FeaturedPrograms client:load />
+    
+    <!-- Estadísticas Institucionales -->
+    <StatsSection client:load />
+    
+    <!-- Noticias y Eventos -->
+    <NewsAndEvents client:load />
+    
+    <!-- CTA de Admisión -->
+    <AdmissionCTA client:load />
+  </main>
 </Layout>
