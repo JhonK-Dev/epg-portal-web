@@ -1,0 +1,239 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../features/navigation';
+---
+
+<Layout>
+  <Navbar client:load />
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="bg-[#001F3F] text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="text-sm mb-4">
+          <ol class="flex items-center gap-2">
+            <li><a href="/" class="text-gray-300 hover:text-white">Inicio</a></li>
+            <li class="text-gray-400">/</li>
+            <li class="text-[#E6A817]">Estudiantes</li>
+          </ol>
+        </nav>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Portal del Estudiante</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Accede a recursos, trámites y servicios exclusivos para estudiantes de la Escuela de Postgrado.
+        </p>
+      </div>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-[#001F3F] mb-8 text-center">Acceso Rápido</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="/servicios/sigae" class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 group">
+            <div class="w-14 h-14 bg-[#001F3F] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E6A817] transition-colors">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+              </svg>
+            </div>
+            <span class="font-medium text-[#001F3F]">SIGAE</span>
+          </a>
+          
+          <a href="/servicios/aula-virtual" class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 group">
+            <div class="w-14 h-14 bg-[#001F3F] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E6A817] transition-colors">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <span class="font-medium text-[#001F3F]">Aula Virtual</span>
+          </a>
+          
+          <a href="/servicios/biblioteca-virtual" class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 group">
+            <div class="w-14 h-14 bg-[#001F3F] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E6A817] transition-colors">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <span class="font-medium text-[#001F3F]">Biblioteca</span>
+          </a>
+          
+          <a href="/servicios/correo-institucional" class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 group">
+            <div class="w-14 h-14 bg-[#001F3F] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E6A817] transition-colors">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <span class="font-medium text-[#001F3F]">Correo</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Processes -->
+    <section class="py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-[#001F3F] mb-8">Procesos y Trámites</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Matrícula -->
+          <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-[#001F3F]">Matrícula</h3>
+            </div>
+            <p class="text-gray-600 mb-4">Proceso de inscripción a las asignaturas del semestre académico.</p>
+            <a href="/estudiantes/matricula" class="text-[#E6A817] font-medium hover:underline">Ver proceso →</a>
+          </div>
+
+          <!-- Trámite de Grado -->
+          <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-[#001F3F]">Trámite de Grado</h3>
+            </div>
+            <p class="text-gray-600 mb-4">Proceso para obtener el grado académico de Magíster o Doctor.</p>
+            <a href="/estudiantes/tramite-grado" class="text-[#E6A817] font-medium hover:underline">Ver proceso →</a>
+          </div>
+
+          <!-- Sustentaciones -->
+          <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-[#001F3F]">Sustentaciones</h3>
+            </div>
+            <p class="text-gray-600 mb-4">Cronograma y requisitos para la defensa de tesis.</p>
+            <a href="/estudiantes/sustentaciones" class="text-[#E6A817] font-medium hover:underline">Ver cronograma →</a>
+          </div>
+
+          <!-- Licencia -->
+          <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-[#001F3F]">Licencia de Estudios</h3>
+            </div>
+            <p class="text-gray-600 mb-4">Solicitud de suspensión temporal de estudios.</p>
+            <a href="/estudiantes/licencia-estudios" class="text-[#E6A817] font-medium hover:underline">Ver proceso →</a>
+          </div>
+
+          <!-- Cambio de Programa -->
+          <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-[#001F3F]">Cambio de Programa</h3>
+            </div>
+            <p class="text-gray-600 mb-4">Procedimiento para trasladarse a otro programa.</p>
+            <a href="/estudiantes/cambio-programa" class="text-[#E6A817] font-medium hover:underline">Ver proceso →</a>
+          </div>
+
+          <!-- Certificados -->
+          <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-[#001F3F]">Certificados y Constancias</h3>
+            </div>
+            <p class="text-gray-600 mb-4">Solicitud de documentos académicos oficiales.</p>
+            <a href="/estudiantes/certificados" class="text-[#E6A817] font-medium hover:underline">Ver más →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-[#001F3F] mb-8">Documentos Importantes</h2>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <a href="#" class="flex items-center gap-4 bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 bg-red-100 rounded flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-medium text-[#001F3F]">Reglamento General de la EPG</h4>
+              <span class="text-sm text-gray-500">PDF • Actualizado 2024</span>
+            </div>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+          </a>
+
+          <a href="#" class="flex items-center gap-4 bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 bg-red-100 rounded flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-medium text-[#001F3F]">Reglamento de Grados y Títulos</h4>
+              <span class="text-sm text-gray-500">PDF • Actualizado 2024</span>
+            </div>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+          </a>
+
+          <a href="#" class="flex items-center gap-4 bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 bg-blue-100 rounded flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-medium text-[#001F3F]">Formato de Proyecto de Tesis</h4>
+              <span class="text-sm text-gray-500">DOCX • Actualizado 2024</span>
+            </div>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+          </a>
+
+          <a href="#" class="flex items-center gap-4 bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 bg-green-100 rounded flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-medium text-[#001F3F]">Guía de Elaboración de Tesis</h4>
+              <span class="text-sm text-gray-500">PDF • Actualizado 2024</span>
+            </div>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="/escuela/reglamentos" class="text-[#E6A817] font-medium hover:underline">
+            Ver todos los documentos →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

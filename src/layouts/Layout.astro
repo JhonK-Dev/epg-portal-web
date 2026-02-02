@@ -1,23 +1,30 @@
+---
+import "../styles/global.css";
+import { Footer } from "../features/navigation";
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content="Escuela de Postgrado UNAP - Universidad Nacional de la Amazonía Peruana. Maestrías, Doctorados y Formación Continua." />
+		<meta name="keywords" content="postgrado, maestría, doctorado, UNAP, Amazonía, Perú, educación superior" />
+		<meta name="author" content="Escuela de Postgrado UNAP" />
+		
+		<!-- Open Graph -->
+		<meta property="og:title" content="Escuela de Postgrado UNAP" />
+		<meta property="og:description" content="Formando líderes para el desarrollo sostenible de la Amazonía peruana." />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_PE" />
+		
+		<title>Escuela de Postgrado UNAP</title>
 	</head>
-	<body>
+	<body class="min-h-screen bg-background flex flex-col">
 		<slot />
+		<Footer client:load />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

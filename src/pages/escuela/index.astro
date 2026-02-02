@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../features/navigation';
+import { EscuelaContent } from '../../features/escuela';
+---
+
+<Layout title="La Escuela - EPG UNAP">
+  <Navbar client:load />
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-[#001F3F] via-[#002855] to-[#003366] text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="text-sm mb-6">
+          <ol class="flex items-center gap-2">
+            <li><a href="/" class="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
+            <li class="text-gray-400">/</li>
+            <li class="text-[#E6A817]">La Escuela</li>
+          </ol>
+        </nav>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">La Escuela de Postgrado</h1>
+        <p class="text-xl text-gray-300 max-w-3xl leading-relaxed">
+          Más de 35 años formando líderes y profesionales de excelencia comprometidos con el desarrollo sostenible de la Amazonía peruana.
+        </p>
+      </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <section class="bg-white border-b sticky top-0 z-40 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex overflow-x-auto gap-8 py-4 scrollbar-hide">
+          <a href="#historia" class="text-[#001F3F] font-medium whitespace-nowrap hover:text-[#E6A817] transition-colors border-b-2 border-transparent hover:border-[#E6A817] pb-1">Historia</a>
+          <a href="#mision-vision" class="text-gray-600 whitespace-nowrap hover:text-[#E6A817] transition-colors border-b-2 border-transparent hover:border-[#E6A817] pb-1">Misión y Visión</a>
+          <a href="#valores" class="text-gray-600 whitespace-nowrap hover:text-[#E6A817] transition-colors border-b-2 border-transparent hover:border-[#E6A817] pb-1">Valores</a>
+          <a href="#estadisticas" class="text-gray-600 whitespace-nowrap hover:text-[#E6A817] transition-colors border-b-2 border-transparent hover:border-[#E6A817] pb-1">Estadísticas</a>
+          <a href="#autoridades" class="text-gray-600 whitespace-nowrap hover:text-[#E6A817] transition-colors border-b-2 border-transparent hover:border-[#E6A817] pb-1">Autoridades</a>
+          <a href="#documentos" class="text-gray-600 whitespace-nowrap hover:text-[#E6A817] transition-colors border-b-2 border-transparent hover:border-[#E6A817] pb-1">Documentos</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <EscuelaContent client:load />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
