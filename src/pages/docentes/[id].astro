@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar, Footer } from '../../features/navigation';
+import { DocenteDetail } from '../../features/docentes';
+import { docentes, getDocenteById, getAllDocenteIds } from '../../data/docentes';
+
+export function getStaticPaths() {
+  return docentes.map((docente) => ({
+    params: { id: docente.id },
+    props: { docente },
+  }));
+}
+
+const { id } = Astro.params;
+const { docente } = Astro.props;
+
+if (!docente) {
+  return Astro.redirect('/404');
+}
+
+const gradoLabels: Record<string, string> = {
+  doctor: 'Dr.',
+  phd: 'Ph.D.',
+  magister: 'Mg.',
+  bachiller: 'Bach.',
+};
+
+const nombreCompleto = `${gradoLabels[docente.grado] || ''} ${docente.nombres} ${docente.apellidos}`;
+---
+
+<Layout 
+  title={`${nombreCompleto} | Docentes EPG UNAP`}
+  description={docente.resumenPerfil || `Perfil del docente ${nombreCompleto} de la Escuela de Postgrado de la UNAP.`}
+>
+  <Navbar client:load />
+  <main class="min-h-screen">
+    <DocenteDetail client:load docente={docente} />
+  </main>
+  <Footer />
+</Layout>
