@@ -3,7 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import { Navbar } from '../features/navigation';
 ---
 
-<Layout title="Página no encontrada - EPG UNAP">
+<Layout 
+  title="Página no encontrada"
+  description="La página que buscas no existe o ha sido movida. Visita nuestra página principal para encontrar lo que necesitas."
+  noindex={true}
+>
   <Navbar client:load />
   <main class="min-h-[calc(100vh-200px)] flex items-center justify-center bg-gradient-to-b from-gray-50 to-white">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">

@@ -29,8 +29,10 @@ const nombreCompleto = `${gradoLabels[docente.grado] || ''} ${docente.nombres} $
 ---
 
 <Layout 
-  title={`${nombreCompleto} | Docentes EPG UNAP`}
+  title={`${nombreCompleto} | Docentes`}
   description={docente.resumenPerfil || `Perfil del docente ${nombreCompleto} de la Escuela de Postgrado de la UNAP.`}
+  keywords={[`${docente.nombres} ${docente.apellidos}`, docente.especialidad, "docente UNAP", "investigador postgrado"]}
+  type="article"
 >
   <Navbar client:load />
   <main class="min-h-screen">
