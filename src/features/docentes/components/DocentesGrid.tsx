@@ -145,10 +145,18 @@ export function DocentesGrid() {
                 className="overflow-hidden hover:shadow-xl transition-all group"
               >
                 {/* Avatar */}
-                <div className="h-48 bg-gradient-to-br from-[#001F3F] to-[#003366] flex items-center justify-center relative">
-                  <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center text-white text-3xl font-bold">
-                    {docente.nombres.charAt(0)}{docente.apellidos.charAt(0)}
-                  </div>
+                <div className="h-48 bg-gradient-to-br from-[#001F3F] to-[#003366] flex items-center justify-center relative overflow-hidden">
+                  {docente.foto ? (
+                    <img 
+                      src={docente.foto} 
+                      alt={`${docente.nombres} ${docente.apellidos}`}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+                      {docente.nombres.charAt(0)}{docente.apellidos.charAt(0)}
+                    </div>
+                  )}
                   <Badge className={`absolute top-3 left-3 ${gradoInfo.bgColor} ${gradoInfo.color}`}>
                     {gradoInfo.label}
                   </Badge>
