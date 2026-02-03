@@ -18,6 +18,7 @@ const mainNavItems: NavItem[] = [
   { label: 'La Escuela', href: '/escuela' },
   { label: 'Admisión', href: '/admision' },
   { label: 'Programas', href: '/programas' },
+  { label: 'Contacto', href: '/contacto' },
 ];
 
 const secondaryNavItems: DropdownItem[] = [
