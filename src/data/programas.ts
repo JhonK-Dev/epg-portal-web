@@ -22,6 +22,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Dr. Carlos Mendoza Ríos',
     inversion: 'S/. 12,500.00 (total)',
+    imagen: '/images/programas/gestion-publica.jpg',
   },
   {
     id: 'mae-002',
@@ -43,6 +44,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Dra. Patricia Vargas Lozano',
     inversion: 'S/. 14,000.00 (total)',
+    imagen: '/images/programas/derecho.jpg',
   },
   {
     id: 'mae-003',
@@ -63,6 +65,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Dr. Roberto Sánchez Torres',
     inversion: 'S/. 11,000.00 (total)',
+    imagen: '/images/programas/educacion.jpg',
   },
   {
     id: 'mae-004',
@@ -83,6 +86,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Dr. Miguel Ángel Paredes Ruiz',
     inversion: 'S/. 13,500.00 (total)',
+    imagen: '/images/programas/ambiental.jpg',
   },
   {
     id: 'mae-005',
@@ -103,6 +107,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Dra. Ana María Gutiérrez Flores',
     inversion: 'S/. 15,000.00 (total)',
+    imagen: '/images/programas/salud.jpg',
   },
 
   // DOCTORADOS
@@ -126,6 +131,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Dr. Fernando Castillo Mendoza',
     inversion: 'S/. 25,000.00 (total)',
+    imagen: '/images/programas/derecho.jpg',
   },
   {
     id: 'doc-002',
@@ -147,6 +153,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Dra. Lucía Ramírez Delgado',
     inversion: 'S/. 22,000.00 (total)',
+    imagen: '/images/programas/educacion.jpg',
   },
   {
     id: 'doc-003',
@@ -168,6 +175,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Dr. José Luis Vásquez Fernández',
     inversion: 'S/. 24,000.00 (total)',
+    imagen: '/images/programas/ambiental.jpg',
   },
 
   // DIPLOMADOS (Formación Continua)
@@ -190,6 +198,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Mg. Ricardo Flores Pérez',
     inversion: 'S/. 2,800.00 (total)',
+    imagen: '/images/programas/proyectos.jpg',
   },
   {
     id: 'dip-002',
@@ -209,6 +218,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Mg. Sandra López Medina',
     inversion: 'S/. 2,200.00 (total)',
+    imagen: '/images/programas/derecho.jpg',
   },
   {
     id: 'dip-003',
@@ -229,6 +239,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Mg. Elena Torres Campos',
     inversion: 'S/. 2,500.00 (total)',
+    imagen: '/images/programas/educacion.jpg',
   },
 
   // CURSOS
@@ -250,6 +261,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Mg. Carmen Díaz Ruiz',
     inversion: 'S/. 180.00 (total)',
+    imagen: '/images/programas/metodologia.jpg',
   },
   {
     id: 'cur-002',
@@ -269,6 +281,7 @@ export const programas: Programa[] = [
     ],
     coordinador: 'Dr. Alberto Ramos García',
     inversion: 'S/. 350.00 (total)',
+    imagen: '/images/programas/metodologia.jpg',
   },
 ];
 
