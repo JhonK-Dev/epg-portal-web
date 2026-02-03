@@ -22,3 +22,6 @@ export * from './convocatorias';
 
 // Información institucional (contacto, redes, estadísticas, documentos, etc.)
 export * from './institucional';
+
+// Portal del Estudiante (trámites, documentos, calendario, recursos, FAQ)
+export * from './estudiantes';
