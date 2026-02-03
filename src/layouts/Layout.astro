@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { Footer } from "../features/navigation";
+import { ScrollToTop } from "../components/ui/scroll-to-top";
 
 interface Props {
 	title?: string;
@@ -141,5 +142,6 @@ const keywordsString = keywords.join(", ");
 	<body class="min-h-screen bg-background flex flex-col">
 		<slot />
 		<Footer client:load />
+		<ScrollToTop client:load />
 	</body>
 </html>
