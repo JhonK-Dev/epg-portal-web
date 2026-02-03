@@ -13,6 +13,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { NewsletterForm } from '@/features/contacto';
 
 type TipoPublicacion = 'todas' | 'noticia' | 'evento' | 'aviso' | 'comunicado';
 
@@ -287,28 +288,7 @@ export function PublicacionesLista() {
 
       {/* Suscripción */}
       <section>
-        <Card className="bg-gradient-to-r from-[#001F3F] to-[#003366] text-white border-0 p-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">
-                Mantente informado
-              </h3>
-              <p className="text-gray-300">
-                Suscríbete a nuestro boletín y recibe las últimas noticias y eventos
-              </p>
-            </div>
-            <div className="flex gap-3 w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Tu correo electrónico"
-                className="flex-1 md:w-64 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-[#E6A817] outline-none"
-              />
-              <Button className="bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227] font-semibold px-6">
-                Suscribirse
-              </Button>
-            </div>
-          </div>
-        </Card>
+        <NewsletterForm variant="card" />
       </section>
     </div>
   );
