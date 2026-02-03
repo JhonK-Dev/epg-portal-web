@@ -12,7 +12,7 @@ const footerLinks = {
     { label: 'Presentación', href: '/escuela' },
     { label: 'Autoridades', href: '/escuela/autoridades' },
     { label: 'Directorio', href: '/escuela/directorio' },
-    { label: 'Reglamentos', href: '/escuela/reglamentos' },
+    { label: 'Contacto', href: '/contacto' },
   ],
   estudiantes: [
     { label: 'Portal del Estudiante', href: '/estudiantes' },

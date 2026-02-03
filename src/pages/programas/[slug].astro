@@ -30,8 +30,10 @@ const tipoLabels: Record<string, string> = {
 ---
 
 <Layout 
-  title={`${programaData.nombre} | EPG UNAP`}
+  title={`${programaData.nombre}`}
   description={programaData.descripcionCorta}
+  keywords={[programaData.nombre, tipoLabels[programaData.tipo], "postgrado UNAP", "programa académico Iquitos"]}
+  type="article"
 >
   <Navbar client:load />
   <main>

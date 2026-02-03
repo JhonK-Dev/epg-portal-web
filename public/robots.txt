@@ -1,0 +1,12 @@
+# Robots.txt para Escuela de Postgrado UNAP
+# https://epg.unapiquitos.edu.pe
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://epg.unapiquitos.edu.pe/sitemap-index.xml
+
+# Bloquear rutas que no deben indexarse
+Disallow: /api/
+Disallow: /_astro/

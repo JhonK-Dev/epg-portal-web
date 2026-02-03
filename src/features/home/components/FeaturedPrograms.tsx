@@ -1,45 +1,11 @@
 import React from 'react';
 import { GraduationCap, Users, Award, BookOpen, ArrowRight } from 'lucide-react';
+import { programas } from '@/data/programas';
 
-// Sample featured programs (in real app, this would come from props or data fetch)
-const featuredPrograms = [
-  {
-    id: 'mae-001',
-    nombre: 'Maestría en Gestión Pública',
-    tipo: 'maestria',
-    descripcionCorta: 'Forma líderes en administración y modernización del Estado.',
-    duracion: '2 años',
-    modalidad: 'Semipresencial',
-    slug: 'maestria-gestion-publica',
-  },
-  {
-    id: 'mae-002',
-    nombre: 'Maestría en Derecho Civil y Comercial',
-    tipo: 'maestria',
-    descripcionCorta: 'Especialización en derecho contractual, societario y de negocios.',
-    duracion: '2 años',
-    modalidad: 'Presencial',
-    slug: 'maestria-derecho-civil-comercial',
-  },
-  {
-    id: 'doc-001',
-    nombre: 'Doctorado en Derecho',
-    tipo: 'doctorado',
-    descripcionCorta: 'Investigación jurídica de alto nivel académico.',
-    duracion: '3 años',
-    modalidad: 'Presencial',
-    slug: 'doctorado-derecho',
-  },
-  {
-    id: 'mae-003',
-    nombre: 'Maestría en Educación',
-    tipo: 'maestria',
-    descripcionCorta: 'Desarrolla competencias pedagógicas para la docencia universitaria.',
-    duracion: '2 años',
-    modalidad: 'Semipresencial',
-    slug: 'maestria-educacion-docencia-universitaria',
-  },
-];
+// Get featured programs from data
+const featuredPrograms = programas.filter(p => 
+  ['mae-001', 'mae-002', 'doc-001', 'mae-003'].includes(p.id)
+);
 
 const getTypeConfig = (tipo: string) => {
   switch (tipo) {
@@ -92,11 +58,20 @@ export const FeaturedPrograms: React.FC = () => {
                 href={`/programas/${program.slug}`}
                 className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[#E6A817]/30"
               >
-                {/* Card Header with gradient */}
+                {/* Card Header with image or gradient */}
                 <div className="h-32 bg-gradient-to-br from-[#001F3F] to-[#003366] relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Icon className="w-16 h-16 text-white/20" />
-                  </div>
+                  {program.imagen ? (
+                    <img 
+                      src={program.imagen} 
+                      alt={program.nombre}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Icon className="w-16 h-16 text-white/20" />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute top-4 left-4">
                     <span className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-semibold px-3 py-1 rounded-full`}>
                       {typeConfig.label}

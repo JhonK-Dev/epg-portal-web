@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E6A817;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C9A227;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Shield icon -->
+  <path d="M20 8 L35 8 L35 28 C35 38 27.5 44 27.5 44 C27.5 44 20 38 20 28 Z" fill="transparent" stroke="url(#goldGrad)" stroke-width="2"/>
+  <!-- Book inside shield -->
+  <path d="M24 18 L31 18 L31 32 L27.5 30 L24 32 Z" fill="url(#goldGrad)"/>
+  <!-- EPG Text -->
+  <text x="45" y="35" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#FFFFFF">EPG</text>
+  <!-- UNAP Text -->
+  <text x="100" y="35" font-family="Arial, sans-serif" font-size="14" fill="#E6A817">UNAP</text>
+  <!-- Subtext -->
+  <text x="45" y="50" font-family="Arial, sans-serif" font-size="8" fill="#CCCCCC">Escuela de Postgrado</text>
+</svg>
