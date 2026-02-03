@@ -279,3 +279,4 @@ export const getDiplomados = () => programas.filter(p => p.tipo === 'diplomado')
 export const getCursos = () => programas.filter(p => p.tipo === 'curso');
 export const getProgramasActivos = () => programas.filter(p => p.estado === 'activo');
 export const getProgramaBySlug = (slug: string) => programas.find(p => p.slug === slug);
+export const getProgramaById = (id: string) => programas.find(p => p.slug === id || p.id === id);
