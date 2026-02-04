@@ -41,82 +41,84 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  /* Colores institucionales UNAP - Actualizados según imagen */
-  --color-unap-navy: #001F3F;
-  --color-unap-gold: #E6A817;
-  --color-unap-blue-dark: #001A33;
-  --color-unap-blue-overlay: rgba(0, 31, 63, 0.85);
+  /* Colores institucionales EPG UNAP */
+  --color-epg-navy: #0A1628;
+  --color-epg-gold: #D4A017;
+  --color-epg-navy-dark: #060D17;
+  --color-epg-gold-dark: #B8860B;
+  --color-epg-text: #1a1a1a;
+  --color-epg-overlay: rgba(10, 22, 40, 0.9);
 }
 
 :root {
   --radius: 0.625rem;
   --background: #ffffff;
-  --foreground: #001F3F;
+  --foreground: #1a1a1a;
   --card: #ffffff;
-  --card-foreground: #001F3F;
+  --card-foreground: #1a1a1a;
   --popover: #ffffff;
-  --popover-foreground: #001F3F;
-  --primary: #E6A817;
-  --primary-foreground: #001F3F;
-  --secondary: #001F3F;
+  --popover-foreground: #1a1a1a;
+  --primary: #D4A017;
+  --primary-foreground: #0A1628;
+  --secondary: #0A1628;
   --secondary-foreground: #ffffff;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #001A33;
+  --muted: #f5f5f5;
+  --muted-foreground: #6b7280;
+  --accent: #060D17;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #001F3F;
-  --chart-1: #E6A817;
-  --chart-2: #001F3F;
-  --chart-3: #001A33;
-  --chart-4: #dc2626;
-  --chart-5: #e2e8f0;
-  --sidebar: #001F3F;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #D4A017;
+  --chart-1: #D4A017;
+  --chart-2: #0A1628;
+  --chart-3: #060D17;
+  --chart-4: #B8860B;
+  --chart-5: #e5e7eb;
+  --sidebar: #0A1628;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #E6A817;
-  --sidebar-primary-foreground: #001F3F;
-  --sidebar-accent: #001A33;
+  --sidebar-primary: #D4A017;
+  --sidebar-primary-foreground: #0A1628;
+  --sidebar-accent: #060D17;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #001A33;
-  --sidebar-ring: #E6A817;
+  --sidebar-border: #060D17;
+  --sidebar-ring: #D4A017;
 }
 
 .dark {
-  --background: #001A33;
-  --foreground: #ffffff;
-  --card: #001F3F;
-  --card-foreground: #ffffff;
-  --popover: #001F3F;
-  --popover-foreground: #ffffff;
-  --primary: #E6A817;
-  --primary-foreground: #001F3F;
-  --secondary: #001A33;
-  --secondary-foreground: #ffffff;
-  --muted: #001F3F;
-  --muted-foreground: #94a3b8;
-  --accent: #001A33;
-  --accent-foreground: #ffffff;
+  --background: #0A1628;
+  --foreground: #f5f5f5;
+  --card: #111827;
+  --card-foreground: #f5f5f5;
+  --popover: #111827;
+  --popover-foreground: #f5f5f5;
+  --primary: #D4A017;
+  --primary-foreground: #0A1628;
+  --secondary: #1f2937;
+  --secondary-foreground: #f5f5f5;
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
+  --accent: #1f2937;
+  --accent-foreground: #f5f5f5;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #1e293b;
-  --input: #1e293b;
-  --ring: #E6A817;
-  --chart-1: #E6A817;
-  --chart-2: #001F3F;
-  --chart-3: #001A33;
-  --chart-4: #dc2626;
-  --chart-5: #e2e8f0;
-  --sidebar: #001A33;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #E6A817;
-  --sidebar-primary-foreground: #001F3F;
-  --sidebar-accent: #001F3F;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #1e293b;
-  --sidebar-ring: #E6A817;
+  --border: #374151;
+  --input: #374151;
+  --ring: #D4A017;
+  --chart-1: #D4A017;
+  --chart-2: #0A1628;
+  --chart-3: #060D17;
+  --chart-4: #B8860B;
+  --chart-5: #374151;
+  --sidebar: #060D17;
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #D4A017;
+  --sidebar-primary-foreground: #0A1628;
+  --sidebar-accent: #1f2937;
+  --sidebar-accent-foreground: #f5f5f5;
+  --sidebar-border: #374151;
+  --sidebar-ring: #D4A017;
 }
 
 @layer base {
@@ -124,7 +126,19 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
 }
