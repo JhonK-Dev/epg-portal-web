@@ -4,20 +4,24 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 export const Hero: React.FC = () => {
   return (
     <section className="relative w-full min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
-      {/* Background with gradient overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80")',
-        }}
-      >
-        {/* Navy Overlay with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001F3F]/95 via-[#001F3F]/85 to-[#001F3F]/70" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="/images/hero/epg-fondo.jpeg"
+          alt="Escuela de Postgrado UNAP"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+        />
+        {/* Navy Overlay with gradient for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001F3F]/90 via-[#001F3F]/80 to-[#001F3F]/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#001F3F]/50 via-transparent to-transparent" />
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-[#E6A817]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#E6A817]/5 rounded-full blur-3xl" />
+      {/* Decorative elements - subtle glow effects */}
+      <div className="absolute top-20 right-20 w-72 h-72 bg-[#E6A817]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#E6A817]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">

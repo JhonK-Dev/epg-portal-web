@@ -80,20 +80,15 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-[#001F3F] font-bold text-lg">U</span>
-                </div>
-                <div className="w-10 h-10 bg-[#E6A817] rounded-full flex items-center justify-center">
-                  <span className="text-[#001F3F] font-bold text-lg">E</span>
-                </div>
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-sm font-semibold leading-tight">
-                  ESCUELA DE<br />POSTGRADO UNAP
-                </span>
-              </div>
+            <a href="/" className="flex items-center gap-3 group">
+              <img 
+                src="/images/logo/logo-epg.webp" 
+                alt="Logo EPG UNAP" 
+                width={160}
+                height={48}
+                className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+                loading="eager"
+              />
             </a>
 
             {/* Main Navigation Items - Desktop */}
