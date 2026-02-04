@@ -1,5 +1,7 @@
 import React from 'react';
 import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react';
+import { formatShortDate, formatEventDate } from '@/lib/formatters';
+import { getPublicationTypeConfig } from '@/lib/constants';
 
 // Sample news and events
 const publications = [
@@ -57,32 +59,6 @@ const events = [
   },
 ];
 
-const getTypeConfig = (tipo: string) => {
-  switch (tipo) {
-    case 'noticia':
-      return { label: 'Noticia', bgColor: 'bg-blue-500', textColor: 'text-white' };
-    case 'evento':
-      return { label: 'Evento', bgColor: 'bg-purple-500', textColor: 'text-white' };
-    case 'aviso':
-      return { label: 'Aviso', bgColor: 'bg-green-500', textColor: 'text-white' };
-    default:
-      return { label: 'Publicación', bgColor: 'bg-gray-500', textColor: 'text-white' };
-  }
-};
-
-const formatDate = (dateStr: string) => {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString('es-PE', { day: 'numeric', month: 'short', year: 'numeric' });
-};
-
-const formatEventDate = (dateStr: string) => {
-  const date = new Date(dateStr);
-  return {
-    day: date.getDate().toString().padStart(2, '0'),
-    month: date.toLocaleDateString('es-PE', { month: 'short' }).toUpperCase(),
-  };
-};
-
 export const NewsAndEvents: React.FC = () => {
   return (
     <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
@@ -110,7 +86,7 @@ export const NewsAndEvents: React.FC = () => {
           {/* Main News Column */}
           <div className="lg:col-span-2 space-y-6">
             {publications.map((pub, index) => {
-              const typeConfig = getTypeConfig(pub.tipo);
+              const typeConfig = getPublicationTypeConfig(pub.tipo);
               
               if (index === 0) {
                 // Featured/Large card for first item
@@ -132,7 +108,7 @@ export const NewsAndEvents: React.FC = () => {
                       </p>
                       <div className="flex items-center justify-between">
                         <time className="text-gray-400 text-sm">
-                          {formatDate(pub.fecha)}
+                          {formatShortDate(pub.fecha)}
                         </time>
                         <span className="inline-flex items-center gap-1 text-[#E6A817] font-medium group-hover:gap-2 transition-all">
                           Leer más
@@ -162,7 +138,7 @@ export const NewsAndEvents: React.FC = () => {
                       {pub.titulo}
                     </h4>
                     <time className="text-gray-500 text-sm">
-                      {formatDate(pub.fecha)}
+                      {formatShortDate(pub.fecha)}
                     </time>
                   </div>
                 </a>

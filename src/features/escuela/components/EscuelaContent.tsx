@@ -1,5 +1,6 @@
 import { autoridades } from '@/data/autoridades';
 import { infoInstitucional, estadisticas, documentos } from '@/data/institucional';
+import { getGradoInfo, tipoDocumentoColors, tipoDocumentoLabels } from '@/lib/constants';
 import { 
   GraduationCap, 
   Award, 
@@ -30,53 +31,50 @@ import { Separator } from '@/components/ui/separator';
 function Autoridades() {
   const autoridadesOrdenadas = [...autoridades].sort((a, b) => a.orden - b.orden);
 
-  const gradoLabels: Record<string, string> = {
-    doctor: 'Dr.',
-    phd: 'Ph.D.',
-    magister: 'Mg.',
-    bachiller: 'Bach.',
-  };
-
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {autoridadesOrdenadas.map((autoridad) => (
-        <Card key={autoridad.id} className="group hover:shadow-lg transition-all">
-          <CardContent className="pt-6">
-            <div className="flex flex-col items-center text-center">
-              {/* Avatar placeholder */}
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#001F3F] to-[#003366] flex items-center justify-center text-white text-2xl font-bold mb-4">
-                {autoridad.nombres.charAt(0)}{autoridad.apellidos.charAt(0)}
+      {autoridadesOrdenadas.map((autoridad) => {
+        const gradoInfo = getGradoInfo(autoridad.grado);
+        
+        return (
+          <Card key={autoridad.id} className="group hover:shadow-lg transition-all">
+            <CardContent className="pt-6">
+              <div className="flex flex-col items-center text-center">
+                {/* Avatar placeholder */}
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#001F3F] to-[#003366] flex items-center justify-center text-white text-2xl font-bold mb-4">
+                  {autoridad.nombres.charAt(0)}{autoridad.apellidos.charAt(0)}
+                </div>
+                
+                <Badge variant="secondary" className="mb-2">
+                  {autoridad.cargo}
+                </Badge>
+                
+                <h3 className="font-semibold text-gray-900">
+                  {gradoInfo.label} {autoridad.nombres} {autoridad.apellidos}
+                </h3>
+                
+                <div className="mt-4 space-y-2 w-full">
+                  {autoridad.email && (
+                    <a 
+                      href={`mailto:${autoridad.email}`}
+                      className="flex items-center justify-center gap-2 text-sm text-gray-600 hover:text-[#001F3F]"
+                    >
+                      <Mail className="h-4 w-4" />
+                      <span className="truncate">{autoridad.email}</span>
+                    </a>
+                  )}
+                  {autoridad.telefono && (
+                    <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+                      <Phone className="h-4 w-4" />
+                      <span>{autoridad.telefono}</span>
+                    </div>
+                  )}
+                </div>
               </div>
-              
-              <Badge variant="secondary" className="mb-2">
-                {autoridad.cargo}
-              </Badge>
-              
-              <h3 className="font-semibold text-gray-900">
-                {gradoLabels[autoridad.grado]} {autoridad.nombres} {autoridad.apellidos}
-              </h3>
-              
-              <div className="mt-4 space-y-2 w-full">
-                {autoridad.email && (
-                  <a 
-                    href={`mailto:${autoridad.email}`}
-                    className="flex items-center justify-center gap-2 text-sm text-gray-600 hover:text-[#001F3F]"
-                  >
-                    <Mail className="h-4 w-4" />
-                    <span className="truncate">{autoridad.email}</span>
-                  </a>
-                )}
-                {autoridad.telefono && (
-                  <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-                    <Phone className="h-4 w-4" />
-                    <span>{autoridad.telefono}</span>
-                  </div>
-                )}
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
+            </CardContent>
+          </Card>
+        );
+      })}
     </div>
   );
 }
@@ -152,20 +150,6 @@ function Documentos() {
   const reglamentos = documentos.filter(d => d.tipo === 'reglamento');
   const formatos = documentos.filter(d => d.tipo === 'formato');
   const guias = documentos.filter(d => d.tipo === 'guia' || d.tipo === 'manual');
-
-  const tipoColors: Record<string, string> = {
-    reglamento: 'bg-red-100 text-red-800',
-    formato: 'bg-blue-100 text-blue-800',
-    guia: 'bg-green-100 text-green-800',
-    manual: 'bg-purple-100 text-purple-800',
-  };
-
-  const tipoLabels: Record<string, string> = {
-    reglamento: 'Reglamento',
-    formato: 'Formato',
-    guia: 'Guía',
-    manual: 'Manual',
-  };
 
   return (
     <div className="grid md:grid-cols-3 gap-8">

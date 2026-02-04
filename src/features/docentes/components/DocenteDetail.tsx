@@ -1,5 +1,6 @@
 import type { Docente } from '@/types';
 import { getProgramaById } from '@/data/programas';
+import { getGradoInfo } from '@/lib/constants';
 import {
   Mail,
   Phone,
@@ -27,15 +28,8 @@ interface DocenteDetailProps {
   docente: Docente;
 }
 
-const gradoLabels: Record<string, { label: string; labelFull: string; color: string; bgColor: string }> = {
-  doctor: { label: 'Dr.', labelFull: 'Doctor', color: 'text-amber-800', bgColor: 'bg-amber-100' },
-  phd: { label: 'Ph.D.', labelFull: 'PhD', color: 'text-purple-800', bgColor: 'bg-purple-100' },
-  magister: { label: 'Mg.', labelFull: 'Magíster', color: 'text-blue-800', bgColor: 'bg-blue-100' },
-  bachiller: { label: 'Bach.', labelFull: 'Bachiller', color: 'text-gray-800', bgColor: 'bg-gray-100' },
-};
-
 export function DocenteDetail({ docente }: DocenteDetailProps) {
-  const gradoInfo = gradoLabels[docente.grado] || gradoLabels.bachiller;
+  const gradoInfo = getGradoInfo(docente.grado);
   const nombreCompleto = `${gradoInfo.label} ${docente.nombres} ${docente.apellidos}`;
   
   // Get programs where this teacher teaches

@@ -1,4 +1,11 @@
 import type { Programa } from '@/types';
+import { formatDateSafe } from '@/lib/formatters';
+import { 
+  tipoProgramaLabels, 
+  tipoProgramaColors, 
+  modalidadLabels, 
+  modalidadColors 
+} from '@/lib/constants';
 import { 
   Calendar, 
   Clock, 
@@ -21,46 +28,12 @@ interface ProgramaDetailProps {
   programa: Programa;
 }
 
-const tipoLabels: Record<string, string> = {
-  maestria: 'Maestría',
-  doctorado: 'Doctorado',
-  diplomado: 'Diplomado',
-  curso: 'Curso',
-};
-
-const tipoColors: Record<string, string> = {
-  maestria: 'bg-blue-600',
-  doctorado: 'bg-purple-600',
-  diplomado: 'bg-emerald-600',
-  curso: 'bg-amber-600',
-};
-
-const modalidadLabels: Record<string, string> = {
-  presencial: 'Presencial',
-  semipresencial: 'Semipresencial',
-  virtual: 'Virtual',
-};
-
-const modalidadColors: Record<string, string> = {
-  presencial: 'bg-blue-100 text-blue-800',
-  semipresencial: 'bg-purple-100 text-purple-800',
-  virtual: 'bg-green-100 text-green-800',
-};
-
 export function ProgramaDetail({ programa }: ProgramaDetailProps) {
-  const formatDate = (dateString?: string) => {
-    if (!dateString) return 'Por definir';
-    return new Date(dateString).toLocaleDateString('es-PE', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Header */}
-      <div className={`${tipoColors[programa.tipo]} text-white`}>
+      <div className={`${tipoProgramaColors[programa.tipo]} text-white`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-white/80 text-sm mb-6">
@@ -68,13 +41,13 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
             <span>/</span>
             <a href="/programas" className="hover:text-white">Programas</a>
             <span>/</span>
-            <span className="text-white">{tipoLabels[programa.tipo]}</span>
+            <span className="text-white">{tipoProgramaLabels[programa.tipo]}</span>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
             <div className="flex-1">
               <Badge className="bg-white/20 text-white hover:bg-white/30 mb-4">
-                {tipoLabels[programa.tipo]}
+                {tipoProgramaLabels[programa.tipo]}
               </Badge>
               <h1 className="text-3xl md:text-4xl font-bold mb-4">
                 {programa.nombre}
@@ -113,7 +86,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
                     <Calendar className="h-5 w-5 text-gray-500" />
                     <div>
                       <p className="font-medium">Inicio de clases</p>
-                      <p className="text-gray-600">{formatDate(programa.fechaInicio)}</p>
+                      <p className="text-gray-600">{formatDateSafe(programa.fechaInicio)}</p>
                     </div>
                   </div>
                 )}
@@ -214,7 +187,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
                   <GraduationCap className="h-5 w-5 text-[#001F3F] flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-sm text-gray-500">Tipo de Programa</p>
-                    <p className="font-medium">{tipoLabels[programa.tipo]}</p>
+                    <p className="font-medium">{tipoProgramaLabels[programa.tipo]}</p>
                   </div>
                 </div>
 
