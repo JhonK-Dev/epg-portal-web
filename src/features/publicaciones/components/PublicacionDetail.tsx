@@ -1,4 +1,6 @@
 import type { Publicacion } from '@/types';
+import { formatDate, formatDateTime } from '@/lib/formatters';
+import { tipoPublicacionLabels, tipoPublicacionColors } from '@/lib/constants';
 import { 
   Calendar, 
   User,
@@ -22,20 +24,6 @@ interface PublicacionDetailProps {
   publicacionesRelacionadas?: Publicacion[];
 }
 
-const tipoLabels: Record<string, string> = {
-  noticia: 'Noticia',
-  evento: 'Evento',
-  aviso: 'Aviso',
-  comunicado: 'Comunicado',
-};
-
-const tipoColors: Record<string, string> = {
-  noticia: 'bg-blue-600',
-  evento: 'bg-purple-600',
-  aviso: 'bg-amber-600',
-  comunicado: 'bg-emerald-600',
-};
-
 const tipoIcons: Record<string, React.ReactNode> = {
   noticia: <Newspaper className="h-5 w-5" />,
   evento: <CalendarDays className="h-5 w-5" />,
@@ -44,27 +32,11 @@ const tipoIcons: Record<string, React.ReactNode> = {
 };
 
 export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] }: PublicacionDetailProps) {
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('es-PE', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
-  };
-
-  const formatDateTime = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('es-PE', {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Header */}
-      <div className={`${tipoColors[publicacion.tipo]} text-white`}>
+      <div className={`${tipoPublicacionColors[publicacion.tipo]} text-white`}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-white/80 text-sm mb-6">
@@ -72,13 +44,13 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
             <span>/</span>
             <a href="/publicaciones" className="hover:text-white">Publicaciones</a>
             <span>/</span>
-            <span className="text-white">{tipoLabels[publicacion.tipo]}</span>
+            <span className="text-white">{tipoPublicacionLabels[publicacion.tipo]}</span>
           </div>
 
           <div className="flex items-center gap-3 mb-4">
             <Badge className="bg-white/20 text-white hover:bg-white/30 gap-1">
               {tipoIcons[publicacion.tipo]}
-              {tipoLabels[publicacion.tipo]}
+              {tipoPublicacionLabels[publicacion.tipo]}
             </Badge>
             {publicacion.destacado && (
               <Badge className="bg-[#E6A817] text-[#001F3F]">
@@ -244,7 +216,7 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
                       className="block group"
                     >
                       <div className="flex gap-3">
-                        <div className={`w-1 ${tipoColors[pub.tipo]} rounded-full flex-shrink-0`} />
+                        <div className={`w-1 ${tipoPublicacionColors[pub.tipo]} rounded-full flex-shrink-0`} />
                         <div>
                           <p className="font-medium text-sm group-hover:text-[#001F3F] line-clamp-2">
                             {pub.titulo}

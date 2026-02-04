@@ -1,24 +1,12 @@
 import React from 'react';
 import { GraduationCap, Users, Award, BookOpen, ArrowRight } from 'lucide-react';
 import { programas } from '@/data/programas';
+import { getProgramTypeConfig } from '@/lib/constants';
 
 // Get featured programs from data
 const featuredPrograms = programas.filter(p => 
   ['mae-001', 'mae-002', 'doc-001', 'mae-003'].includes(p.id)
 );
-
-const getTypeConfig = (tipo: string) => {
-  switch (tipo) {
-    case 'maestria':
-      return { label: 'Maestría', bgColor: 'bg-blue-100', textColor: 'text-blue-700', icon: GraduationCap };
-    case 'doctorado':
-      return { label: 'Doctorado', bgColor: 'bg-amber-100', textColor: 'text-amber-700', icon: Award };
-    case 'diplomado':
-      return { label: 'Diplomado', bgColor: 'bg-green-100', textColor: 'text-green-700', icon: BookOpen };
-    default:
-      return { label: 'Programa', bgColor: 'bg-gray-100', textColor: 'text-gray-700', icon: GraduationCap };
-  }
-};
 
 export const FeaturedPrograms: React.FC = () => {
   return (
@@ -49,8 +37,8 @@ export const FeaturedPrograms: React.FC = () => {
         {/* Programs Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {featuredPrograms.map((program) => {
-            const typeConfig = getTypeConfig(program.tipo);
-            const Icon = typeConfig.icon;
+            const typeConfig = getProgramTypeConfig(program.tipo);
+            const Icon = typeConfig.icon || GraduationCap;
             
             return (
               <a
