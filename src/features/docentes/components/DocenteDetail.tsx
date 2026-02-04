@@ -38,7 +38,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#001F3F] to-[#003366] text-white py-16">
+      <section className="bg-gradient-to-br from-epg-navy to-epg-navy-light text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="text-sm mb-6">
@@ -47,14 +47,14 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
               <li className="text-gray-400">/</li>
               <li><a href="/docentes" className="text-gray-300 hover:text-white">Docentes</a></li>
               <li className="text-gray-400">/</li>
-              <li className="text-[#E6A817]">{docente.apellidos}</li>
+              <li className="text-epg-gold">{docente.apellidos}</li>
             </ol>
           </nav>
 
           <div className="flex flex-col lg:flex-row gap-8 items-start">
             {/* Avatar */}
             <div className="flex-shrink-0">
-              <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-2xl bg-white/10 flex items-center justify-center text-white text-5xl lg:text-6xl font-bold border-4 border-[#E6A817]/30">
+              <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-2xl bg-white/10 flex items-center justify-center text-white text-5xl lg:text-6xl font-bold border-4 border-epg-gold/30">
                 {docente.nombres.charAt(0)}{docente.apellidos.charAt(0)}
               </div>
             </div>
@@ -65,7 +65,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                 {gradoInfo.labelFull}
               </Badge>
               <h1 className="text-3xl lg:text-4xl font-bold mb-2">{nombreCompleto}</h1>
-              <p className="text-xl text-[#E6A817] mb-4">{docente.especialidad}</p>
+              <p className="text-xl text-epg-gold mb-4">{docente.especialidad}</p>
               
               {docente.resumenPerfil && (
                 <p className="text-gray-300 text-lg max-w-3xl mb-6">
@@ -161,7 +161,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Users className="w-5 h-5 text-[#E6A817]" />
+                      <Users className="w-5 h-5 text-epg-gold" />
                       Biografía
                     </CardTitle>
                   </CardHeader>
@@ -176,14 +176,14 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Lightbulb className="w-5 h-5 text-[#E6A817]" />
+                      <Lightbulb className="w-5 h-5 text-epg-gold" />
                       Áreas de Investigación
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
                       {docente.areasInvestigacion.map((area, index) => (
-                        <Badge key={index} variant="secondary" className="bg-[#E6A817]/10 text-[#001F3F]">
+                        <Badge key={index} variant="secondary" className="bg-epg-gold/10 text-epg-navy">
                           {area}
                         </Badge>
                       ))}
@@ -197,7 +197,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <GraduationCap className="w-5 h-5 text-[#E6A817]" />
+                      <GraduationCap className="w-5 h-5 text-epg-gold" />
                       Formación Académica
                     </CardTitle>
                   </CardHeader>
@@ -205,11 +205,11 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                     <div className="space-y-4">
                       {docente.formacionAcademica.map((formacion, index) => (
                         <div key={index} className="flex gap-4 items-start">
-                          <div className="w-10 h-10 bg-[#001F3F] rounded-full flex items-center justify-center flex-shrink-0">
+                          <div className="w-10 h-10 bg-epg-navy rounded-full flex items-center justify-center flex-shrink-0">
                             <GraduationCap className="w-5 h-5 text-white" />
                           </div>
                           <div>
-                            <h4 className="font-semibold text-[#001F3F]">{formacion.grado}</h4>
+                            <h4 className="font-semibold text-epg-navy">{formacion.grado}</h4>
                             <p className="text-gray-600">{formacion.institucion}</p>
                             <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
                               <MapPin className="w-3 h-3" />
@@ -231,7 +231,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Briefcase className="w-5 h-5 text-[#E6A817]" />
+                      <Briefcase className="w-5 h-5 text-epg-gold" />
                       Experiencia Profesional
                     </CardTitle>
                   </CardHeader>
@@ -243,7 +243,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                             <Building2 className="w-5 h-5 text-blue-600" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-semibold text-[#001F3F]">{exp.cargo}</h4>
+                            <h4 className="font-semibold text-epg-navy">{exp.cargo}</h4>
                             <p className="text-gray-600">{exp.institucion}</p>
                             <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
                               <Calendar className="w-3 h-3" />
@@ -265,7 +265,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <FileText className="w-5 h-5 text-[#E6A817]" />
+                      <FileText className="w-5 h-5 text-epg-gold" />
                       Publicaciones Académicas
                     </CardTitle>
                   </CardHeader>
@@ -273,7 +273,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                     <div className="space-y-4">
                       {docente.publicacionesAcademicas.map((pub, index) => (
                         <div key={index} className="p-4 bg-gray-50 rounded-lg">
-                          <h4 className="font-medium text-[#001F3F] mb-1">{pub.titulo}</h4>
+                          <h4 className="font-medium text-epg-navy mb-1">{pub.titulo}</h4>
                           <p className="text-sm text-gray-600">
                             <span className="font-medium">{pub.revista}</span>
                             <span className="mx-2">•</span>
@@ -302,7 +302,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Lightbulb className="w-5 h-5 text-[#E6A817]" />
+                      <Lightbulb className="w-5 h-5 text-epg-gold" />
                       Proyectos de Investigación
                     </CardTitle>
                   </CardHeader>
@@ -310,7 +310,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                     <ul className="space-y-2">
                       {docente.proyectosInvestigacion.map((proyecto, index) => (
                         <li key={index} className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#E6A817] rounded-full mt-2 flex-shrink-0" />
+                          <div className="w-2 h-2 bg-epg-gold rounded-full mt-2 flex-shrink-0" />
                           <span className="text-gray-600">{proyecto}</span>
                         </li>
                       ))}
@@ -349,7 +349,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <BookOpen className="w-5 h-5 text-[#E6A817]" />
+                      <BookOpen className="w-5 h-5 text-epg-gold" />
                       Programas
                     </CardTitle>
                   </CardHeader>
@@ -364,7 +364,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                           <Badge variant="outline" className="mb-2 text-xs capitalize">
                             {programa!.tipo}
                           </Badge>
-                          <h4 className="text-sm font-medium text-[#001F3F] group-hover:text-[#E6A817] transition-colors">
+                          <h4 className="text-sm font-medium text-epg-navy group-hover:text-epg-gold transition-colors">
                             {programa!.nombre}
                           </h4>
                         </a>
@@ -375,14 +375,14 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
               )}
 
               {/* CTA - Contactar */}
-              <Card className="bg-[#001F3F] text-white border-0">
+              <Card className="bg-epg-navy text-white border-0">
                 <CardContent className="pt-6">
                   <h3 className="font-bold text-lg mb-2">¿Interesado en los programas?</h3>
                   <p className="text-gray-300 text-sm mb-4">
                     Conoce más sobre nuestros programas de postgrado y cómo aplicar.
                   </p>
                   <Button
-                    className="w-full bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227]"
+                    className="w-full bg-epg-gold text-epg-navy hover:bg-epg-gold-dark"
                     asChild
                   >
                     <a href="/admision">Ver admisión</a>

@@ -104,7 +104,7 @@ export function PublicacionesLista() {
               onClick={() => setTipoActivo(tab.id)}
               className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                 tipoActivo === tab.id
-                  ? 'bg-[#001F3F] text-white'
+                  ? 'bg-epg-navy text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
@@ -127,7 +127,7 @@ export function PublicacionesLista() {
             placeholder="Buscar publicaciones..."
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
-            className="w-full lg:w-72 pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E6A817] focus:border-transparent outline-none"
+            className="w-full lg:w-72 pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none"
           />
           {busqueda && (
             <button
@@ -143,7 +143,7 @@ export function PublicacionesLista() {
       {/* Destacadas (solo cuando no hay filtro activo) */}
       {tipoActivo === 'todas' && !busqueda && destacadas.length > 0 && (
         <section>
-          <h2 className="text-2xl font-bold text-[#001F3F] mb-6">Destacados</h2>
+          <h2 className="text-2xl font-bold text-epg-navy mb-6">Destacados</h2>
           <div className="grid lg:grid-cols-2 gap-6">
             {destacadas.slice(0, 2).map((pub) => (
               <a 
@@ -154,19 +154,19 @@ export function PublicacionesLista() {
                 <Card className="overflow-hidden hover:shadow-xl transition-all h-full">
                   <div className={`h-48 relative ${
                     pub.tipo === 'evento' 
-                      ? 'bg-gradient-to-br from-[#E6A817] to-[#C9A227]' 
-                      : 'bg-gradient-to-br from-[#001F3F] to-[#003366]'
+                      ? 'bg-gradient-to-br from-epg-gold to-epg-gold-dark' 
+                      : 'bg-gradient-to-br from-epg-navy to-epg-navy-light'
                   }`}>
                     <div className="absolute inset-0 flex items-center justify-center">
                       {pub.tipo === 'noticia' && <Newspaper className="h-16 w-16 text-white/20" />}
-                      {pub.tipo === 'evento' && <Calendar className="h-16 w-16 text-[#001F3F]/20" />}
+                      {pub.tipo === 'evento' && <Calendar className="h-16 w-16 text-epg-navy/20" />}
                       {pub.tipo === 'aviso' && <Bell className="h-16 w-16 text-white/20" />}
                     </div>
                     <Badge className={`absolute top-4 left-4 ${tipoConfig[pub.tipo].bgColor} ${tipoConfig[pub.tipo].color}`}>
                       {tipoConfig[pub.tipo].label.toUpperCase()}
                     </Badge>
                     {pub.destacado && (
-                      <Badge className="absolute top-4 right-4 bg-[#E6A817] text-[#001F3F]">
+                      <Badge className="absolute top-4 right-4 bg-epg-gold text-epg-navy">
                         DESTACADO
                       </Badge>
                     )}
@@ -176,13 +176,13 @@ export function PublicacionesLista() {
                       <Clock className="h-4 w-4" />
                       {formatDate(pub.fecha)}
                     </div>
-                    <h3 className="text-xl font-bold text-[#001F3F] mb-3 group-hover:text-[#E6A817] transition-colors line-clamp-2">
+                    <h3 className="text-xl font-bold text-epg-navy mb-3 group-hover:text-epg-gold transition-colors line-clamp-2">
                       {pub.titulo}
                     </h3>
                     <p className="text-gray-600 mb-4 line-clamp-2">
                       {pub.resumen}
                     </p>
-                    <span className="text-[#E6A817] font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <span className="text-epg-gold font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                       Leer más <ChevronRight className="h-4 w-4" />
                     </span>
                   </CardContent>
@@ -196,7 +196,7 @@ export function PublicacionesLista() {
       {/* Listado */}
       <section>
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-[#001F3F]">
+          <h2 className="text-2xl font-bold text-epg-navy">
             {tipoActivo === 'todas' ? 'Últimas publicaciones' : `${tabs.find(t => t.id === tipoActivo)?.label}`}
           </h2>
           <span className="text-gray-500 text-sm">
@@ -242,7 +242,7 @@ export function PublicacionesLista() {
                     {pub.fechaEvento && (
                       <div className="absolute bottom-3 right-3 bg-white rounded-lg px-3 py-1 shadow-sm">
                         <p className="text-xs text-gray-500">Fecha del evento</p>
-                        <p className="text-sm font-semibold text-[#001F3F]">
+                        <p className="text-sm font-semibold text-epg-navy">
                           {formatDate(pub.fechaEvento)}
                         </p>
                       </div>
@@ -253,7 +253,7 @@ export function PublicacionesLista() {
                       <Clock className="h-3 w-3" />
                       {formatDate(pub.fecha)}
                     </div>
-                    <h3 className="font-bold text-[#001F3F] mb-2 group-hover:text-[#E6A817] transition-colors line-clamp-2">
+                    <h3 className="font-bold text-epg-navy mb-2 group-hover:text-epg-gold transition-colors line-clamp-2">
                       {pub.titulo}
                     </h3>
                     <p className="text-gray-600 text-sm line-clamp-2 flex-1">

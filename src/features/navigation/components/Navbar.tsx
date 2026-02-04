@@ -75,25 +75,20 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="w-full sticky top-0 z-50">
-      {/* Main Navigation - Blue Bar */}
-      <nav className="bg-[#001F3F] text-white">
+      {/* Main Navigation - Navy Bar */}
+      <nav className="bg-epg-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-[#001F3F] font-bold text-lg">U</span>
-                </div>
-                <div className="w-10 h-10 bg-[#E6A817] rounded-full flex items-center justify-center">
-                  <span className="text-[#001F3F] font-bold text-lg">E</span>
-                </div>
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-sm font-semibold leading-tight">
-                  ESCUELA DE<br />POSTGRADO UNAP
-                </span>
-              </div>
+            <a href="/" className="flex items-center gap-3 group">
+              <img 
+                src="/images/logo/logo-epg.webp" 
+                alt="Logo EPG UNAP" 
+                width={160}
+                height={48}
+                className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+                loading="eager"
+              />
             </a>
 
             {/* Main Navigation Items - Desktop */}
@@ -102,7 +97,7 @@ export const Navbar: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-medium hover:text-[#E6A817] transition-colors"
+                  className="text-sm font-medium hover:text-epg-gold transition-colors"
                 >
                   {item.label}
                 </a>
@@ -113,7 +108,7 @@ export const Navbar: React.FC = () => {
             <div className="hidden md:block">
               <a
                 href="/admision"
-                className="bg-[#E6A817] text-[#001F3F] px-4 py-2 rounded-lg text-sm font-bold hover:bg-[#C9A227] transition-colors"
+                className="bg-epg-gold text-epg-navy px-4 py-2 rounded-lg text-sm font-bold hover:bg-epg-gold-dark transition-colors"
               >
                 Inscríbete
               </a>
@@ -138,7 +133,7 @@ export const Navbar: React.FC = () => {
       </nav>
 
       {/* Secondary Navigation - Gold Bar - Desktop */}
-      <nav className="bg-[#C9A227] text-white hidden md:block">
+      <nav className="bg-epg-gold-dark text-white hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-end h-11 gap-6">
             {secondaryNavItems.map((item) => (
@@ -165,7 +160,7 @@ export const Navbar: React.FC = () => {
                         href={subItem.href}
                         target={subItem.isExternal ? '_blank' : undefined}
                         rel={subItem.isExternal ? 'noopener noreferrer' : undefined}
-                        className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#001F3F] transition-colors"
+                        className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-epg-navy transition-colors"
                       >
                         {subItem.label}
                         {subItem.isExternal && <ExternalLink className="w-3 h-3 text-gray-400" />}
@@ -181,7 +176,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#001F3F] border-t border-white/10">
+        <div className="md:hidden bg-epg-navy border-t border-white/10">
           <div className="px-4 py-4 space-y-2">
             {/* Main Nav Items */}
             {mainNavItems.map((item) => (
@@ -190,7 +185,7 @@ export const Navbar: React.FC = () => {
                 href={item.href}
                 className="block px-3 py-2 text-white font-medium hover:bg-white/10 rounded-lg transition-colors"
               >
-                {item.label}
+              {item.label}
               </a>
             ))}
 
@@ -233,7 +228,7 @@ export const Navbar: React.FC = () => {
             {/* CTA Button */}
             <a
               href="/admision"
-              className="block w-full bg-[#E6A817] text-[#001F3F] px-4 py-3 rounded-lg text-center font-bold hover:bg-[#C9A227] transition-colors"
+              className="block w-full bg-epg-gold text-epg-navy px-4 py-3 rounded-lg text-center font-bold hover:bg-epg-gold-dark transition-colors"
             >
               Inscríbete ahora
             </a>

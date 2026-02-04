@@ -167,7 +167,7 @@ export function ContactForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl text-[#001F3F]">Envíanos un mensaje</CardTitle>
+        <CardTitle className="text-2xl text-epg-navy">Envíanos un mensaje</CardTitle>
         <CardDescription>
           Completa el formulario y nos pondremos en contacto contigo pronto.
         </CardDescription>
@@ -189,7 +189,7 @@ export function ContactForm() {
                 onChange={handleChange}
                 disabled={status === 'loading'}
                 placeholder="Ingresa tu nombre completo"
-                className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#E6A817] focus:border-transparent outline-none disabled:opacity-50 ${
+                className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none disabled:opacity-50 ${
                   errors.nombre ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
                 }`}
               />
@@ -217,7 +217,7 @@ export function ContactForm() {
                 onChange={handleChange}
                 disabled={status === 'loading'}
                 placeholder="tucorreo@ejemplo.com"
-                className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#E6A817] focus:border-transparent outline-none disabled:opacity-50 ${
+                className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none disabled:opacity-50 ${
                   errors.email ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
                 }`}
               />
@@ -243,7 +243,7 @@ export function ContactForm() {
                 value={formData.asunto}
                 onChange={handleChange}
                 disabled={status === 'loading'}
-                className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#E6A817] focus:border-transparent outline-none disabled:opacity-50 appearance-none bg-white ${
+                className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none disabled:opacity-50 appearance-none bg-white ${
                   errors.asunto ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
                 }`}
               >
@@ -282,7 +282,7 @@ export function ContactForm() {
                 disabled={status === 'loading'}
                 placeholder="Escribe tu mensaje aquí..."
                 rows={5}
-                className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#E6A817] focus:border-transparent outline-none disabled:opacity-50 resize-none ${
+                className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none disabled:opacity-50 resize-none ${
                   errors.mensaje ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
                 }`}
               />
@@ -314,7 +314,7 @@ export function ContactForm() {
           <Button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full bg-[#001F3F] hover:bg-[#003366] text-white font-semibold py-3 h-auto"
+            className="w-full bg-epg-navy hover:bg-epg-navy-light text-white font-semibold py-3 h-auto"
           >
             {status === 'loading' ? (
               <>
@@ -331,7 +331,7 @@ export function ContactForm() {
 
           <p className="text-xs text-gray-500 text-center">
             Al enviar este formulario, aceptas nuestra{' '}
-            <a href="/politica-privacidad" className="text-[#E6A817] hover:underline">
+            <a href="/politica-privacidad" className="text-epg-gold hover:underline">
               Política de Privacidad
             </a>
           </p>

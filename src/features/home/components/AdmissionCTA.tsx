@@ -3,7 +3,7 @@ import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react';
 
 export const AdmissionCTA: React.FC = () => {
   return (
-    <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#E6A817] via-[#D4A017] to-[#C9A227] relative overflow-hidden">
+    <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-epg-gold via-epg-gold to-epg-gold-dark relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -14,30 +14,30 @@ export const AdmissionCTA: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-[#001F3F] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-epg-navy text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               Convocatoria abierta
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#001F3F] mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-epg-navy mb-6 leading-tight">
               Inicia tu camino hacia la excelencia académica
             </h2>
 
-            <p className="text-[#001F3F]/80 text-lg mb-8 max-w-lg">
+            <p className="text-epg-navy/80 text-lg mb-8 max-w-lg">
               El proceso de admisión 2025-I está abierto. No pierdas la oportunidad de formar parte de la Escuela de Postgrado líder en la Amazonía.
             </p>
 
             <div className="flex flex-wrap gap-4">
               <a
                 href="/admision"
-                className="inline-flex items-center gap-2 bg-[#001F3F] hover:bg-[#003366] text-white px-6 py-3 rounded-lg font-bold transition-all hover:shadow-lg"
+                className="inline-flex items-center gap-2 bg-epg-navy hover:bg-epg-navy-light text-white px-6 py-3 rounded-lg font-bold transition-all hover:shadow-lg"
               >
                 Inscríbete ahora
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
                 href="/programas"
-                className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-[#001F3F] px-6 py-3 rounded-lg font-bold transition-all"
+                className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-epg-navy px-6 py-3 rounded-lg font-bold transition-all"
               >
                 Ver programas
               </a>
@@ -48,11 +48,11 @@ export const AdmissionCTA: React.FC = () => {
           <div className="grid gap-4">
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#E6A817]/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Calendar className="w-6 h-6 text-[#E6A817]" />
+                <div className="w-12 h-12 bg-epg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Calendar className="w-6 h-6 text-epg-gold" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#001F3F] mb-1">Fechas importantes</h3>
+                  <h3 className="font-bold text-epg-navy mb-1">Fechas importantes</h3>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• Inscripciones: 15 de enero - 28 de febrero</li>
                     <li>• Examen de admisión: 8 de marzo</li>
@@ -65,11 +65,11 @@ export const AdmissionCTA: React.FC = () => {
 
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#E6A817]/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FileText className="w-6 h-6 text-[#E6A817]" />
+                <div className="w-12 h-12 bg-epg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-6 h-6 text-epg-gold" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#001F3F] mb-1">Requisitos básicos</h3>
+                  <h3 className="font-bold text-epg-navy mb-1">Requisitos básicos</h3>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• Grado de Bachiller o Magíster</li>
                     <li>• DNI o Carnet de Extranjería</li>
@@ -82,19 +82,19 @@ export const AdmissionCTA: React.FC = () => {
 
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#E6A817]/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-[#E6A817]" />
+                <div className="w-12 h-12 bg-epg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-epg-gold" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#001F3F] mb-1">¿Tienes dudas?</h3>
+                  <h3 className="font-bold text-epg-navy mb-1">¿Tienes dudas?</h3>
                   <p className="text-sm text-gray-600 mb-2">
                     Nuestro equipo de admisión está disponible para ayudarte.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href="tel:+5165123456" className="text-sm text-[#E6A817] font-medium hover:underline">
+                    <a href="tel:+5165123456" className="text-sm text-epg-gold font-medium hover:underline">
                       (065) 123-456
                     </a>
-                    <a href="mailto:admision@universidad.edu.pe" className="text-sm text-[#E6A817] font-medium hover:underline">
+                    <a href="mailto:admision@universidad.edu.pe" className="text-sm text-epg-gold font-medium hover:underline">
                       admision@universidad.edu.pe
                     </a>
                   </div>
