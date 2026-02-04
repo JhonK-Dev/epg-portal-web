@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { convocatorias, fechasImportantes } from '@/data/convocatorias';
 import { programas, getProgramaBySlug } from '@/data/programas';
+import { formatShortDate } from '@/lib/formatters';
+import { 
+  tipoFechaAdmisionColors, 
+  tipoFechaAdmisionLabels,
+  tipoProgramaBadgeColors 
+} from '@/lib/constants';
 import { 
   Calendar, 
   Clock, 
@@ -32,30 +38,6 @@ function Timeline() {
     .filter(f => new Date(f.fecha) >= new Date('2025-01-01'))
     .sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime());
 
-  const tipoColors: Record<string, string> = {
-    inscripcion: 'bg-blue-500',
-    examen: 'bg-purple-500',
-    resultados: 'bg-emerald-500',
-    matricula: 'bg-amber-500',
-    inicio_clases: 'bg-green-600',
-  };
-
-  const tipoLabels: Record<string, string> = {
-    inscripcion: 'Inscripción',
-    examen: 'Examen',
-    resultados: 'Resultados',
-    matricula: 'Matrícula',
-    inicio_clases: 'Inicio',
-  };
-
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('es-PE', {
-      day: 'numeric',
-      month: 'short',
-    });
-  };
-
   return (
     <div className="relative">
       {/* Desktop Timeline */}
@@ -67,14 +49,14 @@ function Timeline() {
           
           {fechasProximas.slice(0, 7).map((fecha, index) => (
             <div key={index} className="relative z-10 flex flex-col items-center">
-              <div className={`w-10 h-10 rounded-full ${tipoColors[fecha.tipo]} flex items-center justify-center text-white text-sm font-bold shadow-lg`}>
+              <div className={`w-10 h-10 rounded-full ${tipoFechaAdmisionColors[fecha.tipo]} flex items-center justify-center text-white text-sm font-bold shadow-lg`}>
                 {new Date(fecha.fecha).getDate()}
               </div>
               <Badge variant="secondary" className="mt-2 text-xs">
-                {tipoLabels[fecha.tipo]}
+                {tipoFechaAdmisionLabels[fecha.tipo]}
               </Badge>
               <p className="text-xs text-gray-600 mt-1 text-center max-w-[100px]">
-                {formatDate(fecha.fecha)}
+                {formatShortDate(fecha.fecha)}
               </p>
             </div>
           ))}
@@ -85,12 +67,12 @@ function Timeline() {
       <div className="md:hidden space-y-4">
         {fechasProximas.slice(0, 5).map((fecha, index) => (
           <div key={index} className="flex items-center gap-4">
-            <div className={`w-12 h-12 rounded-full ${tipoColors[fecha.tipo]} flex items-center justify-center text-white font-bold shadow-lg flex-shrink-0`}>
+            <div className={`w-12 h-12 rounded-full ${tipoFechaAdmisionColors[fecha.tipo]} flex items-center justify-center text-white font-bold shadow-lg flex-shrink-0`}>
               {new Date(fecha.fecha).getDate()}
             </div>
             <div className="flex-1">
               <Badge variant="secondary" className="text-xs mb-1">
-                {tipoLabels[fecha.tipo]}
+                {tipoFechaAdmisionLabels[fecha.tipo]}
               </Badge>
               <p className="text-sm font-medium text-gray-900">{fecha.descripcion}</p>
               <p className="text-xs text-gray-500">
@@ -494,11 +476,6 @@ function ProgramasVacantes() {
     { slug: 'doctorado-ciencias-ambientales', vacantes: 15 },
   ];
 
-  const tipoColors: Record<string, string> = {
-    maestria: 'bg-blue-100 text-blue-800',
-    doctorado: 'bg-purple-100 text-purple-800',
-  };
-
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
       {programasConVacantes.map(({ slug, vacantes }) => {
@@ -511,7 +488,7 @@ function ProgramasVacantes() {
             href={`/programas/${slug}`}
             className="group bg-white rounded-lg border p-4 hover:shadow-lg hover:border-[#E6A817] transition-all"
           >
-            <Badge className={tipoColors[programa.tipo]}>
+            <Badge className={tipoProgramaBadgeColors[programa.tipo]}>
               {programa.tipo === 'maestria' ? 'Maestría' : 'Doctorado'}
             </Badge>
             <h3 className="font-semibold text-gray-900 mt-2 group-hover:text-[#001F3F] line-clamp-2">

@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { docentes, getDoctores, getMagisteres } from '@/data/docentes';
+import { getGradoInfo } from '@/lib/constants';
 import { 
   Search, 
   X, 
@@ -16,13 +17,6 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 type FiltroGrado = 'todos' | 'doctores' | 'magisteres';
-
-const gradoLabels: Record<string, { label: string; color: string; bgColor: string }> = {
-  doctor: { label: 'Dr.', color: 'text-amber-800', bgColor: 'bg-amber-100' },
-  phd: { label: 'Ph.D.', color: 'text-purple-800', bgColor: 'bg-purple-100' },
-  magister: { label: 'Mg.', color: 'text-blue-800', bgColor: 'bg-blue-100' },
-  bachiller: { label: 'Bach.', color: 'text-gray-800', bgColor: 'bg-gray-100' },
-};
 
 export function DocentesGrid() {
   const [filtroGrado, setFiltroGrado] = useState<FiltroGrado>('todos');
@@ -137,7 +131,7 @@ export function DocentesGrid() {
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {docentesFiltrados.map((docente) => {
-            const gradoInfo = gradoLabels[docente.grado] || gradoLabels.bachiller;
+            const gradoInfo = getGradoInfo(docente.grado);
             
             return (
               <Card 

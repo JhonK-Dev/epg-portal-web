@@ -1,5 +1,7 @@
 import { useState, useMemo } from 'react';
 import { publicaciones, getDestacadas } from '@/data/publicaciones';
+import { formatDate } from '@/lib/formatters';
+import { tipoPublicacionLabels, tipoPublicacionBadgeColors } from '@/lib/constants';
 import { 
   Newspaper, 
   Calendar, 
@@ -19,39 +21,30 @@ type TipoPublicacion = 'todas' | 'noticia' | 'evento' | 'aviso' | 'comunicado';
 
 const tipoConfig: Record<string, { label: string; color: string; bgColor: string; icon: React.ReactNode }> = {
   noticia: { 
-    label: 'Noticia', 
+    label: tipoPublicacionLabels.noticia, 
     color: 'text-blue-800', 
     bgColor: 'bg-blue-100',
     icon: <Newspaper className="h-4 w-4" />
   },
   evento: { 
-    label: 'Evento', 
+    label: tipoPublicacionLabels.evento, 
     color: 'text-purple-800', 
     bgColor: 'bg-purple-100',
     icon: <Calendar className="h-4 w-4" />
   },
   aviso: { 
-    label: 'Aviso', 
+    label: tipoPublicacionLabels.aviso, 
     color: 'text-green-800', 
     bgColor: 'bg-green-100',
     icon: <Bell className="h-4 w-4" />
   },
   comunicado: { 
-    label: 'Comunicado', 
+    label: tipoPublicacionLabels.comunicado, 
     color: 'text-amber-800', 
     bgColor: 'bg-amber-100',
     icon: <Megaphone className="h-4 w-4" />
   },
 };
-
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('es-PE', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
-}
 
 export function PublicacionesLista() {
   const [tipoActivo, setTipoActivo] = useState<TipoPublicacion>('todas');

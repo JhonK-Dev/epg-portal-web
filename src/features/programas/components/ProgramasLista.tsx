@@ -2,6 +2,13 @@ import { useState, useMemo } from 'react';
 import type { Programa, TipoPrograma } from '@/types';
 import { programas } from '@/data/programas';
 import { 
+  tipoProgramaLabels,
+  tipoProgramaButtonColors,
+  tipoProgramaBadgeColors,
+  modalidadLabels,
+  modalidadColors 
+} from '@/lib/constants';
+import { 
   Search, 
   Filter, 
   GraduationCap, 
@@ -18,39 +25,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 type Modalidad = 'presencial' | 'semipresencial' | 'virtual' | 'todos';
 type TipoFiltro = TipoPrograma | 'todos';
 
+// Use labels from constants, adding plural forms for display
 const tipoLabels: Record<string, string> = {
   todos: 'Todos los programas',
   maestria: 'Maestrías',
   doctorado: 'Doctorados',
   diplomado: 'Diplomados',
   curso: 'Cursos',
-};
-
-const tipoColors: Record<string, string> = {
-  maestria: 'bg-blue-600 hover:bg-blue-700',
-  doctorado: 'bg-purple-600 hover:bg-purple-700',
-  diplomado: 'bg-emerald-600 hover:bg-emerald-700',
-  curso: 'bg-amber-600 hover:bg-amber-700',
-};
-
-const tipoBadgeColors: Record<string, string> = {
-  maestria: 'bg-blue-100 text-blue-800',
-  doctorado: 'bg-purple-100 text-purple-800',
-  diplomado: 'bg-emerald-100 text-emerald-800',
-  curso: 'bg-amber-100 text-amber-800',
-};
-
-const modalidadLabels: Record<string, string> = {
-  todos: 'Todas las modalidades',
-  presencial: 'Presencial',
-  semipresencial: 'Semipresencial',
-  virtual: 'Virtual',
-};
-
-const modalidadColors: Record<string, string> = {
-  presencial: 'bg-blue-100 text-blue-800',
-  semipresencial: 'bg-purple-100 text-purple-800',
-  virtual: 'bg-green-100 text-green-800',
 };
 
 interface ProgramaCardProps {
@@ -66,7 +47,7 @@ function ProgramaCard({ programa }: ProgramaCardProps) {
       <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-transparent hover:border-l-[#E6A817]">
         <CardHeader className="pb-3">
           <div className="flex items-start justify-between gap-2 mb-2">
-            <Badge className={tipoBadgeColors[programa.tipo]}>
+            <Badge className={tipoProgramaBadgeColors[programa.tipo]}>
               {tipoLabels[programa.tipo]}
             </Badge>
             <Badge className={modalidadColors[programa.modalidad]}>
