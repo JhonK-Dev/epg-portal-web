@@ -15,10 +15,10 @@ export const FeaturedPrograms: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <div>
-            <span className="text-[#D4A017] font-semibold text-sm uppercase tracking-wider mb-2 block">
+            <span className="text-epg-gold font-semibold text-sm uppercase tracking-wider mb-2 block">
               Nuestra oferta académica
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628]">
+            <h2 className="text-3xl sm:text-4xl font-bold text-epg-navy">
               Programas Destacados
             </h2>
             <p className="text-gray-600 mt-2 max-w-xl">
@@ -27,7 +27,7 @@ export const FeaturedPrograms: React.FC = () => {
           </div>
           <a
             href="/programas"
-            className="inline-flex items-center gap-2 text-[#0A1628] font-semibold hover:text-[#D4A017] transition-colors group"
+            className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
           >
             Ver todos los programas
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -44,10 +44,10 @@ export const FeaturedPrograms: React.FC = () => {
               <a
                 key={program.id}
                 href={`/programas/${program.slug}`}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[#D4A017]/30"
+                className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-epg-gold/30"
               >
                 {/* Card Header with image or gradient */}
-                <div className="h-32 bg-gradient-to-br from-[#0A1628] to-[#0D2240] relative overflow-hidden">
+                <div className="h-32 bg-gradient-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
                   {program.imagen ? (
                     <img 
                       src={program.imagen} 
@@ -69,7 +69,7 @@ export const FeaturedPrograms: React.FC = () => {
 
                 {/* Card Body */}
                 <div className="p-5">
-                  <h3 className="font-bold text-[#0A1628] text-lg mb-2 group-hover:text-[#D4A017] transition-colors line-clamp-2">
+                  <h3 className="font-bold text-epg-navy text-lg mb-2 group-hover:text-epg-gold transition-colors line-clamp-2">
                     {program.nombre}
                   </h3>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">
@@ -96,7 +96,7 @@ export const FeaturedPrograms: React.FC = () => {
 
                 {/* Card Footer */}
                 <div className="px-5 pb-5">
-                  <span className="inline-flex items-center gap-1 text-[#D4A017] font-medium text-sm group-hover:gap-2 transition-all">
+                  <span className="inline-flex items-center gap-1 text-epg-gold font-medium text-sm group-hover:gap-2 transition-all">
                     Ver programa
                     <ArrowRight className="w-4 h-4" />
                   </span>
@@ -110,14 +110,14 @@ export const FeaturedPrograms: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <a
             href="/programas/maestrias"
-            className="group bg-gradient-to-br from-[#0A1628] to-[#0D2240] rounded-2xl p-6 text-white hover:shadow-xl transition-all"
+            className="group bg-gradient-to-br from-epg-navy to-epg-navy-light rounded-2xl p-6 text-white hover:shadow-xl transition-all"
           >
-            <GraduationCap className="w-10 h-10 text-[#D4A017] mb-4" />
+            <GraduationCap className="w-10 h-10 text-epg-gold mb-4" />
             <h3 className="text-xl font-bold mb-2">Maestrías</h3>
             <p className="text-gray-300 text-sm mb-4">
               Programas de 2 años para profesionales que buscan especialización.
             </p>
-            <span className="inline-flex items-center gap-1 text-[#D4A017] font-medium text-sm group-hover:gap-2 transition-all">
+            <span className="inline-flex items-center gap-1 text-epg-gold font-medium text-sm group-hover:gap-2 transition-all">
               5 programas disponibles
               <ArrowRight className="w-4 h-4" />
             </span>
@@ -125,14 +125,14 @@ export const FeaturedPrograms: React.FC = () => {
 
           <a
             href="/programas/doctorados"
-            className="group bg-gradient-to-br from-[#D4A017] to-[#B8860B] rounded-2xl p-6 text-[#0A1628] hover:shadow-xl transition-all"
+            className="group bg-gradient-to-br from-epg-gold to-epg-gold-dark rounded-2xl p-6 text-epg-navy hover:shadow-xl transition-all"
           >
-            <Award className="w-10 h-10 text-[#0A1628] mb-4" />
+            <Award className="w-10 h-10 text-epg-navy mb-4" />
             <h3 className="text-xl font-bold mb-2">Doctorados</h3>
-            <p className="text-[#0A1628]/70 text-sm mb-4">
+            <p className="text-epg-navy/70 text-sm mb-4">
               Investigación de alto nivel para líderes académicos.
             </p>
-            <span className="inline-flex items-center gap-1 text-[#0A1628] font-medium text-sm group-hover:gap-2 transition-all">
+            <span className="inline-flex items-center gap-1 text-epg-navy font-medium text-sm group-hover:gap-2 transition-all">
               3 programas disponibles
               <ArrowRight className="w-4 h-4" />
             </span>
@@ -140,14 +140,14 @@ export const FeaturedPrograms: React.FC = () => {
 
           <a
             href="/programas/formacion-continua"
-            className="group bg-white border-2 border-gray-200 hover:border-[#D4A017] rounded-2xl p-6 text-[#0A1628] hover:shadow-xl transition-all"
+            className="group bg-white border-2 border-gray-200 hover:border-epg-gold rounded-2xl p-6 text-epg-navy hover:shadow-xl transition-all"
           >
-            <BookOpen className="w-10 h-10 text-[#D4A017] mb-4" />
+            <BookOpen className="w-10 h-10 text-epg-gold mb-4" />
             <h3 className="text-xl font-bold mb-2">Formación Continua</h3>
             <p className="text-gray-600 text-sm mb-4">
               Diplomados y cursos cortos de actualización profesional.
             </p>
-            <span className="inline-flex items-center gap-1 text-[#D4A017] font-medium text-sm group-hover:gap-2 transition-all">
+            <span className="inline-flex items-center gap-1 text-epg-gold font-medium text-sm group-hover:gap-2 transition-all">
               5 programas disponibles
               <ArrowRight className="w-4 h-4" />
             </span>

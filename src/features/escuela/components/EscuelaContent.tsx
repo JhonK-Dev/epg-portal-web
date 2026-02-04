@@ -41,7 +41,7 @@ function Autoridades() {
             <CardContent className="pt-6">
               <div className="flex flex-col items-center text-center">
                 {/* Avatar placeholder */}
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#0A1628] to-[#0D2240] flex items-center justify-center text-white text-2xl font-bold mb-4">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-epg-navy to-epg-navy-light flex items-center justify-center text-white text-2xl font-bold mb-4">
                   {autoridad.nombres.charAt(0)}{autoridad.apellidos.charAt(0)}
                 </div>
                 
@@ -57,7 +57,7 @@ function Autoridades() {
                   {autoridad.email && (
                     <a 
                       href={`mailto:${autoridad.email}`}
-                      className="flex items-center justify-center gap-2 text-sm text-gray-600 hover:text-[#0A1628]"
+                      className="flex items-center justify-center gap-2 text-sm text-gray-600 hover:text-epg-navy"
                     >
                       <Mail className="h-4 w-4" />
                       <span className="truncate">{autoridad.email}</span>
@@ -99,10 +99,10 @@ function EstadisticasGrid() {
           key={index}
           className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
         >
-          <div className="w-16 h-16 bg-[#D4A017]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#D4A017]">
+          <div className="w-16 h-16 bg-epg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-epg-gold">
             {stat.icono && iconMap[stat.icono]}
           </div>
-          <p className="text-3xl font-bold text-[#0A1628] mb-1">{stat.valor}</p>
+          <p className="text-3xl font-bold text-epg-navy mb-1">{stat.valor}</p>
           <p className="text-sm text-gray-600">{stat.label}</p>
         </div>
       ))}
@@ -170,11 +170,11 @@ function Documentos() {
               className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
             >
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-sm text-gray-900 group-hover:text-[#0A1628] truncate">
+                <p className="font-medium text-sm text-gray-900 group-hover:text-epg-navy truncate">
                   {doc.nombre}
                 </p>
               </div>
-              <Download className="h-4 w-4 text-gray-400 group-hover:text-[#D4A017] flex-shrink-0 ml-2" />
+              <Download className="h-4 w-4 text-gray-400 group-hover:text-epg-gold flex-shrink-0 ml-2" />
             </a>
           ))}
         </CardContent>
@@ -197,11 +197,11 @@ function Documentos() {
               className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
             >
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-sm text-gray-900 group-hover:text-[#0A1628] truncate">
+                <p className="font-medium text-sm text-gray-900 group-hover:text-epg-navy truncate">
                   {doc.nombre}
                 </p>
               </div>
-              <Download className="h-4 w-4 text-gray-400 group-hover:text-[#D4A017] flex-shrink-0 ml-2" />
+              <Download className="h-4 w-4 text-gray-400 group-hover:text-epg-gold flex-shrink-0 ml-2" />
             </a>
           ))}
         </CardContent>
@@ -224,11 +224,11 @@ function Documentos() {
               className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
             >
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-sm text-gray-900 group-hover:text-[#0A1628] truncate">
+                <p className="font-medium text-sm text-gray-900 group-hover:text-epg-navy truncate">
                   {doc.nombre}
                 </p>
               </div>
-              <Download className="h-4 w-4 text-gray-400 group-hover:text-[#D4A017] flex-shrink-0 ml-2" />
+              <Download className="h-4 w-4 text-gray-400 group-hover:text-epg-gold flex-shrink-0 ml-2" />
             </a>
           ))}
         </CardContent>
@@ -247,8 +247,8 @@ export function EscuelaContent() {
       <section id="historia">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <Badge className="bg-[#D4A017]/10 text-[#D4A017] mb-4">Nuestra Historia</Badge>
-            <h2 className="text-3xl font-bold text-[#0A1628] mb-6">
+            <Badge className="bg-epg-gold/10 text-epg-gold mb-4">Nuestra Historia</Badge>
+            <h2 className="text-3xl font-bold text-epg-navy mb-6">
               Más de 35 años formando líderes
             </h2>
             <div className="prose prose-lg text-gray-600 space-y-4">
@@ -259,23 +259,23 @@ export function EscuelaContent() {
           </div>
           
           {/* Stats Card */}
-          <Card className="bg-gradient-to-br from-[#0A1628] to-[#0D2240] text-white border-0">
+          <Card className="bg-gradient-to-br from-epg-navy to-epg-navy-light text-white border-0">
             <CardContent className="pt-8">
               <div className="grid grid-cols-2 gap-8">
                 <div className="text-center">
-                  <p className="text-5xl font-bold text-[#D4A017] mb-2">35+</p>
+                  <p className="text-5xl font-bold text-epg-gold mb-2">35+</p>
                   <p className="text-gray-300">Años de trayectoria</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-5xl font-bold text-[#D4A017] mb-2">2,500+</p>
+                  <p className="text-5xl font-bold text-epg-gold mb-2">2,500+</p>
                   <p className="text-gray-300">Egresados</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-5xl font-bold text-[#D4A017] mb-2">15+</p>
+                  <p className="text-5xl font-bold text-epg-gold mb-2">15+</p>
                   <p className="text-gray-300">Maestrías</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-5xl font-bold text-[#D4A017] mb-2">5</p>
+                  <p className="text-5xl font-bold text-epg-gold mb-2">5</p>
                   <p className="text-gray-300">Doctorados</p>
                 </div>
               </div>
@@ -298,14 +298,14 @@ export function EscuelaContent() {
       <section id="mision-vision">
         <div className="text-center mb-8">
           <Badge className="bg-blue-100 text-blue-800 mb-4">Identidad Institucional</Badge>
-          <h2 className="text-3xl font-bold text-[#0A1628]">Misión y Visión</h2>
+          <h2 className="text-3xl font-bold text-epg-navy">Misión y Visión</h2>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="border-l-4 border-l-[#D4A017] hover:shadow-lg transition-shadow">
+          <Card className="border-l-4 border-l-epg-gold hover:shadow-lg transition-shadow">
             <CardHeader>
-              <div className="w-14 h-14 bg-[#D4A017]/10 rounded-full flex items-center justify-center mb-4">
-                <Target className="h-7 w-7 text-[#D4A017]" />
+<div className="w-14 h-14 bg-epg-gold/10 rounded-full flex items-center justify-center mb-4">
+                <Target className="h-7 w-7 text-epg-gold" />
               </div>
               <CardTitle className="text-2xl">Misión</CardTitle>
             </CardHeader>
@@ -316,10 +316,10 @@ export function EscuelaContent() {
             </CardContent>
           </Card>
 
-          <Card className="border-l-4 border-l-[#0A1628] hover:shadow-lg transition-shadow">
+          <Card className="border-l-4 border-l-epg-navy hover:shadow-lg transition-shadow">
             <CardHeader>
-              <div className="w-14 h-14 bg-[#0A1628]/10 rounded-full flex items-center justify-center mb-4">
-                <Eye className="h-7 w-7 text-[#0A1628]" />
+<div className="w-14 h-14 bg-epg-navy/10 rounded-full flex items-center justify-center mb-4">
+                <Eye className="h-7 w-7 text-epg-navy" />
               </div>
               <CardTitle className="text-2xl">Visión</CardTitle>
             </CardHeader>
@@ -336,7 +336,7 @@ export function EscuelaContent() {
       <section id="valores" className="bg-gray-50 -mx-4 px-4 py-12 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded-2xl">
         <div className="text-center mb-8">
           <Badge className="bg-purple-100 text-purple-800 mb-4">Principios</Badge>
-          <h2 className="text-3xl font-bold text-[#0A1628] mb-4">Nuestros Valores</h2>
+          <h2 className="text-3xl font-bold text-epg-navy mb-4">Nuestros Valores</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Los valores que guían nuestra labor académica y compromiso institucional
           </p>
@@ -348,7 +348,7 @@ export function EscuelaContent() {
       <section id="estadisticas">
         <div className="text-center mb-8">
           <Badge className="bg-emerald-100 text-emerald-800 mb-4">Logros</Badge>
-          <h2 className="text-3xl font-bold text-[#0A1628] mb-4">EPG en Números</h2>
+          <h2 className="text-3xl font-bold text-epg-navy mb-4">EPG en Números</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Cifras que reflejan nuestro compromiso con la excelencia académica
           </p>
@@ -360,7 +360,7 @@ export function EscuelaContent() {
       <section id="autoridades">
         <div className="text-center mb-8">
           <Badge className="bg-amber-100 text-amber-800 mb-4">Equipo Directivo</Badge>
-          <h2 className="text-3xl font-bold text-[#0A1628] mb-4">Autoridades</h2>
+          <h2 className="text-3xl font-bold text-epg-navy mb-4">Autoridades</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Profesionales comprometidos con la excelencia académica
           </p>
@@ -372,7 +372,7 @@ export function EscuelaContent() {
       <section id="documentos">
         <div className="text-center mb-8">
           <Badge className="bg-gray-100 text-gray-800 mb-4">Normativa</Badge>
-          <h2 className="text-3xl font-bold text-[#0A1628] mb-4">Documentos Institucionales</h2>
+          <h2 className="text-3xl font-bold text-epg-navy mb-4">Documentos Institucionales</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Accede a los reglamentos, formatos y guías de la escuela
           </p>
@@ -382,7 +382,7 @@ export function EscuelaContent() {
 
       {/* CTA */}
       <section>
-        <Card className="bg-gradient-to-r from-[#0A1628] to-[#0D2240] text-white border-0 p-8">
+        <Card className="bg-gradient-to-r from-epg-navy to-epg-navy-light text-white border-0 p-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-2xl font-bold mb-2">¿Listo para ser parte de nuestra comunidad?</h3>
@@ -393,7 +393,7 @@ export function EscuelaContent() {
             <div className="flex gap-4">
               <Button 
                 size="lg" 
-                className="bg-[#D4A017] text-[#0A1628] hover:bg-[#B8860B] font-semibold"
+                className="bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
                 asChild
               >
                 <a href="/programas">Ver programas</a>

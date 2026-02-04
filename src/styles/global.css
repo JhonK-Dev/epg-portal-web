@@ -43,8 +43,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
   /* Colores institucionales EPG UNAP */
   --color-epg-navy: #0A1628;
-  --color-epg-gold: #D4A017;
+  --color-epg-navy-light: #0D2240;
   --color-epg-navy-dark: #060D17;
+  --color-epg-gold: #D4A017;
   --color-epg-gold-dark: #B8860B;
   --color-epg-text: #1a1a1a;
   --color-epg-overlay: rgba(10, 22, 40, 0.9);
