@@ -16,8 +16,8 @@ const sizeClasses = {
 };
 
 const colorClasses = {
-  default: 'border-gray-300 border-t-[#001F3F]',
-  gold: 'border-gray-300 border-t-[#E6A817]',
+  default: 'border-gray-300 border-t-[#0A1628]',
+  gold: 'border-gray-300 border-t-[#D4A017]',
   white: 'border-white/30 border-t-white',
 };
 

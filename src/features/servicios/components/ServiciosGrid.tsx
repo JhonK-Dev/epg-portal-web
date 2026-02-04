@@ -29,14 +29,14 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 const gradientColors = [
-  'from-[#001F3F] to-[#003366]',
-  'from-[#E6A817] to-[#C9A227]',
-  'from-[#003366] to-[#001A33]',
-  'from-[#001F3F] to-[#003366]',
-  'from-[#E6A817] to-[#C9A227]',
-  'from-[#003366] to-[#001A33]',
-  'from-[#001F3F] to-[#003366]',
-  'from-[#E6A817] to-[#C9A227]',
+  'from-[#0A1628] to-[#0D2240]',
+  'from-[#D4A017] to-[#B8860B]',
+  'from-[#0D2240] to-[#060D17]',
+  'from-[#0A1628] to-[#0D2240]',
+  'from-[#D4A017] to-[#B8860B]',
+  'from-[#0D2240] to-[#060D17]',
+  'from-[#0A1628] to-[#0D2240]',
+  'from-[#D4A017] to-[#B8860B]',
 ];
 
 export function ServiciosGrid() {
@@ -63,18 +63,18 @@ export function ServiciosGrid() {
               <CardWrapper key={servicio.id} {...cardProps}>
                 <Card className="overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 h-full">
                   <div className={`h-32 bg-gradient-to-br ${gradientColors[index % gradientColors.length]} flex items-center justify-center relative`}>
-                    <div className={isGold ? 'text-[#001F3F]' : 'text-[#E6A817]'}>
+                    <div className={isGold ? 'text-[#0A1628]' : 'text-[#D4A017]'}>
                       {iconMap[servicio.icono || 'FileText']}
                     </div>
                     {isExternal && (
                       <div className="absolute top-3 right-3">
-                        <ExternalLink className={`h-5 w-5 ${isGold ? 'text-[#001F3F]/50' : 'text-white/50'}`} />
+                        <ExternalLink className={`h-5 w-5 ${isGold ? 'text-[#0A1628]/50' : 'text-white/50'}`} />
                       </div>
                     )}
                   </div>
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between gap-2 mb-3">
-                      <h3 className="text-lg font-bold text-[#001F3F] group-hover:text-[#E6A817] transition-colors">
+                      <h3 className="text-lg font-bold text-[#0A1628] group-hover:text-[#D4A017] transition-colors">
                         {servicio.nombre}
                       </h3>
                     </div>
@@ -82,7 +82,7 @@ export function ServiciosGrid() {
                       {servicio.descripcionCorta || servicio.descripcion}
                     </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-[#E6A817] font-medium text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                      <span className="text-[#D4A017] font-medium text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                         {isExternal ? 'Acceder al servicio' : 'Ver información'}
                         <ArrowRight className="h-4 w-4" />
                       </span>
@@ -107,11 +107,11 @@ export function ServiciosGrid() {
           <Card className="bg-gray-50 border-0">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#001F3F] rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-[#0A1628] rounded-lg flex items-center justify-center flex-shrink-0">
                   <HelpCircle className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#001F3F] mb-2">
+                  <h3 className="font-bold text-[#0A1628] mb-2">
                     Guía de Acceso a Servicios
                   </h3>
                   <p className="text-gray-600 text-sm mb-4">
@@ -135,7 +135,7 @@ export function ServiciosGrid() {
                   <Phone className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#001F3F] mb-2">
+                  <h3 className="font-bold text-[#0A1628] mb-2">
                     Problemas de Acceso
                   </h3>
                   <p className="text-gray-600 text-sm mb-4">
@@ -164,7 +164,7 @@ export function ServiciosGrid() {
 
       {/* CTA */}
       <section>
-        <Card className="bg-gradient-to-r from-[#001F3F] to-[#003366] text-white border-0 p-8">
+        <Card className="bg-gradient-to-r from-[#0A1628] to-[#0D2240] text-white border-0 p-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-2xl font-bold mb-2">
@@ -176,7 +176,7 @@ export function ServiciosGrid() {
             </div>
             <div className="flex gap-4">
               <Button 
-                className="bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227] font-semibold"
+                className="bg-[#D4A017] text-[#0A1628] hover:bg-[#B8860B] font-semibold"
                 asChild
               >
                 <a href="mailto:soporte@universidad.edu.pe">

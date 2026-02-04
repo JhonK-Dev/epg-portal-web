@@ -39,7 +39,7 @@ export const WelcomeSection: React.FC = () => {
             <div className="bg-[#FFF9E6] rounded-2xl p-6 lg:p-8">
               {/* Icon and Title */}
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-[#001F3F] rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-[#0A1628] rounded-xl flex items-center justify-center flex-shrink-0">
                   <GraduationCap className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900">

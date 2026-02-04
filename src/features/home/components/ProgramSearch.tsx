@@ -22,7 +22,7 @@ export const ProgramSearch: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-[#001F3F] to-[#001A33] py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-b from-[#0A1628] to-[#060D17] py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Title */}
         <div className="text-center mb-8">
@@ -42,7 +42,7 @@ export const ProgramSearch: React.FC = () => {
               onClick={() => setSelectedType(type.id)}
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                 selectedType === type.id
-                  ? 'bg-[#E6A817] text-[#001F3F]'
+                  ? 'bg-[#D4A017] text-[#0A1628]'
                   : 'bg-white/10 text-white hover:bg-white/20'
               }`}
             >
@@ -68,7 +68,7 @@ export const ProgramSearch: React.FC = () => {
             <div className="pr-3">
               <button
                 type="submit"
-                className="bg-[#001F3F] hover:bg-[#003366] text-white px-6 py-3 rounded-xl font-medium transition-colors inline-flex items-center gap-2"
+                className="bg-[#0A1628] hover:bg-[#0D2240] text-white px-6 py-3 rounded-xl font-medium transition-colors inline-flex items-center gap-2"
               >
                 Buscar
                 <ArrowRight className="w-4 h-4" />
@@ -80,10 +80,10 @@ export const ProgramSearch: React.FC = () => {
         {/* Quick Links */}
         <div className="flex flex-wrap justify-center gap-4 text-sm">
           <span className="text-gray-500">Búsquedas populares:</span>
-          <a href="/programas?q=gestion+publica" className="text-[#E6A817] hover:underline">Gestión Pública</a>
-          <a href="/programas?q=derecho" className="text-[#E6A817] hover:underline">Derecho</a>
-          <a href="/programas?q=educacion" className="text-[#E6A817] hover:underline">Educación</a>
-          <a href="/programas?q=ambiental" className="text-[#E6A817] hover:underline">Ambiental</a>
+          <a href="/programas?q=gestion+publica" className="text-[#D4A017] hover:underline">Gestión Pública</a>
+          <a href="/programas?q=derecho" className="text-[#D4A017] hover:underline">Derecho</a>
+          <a href="/programas?q=educacion" className="text-[#D4A017] hover:underline">Educación</a>
+          <a href="/programas?q=ambiental" className="text-[#D4A017] hover:underline">Ambiental</a>
         </div>
       </div>
     </section>

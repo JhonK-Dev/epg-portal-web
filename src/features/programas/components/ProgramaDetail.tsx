@@ -100,7 +100,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
                   </div>
                 )}
                 <Separator />
-                <Button className="w-full bg-[#001F3F] hover:bg-[#001A33]" size="lg">
+                <Button className="w-full bg-[#0A1628] hover:bg-[#060D17]" size="lg">
                   Solicitar información
                 </Button>
                 <Button variant="outline" className="w-full" size="lg">
@@ -121,7 +121,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <GraduationCap className="h-5 w-5 text-[#001F3F]" />
+                  <GraduationCap className="h-5 w-5 text-[#0A1628]" />
                   Descripción del Programa
                 </CardTitle>
               </CardHeader>
@@ -137,7 +137,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-[#001F3F]" />
+                    <CheckCircle2 className="h-5 w-5 text-[#0A1628]" />
                     Requisitos de Admisión
                   </CardTitle>
                 </CardHeader>
@@ -158,7 +158,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <FileText className="h-5 w-5 text-[#001F3F]" />
+                  <FileText className="h-5 w-5 text-[#0A1628]" />
                   Plan de Estudios
                 </CardTitle>
               </CardHeader>
@@ -184,7 +184,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <GraduationCap className="h-5 w-5 text-[#001F3F] flex-shrink-0 mt-1" />
+                  <GraduationCap className="h-5 w-5 text-[#0A1628] flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-sm text-gray-500">Tipo de Programa</p>
                     <p className="font-medium">{tipoProgramaLabels[programa.tipo]}</p>
@@ -194,7 +194,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
                 <Separator />
 
                 <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-[#001F3F] flex-shrink-0 mt-1" />
+                  <MapPin className="h-5 w-5 text-[#0A1628] flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-sm text-gray-500">Facultad</p>
                     <p className="font-medium">{programa.facultad}</p>
@@ -204,7 +204,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
                 <Separator />
 
                 <div className="flex items-start gap-3">
-                  <Clock className="h-5 w-5 text-[#001F3F] flex-shrink-0 mt-1" />
+                  <Clock className="h-5 w-5 text-[#0A1628] flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-sm text-gray-500">Duración</p>
                     <p className="font-medium">{programa.duracion}</p>
@@ -214,7 +214,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
                 <Separator />
 
                 <div className="flex items-start gap-3">
-                  <BookOpen className="h-5 w-5 text-[#001F3F] flex-shrink-0 mt-1" />
+                  <BookOpen className="h-5 w-5 text-[#0A1628] flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-sm text-gray-500">Créditos</p>
                     <p className="font-medium">{programa.creditos} créditos</p>
@@ -225,7 +225,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
                   <>
                     <Separator />
                     <div className="flex items-start gap-3">
-                      <User className="h-5 w-5 text-[#001F3F] flex-shrink-0 mt-1" />
+                      <User className="h-5 w-5 text-[#0A1628] flex-shrink-0 mt-1" />
                       <div>
                         <p className="text-sm text-gray-500">Coordinador</p>
                         <p className="font-medium">{programa.coordinador}</p>
@@ -252,7 +252,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
             {/* Back Link */}
             <a 
               href="/programas" 
-              className="flex items-center gap-2 text-[#001F3F] hover:underline"
+              className="flex items-center gap-2 text-[#0A1628] hover:underline"
             >
               <ArrowLeft className="h-4 w-4" />
               Ver todos los programas

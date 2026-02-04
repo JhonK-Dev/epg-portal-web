@@ -38,8 +38,8 @@ export function ScrollToTop({
       aria-label="Volver arriba"
       className={cn(
         'fixed bottom-6 right-6 z-50 p-3 rounded-full shadow-lg transition-all duration-300 transform',
-        'bg-[#001F3F] text-white hover:bg-[#E6A817] hover:text-[#001F3F]',
-        'focus:outline-none focus:ring-2 focus:ring-[#E6A817] focus:ring-offset-2',
+        'bg-[#0A1628] text-white hover:bg-[#D4A017] hover:text-[#0A1628]',
+        'focus:outline-none focus:ring-2 focus:ring-[#D4A017] focus:ring-offset-2',
         isVisible 
           ? 'opacity-100 translate-y-0' 
           : 'opacity-0 translate-y-4 pointer-events-none',

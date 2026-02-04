@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#001F3F] text-white">
+    <footer className="bg-[#0A1628] text-white">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
@@ -50,10 +50,10 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3 mb-4">
               <div className="flex items-center gap-2">
                 <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-[#001F3F] font-bold text-lg">U</span>
+                  <span className="text-[#0A1628] font-bold text-lg">U</span>
                 </div>
-                <div className="w-10 h-10 bg-[#E6A817] rounded-full flex items-center justify-center">
-                  <span className="text-[#001F3F] font-bold text-lg">E</span>
+                <div className="w-10 h-10 bg-[#D4A017] rounded-full flex items-center justify-center">
+                  <span className="text-[#0A1628] font-bold text-lg">E</span>
                 </div>
               </div>
               <div>
@@ -72,21 +72,21 @@ export const Footer: React.FC = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-sm">
-                <MapPin className="w-5 h-5 text-[#E6A817] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-[#D4A017] flex-shrink-0 mt-0.5" />
                 <span className="text-gray-300">Calle Nauta N° 123, Iquitos - Loreto, Perú</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <Phone className="w-5 h-5 text-[#E6A817] flex-shrink-0" />
+                <Phone className="w-5 h-5 text-[#D4A017] flex-shrink-0" />
                 <span className="text-gray-300">(065) 123-456</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <Mail className="w-5 h-5 text-[#E6A817] flex-shrink-0" />
+                <Mail className="w-5 h-5 text-[#D4A017] flex-shrink-0" />
                 <a href="mailto:epg@universidad.edu.pe" className="text-gray-300 hover:text-white transition-colors">
                   epg@universidad.edu.pe
                 </a>
               </div>
               <div className="flex items-start gap-3 text-sm">
-                <Clock className="w-5 h-5 text-[#E6A817] flex-shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-[#D4A017] flex-shrink-0 mt-0.5" />
                 <span className="text-gray-300">Lunes a Viernes: 8:00 a.m. - 4:00 p.m.</span>
               </div>
             </div>
@@ -100,7 +100,7 @@ export const Footer: React.FC = () => {
                 <li key={link.href}>
                   <a 
                     href={link.href} 
-                    className="text-sm text-gray-400 hover:text-[#E6A817] transition-colors"
+                    className="text-sm text-gray-400 hover:text-[#D4A017] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -117,7 +117,7 @@ export const Footer: React.FC = () => {
                 <li key={link.href}>
                   <a 
                     href={link.href} 
-                    className="text-sm text-gray-400 hover:text-[#E6A817] transition-colors"
+                    className="text-sm text-gray-400 hover:text-[#D4A017] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -134,7 +134,7 @@ export const Footer: React.FC = () => {
                 <li key={link.href}>
                   <a 
                     href={link.href} 
-                    className="text-sm text-gray-400 hover:text-[#E6A817] transition-colors"
+                    className="text-sm text-gray-400 hover:text-[#D4A017] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -151,7 +151,7 @@ export const Footer: React.FC = () => {
                 <li key={link.href}>
                   <a 
                     href={link.href} 
-                    className="text-sm text-gray-400 hover:text-[#E6A817] transition-colors"
+                    className="text-sm text-gray-400 hover:text-[#D4A017] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -173,10 +173,10 @@ export const Footer: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E6A817] transition-colors group"
+                    className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#D4A017] transition-colors group"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-4 h-4 text-gray-400 group-hover:text-[#001F3F]" />
+                    <social.icon className="w-4 h-4 text-gray-400 group-hover:text-[#0A1628]" />
                   </a>
                 ))}
               </div>
@@ -194,7 +194,7 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-[#001A33] py-4">
+      <div className="bg-[#060D17] py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
             <p className="text-sm text-gray-500">

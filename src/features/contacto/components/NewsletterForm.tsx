@@ -83,7 +83,7 @@ export function NewsletterForm({ variant = 'default', className = '' }: Newslett
             }}
             placeholder="Tu correo electrónico"
             disabled={status === 'loading' || status === 'success'}
-            className={`w-full pl-10 pr-4 py-2 rounded-lg border text-sm focus:ring-2 focus:ring-[#E6A817] outline-none disabled:opacity-50 ${
+            className={`w-full pl-10 pr-4 py-2 rounded-lg border text-sm focus:ring-2 focus:ring-[#D4A017] outline-none disabled:opacity-50 ${
               status === 'error' ? 'border-red-500' : 'border-gray-300'
             }`}
           />
@@ -91,7 +91,7 @@ export function NewsletterForm({ variant = 'default', className = '' }: Newslett
         <Button
           type="submit"
           disabled={status === 'loading' || status === 'success'}
-          className="bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227] font-semibold px-4"
+          className="bg-[#D4A017] text-[#0A1628] hover:bg-[#B8860B] font-semibold px-4"
         >
           {status === 'loading' && <Loader2 className="h-4 w-4 animate-spin" />}
           {status === 'success' && <CheckCircle className="h-4 w-4" />}
@@ -104,7 +104,7 @@ export function NewsletterForm({ variant = 'default', className = '' }: Newslett
 
   if (variant === 'card') {
     return (
-      <div className={`bg-gradient-to-r from-[#001F3F] to-[#003366] text-white rounded-xl p-8 ${className}`}>
+      <div className={`bg-gradient-to-r from-[#0A1628] to-[#0D2240] text-white rounded-xl p-8 ${className}`}>
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-2xl font-bold mb-2">Mantente informado</h3>
@@ -137,7 +137,7 @@ export function NewsletterForm({ variant = 'default', className = '' }: Newslett
                     }}
                     placeholder="Tu correo electrónico"
                     disabled={status === 'loading'}
-                    className={`w-full md:w-64 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-[#E6A817] outline-none disabled:opacity-50 ${
+                    className={`w-full md:w-64 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-[#D4A017] outline-none disabled:opacity-50 ${
                       status === 'error' ? 'ring-2 ring-red-500' : ''
                     }`}
                   />
@@ -145,7 +145,7 @@ export function NewsletterForm({ variant = 'default', className = '' }: Newslett
                 <Button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227] font-semibold px-6 py-3 h-auto"
+                  className="bg-[#D4A017] text-[#0A1628] hover:bg-[#B8860B] font-semibold px-6 py-3 h-auto"
                 >
                   {status === 'loading' ? (
                     <>
@@ -188,7 +188,7 @@ export function NewsletterForm({ variant = 'default', className = '' }: Newslett
             }}
             placeholder="Tu correo electrónico"
             disabled={status === 'loading' || status === 'success'}
-            className={`w-full pl-12 pr-4 py-3 rounded-lg border text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-[#E6A817] outline-none disabled:opacity-50 ${
+            className={`w-full pl-12 pr-4 py-3 rounded-lg border text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-[#D4A017] outline-none disabled:opacity-50 ${
               status === 'error' ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
             }`}
           />
@@ -196,7 +196,7 @@ export function NewsletterForm({ variant = 'default', className = '' }: Newslett
         <Button
           type="submit"
           disabled={status === 'loading' || status === 'success'}
-          className="bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227] font-semibold px-8 py-3 h-auto"
+          className="bg-[#D4A017] text-[#0A1628] hover:bg-[#B8860B] font-semibold px-8 py-3 h-auto"
         >
           {status === 'loading' && (
             <>

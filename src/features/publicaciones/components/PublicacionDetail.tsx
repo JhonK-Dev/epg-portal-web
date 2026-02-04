@@ -53,7 +53,7 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
               {tipoPublicacionLabels[publicacion.tipo]}
             </Badge>
             {publicacion.destacado && (
-              <Badge className="bg-[#E6A817] text-[#001F3F]">
+              <Badge className="bg-[#D4A017] text-[#0A1628]">
                 Destacado
               </Badge>
             )}
@@ -146,7 +146,7 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
             {/* Back Link */}
             <a 
               href="/publicaciones" 
-              className="flex items-center gap-2 text-[#001F3F] hover:underline mt-8"
+              className="flex items-center gap-2 text-[#0A1628] hover:underline mt-8"
             >
               <ArrowLeft className="h-4 w-4" />
               Ver todas las publicaciones
@@ -164,7 +164,7 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
                 <CardContent className="space-y-4">
                   {publicacion.fechaEvento && (
                     <div className="flex items-start gap-3">
-                      <Calendar className="h-5 w-5 text-[#001F3F] flex-shrink-0 mt-1" />
+                      <Calendar className="h-5 w-5 text-[#0A1628] flex-shrink-0 mt-1" />
                       <div>
                         <p className="text-sm text-gray-500">Fecha</p>
                         <p className="font-medium">{formatDateTime(publicacion.fechaEvento)}</p>
@@ -173,14 +173,14 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
                   )}
                   <Separator />
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-[#001F3F] flex-shrink-0 mt-1" />
+                    <MapPin className="h-5 w-5 text-[#0A1628] flex-shrink-0 mt-1" />
                     <div>
                       <p className="text-sm text-gray-500">Lugar</p>
                       <p className="font-medium">Auditorio EPG - UNAP</p>
                     </div>
                   </div>
                   <Separator />
-                  <Button className="w-full bg-[#001F3F] hover:bg-[#001A33]">
+                  <Button className="w-full bg-[#0A1628] hover:bg-[#060D17]">
                     Registrarme
                   </Button>
                 </CardContent>
@@ -218,7 +218,7 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
                       <div className="flex gap-3">
                         <div className={`w-1 ${tipoPublicacionColors[pub.tipo]} rounded-full flex-shrink-0`} />
                         <div>
-                          <p className="font-medium text-sm group-hover:text-[#001F3F] line-clamp-2">
+                          <p className="font-medium text-sm group-hover:text-[#0A1628] line-clamp-2">
                             {pub.titulo}
                           </p>
                           <p className="text-xs text-gray-500 mt-1">

@@ -88,8 +88,8 @@ function AccesosRapidos() {
     <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <Badge className="bg-[#E6A817]/10 text-[#E6A817] mb-4">Servicios en Línea</Badge>
-          <h2 className="text-2xl font-bold text-[#001F3F]">Acceso Rápido</h2>
+          <Badge className="bg-[#D4A017]/10 text-[#D4A017] mb-4">Servicios en Línea</Badge>
+          <h2 className="text-2xl font-bold text-[#0A1628]">Acceso Rápido</h2>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -101,10 +101,10 @@ function AccesosRapidos() {
               rel="noopener noreferrer"
               className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 group"
             >
-              <div className="w-14 h-14 bg-[#001F3F] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E6A817] transition-colors">
+              <div className="w-14 h-14 bg-[#0A1628] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#D4A017] transition-colors">
                 {accesoIconMap[acceso.icono]}
               </div>
-              <span className="font-medium text-[#001F3F] block">{acceso.nombre}</span>
+              <span className="font-medium text-[#0A1628] block">{acceso.nombre}</span>
               <span className="text-sm text-gray-500 mt-1 block">{acceso.descripcion}</span>
             </a>
           ))}
@@ -125,7 +125,7 @@ function TramitesGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <Badge className="bg-blue-100 text-blue-800 mb-4">Gestiones Académicas</Badge>
-          <h2 className="text-2xl font-bold text-[#001F3F] mb-2">Procesos y Trámites</h2>
+          <h2 className="text-2xl font-bold text-[#0A1628] mb-2">Procesos y Trámites</h2>
           <p className="text-gray-600">Gestiona tus procesos académicos de manera fácil y rápida</p>
         </div>
 
@@ -144,7 +144,7 @@ function TramitesGrid() {
                       {IconComponent && IconComponent(`w-6 h-6 ${tramite.iconColor}`)}
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-lg text-[#001F3F] group-hover:text-[#E6A817] transition-colors">
+                      <CardTitle className="text-lg text-[#0A1628] group-hover:text-[#D4A017] transition-colors">
                         {tramite.nombre}
                       </CardTitle>
                     </div>
@@ -170,14 +170,14 @@ function TramitesGrid() {
                     <div className="mt-4 pt-4 border-t space-y-4 animate-in slide-in-from-top-2">
                       {/* Requisitos */}
                       <div>
-                        <h4 className="font-semibold text-sm text-[#001F3F] mb-2 flex items-center gap-2">
+                        <h4 className="font-semibold text-sm text-[#0A1628] mb-2 flex items-center gap-2">
                           <CheckCircle className="w-4 h-4 text-green-500" />
                           Requisitos
                         </h4>
                         <ul className="space-y-1">
                           {tramite.requisitos.map((req, idx) => (
                             <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
-                              <ChevronRight className="w-4 h-4 text-[#E6A817] flex-shrink-0 mt-0.5" />
+                              <ChevronRight className="w-4 h-4 text-[#D4A017] flex-shrink-0 mt-0.5" />
                               {req}
                             </li>
                           ))}
@@ -186,14 +186,14 @@ function TramitesGrid() {
 
                       {/* Pasos */}
                       <div>
-                        <h4 className="font-semibold text-sm text-[#001F3F] mb-2 flex items-center gap-2">
+                        <h4 className="font-semibold text-sm text-[#0A1628] mb-2 flex items-center gap-2">
                           <FileText className="w-4 h-4 text-blue-500" />
                           Pasos a seguir
                         </h4>
                         <ol className="space-y-1">
                           {tramite.pasos.map((paso, idx) => (
                             <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
-                              <span className="w-5 h-5 bg-[#001F3F] text-white rounded-full flex items-center justify-center text-xs flex-shrink-0">
+                              <span className="w-5 h-5 bg-[#0A1628] text-white rounded-full flex items-center justify-center text-xs flex-shrink-0">
                                 {idx + 1}
                               </span>
                               {paso}
@@ -205,7 +205,7 @@ function TramitesGrid() {
                       {/* Documentos */}
                       {tramite.documentos.length > 0 && (
                         <div>
-                          <h4 className="font-semibold text-sm text-[#001F3F] mb-2 flex items-center gap-2">
+                          <h4 className="font-semibold text-sm text-[#0A1628] mb-2 flex items-center gap-2">
                             <FileText className="w-4 h-4 text-amber-500" />
                             Documentos necesarios
                           </h4>
@@ -262,7 +262,7 @@ function DocumentosDescargables() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <Badge className="bg-red-100 text-red-800 mb-4">Recursos</Badge>
-          <h2 className="text-2xl font-bold text-[#001F3F] mb-2">Documentos Importantes</h2>
+          <h2 className="text-2xl font-bold text-[#0A1628] mb-2">Documentos Importantes</h2>
           <p className="text-gray-600">Descarga reglamentos, formatos y guías oficiales</p>
         </div>
 
@@ -279,7 +279,7 @@ function DocumentosDescargables() {
                   <FileText className={`w-5 h-5 ${style.text}`} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-medium text-[#001F3F] group-hover:text-[#E6A817] transition-colors truncate">
+                  <h4 className="font-medium text-[#0A1628] group-hover:text-[#D4A017] transition-colors truncate">
                     {doc.nombre}
                   </h4>
                   <div className="flex items-center gap-2">
@@ -291,7 +291,7 @@ function DocumentosDescargables() {
                     </span>
                   </div>
                 </div>
-                <Download className="w-5 h-5 text-gray-400 group-hover:text-[#E6A817] flex-shrink-0" />
+                <Download className="w-5 h-5 text-gray-400 group-hover:text-[#D4A017] flex-shrink-0" />
               </a>
             );
           })}
@@ -335,7 +335,7 @@ function CalendarioAcademico() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <Badge className="bg-purple-100 text-purple-800 mb-4">Planificación</Badge>
-          <h2 className="text-2xl font-bold text-[#001F3F] mb-2">Calendario Académico</h2>
+          <h2 className="text-2xl font-bold text-[#0A1628] mb-2">Calendario Académico</h2>
           <p className="text-gray-600">Fechas importantes del semestre</p>
         </div>
 
@@ -343,13 +343,13 @@ function CalendarioAcademico() {
           {calendarioAcademico.slice(0, 8).map((fecha) => {
             const style = tipoStyles[fecha.tipo];
             return (
-              <Card key={fecha.id} className={`relative overflow-hidden ${fecha.importante ? 'ring-2 ring-[#E6A817]' : ''}`}>
+              <Card key={fecha.id} className={`relative overflow-hidden ${fecha.importante ? 'ring-2 ring-[#D4A017]' : ''}`}>
                 <div className={`absolute top-0 left-0 w-1 h-full ${style.bg}`} />
                 <CardContent className="pt-4">
                   <Badge variant="outline" className={`mb-2 ${style.text} border-current`}>
                     {style.label}
                   </Badge>
-                  <h4 className="font-semibold text-[#001F3F] mb-1">{fecha.titulo}</h4>
+                  <h4 className="font-semibold text-[#0A1628] mb-1">{fecha.titulo}</h4>
                   <p className="text-sm text-gray-600 mb-2">{fecha.descripcion}</p>
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Calendar className="w-4 h-4" />
@@ -359,7 +359,7 @@ function CalendarioAcademico() {
                     </span>
                   </div>
                   {fecha.importante && (
-                    <Badge className="mt-2 bg-[#E6A817] text-[#001F3F]">
+                    <Badge className="mt-2 bg-[#D4A017] text-[#0A1628]">
                       <AlertCircle className="w-3 h-3 mr-1" />
                       Importante
                     </Badge>
@@ -379,7 +379,7 @@ function CalendarioAcademico() {
 // ========================================
 function RecursosAcademicosGrid() {
   return (
-    <section className="py-12 bg-[#001F3F]">
+    <section className="py-12 bg-[#0A1628]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <Badge className="bg-white/10 text-white mb-4">Herramientas</Badge>
@@ -396,7 +396,7 @@ function RecursosAcademicosGrid() {
               rel={recurso.externo ? 'noopener noreferrer' : undefined}
               className="bg-white/10 rounded-xl p-4 text-center hover:bg-white/20 transition-colors group"
             >
-              <div className="w-12 h-12 bg-[#E6A817] rounded-full flex items-center justify-center mx-auto mb-3 text-[#001F3F] group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 bg-[#D4A017] rounded-full flex items-center justify-center mx-auto mb-3 text-[#0A1628] group-hover:scale-110 transition-transform">
                 {recursoIconMap[recurso.icono] || <BookOpen className="w-5 h-5" />}
               </div>
               <h4 className="font-medium text-white text-sm mb-1">{recurso.nombre}</h4>
@@ -430,7 +430,7 @@ function PreguntasFrecuentesSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <Badge className="bg-amber-100 text-amber-800 mb-4">Ayuda</Badge>
-          <h2 className="text-2xl font-bold text-[#001F3F] mb-2">Preguntas Frecuentes</h2>
+          <h2 className="text-2xl font-bold text-[#0A1628] mb-2">Preguntas Frecuentes</h2>
           <p className="text-gray-600">Respuestas a las dudas más comunes de los estudiantes</p>
         </div>
 
@@ -445,8 +445,8 @@ function PreguntasFrecuentesSection() {
                 className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <HelpCircle className="w-5 h-5 text-[#E6A817] flex-shrink-0" />
-                  <span className="font-medium text-[#001F3F]">{faq.pregunta}</span>
+                  <HelpCircle className="w-5 h-5 text-[#D4A017] flex-shrink-0" />
+                  <span className="font-medium text-[#0A1628]">{faq.pregunta}</span>
                 </div>
                 {openId === faq.id ? (
                   <ChevronUp className="w-5 h-5 text-gray-400" />
@@ -470,7 +470,7 @@ function PreguntasFrecuentesSection() {
 
         <div className="text-center mt-8">
           <p className="text-gray-600 mb-4">¿No encontraste lo que buscabas?</p>
-          <Button className="bg-[#001F3F] hover:bg-[#001A33]" asChild>
+          <Button className="bg-[#0A1628] hover:bg-[#060D17]" asChild>
             <a href="mailto:epg@unapiquitos.edu.pe" className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
               Contáctanos
@@ -489,7 +489,7 @@ function CtaSection() {
   return (
     <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Card className="bg-gradient-to-r from-[#001F3F] to-[#003366] text-white border-0 p-8">
+        <Card className="bg-gradient-to-r from-[#0A1628] to-[#0D2240] text-white border-0 p-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-2xl font-bold mb-2">¿Necesitas ayuda adicional?</h3>
@@ -500,7 +500,7 @@ function CtaSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227] font-semibold"
+                className="bg-[#D4A017] text-[#0A1628] hover:bg-[#B8860B] font-semibold"
                 asChild
               >
                 <a href="https://sigae.unapiquitos.edu.pe" target="_blank" rel="noopener noreferrer">
@@ -530,13 +530,13 @@ export function EstudiantesContent() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-[#001F3F] text-white py-16">
+      <section className="bg-[#0A1628] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="text-sm mb-4">
             <ol className="flex items-center gap-2">
               <li><a href="/" className="text-gray-300 hover:text-white">Inicio</a></li>
               <li className="text-gray-400">/</li>
-              <li className="text-[#E6A817]">Estudiantes</li>
+              <li className="text-[#D4A017]">Estudiantes</li>
             </ol>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Portal del Estudiante</h1>
