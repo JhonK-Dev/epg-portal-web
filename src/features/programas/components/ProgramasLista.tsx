@@ -281,7 +281,7 @@ export function ProgramasLista() {
               variant="ghost"
               size="sm"
               onClick={limpiarFiltros}
-              className="text-red-600 hover:text-red-700 hover:bg-red-50"
+              className="text-destructive hover:text-destructive/80 hover:bg-destructive/10"
             >
               Limpiar todo
             </Button>
