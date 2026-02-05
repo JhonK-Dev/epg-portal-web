@@ -45,6 +45,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { CTABannerSideBySide } from '@/components/ui/cta-banner';
 
 // ========================================
 // ICON MAPPER HELPERS
@@ -489,35 +490,19 @@ function CtaSection() {
   return (
     <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Card className="bg-gradient-to-r from-epg-navy to-epg-navy-light text-white border-0 p-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">¿Necesitas ayuda adicional?</h3>
-              <p className="text-gray-300">
-                Nuestro equipo de atención al estudiante está disponible para ayudarte
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
-                asChild
-              >
-                <a href="https://sigae.unapiquitos.edu.pe" target="_blank" rel="noopener noreferrer">
-                  Ir a SIGAE
-                </a>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10"
-                asChild
-              >
-                <a href="/servicios">Ver todos los servicios</a>
-              </Button>
-            </div>
-          </div>
-        </Card>
+        <CTABannerSideBySide
+          title="¿Necesitas ayuda adicional?"
+          description="Nuestro equipo de atención al estudiante está disponible para ayudarte"
+          primaryAction={{
+            label: "Ir a SIGAE",
+            href: "https://sigae.unapiquitos.edu.pe",
+            external: true,
+          }}
+          secondaryAction={{
+            label: "Ver todos los servicios",
+            href: "/servicios",
+          }}
+        />
       </div>
     </section>
   );

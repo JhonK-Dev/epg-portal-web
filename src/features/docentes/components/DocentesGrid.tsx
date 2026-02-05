@@ -15,6 +15,7 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { CTABannerSideBySide } from '@/components/ui/cta-banner';
 
 type FiltroGrado = 'todos' | 'doctores' | 'magisteres';
 
@@ -267,26 +268,14 @@ export function DocentesGrid() {
 
       {/* CTA para ser docente */}
       <section>
-        <Card className="bg-gradient-to-r from-epg-navy to-epg-navy-light text-white border-0 p-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">
-                ¿Interesado en ser docente de la EPG?
-              </h3>
-              <p className="text-gray-300">
-                Convocamos a profesionales con grado de maestría o doctorado para integrar nuestra plana docente
-              </p>
-            </div>
-            <Button 
-              className="bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
-              asChild
-            >
-              <a href="/docentes/convocatoria">
-                Ver convocatoria
-              </a>
-            </Button>
-          </div>
-        </Card>
+        <CTABannerSideBySide
+          title="¿Interesado en ser docente de la EPG?"
+          description="Convocamos a profesionales con grado de maestría o doctorado para integrar nuestra plana docente"
+          primaryAction={{
+            label: "Ver convocatoria",
+            href: "/docentes/convocatoria",
+          }}
+        />
       </section>
     </div>
   );

@@ -16,6 +16,7 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { CTABannerSideBySide } from '@/components/ui/cta-banner';
 
 const iconMap: Record<string, React.ReactNode> = {
   GraduationCap: <GraduationCap className="h-10 w-10" />,
@@ -164,39 +165,20 @@ export function ServiciosGrid() {
 
       {/* CTA */}
       <section>
-        <Card className="bg-gradient-to-r from-epg-navy to-epg-navy-light text-white border-0 p-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">
-                ¿Necesitas ayuda adicional?
-              </h3>
-              <p className="text-gray-300">
-                Nuestro equipo de soporte está disponible para ayudarte con cualquier consulta
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <Button 
-                className="bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
-                asChild
-              >
-                <a href="mailto:soporte@universidad.edu.pe">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Escribir a soporte
-                </a>
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-white text-white hover:bg-white/10"
-                asChild
-              >
-                <a href="tel:+5165123456">
-                  <Phone className="h-4 w-4 mr-2" />
-                  (065) 123-456
-                </a>
-              </Button>
-            </div>
-          </div>
-        </Card>
+        <CTABannerSideBySide
+          title="¿Necesitas ayuda adicional?"
+          description="Nuestro equipo de soporte está disponible para ayudarte con cualquier consulta"
+          primaryAction={{
+            label: "Escribir a soporte",
+            href: "mailto:soporte@universidad.edu.pe",
+            icon: <Mail className="h-4 w-4 mr-2" />,
+          }}
+          secondaryAction={{
+            label: "(065) 123-456",
+            href: "tel:+5165123456",
+            icon: <Phone className="h-4 w-4 mr-2" />,
+          }}
+        />
       </section>
     </div>
   );
