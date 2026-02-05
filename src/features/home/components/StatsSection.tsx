@@ -1,6 +1,13 @@
-import React from 'react';
-import { GraduationCap, Users, Award, BookOpen, Calendar, ThumbsUp } from 'lucide-react';
-import { SectionHeader } from '@/components/ui/section-header';
+import React from 'react'
+import {
+  GraduationCap,
+  Users,
+  Award,
+  BookOpen,
+  Calendar,
+  ThumbsUp,
+} from 'lucide-react'
+import { SectionHeader } from '@/components/ui/section-header'
 
 const stats = [
   {
@@ -39,7 +46,7 @@ const stats = [
     icon: ThumbsUp,
     description: 'Estudiantes satisfechos',
   },
-];
+]
 
 export const StatsSection: React.FC = () => {
   return (
@@ -53,7 +60,7 @@ export const StatsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <SectionHeader
-          badge={{ label: "Nuestros números", className: "text-epg-gold" }}
+          badge={{ label: 'Nuestros números', className: 'text-epg-gold' }}
           title="Cifras que nos respaldan"
           description="Más de tres décadas formando líderes para el desarrollo de la Amazonía peruana."
           titleColor="text-white"
@@ -64,7 +71,7 @@ export const StatsSection: React.FC = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {stats.map((stat, index) => {
-            const Icon = stat.icon;
+            const Icon = stat.icon
             return (
               <div
                 key={index}
@@ -83,10 +90,10 @@ export const StatsSection: React.FC = () => {
                   {stat.description}
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

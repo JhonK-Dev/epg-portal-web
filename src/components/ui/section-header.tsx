@@ -1,32 +1,32 @@
-import * as React from 'react';
-import { cn } from '@/lib/utils';
-import { Badge } from './badge';
+import * as React from 'react'
+import { cn } from '@/lib/utils'
+import { Badge } from './badge'
 
 export interface SectionHeaderProps {
   /** Badge configuration with label and optional custom className for colors */
   badge?: {
-    label: string;
-    className?: string;
-  };
+    label: string
+    className?: string
+  }
   /** Section title */
-  title: string;
+  title: string
   /** Optional description text below the title */
-  description?: string;
+  description?: string
   /** Text alignment - 'center' or 'left' */
-  align?: 'center' | 'left';
+  align?: 'center' | 'left'
   /** Title text color class (e.g., 'text-epg-navy', 'text-white') */
-  titleColor?: string;
+  titleColor?: string
   /** Description text color class (e.g., 'text-gray-600', 'text-gray-400') */
-  descriptionColor?: string;
+  descriptionColor?: string
   /** Additional className for the container */
-  className?: string;
+  className?: string
   /** Optional right-side action element (e.g., link or button) */
-  action?: React.ReactNode;
+  action?: React.ReactNode
 }
 
 /**
  * SectionHeader - A reusable component for section headers with badge, title and description.
- * 
+ *
  * @example
  * // Centered header with badge
  * <SectionHeader
@@ -34,7 +34,7 @@ export interface SectionHeaderProps {
  *   title="Fechas Importantes"
  *   description="Conoce las fechas clave del proceso de admisión 2025-I"
  * />
- * 
+ *
  * @example
  * // Left-aligned header with action
  * <SectionHeader
@@ -55,18 +55,25 @@ export function SectionHeader({
   className,
   action,
 }: SectionHeaderProps) {
-  const isCenter = align === 'center';
-  
+  const isCenter = align === 'center'
+
   // If there's an action, use flex layout for side-by-side arrangement
   if (action) {
     return (
-      <div className={cn('flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12', className)}>
+      <div
+        className={cn(
+          'flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12',
+          className,
+        )}
+      >
         <div className={cn(!isCenter && 'text-left')}>
           {badge && (
-            <span className={cn(
-              'font-semibold text-sm uppercase tracking-wider mb-2 block',
-              badge.className
-            )}>
+            <span
+              className={cn(
+                'font-semibold text-sm uppercase tracking-wider mb-2 block',
+                badge.className,
+              )}
+            >
               {badge.label}
             </span>
           )}
@@ -81,35 +88,23 @@ export function SectionHeader({
         </div>
         {action}
       </div>
-    );
+    )
   }
 
   // Standard centered/left layout without action
   return (
-    <div className={cn(
-      'mb-8',
-      isCenter && 'text-center',
-      className
-    )}>
+    <div className={cn('mb-8', isCenter && 'text-center', className)}>
       {badge && (
-        <Badge className={cn('mb-4', badge.className)}>
-          {badge.label}
-        </Badge>
+        <Badge className={cn('mb-4', badge.className)}>{badge.label}</Badge>
       )}
-      <h2 className={cn('text-3xl font-bold mb-4', titleColor)}>
-        {title}
-      </h2>
+      <h2 className={cn('text-3xl font-bold mb-4', titleColor)}>{title}</h2>
       {description && (
-        <p className={cn(
-          'max-w-2xl',
-          isCenter && 'mx-auto',
-          descriptionColor
-        )}>
+        <p className={cn('max-w-2xl', isCenter && 'mx-auto', descriptionColor)}>
           {description}
         </p>
       )}
     </div>
-  );
+  )
 }
 
-export default SectionHeader;
+export default SectionHeader
