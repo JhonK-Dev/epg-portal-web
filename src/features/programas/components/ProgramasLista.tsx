@@ -1,13 +1,13 @@
-import { useState, useMemo } from 'react';
-import type { Programa, TipoPrograma } from '@/types';
-import { programas } from '@/data/programas';
-import { 
+import { useState, useMemo } from 'react'
+import type { Programa, TipoPrograma } from '@/types'
+import { programas } from '@/data/programas'
+import {
   tipoProgramaLabels,
   tipoProgramaButtonColors,
   tipoProgramaBadgeColors,
   modalidadLabels,
-  modalidadColors 
-} from '@/lib/constants';
+  modalidadColors,
+} from '@/lib/constants'
 import {
   Filter,
   GraduationCap,
@@ -16,15 +16,21 @@ import {
   BookOpen,
   ChevronDown,
   X,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CTABanner } from '@/components/ui/cta-banner';
-import { SearchInput } from '@/components/ui/search-input';
+} from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { CTABanner } from '@/components/ui/cta-banner'
+import { SearchInput } from '@/components/ui/search-input'
 
-type Modalidad = 'presencial' | 'semipresencial' | 'virtual' | 'todos';
-type TipoFiltro = TipoPrograma | 'todos';
+type Modalidad = 'presencial' | 'semipresencial' | 'virtual' | 'todos'
+type TipoFiltro = TipoPrograma | 'todos'
 
 // Use labels from constants, adding plural forms for display
 const tipoLabels: Record<string, string> = {
@@ -33,18 +39,15 @@ const tipoLabels: Record<string, string> = {
   doctorado: 'Doctorados',
   diplomado: 'Diplomados',
   curso: 'Cursos',
-};
+}
 
 interface ProgramaCardProps {
-  programa: Programa;
+  programa: Programa
 }
 
 function ProgramaCard({ programa }: ProgramaCardProps) {
   return (
-    <a 
-      href={`/programas/${programa.slug}`}
-      className="group block"
-    >
+    <a href={`/programas/${programa.slug}`} className="group block">
       <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-transparent hover:border-l-epg-gold">
         <CardHeader className="pb-3">
           <div className="flex items-start justify-between gap-2 mb-2">
@@ -77,11 +80,13 @@ function ProgramaCard({ programa }: ProgramaCardProps) {
               <span className="truncate">{programa.facultad}</span>
             </div>
           </div>
-          
+
           {programa.inversion && (
             <div className="mt-4 pt-4 border-t">
               <p className="text-sm text-gray-500">Inversión</p>
-              <p className="font-semibold text-epg-navy">{programa.inversion}</p>
+              <p className="font-semibold text-epg-navy">
+                {programa.inversion}
+              </p>
             </div>
           )}
 
@@ -93,56 +98,62 @@ function ProgramaCard({ programa }: ProgramaCardProps) {
         </CardContent>
       </Card>
     </a>
-  );
+  )
 }
 
 export function ProgramasLista() {
-  const [tipoFiltro, setTipoFiltro] = useState<TipoFiltro>('todos');
-  const [modalidadFiltro, setModalidadFiltro] = useState<Modalidad>('todos');
-  const [busqueda, setBusqueda] = useState('');
-  const [mostrarFiltros, setMostrarFiltros] = useState(false);
+  const [tipoFiltro, setTipoFiltro] = useState<TipoFiltro>('todos')
+  const [modalidadFiltro, setModalidadFiltro] = useState<Modalidad>('todos')
+  const [busqueda, setBusqueda] = useState('')
+  const [mostrarFiltros, setMostrarFiltros] = useState(false)
 
   const programasFiltrados = useMemo(() => {
     return programas.filter((programa) => {
       // Filtro por tipo
       if (tipoFiltro !== 'todos' && programa.tipo !== tipoFiltro) {
-        return false;
+        return false
       }
 
       // Filtro por modalidad
-      if (modalidadFiltro !== 'todos' && programa.modalidad !== modalidadFiltro) {
-        return false;
+      if (
+        modalidadFiltro !== 'todos' &&
+        programa.modalidad !== modalidadFiltro
+      ) {
+        return false
       }
 
       // Filtro por búsqueda
       if (busqueda.trim()) {
-        const searchLower = busqueda.toLowerCase();
+        const searchLower = busqueda.toLowerCase()
         return (
           programa.nombre.toLowerCase().includes(searchLower) ||
           programa.descripcion.toLowerCase().includes(searchLower) ||
           programa.facultad.toLowerCase().includes(searchLower)
-        );
+        )
       }
 
-      return true;
-    });
-  }, [tipoFiltro, modalidadFiltro, busqueda]);
+      return true
+    })
+  }, [tipoFiltro, modalidadFiltro, busqueda])
 
   const conteosPorTipo = useMemo(() => {
-    const conteos: Record<string, number> = { todos: programas.length };
+    const conteos: Record<string, number> = { todos: programas.length }
     programas.forEach((p) => {
-      conteos[p.tipo] = (conteos[p.tipo] || 0) + 1;
-    });
-    return conteos;
-  }, []);
+      conteos[p.tipo] = (conteos[p.tipo] || 0) + 1
+    })
+    return conteos
+  }, [])
 
   const limpiarFiltros = () => {
-    setTipoFiltro('todos');
-    setModalidadFiltro('todos');
-    setBusqueda('');
-  };
+    setTipoFiltro('todos')
+    setModalidadFiltro('todos')
+    setBusqueda('')
+  }
 
-  const hayFiltrosActivos = tipoFiltro !== 'todos' || modalidadFiltro !== 'todos' || busqueda.trim() !== '';
+  const hayFiltrosActivos =
+    tipoFiltro !== 'todos' ||
+    modalidadFiltro !== 'todos' ||
+    busqueda.trim() !== ''
 
   return (
     <div>
@@ -166,7 +177,9 @@ export function ProgramasLista() {
           >
             <Filter className="h-4 w-4" />
             Filtros
-            <ChevronDown className={`h-4 w-4 transition-transform ${mostrarFiltros ? 'rotate-180' : ''}`} />
+            <ChevronDown
+              className={`h-4 w-4 transition-transform ${mostrarFiltros ? 'rotate-180' : ''}`}
+            />
           </Button>
 
           {/* Filtros (desktop) */}
@@ -178,10 +191,18 @@ export function ProgramasLista() {
               className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white min-w-[180px]"
             >
               <option value="todos">Todos los tipos</option>
-              <option value="maestria">Maestrías ({conteosPorTipo.maestria || 0})</option>
-              <option value="doctorado">Doctorados ({conteosPorTipo.doctorado || 0})</option>
-              <option value="diplomado">Diplomados ({conteosPorTipo.diplomado || 0})</option>
-              <option value="curso">Cursos ({conteosPorTipo.curso || 0})</option>
+              <option value="maestria">
+                Maestrías ({conteosPorTipo.maestria || 0})
+              </option>
+              <option value="doctorado">
+                Doctorados ({conteosPorTipo.doctorado || 0})
+              </option>
+              <option value="diplomado">
+                Diplomados ({conteosPorTipo.diplomado || 0})
+              </option>
+              <option value="curso">
+                Cursos ({conteosPorTipo.curso || 0})
+              </option>
             </select>
 
             {/* Modalidad */}
@@ -211,10 +232,18 @@ export function ProgramasLista() {
                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
               >
                 <option value="todos">Todos los tipos</option>
-                <option value="maestria">Maestrías ({conteosPorTipo.maestria || 0})</option>
-                <option value="doctorado">Doctorados ({conteosPorTipo.doctorado || 0})</option>
-                <option value="diplomado">Diplomados ({conteosPorTipo.diplomado || 0})</option>
-                <option value="curso">Cursos ({conteosPorTipo.curso || 0})</option>
+                <option value="maestria">
+                  Maestrías ({conteosPorTipo.maestria || 0})
+                </option>
+                <option value="doctorado">
+                  Doctorados ({conteosPorTipo.doctorado || 0})
+                </option>
+                <option value="diplomado">
+                  Diplomados ({conteosPorTipo.diplomado || 0})
+                </option>
+                <option value="curso">
+                  Cursos ({conteosPorTipo.curso || 0})
+                </option>
               </select>
             </div>
             <div>
@@ -223,7 +252,9 @@ export function ProgramasLista() {
               </label>
               <select
                 value={modalidadFiltro}
-                onChange={(e) => setModalidadFiltro(e.target.value as Modalidad)}
+                onChange={(e) =>
+                  setModalidadFiltro(e.target.value as Modalidad)
+                }
                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
               >
                 <option value="todos">Todas las modalidades</option>
@@ -239,7 +270,7 @@ export function ProgramasLista() {
         {hayFiltrosActivos && (
           <div className="mt-4 pt-4 border-t flex flex-wrap items-center gap-2">
             <span className="text-sm text-gray-500">Filtros activos:</span>
-            
+
             {tipoFiltro !== 'todos' && (
               <Badge variant="secondary" className="gap-1">
                 {tipoLabels[tipoFiltro]}
@@ -248,7 +279,7 @@ export function ProgramasLista() {
                 </button>
               </Badge>
             )}
-            
+
             {modalidadFiltro !== 'todos' && (
               <Badge variant="secondary" className="gap-1">
                 {modalidadLabels[modalidadFiltro]}
@@ -257,7 +288,7 @@ export function ProgramasLista() {
                 </button>
               </Badge>
             )}
-            
+
             {busqueda.trim() && (
               <Badge variant="secondary" className="gap-1">
                 "{busqueda}"
@@ -281,13 +312,17 @@ export function ProgramasLista() {
 
       {/* Tabs de tipo rápido */}
       <div className="flex flex-wrap gap-2 mb-6">
-        {(['todos', 'maestria', 'doctorado', 'diplomado', 'curso'] as const).map((tipo) => (
+        {(
+          ['todos', 'maestria', 'doctorado', 'diplomado', 'curso'] as const
+        ).map((tipo) => (
           <Button
             key={tipo}
             variant={tipoFiltro === tipo ? 'default' : 'outline'}
             size="sm"
             onClick={() => setTipoFiltro(tipo)}
-            className={tipoFiltro === tipo ? 'bg-epg-navy hover:bg-epg-navy-dark' : ''}
+            className={
+              tipoFiltro === tipo ? 'bg-epg-navy hover:bg-epg-navy-dark' : ''
+            }
           >
             {tipoLabels[tipo]}
             <span className="ml-1 text-xs opacity-70">
@@ -334,16 +369,16 @@ export function ProgramasLista() {
           title="¿No encuentras lo que buscas?"
           description="Nuestro equipo de admisión puede ayudarte a encontrar el programa ideal según tu perfil profesional y objetivos académicos."
           primaryAction={{
-            label: "Iniciar proceso de admisión",
-            href: "/admision",
+            label: 'Iniciar proceso de admisión',
+            href: '/admision',
           }}
           secondaryAction={{
-            label: "Contactar asesor",
-            href: "#",
+            label: 'Contactar asesor',
+            href: '#',
           }}
           className="text-center"
         />
       </div>
     </div>
-  );
+  )
 }
