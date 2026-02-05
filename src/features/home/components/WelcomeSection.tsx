@@ -36,7 +36,7 @@ export const WelcomeSection: React.FC = () => {
             </p>
 
             {/* Features Card */}
-            <div className="bg-[#FFF9E6] rounded-2xl p-6 lg:p-8">
+            <div className="bg-epg-gold-soft rounded-2xl p-6 lg:p-8">
               {/* Icon and Title */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-epg-navy rounded-xl flex items-center justify-center flex-shrink-0">

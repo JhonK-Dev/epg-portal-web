@@ -1,6 +1,6 @@
 import type { Docente } from '@/types';
 import { getProgramaById } from '@/data/programas';
-import { getGradoInfo } from '@/lib/constants';
+import { getGradoInfo, getSocialNetworkClasses } from '@/lib/constants';
 import {
   Mail,
   Phone,
@@ -97,12 +97,12 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
 
               {/* Academic Links */}
               <div className="flex flex-wrap gap-3 mt-4">
-                {docente.orcid && (
+{docente.orcid && (
                   <a
                     href={`https://orcid.org/${docente.orcid}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-500/20 text-green-300 rounded-lg hover:bg-green-500/30 transition-colors text-sm"
+                    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg transition-colors text-sm ${getSocialNetworkClasses('orcid')}`}
                   >
                     <Globe className="w-4 h-4" />
                     ORCID
@@ -114,7 +114,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                     href={docente.googleScholar}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500/20 text-blue-300 rounded-lg hover:bg-blue-500/30 transition-colors text-sm"
+                    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg transition-colors text-sm ${getSocialNetworkClasses('googleScholar')}`}
                   >
                     <BookOpen className="w-4 h-4" />
                     Google Scholar
@@ -126,7 +126,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                     href={docente.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-600/20 text-blue-300 rounded-lg hover:bg-blue-600/30 transition-colors text-sm"
+                    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg transition-colors text-sm ${getSocialNetworkClasses('linkedin')}`}
                   >
                     <ExternalLink className="w-4 h-4" />
                     LinkedIn
@@ -137,7 +137,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                     href={docente.researchgate}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-teal-500/20 text-teal-300 rounded-lg hover:bg-teal-500/30 transition-colors text-sm"
+                    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg transition-colors text-sm ${getSocialNetworkClasses('researchGate')}`}
                   >
                     <BookOpen className="w-4 h-4" />
                     ResearchGate

@@ -23,26 +23,26 @@ export const gradoLabels: Record<string, GradoInfo> = {
   doctor: { 
     label: 'Dr.', 
     labelFull: 'Doctor', 
-    color: 'text-amber-800', 
-    bgColor: 'bg-amber-100' 
+    color: 'text-grado-doctor', 
+    bgColor: 'bg-grado-doctor-light' 
   },
   phd: { 
     label: 'Ph.D.', 
     labelFull: 'PhD', 
-    color: 'text-purple-800', 
-    bgColor: 'bg-purple-100' 
+    color: 'text-grado-phd', 
+    bgColor: 'bg-grado-phd-light' 
   },
   magister: { 
     label: 'Mg.', 
     labelFull: 'Magíster', 
-    color: 'text-blue-800', 
-    bgColor: 'bg-blue-100' 
+    color: 'text-grado-magister', 
+    bgColor: 'bg-grado-magister-light' 
   },
   bachiller: { 
     label: 'Bach.', 
     labelFull: 'Bachiller', 
-    color: 'text-gray-800', 
-    bgColor: 'bg-gray-100' 
+    color: 'text-grado-bachiller', 
+    bgColor: 'bg-grado-bachiller-light' 
   },
 };
 
@@ -72,30 +72,30 @@ export const tipoProgramaLabels: Record<string, string> = {
  * Colores de fondo para tipos de programa (para headers/hero)
  */
 export const tipoProgramaColors: Record<string, string> = {
-  maestria: 'bg-blue-600',
-  doctorado: 'bg-purple-600',
-  diplomado: 'bg-emerald-600',
-  curso: 'bg-amber-600',
+  maestria: 'bg-maestria',
+  doctorado: 'bg-doctorado',
+  diplomado: 'bg-diplomado',
+  curso: 'bg-curso',
 };
 
 /**
  * Colores con hover para tipos de programa (para botones)
  */
 export const tipoProgramaButtonColors: Record<string, string> = {
-  maestria: 'bg-blue-600 hover:bg-blue-700',
-  doctorado: 'bg-purple-600 hover:bg-purple-700',
-  diplomado: 'bg-emerald-600 hover:bg-emerald-700',
-  curso: 'bg-amber-600 hover:bg-amber-700',
+  maestria: 'bg-maestria hover:bg-maestria/90',
+  doctorado: 'bg-doctorado hover:bg-doctorado/90',
+  diplomado: 'bg-diplomado hover:bg-diplomado/90',
+  curso: 'bg-curso hover:bg-curso/90',
 };
 
 /**
  * Colores para badges de tipos de programa
  */
 export const tipoProgramaBadgeColors: Record<string, string> = {
-  maestria: 'bg-blue-100 text-blue-800',
-  doctorado: 'bg-purple-100 text-purple-800',
-  diplomado: 'bg-emerald-100 text-emerald-800',
-  curso: 'bg-amber-100 text-amber-800',
+  maestria: 'bg-maestria-light text-maestria',
+  doctorado: 'bg-doctorado-light text-doctorado',
+  diplomado: 'bg-diplomado-light text-diplomado',
+  curso: 'bg-curso-light text-curso',
 };
 
 // ========================================
@@ -116,9 +116,9 @@ export const modalidadLabels: Record<string, string> = {
  * Colores para badges de modalidades
  */
 export const modalidadColors: Record<string, string> = {
-  presencial: 'bg-blue-100 text-blue-800',
-  semipresencial: 'bg-purple-100 text-purple-800',
-  virtual: 'bg-green-100 text-green-800',
+  presencial: 'bg-modalidad-presencial-light text-modalidad-presencial',
+  semipresencial: 'bg-modalidad-semipresencial-light text-modalidad-semipresencial',
+  virtual: 'bg-modalidad-virtual-light text-modalidad-virtual',
 };
 
 // ========================================
@@ -139,30 +139,30 @@ export const tipoPublicacionLabels: Record<string, string> = {
  * Colores de fondo para tipos de publicación
  */
 export const tipoPublicacionColors: Record<string, string> = {
-  noticia: 'bg-blue-600',
-  evento: 'bg-purple-600',
-  aviso: 'bg-amber-600',
-  comunicado: 'bg-emerald-600',
+  noticia: 'bg-publicacion-noticia',
+  evento: 'bg-publicacion-evento',
+  aviso: 'bg-publicacion-aviso',
+  comunicado: 'bg-publicacion-comunicado',
 };
 
 /**
  * Colores para badges de tipos de publicación
  */
 export const tipoPublicacionBadgeColors: Record<string, string> = {
-  noticia: 'bg-blue-100 text-blue-800',
-  evento: 'bg-purple-100 text-purple-800',
-  aviso: 'bg-green-100 text-green-800',
-  comunicado: 'bg-amber-100 text-amber-800',
+  noticia: 'bg-publicacion-noticia-light text-publicacion-noticia',
+  evento: 'bg-publicacion-evento-light text-publicacion-evento',
+  aviso: 'bg-publicacion-aviso-light text-publicacion-aviso',
+  comunicado: 'bg-publicacion-comunicado-light text-publicacion-comunicado',
 };
 
 /**
  * Colores para badges de tipos de publicación (versión con texto blanco)
  */
 export const tipoPublicacionBadgeWhiteColors: Record<string, string> = {
-  noticia: 'bg-blue-500 text-white',
-  evento: 'bg-purple-500 text-white',
-  aviso: 'bg-green-500 text-white',
-  comunicado: 'bg-amber-500 text-white',
+  noticia: 'bg-publicacion-noticia text-white',
+  evento: 'bg-publicacion-evento text-white',
+  aviso: 'bg-publicacion-aviso text-white',
+  comunicado: 'bg-publicacion-comunicado text-white',
 };
 
 // ========================================
@@ -173,10 +173,10 @@ export const tipoPublicacionBadgeWhiteColors: Record<string, string> = {
  * Colores para tipos de documento institucional
  */
 export const tipoDocumentoColors: Record<string, string> = {
-  reglamento: 'bg-red-100 text-red-800',
-  formato: 'bg-blue-100 text-blue-800',
-  guia: 'bg-green-100 text-green-800',
-  manual: 'bg-purple-100 text-purple-800',
+  reglamento: 'bg-documento-reglamento-light text-documento-reglamento',
+  formato: 'bg-documento-formato-light text-documento-formato',
+  guia: 'bg-documento-guia-light text-documento-guia',
+  manual: 'bg-documento-manual-light text-documento-manual',
 };
 
 /**
@@ -197,11 +197,11 @@ export const tipoDocumentoLabels: Record<string, string> = {
  * Colores para tipos de fecha de admisión
  */
 export const tipoFechaAdmisionColors: Record<string, string> = {
-  inscripcion: 'bg-blue-500',
-  examen: 'bg-purple-500',
-  resultados: 'bg-emerald-500',
-  matricula: 'bg-amber-500',
-  inicio_clases: 'bg-green-600',
+  inscripcion: 'bg-info',
+  examen: 'bg-doctorado',
+  resultados: 'bg-diplomado',
+  matricula: 'bg-curso',
+  inicio_clases: 'bg-success',
 };
 
 /**
@@ -234,28 +234,28 @@ export function getProgramTypeConfig(tipo: string): TypeConfig {
   const configs: Record<string, TypeConfig> = {
     maestria: { 
       label: 'Maestría', 
-      bgColor: 'bg-blue-100', 
-      textColor: 'text-blue-700', 
+      bgColor: 'bg-maestria-light', 
+      textColor: 'text-maestria', 
       icon: GraduationCap 
     },
     doctorado: { 
       label: 'Doctorado', 
-      bgColor: 'bg-amber-100', 
-      textColor: 'text-amber-700', 
+      bgColor: 'bg-doctorado-light', 
+      textColor: 'text-doctorado', 
       icon: Award 
     },
     diplomado: { 
       label: 'Diplomado', 
-      bgColor: 'bg-green-100', 
-      textColor: 'text-green-700', 
+      bgColor: 'bg-diplomado-light', 
+      textColor: 'text-diplomado', 
       icon: BookOpen 
     },
   };
   
   return configs[tipo] || { 
     label: 'Programa', 
-    bgColor: 'bg-gray-100', 
-    textColor: 'text-gray-700', 
+    bgColor: 'bg-muted', 
+    textColor: 'text-muted-foreground', 
     icon: GraduationCap 
   };
 }
@@ -266,10 +266,55 @@ export function getProgramTypeConfig(tipo: string): TypeConfig {
  */
 export function getPublicationTypeConfig(tipo: string): { label: string; bgColor: string; textColor: string } {
   const configs: Record<string, { label: string; bgColor: string; textColor: string }> = {
-    noticia: { label: 'Noticia', bgColor: 'bg-blue-500', textColor: 'text-white' },
-    evento: { label: 'Evento', bgColor: 'bg-purple-500', textColor: 'text-white' },
-    aviso: { label: 'Aviso', bgColor: 'bg-green-500', textColor: 'text-white' },
+    noticia: { label: 'Noticia', bgColor: 'bg-publicacion-noticia', textColor: 'text-white' },
+    evento: { label: 'Evento', bgColor: 'bg-publicacion-evento', textColor: 'text-white' },
+    aviso: { label: 'Aviso', bgColor: 'bg-publicacion-aviso', textColor: 'text-white' },
   };
   
-  return configs[tipo] || { label: 'Publicación', bgColor: 'bg-gray-500', textColor: 'text-white' };
+  return configs[tipo] || { label: 'Publicación', bgColor: 'bg-muted', textColor: 'text-muted-foreground' };
+}
+
+// ========================================
+// REDES SOCIALES ACADÉMICAS
+// ========================================
+
+/**
+ * Configuración de colores para redes sociales y plataformas académicas.
+ * Los colores son los oficiales de cada marca/plataforma.
+ */
+export interface SocialNetworkStyle {
+  bg: string;
+  text: string;
+  hover: string;
+}
+
+export const socialNetworkColors: Record<string, SocialNetworkStyle> = {
+  orcid: {
+    bg: 'bg-[#A6CE39]/20',
+    text: 'text-[#A6CE39]',
+    hover: 'hover:bg-[#A6CE39]/30',
+  },
+  googleScholar: {
+    bg: 'bg-[#4285F4]/20',
+    text: 'text-[#4285F4]',
+    hover: 'hover:bg-[#4285F4]/30',
+  },
+  linkedin: {
+    bg: 'bg-[#0A66C2]/20',
+    text: 'text-[#0A66C2]',
+    hover: 'hover:bg-[#0A66C2]/30',
+  },
+  researchGate: {
+    bg: 'bg-[#00CCBB]/20',
+    text: 'text-[#00CCBB]',
+    hover: 'hover:bg-[#00CCBB]/30',
+  },
+};
+
+/**
+ * Genera las clases de Tailwind para un enlace de red social
+ */
+export function getSocialNetworkClasses(network: keyof typeof socialNetworkColors): string {
+  const style = socialNetworkColors[network];
+  return `${style.bg} ${style.text} ${style.hover}`;
 }
