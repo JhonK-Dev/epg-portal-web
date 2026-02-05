@@ -70,7 +70,7 @@ export function DocentesGrid() {
               onClick={() => setFiltroGrado(tab.id)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 filtroGrado === tab.id
-                  ? 'bg-[#001F3F] text-white'
+                  ? 'bg-epg-navy text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
@@ -93,7 +93,7 @@ export function DocentesGrid() {
             placeholder="Buscar por nombre o especialidad..."
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
-            className="w-full lg:w-80 pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E6A817] focus:border-transparent outline-none"
+            className="w-full lg:w-80 pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none"
           />
           {busqueda && (
             <button
@@ -139,7 +139,7 @@ export function DocentesGrid() {
                 className="overflow-hidden hover:shadow-xl transition-all group"
               >
                 {/* Avatar */}
-                <div className="h-48 bg-gradient-to-br from-[#001F3F] to-[#003366] flex items-center justify-center relative overflow-hidden">
+                <div className="h-48 bg-gradient-to-br from-epg-navy to-epg-navy-light flex items-center justify-center relative overflow-hidden">
                   {docente.foto ? (
                     <img 
                       src={docente.foto} 
@@ -158,7 +158,7 @@ export function DocentesGrid() {
 
                 {/* Info */}
                 <CardContent className="p-5">
-                  <h3 className="font-bold text-[#001F3F] mb-1 group-hover:text-[#E6A817] transition-colors">
+                  <h3 className="font-bold text-epg-navy mb-1 group-hover:text-epg-gold transition-colors">
                     {gradoInfo.label} {docente.nombres} {docente.apellidos}
                   </h3>
                   <p className="text-sm text-gray-500 mb-3 line-clamp-1">
@@ -173,7 +173,7 @@ export function DocentesGrid() {
                     {docente.email && (
                       <a 
                         href={`mailto:${docente.email}`}
-                        className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-[#001F3F] transition-colors"
+                        className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-epg-navy transition-colors"
                       >
                         <Mail className="h-3 w-3" />
                         Email
@@ -205,7 +205,7 @@ export function DocentesGrid() {
 
                   <a 
                     href={`/docentes/${docente.id}`}
-                    className="text-[#E6A817] text-sm font-medium hover:underline"
+                    className="text-epg-gold text-sm font-medium hover:underline"
                   >
                     Ver perfil completo →
                   </a>
@@ -218,7 +218,7 @@ export function DocentesGrid() {
 
       {/* Recursos para Docentes */}
       <section className="bg-gray-50 -mx-4 px-4 py-12 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded-2xl">
-        <h2 className="text-2xl font-bold text-[#001F3F] mb-8 text-center">
+        <h2 className="text-2xl font-bold text-epg-navy mb-8 text-center">
           Recursos para Docentes
         </h2>
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -226,10 +226,10 @@ export function DocentesGrid() {
             href="/docentes/recursos" 
             className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow group text-center"
           >
-            <div className="w-14 h-14 bg-[#001F3F] rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E6A817] transition-colors">
+            <div className="w-14 h-14 bg-epg-navy rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-epg-gold transition-colors">
               <BookOpen className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-[#001F3F] mb-2">Material Académico</h3>
+            <h3 className="font-bold text-epg-navy mb-2">Material Académico</h3>
             <p className="text-gray-600 text-sm">
               Formatos, plantillas y recursos para la docencia
             </p>
@@ -241,10 +241,10 @@ export function DocentesGrid() {
             rel="noopener noreferrer"
             className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow group text-center"
           >
-            <div className="w-14 h-14 bg-[#001F3F] rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E6A817] transition-colors">
+            <div className="w-14 h-14 bg-epg-navy rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-epg-gold transition-colors">
               <GraduationCap className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-[#001F3F] mb-2">Aula Virtual</h3>
+            <h3 className="font-bold text-epg-navy mb-2">Aula Virtual</h3>
             <p className="text-gray-600 text-sm">
               Administra tus cursos en la plataforma Moodle
             </p>
@@ -254,10 +254,10 @@ export function DocentesGrid() {
             href="/calendario-academico" 
             className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow group text-center"
           >
-            <div className="w-14 h-14 bg-[#001F3F] rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E6A817] transition-colors">
+            <div className="w-14 h-14 bg-epg-navy rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-epg-gold transition-colors">
               <Calendar className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-[#001F3F] mb-2">Calendario Académico</h3>
+            <h3 className="font-bold text-epg-navy mb-2">Calendario Académico</h3>
             <p className="text-gray-600 text-sm">
               Fechas importantes del semestre
             </p>
@@ -267,7 +267,7 @@ export function DocentesGrid() {
 
       {/* CTA para ser docente */}
       <section>
-        <Card className="bg-gradient-to-r from-[#001F3F] to-[#003366] text-white border-0 p-8">
+        <Card className="bg-gradient-to-r from-epg-navy to-epg-navy-light text-white border-0 p-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-2xl font-bold mb-2">
@@ -278,7 +278,7 @@ export function DocentesGrid() {
               </p>
             </div>
             <Button 
-              className="bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227] font-semibold"
+              className="bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
               asChild
             >
               <a href="/docentes/convocatoria">

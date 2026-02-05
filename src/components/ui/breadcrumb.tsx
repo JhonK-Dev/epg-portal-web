@@ -73,7 +73,7 @@ export function Breadcrumb({
                 <span 
                   className={cn(
                     'font-medium',
-                    isLight ? 'text-[#001F3F]' : 'text-[#E6A817]'
+                    isLight ? 'text-epg-navy' : 'text-epg-gold'
                   )}
                   aria-current="page"
                 >

@@ -44,7 +44,7 @@ function ProgramaCard({ programa }: ProgramaCardProps) {
       href={`/programas/${programa.slug}`}
       className="group block"
     >
-      <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-transparent hover:border-l-[#E6A817]">
+      <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-transparent hover:border-l-epg-gold">
         <CardHeader className="pb-3">
           <div className="flex items-start justify-between gap-2 mb-2">
             <Badge className={tipoProgramaBadgeColors[programa.tipo]}>
@@ -54,7 +54,7 @@ function ProgramaCard({ programa }: ProgramaCardProps) {
               {modalidadLabels[programa.modalidad]}
             </Badge>
           </div>
-          <CardTitle className="text-lg group-hover:text-[#001F3F] transition-colors leading-tight">
+          <CardTitle className="text-lg group-hover:text-epg-navy transition-colors leading-tight">
             {programa.nombre}
           </CardTitle>
           <CardDescription className="line-clamp-2">
@@ -80,12 +80,12 @@ function ProgramaCard({ programa }: ProgramaCardProps) {
           {programa.inversion && (
             <div className="mt-4 pt-4 border-t">
               <p className="text-sm text-gray-500">Inversión</p>
-              <p className="font-semibold text-[#001F3F]">{programa.inversion}</p>
+              <p className="font-semibold text-epg-navy">{programa.inversion}</p>
             </div>
           )}
 
           <div className="mt-4">
-            <span className="text-[#E6A817] font-medium text-sm group-hover:underline">
+            <span className="text-epg-gold font-medium text-sm group-hover:underline">
               Ver detalles →
             </span>
           </div>
@@ -156,7 +156,7 @@ export function ProgramasLista() {
               placeholder="Buscar por nombre, descripción o facultad..."
               value={busqueda}
               onChange={(e) => setBusqueda(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001F3F] focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy focus:border-transparent"
             />
             {busqueda && (
               <button
@@ -185,7 +185,7 @@ export function ProgramasLista() {
             <select
               value={tipoFiltro}
               onChange={(e) => setTipoFiltro(e.target.value as TipoFiltro)}
-              className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001F3F] bg-white min-w-[180px]"
+              className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white min-w-[180px]"
             >
               <option value="todos">Todos los tipos</option>
               <option value="maestria">Maestrías ({conteosPorTipo.maestria || 0})</option>
@@ -198,7 +198,7 @@ export function ProgramasLista() {
             <select
               value={modalidadFiltro}
               onChange={(e) => setModalidadFiltro(e.target.value as Modalidad)}
-              className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001F3F] bg-white min-w-[180px]"
+              className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white min-w-[180px]"
             >
               <option value="todos">Todas las modalidades</option>
               <option value="presencial">Presencial</option>
@@ -218,7 +218,7 @@ export function ProgramasLista() {
               <select
                 value={tipoFiltro}
                 onChange={(e) => setTipoFiltro(e.target.value as TipoFiltro)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001F3F] bg-white"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
               >
                 <option value="todos">Todos los tipos</option>
                 <option value="maestria">Maestrías ({conteosPorTipo.maestria || 0})</option>
@@ -234,7 +234,7 @@ export function ProgramasLista() {
               <select
                 value={modalidadFiltro}
                 onChange={(e) => setModalidadFiltro(e.target.value as Modalidad)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001F3F] bg-white"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
               >
                 <option value="todos">Todas las modalidades</option>
                 <option value="presencial">Presencial</option>
@@ -297,7 +297,7 @@ export function ProgramasLista() {
             variant={tipoFiltro === tipo ? 'default' : 'outline'}
             size="sm"
             onClick={() => setTipoFiltro(tipo)}
-            className={tipoFiltro === tipo ? 'bg-[#001F3F] hover:bg-[#001A33]' : ''}
+            className={tipoFiltro === tipo ? 'bg-epg-navy hover:bg-epg-navy-dark' : ''}
           >
             {tipoLabels[tipo]}
             <span className="ml-1 text-xs opacity-70">
@@ -339,7 +339,7 @@ export function ProgramasLista() {
       )}
 
       {/* CTA de contacto */}
-      <div className="mt-12 text-center bg-gradient-to-r from-[#001F3F] to-[#003366] rounded-xl p-8 text-white">
+      <div className="mt-12 text-center bg-gradient-to-r from-epg-navy to-epg-navy-light rounded-xl p-8 text-white">
         <h3 className="text-2xl font-bold mb-4">¿No encuentras lo que buscas?</h3>
         <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
           Nuestro equipo de admisión puede ayudarte a encontrar el programa ideal según tu perfil profesional y objetivos académicos.
@@ -347,7 +347,7 @@ export function ProgramasLista() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
             size="lg" 
-            className="bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227] font-semibold"
+            className="bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
             asChild
           >
             <a href="/admision">Iniciar proceso de admisión</a>

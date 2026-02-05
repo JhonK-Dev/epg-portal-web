@@ -45,7 +45,7 @@ function Timeline() {
         <div className="flex items-center justify-between relative">
           {/* Line */}
           <div className="absolute top-5 left-0 right-0 h-1 bg-gray-200 z-0" />
-          <div className="absolute top-5 left-0 h-1 bg-[#E6A817] z-0" style={{ width: '20%' }} />
+          <div className="absolute top-5 left-0 h-1 bg-epg-gold z-0" style={{ width: '20%' }} />
           
           {fechasProximas.slice(0, 7).map((fecha, index) => (
             <div key={index} className="relative z-10 flex flex-col items-center">
@@ -135,7 +135,7 @@ function ProcesoAdmision() {
       titulo: 'Matricúlate',
       descripcion: 'Si aprobaste, completa tu matrícula y ¡bienvenido a la EPG UNAP!',
       icono: GraduationCap,
-      color: 'bg-[#001F3F]',
+      color: 'bg-epg-navy',
     },
   ];
 
@@ -486,12 +486,12 @@ function ProgramasVacantes() {
           <a 
             key={slug}
             href={`/programas/${slug}`}
-            className="group bg-white rounded-lg border p-4 hover:shadow-lg hover:border-[#E6A817] transition-all"
+            className="group bg-white rounded-lg border p-4 hover:shadow-lg hover:border-epg-gold transition-all"
           >
             <Badge className={tipoProgramaBadgeColors[programa.tipo]}>
               {programa.tipo === 'maestria' ? 'Maestría' : 'Doctorado'}
             </Badge>
-            <h3 className="font-semibold text-gray-900 mt-2 group-hover:text-[#001F3F] line-clamp-2">
+            <h3 className="font-semibold text-gray-900 mt-2 group-hover:text-epg-navy line-clamp-2">
               {programa.nombre.replace('Maestría en ', '').replace('Doctorado en ', '')}
             </h3>
             <div className="flex items-center justify-between mt-3">
@@ -499,7 +499,7 @@ function ProgramasVacantes() {
                 <Users className="h-4 w-4" />
                 <span>{vacantes} vacantes</span>
               </div>
-              <ArrowRight className="h-4 w-4 text-[#E6A817] group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-4 w-4 text-epg-gold group-hover:translate-x-1 transition-transform" />
             </div>
           </a>
         );
@@ -517,8 +517,8 @@ export function AdmisionContent() {
       {/* Timeline */}
       <section id="cronograma">
         <div className="text-center mb-8">
-          <Badge className="bg-[#E6A817]/10 text-[#E6A817] mb-4">Cronograma</Badge>
-          <h2 className="text-3xl font-bold text-[#001F3F] mb-4">Fechas Importantes</h2>
+          <Badge className="bg-epg-gold/10 text-epg-gold mb-4">Cronograma</Badge>
+          <h2 className="text-3xl font-bold text-epg-navy mb-4">Fechas Importantes</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Conoce las fechas clave del proceso de admisión 2025-I
           </p>
@@ -532,7 +532,7 @@ export function AdmisionContent() {
       <section id="proceso">
         <div className="text-center mb-8">
           <Badge className="bg-blue-100 text-blue-800 mb-4">Paso a Paso</Badge>
-          <h2 className="text-3xl font-bold text-[#001F3F] mb-4">Proceso de Admisión</h2>
+          <h2 className="text-3xl font-bold text-epg-navy mb-4">Proceso de Admisión</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Sigue estos sencillos pasos para completar tu inscripción
           </p>
@@ -544,7 +544,7 @@ export function AdmisionContent() {
       <section id="programas">
         <div className="text-center mb-8">
           <Badge className="bg-emerald-100 text-emerald-800 mb-4">Disponibles</Badge>
-          <h2 className="text-3xl font-bold text-[#001F3F] mb-4">Programas con Vacantes</h2>
+          <h2 className="text-3xl font-bold text-epg-navy mb-4">Programas con Vacantes</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Selecciona el programa que mejor se adapte a tus objetivos profesionales
           </p>
@@ -564,7 +564,7 @@ export function AdmisionContent() {
       <section id="requisitos">
         <div className="text-center mb-8">
           <Badge className="bg-purple-100 text-purple-800 mb-4">Documentación</Badge>
-          <h2 className="text-3xl font-bold text-[#001F3F] mb-4">Requisitos de Admisión</h2>
+          <h2 className="text-3xl font-bold text-epg-navy mb-4">Requisitos de Admisión</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Prepara la documentación necesaria para tu inscripción
           </p>
@@ -576,7 +576,7 @@ export function AdmisionContent() {
       <section id="costos">
         <div className="text-center mb-8">
           <Badge className="bg-amber-100 text-amber-800 mb-4">Inversión</Badge>
-          <h2 className="text-3xl font-bold text-[#001F3F] mb-4">Costos y Formas de Pago</h2>
+          <h2 className="text-3xl font-bold text-epg-navy mb-4">Costos y Formas de Pago</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Conoce la inversión requerida para tu formación de posgrado
           </p>
@@ -600,7 +600,7 @@ export function AdmisionContent() {
       <section id="faq">
         <div className="text-center mb-8">
           <Badge className="bg-gray-100 text-gray-800 mb-4">Dudas</Badge>
-          <h2 className="text-3xl font-bold text-[#001F3F] mb-4">Preguntas Frecuentes</h2>
+          <h2 className="text-3xl font-bold text-epg-navy mb-4">Preguntas Frecuentes</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Resolvemos las dudas más comunes sobre el proceso de admisión
           </p>
@@ -610,9 +610,9 @@ export function AdmisionContent() {
 
       {/* CTA Final */}
       <section id="inscribete">
-        <Card className="bg-gradient-to-r from-[#001F3F] to-[#003366] text-white p-8 md:p-12">
+        <Card className="bg-gradient-to-r from-epg-navy to-epg-navy-light text-white p-8 md:p-12">
           <div className="text-center max-w-2xl mx-auto">
-            <Badge className="bg-[#E6A817] text-[#001F3F] mb-4">¡Inscríbete ahora!</Badge>
+            <Badge className="bg-epg-gold text-epg-navy mb-4">¡Inscríbete ahora!</Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Da el siguiente paso en tu carrera
             </h2>
@@ -623,7 +623,7 @@ export function AdmisionContent() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-[#E6A817] text-[#001F3F] hover:bg-[#C9A227] font-semibold"
+                className="bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
               >
                 <ExternalLink className="h-5 w-5 mr-2" />
                 Inscripción en línea

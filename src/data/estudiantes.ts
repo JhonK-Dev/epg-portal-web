@@ -72,7 +72,7 @@ export const accesosRapidos: AccesoRapido[] = [
     descripcion: 'Sistema Integrado de Gestión Académica',
     icono: 'clipboard',
     href: 'https://sigae.unapiquitos.edu.pe',
-    color: 'bg-[#001F3F]'
+    color: 'bg-epg-navy'
   },
   {
     id: 'aula-virtual',
@@ -80,7 +80,7 @@ export const accesosRapidos: AccesoRapido[] = [
     descripcion: 'Plataforma de aprendizaje en línea',
     icono: 'monitor',
     href: 'https://aulavirtual.unapiquitos.edu.pe',
-    color: 'bg-[#001F3F]'
+    color: 'bg-epg-navy'
   },
   {
     id: 'biblioteca',
@@ -88,7 +88,7 @@ export const accesosRapidos: AccesoRapido[] = [
     descripcion: 'Acceso a recursos bibliográficos',
     icono: 'book-open',
     href: 'https://biblioteca.unapiquitos.edu.pe',
-    color: 'bg-[#001F3F]'
+    color: 'bg-epg-navy'
   },
   {
     id: 'correo',
@@ -96,7 +96,7 @@ export const accesosRapidos: AccesoRapido[] = [
     descripcion: 'Email @unapiquitos.edu.pe',
     icono: 'mail',
     href: 'https://mail.google.com',
-    color: 'bg-[#001F3F]'
+    color: 'bg-epg-navy'
   }
 ];
 

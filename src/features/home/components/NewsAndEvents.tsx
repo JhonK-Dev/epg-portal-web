@@ -66,16 +66,16 @@ export const NewsAndEvents: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <div>
-            <span className="text-[#E6A817] font-semibold text-sm uppercase tracking-wider mb-2 block">
+            <span className="text-epg-gold font-semibold text-sm uppercase tracking-wider mb-2 block">
               Mantente informado
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#001F3F]">
+            <h2 className="text-3xl sm:text-4xl font-bold text-epg-navy">
               Noticias y Eventos
             </h2>
           </div>
           <a
             href="/publicaciones"
-            className="inline-flex items-center gap-2 text-[#001F3F] font-semibold hover:text-[#E6A817] transition-colors group"
+            className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
           >
             Ver todas las publicaciones
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -94,13 +94,13 @@ export const NewsAndEvents: React.FC = () => {
                   <a
                     key={pub.id}
                     href={`/publicaciones/${pub.slug}`}
-                    className="group block bg-gradient-to-br from-[#001F3F] to-[#003366] rounded-2xl overflow-hidden hover:shadow-xl transition-all"
+                    className="group block bg-gradient-to-br from-epg-navy to-epg-navy-light rounded-2xl overflow-hidden hover:shadow-xl transition-all"
                   >
                     <div className="p-8">
                       <span className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-bold px-3 py-1 rounded-full mb-4`}>
                         {typeConfig.label}
                       </span>
-                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#E6A817] transition-colors">
+                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-epg-gold transition-colors">
                         {pub.titulo}
                       </h3>
                       <p className="text-gray-300 mb-4 line-clamp-2">
@@ -110,7 +110,7 @@ export const NewsAndEvents: React.FC = () => {
                         <time className="text-gray-400 text-sm">
                           {formatShortDate(pub.fecha)}
                         </time>
-                        <span className="inline-flex items-center gap-1 text-[#E6A817] font-medium group-hover:gap-2 transition-all">
+                        <span className="inline-flex items-center gap-1 text-epg-gold font-medium group-hover:gap-2 transition-all">
                           Leer más
                           <ArrowRight className="w-4 h-4" />
                         </span>
@@ -127,14 +127,14 @@ export const NewsAndEvents: React.FC = () => {
                   href={`/publicaciones/${pub.slug}`}
                   className="group flex gap-4 bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-all"
                 >
-                  <div className="w-24 h-24 bg-gradient-to-br from-[#001F3F] to-[#003366] rounded-lg flex-shrink-0 flex items-center justify-center">
-                    <Calendar className="w-8 h-8 text-[#E6A817]/50" />
+                  <div className="w-24 h-24 bg-gradient-to-br from-epg-navy to-epg-navy-light rounded-lg flex-shrink-0 flex items-center justify-center">
+                    <Calendar className="w-8 h-8 text-epg-gold/50" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <span className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-bold px-2 py-0.5 rounded mb-2`}>
                       {typeConfig.label}
                     </span>
-                    <h4 className="font-bold text-[#001F3F] group-hover:text-[#E6A817] transition-colors line-clamp-2 mb-1">
+                    <h4 className="font-bold text-epg-navy group-hover:text-epg-gold transition-colors line-clamp-2 mb-1">
                       {pub.titulo}
                     </h4>
                     <time className="text-gray-500 text-sm">
@@ -149,8 +149,8 @@ export const NewsAndEvents: React.FC = () => {
           {/* Events Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-gray-50 rounded-2xl p-6">
-              <h3 className="font-bold text-[#001F3F] text-lg mb-6 flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-[#E6A817]" />
+              <h3 className="font-bold text-epg-navy text-lg mb-6 flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-epg-gold" />
                 Próximos Eventos
               </h3>
 
@@ -164,14 +164,14 @@ export const NewsAndEvents: React.FC = () => {
                       className="flex gap-4 p-3 bg-white rounded-xl hover:shadow-md transition-all cursor-pointer"
                     >
                       {/* Date Badge */}
-                      <div className="w-14 h-14 bg-[#001F3F] rounded-lg flex flex-col items-center justify-center flex-shrink-0">
+                      <div className="w-14 h-14 bg-epg-navy rounded-lg flex flex-col items-center justify-center flex-shrink-0">
                         <span className="text-white font-bold text-lg leading-none">{eventDate.day}</span>
-                        <span className="text-[#E6A817] text-xs font-medium">{eventDate.month}</span>
+                        <span className="text-epg-gold text-xs font-medium">{eventDate.month}</span>
                       </div>
 
                       {/* Event Info */}
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-[#001F3F] text-sm line-clamp-2 mb-1">
+                        <h4 className="font-semibold text-epg-navy text-sm line-clamp-2 mb-1">
                           {event.titulo}
                         </h4>
                         <div className="flex items-center gap-3 text-xs text-gray-500">
@@ -192,7 +192,7 @@ export const NewsAndEvents: React.FC = () => {
 
               <a
                 href="/publicaciones/eventos"
-                className="block text-center text-[#E6A817] font-medium text-sm mt-6 hover:underline"
+                className="block text-center text-epg-gold font-medium text-sm mt-6 hover:underline"
               >
                 Ver todos los eventos →
               </a>

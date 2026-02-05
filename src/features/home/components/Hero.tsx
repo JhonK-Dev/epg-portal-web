@@ -4,20 +4,24 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 export const Hero: React.FC = () => {
   return (
     <section className="relative w-full min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
-      {/* Background with gradient overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80")',
-        }}
-      >
-        {/* Navy Overlay with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001F3F]/95 via-[#001F3F]/85 to-[#001F3F]/70" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="/images/hero/epg-fondo.jpeg"
+          alt="Escuela de Postgrado UNAP"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+        />
+        {/* Navy Overlay with gradient for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-epg-navy/95 via-epg-navy/85 to-epg-navy/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-epg-navy/60 via-transparent to-transparent" />
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-[#E6A817]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#E6A817]/5 rounded-full blur-3xl" />
+      {/* Decorative elements - subtle glow effects */}
+      <div className="absolute top-20 right-20 w-72 h-72 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
@@ -27,9 +31,9 @@ export const Hero: React.FC = () => {
             {/* SUNEDU Badge */}
             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
               <div className="flex items-center gap-1">
-                <div className="w-2 h-2 bg-[#E6A817] rounded-full" />
-                <div className="w-2 h-2 bg-[#E6A817] rounded-full" />
-                <div className="w-2 h-2 bg-[#E6A817] rounded-full" />
+                <div className="w-2 h-2 bg-epg-gold rounded-full" />
+                <div className="w-2 h-2 bg-epg-gold rounded-full" />
+                <div className="w-2 h-2 bg-epg-gold rounded-full" />
               </div>
               <span className="text-white text-sm font-medium">
                 Universidad licenciada por SUNEDU
@@ -40,7 +44,7 @@ export const Hero: React.FC = () => {
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Impulsa tu carrera con un{' '}
-              <span className="text-[#E6A817]">Postgrado de Excelencia</span>
+              <span className="text-epg-gold">Postgrado de Excelencia</span>
             </h1>
 
             {/* Subtext */}
@@ -52,7 +56,7 @@ export const Hero: React.FC = () => {
             <div className="flex flex-wrap gap-4 mb-12">
               <a 
                 href="/admision"
-                className="inline-flex items-center gap-2 bg-[#E6A817] hover:bg-[#C9A227] text-[#001F3F] px-6 py-3 rounded-lg text-base font-bold transition-all hover:shadow-lg hover:shadow-[#E6A817]/20"
+                className="inline-flex items-center gap-2 bg-epg-gold hover:bg-epg-gold-dark text-epg-navy px-6 py-3 rounded-lg text-base font-bold transition-all hover:shadow-lg hover:shadow-epg-gold/20"
               >
                 Postula ahora
                 <ArrowRight className="w-5 h-5" />
@@ -68,15 +72,15 @@ export const Hero: React.FC = () => {
             {/* Quick Stats */}
             <div className="flex flex-wrap gap-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#E6A817]">35+</div>
+                <div className="text-3xl font-bold text-epg-gold">35+</div>
                 <div className="text-sm text-gray-400">Años de experiencia</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#E6A817]">2,500+</div>
+                <div className="text-3xl font-bold text-epg-gold">2,500+</div>
                 <div className="text-sm text-gray-400">Egresados</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#E6A817]">20+</div>
+                <div className="text-3xl font-bold text-epg-gold">20+</div>
                 <div className="text-sm text-gray-400">Programas</div>
               </div>
             </div>
@@ -102,20 +106,20 @@ export const Hero: React.FC = () => {
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3 text-white/90">
-                  <div className="w-8 h-8 bg-[#E6A817]/20 rounded-full flex items-center justify-center">
-                    <span className="text-[#E6A817] font-bold text-sm">1</span>
+                  <div className="w-8 h-8 bg-epg-gold/20 rounded-full flex items-center justify-center">
+                    <span className="text-epg-gold font-bold text-sm">1</span>
                   </div>
                   <span>Inscripciones hasta el 28 de febrero</span>
                 </div>
                 <div className="flex items-center gap-3 text-white/90">
-                  <div className="w-8 h-8 bg-[#E6A817]/20 rounded-full flex items-center justify-center">
-                    <span className="text-[#E6A817] font-bold text-sm">2</span>
+                  <div className="w-8 h-8 bg-epg-gold/20 rounded-full flex items-center justify-center">
+                    <span className="text-epg-gold font-bold text-sm">2</span>
                   </div>
                   <span>Examen de admisión: 8 de marzo</span>
                 </div>
                 <div className="flex items-center gap-3 text-white/90">
-                  <div className="w-8 h-8 bg-[#E6A817]/20 rounded-full flex items-center justify-center">
-                    <span className="text-[#E6A817] font-bold text-sm">3</span>
+                  <div className="w-8 h-8 bg-epg-gold/20 rounded-full flex items-center justify-center">
+                    <span className="text-epg-gold font-bold text-sm">3</span>
                   </div>
                   <span>Inicio de clases: 1 de abril</span>
                 </div>
@@ -123,7 +127,7 @@ export const Hero: React.FC = () => {
 
               <a
                 href="/admision"
-                className="block w-full bg-[#E6A817] hover:bg-[#C9A227] text-[#001F3F] text-center py-3 rounded-lg font-bold transition-colors"
+                className="block w-full bg-epg-gold hover:bg-epg-gold-dark text-epg-navy text-center py-3 rounded-lg font-bold transition-colors"
               >
                 Inscríbete ahora
               </a>
