@@ -4,8 +4,8 @@
 
 **Ultima actualizacion:** 2026-02-05
 **Total issues:** 32
-**Completados:** 1
-**Pendientes:** 31
+**Completados:** 2
+**Pendientes:** 30
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Categoria | Total | Completados | Pendientes | GitHub Issues |
 |-----------|-------|-------------|------------|---------------|
-| Colores Hardcodeados | 8 | 1 | 7 | #30-#37 |
+| Colores Hardcodeados | 8 | 2 | 6 | #30-#37 |
 | Codigo Duplicado | 15 | 0 | 15 | Pendiente crear |
 | Accesibilidad | 6 | 0 | 6 | Pendiente crear |
 | Consistencia de Diseno | 3 | 0 | 3 | Pendiente crear |
@@ -45,13 +45,13 @@
 ---
 
 ### COL-002: Reemplazar hex hardcodeado en WelcomeSection
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
 - **GitHub:** [#31](https://github.com/JhonK-Dev/epg-portal-web/issues/31)
 - **Prioridad:** Alta
 - **Archivo:** `src/features/home/components/WelcomeSection.tsx`
 - **Linea:** 39
 - **Descripcion:** El color `#FFF9E6` esta hardcodeado directamente en el componente.
-- **Solucion:** Crear variable CSS `--color-highlight-soft` o usar `bg-amber-50`.
+- **Solucion:** Agregada variable CSS `--color-epg-gold-soft: #FFF9E6` y reemplazado por `bg-epg-gold-soft`.
 
 ---
 
@@ -412,4 +412,5 @@
 | 2026-02-05 | - | Creacion inicial | 32 issues identificados |
 | 2026-02-05 | COL-001 | Completado | Agregadas variables CSS semanticas en global.css |
 | 2026-02-05 | COL-001 a COL-008 | Creados en GitHub | Issues #30-#37 creados |
+| 2026-02-05 | COL-002 | Completado | Agregada variable epg-gold-soft, PR #39 mergeado |
 
