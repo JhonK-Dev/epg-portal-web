@@ -12,12 +12,14 @@ import {
   Megaphone,
   ChevronRight,
   Clock,
+  Search,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { SearchInput } from '@/components/ui/search-input'
 import { FilterTabs } from '@/components/ui/filter-tabs'
+import { EmptyState } from '@/components/ui/empty-state'
 import { NewsletterForm } from '@/features/contacto'
 
 type TipoPublicacion = 'todas' | 'noticia' | 'evento' | 'aviso' | 'comunicado'
@@ -219,26 +221,18 @@ export function PublicacionesLista() {
         </div>
 
         {publicacionesFiltradas.length === 0 ? (
-          <Card className="p-12 text-center">
-            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Search className="h-8 w-8 text-gray-400" />
-            </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              No se encontraron publicaciones
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Intenta con otros términos de búsqueda o cambia los filtros
-            </p>
-            <Button
-              variant="outline"
-              onClick={() => {
+          <EmptyState
+            icon={<Search className="h-8 w-8" />}
+            title="No se encontraron publicaciones"
+            description="Intenta con otros términos de búsqueda o cambia los filtros"
+            action={{
+              label: 'Limpiar filtros',
+              onClick: () => {
                 setTipoActivo('todas')
                 setBusqueda('')
-              }}
-            >
-              Limpiar filtros
-            </Button>
-          </Card>
+              },
+            }}
+          />
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {publicacionesFiltradas.map((pub) => (
