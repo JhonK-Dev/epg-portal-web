@@ -8,20 +8,20 @@ import {
   modalidadLabels,
   modalidadColors 
 } from '@/lib/constants';
-import { 
-  Search, 
-  Filter, 
-  GraduationCap, 
-  Clock, 
+import {
+  Filter,
+  GraduationCap,
+  Clock,
   MapPin,
   BookOpen,
+  ChevronDown,
   X,
-  ChevronDown
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { CTABanner } from '@/components/ui/cta-banner';
+import { SearchInput } from '@/components/ui/search-input';
 
 type Modalidad = 'presencial' | 'semipresencial' | 'virtual' | 'todos';
 type TipoFiltro = TipoPrograma | 'todos';
@@ -150,24 +150,13 @@ export function ProgramasLista() {
       <div className="bg-white rounded-xl shadow-sm p-4 mb-8">
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Búsqueda */}
-          <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Buscar por nombre, descripción o facultad..."
-              value={busqueda}
-              onChange={(e) => setBusqueda(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy focus:border-transparent"
-            />
-            {busqueda && (
-              <button
-                onClick={() => setBusqueda('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            )}
-          </div>
+          <SearchInput
+            value={busqueda}
+            onChange={setBusqueda}
+            placeholder="Buscar por nombre, descripción o facultad..."
+            className="flex-1"
+            size="md"
+          />
 
           {/* Botón de filtros (móvil) */}
           <Button

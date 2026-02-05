@@ -7,14 +7,13 @@ import {
   Calendar, 
   Bell, 
   Megaphone,
-  Search,
-  X,
   ChevronRight,
   Clock
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { SearchInput } from '@/components/ui/search-input';
 import { NewsletterForm } from '@/features/contacto';
 
 type TipoPublicacion = 'todas' | 'noticia' | 'evento' | 'aviso' | 'comunicado';
@@ -120,24 +119,12 @@ export function PublicacionesLista() {
         </div>
 
         {/* Búsqueda */}
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Buscar publicaciones..."
-            value={busqueda}
-            onChange={(e) => setBusqueda(e.target.value)}
-            className="w-full lg:w-72 pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none"
-          />
-          {busqueda && (
-            <button
-              onClick={() => setBusqueda('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
+        <SearchInput
+          value={busqueda}
+          onChange={setBusqueda}
+          placeholder="Buscar publicaciones..."
+          className="w-full lg:w-72"
+        />
       </div>
 
       {/* Destacadas (solo cuando no hay filtro activo) */}

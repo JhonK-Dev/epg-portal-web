@@ -3,7 +3,6 @@ import { docentes, getDoctores, getMagisteres } from '@/data/docentes';
 import { getGradoInfo } from '@/lib/constants';
 import { 
   Search, 
-  X, 
   Mail, 
   ExternalLink,
   BookOpen,
@@ -16,6 +15,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CTABannerSideBySide } from '@/components/ui/cta-banner';
+import { SearchInput } from '@/components/ui/search-input';
 
 type FiltroGrado = 'todos' | 'doctores' | 'magisteres';
 
@@ -87,24 +87,12 @@ export function DocentesGrid() {
         </div>
 
         {/* Búsqueda */}
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Buscar por nombre o especialidad..."
-            value={busqueda}
-            onChange={(e) => setBusqueda(e.target.value)}
-            className="w-full lg:w-80 pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none"
-          />
-          {busqueda && (
-            <button
-              onClick={() => setBusqueda('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
+        <SearchInput
+          value={busqueda}
+          onChange={setBusqueda}
+          placeholder="Buscar por nombre o especialidad..."
+          className="w-full lg:w-80"
+        />
       </div>
 
       {/* Grid de Docentes */}
