@@ -51,7 +51,8 @@ export function CTABanner({
       )}
       data-testid="cta-banner"
     >
-      <div className={cn("max-w-2xl", !footer && "mx-auto text-center")}>
+      {/* Center-aligned layout for centered CTA with badge/footer */}
+      <div className="max-w-2xl mx-auto text-center">
         {badge && (
           <Badge className="bg-epg-gold text-epg-navy mb-4">{badge}</Badge>
         )}
