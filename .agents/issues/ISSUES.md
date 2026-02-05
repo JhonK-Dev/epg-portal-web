@@ -4,8 +4,8 @@
 
 **Ultima actualizacion:** 2026-02-05
 **Total issues:** 32
-**Completados:** 0
-**Pendientes:** 32
+**Completados:** 1
+**Pendientes:** 31
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Categoria | Total | Completados | Pendientes | GitHub Issues |
 |-----------|-------|-------------|------------|---------------|
-| Colores Hardcodeados | 8 | 0 | 8 | #30-#37 |
+| Colores Hardcodeados | 8 | 1 | 7 | #30-#37 |
 | Codigo Duplicado | 15 | 0 | 15 | Pendiente crear |
 | Accesibilidad | 6 | 0 | 6 | Pendiente crear |
 | Consistencia de Diseno | 3 | 0 | 3 | Pendiente crear |
@@ -23,7 +23,7 @@
 ## ISSUES DE COLORES HARDCODEADOS
 
 ### COL-001: Agregar variables CSS semanticas al sistema de diseno
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
 - **GitHub:** [#30](https://github.com/JhonK-Dev/epg-portal-web/issues/30)
 - **Prioridad:** Alta
 - **Archivo:** `src/styles/global.css`
@@ -410,5 +410,6 @@
 | Fecha | Issue | Accion | Notas |
 |-------|-------|--------|-------|
 | 2026-02-05 | - | Creacion inicial | 32 issues identificados |
+| 2026-02-05 | COL-001 | Completado | Agregadas variables CSS semanticas en global.css |
 | 2026-02-05 | COL-001 a COL-008 | Creados en GitHub | Issues #30-#37 creados |
 
