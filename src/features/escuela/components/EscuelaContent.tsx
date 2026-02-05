@@ -24,6 +24,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { CTABannerSideBySide } from '@/components/ui/cta-banner';
 
 // ========================================
 // AUTORIDADES COMPONENT
@@ -382,33 +383,18 @@ export function EscuelaContent() {
 
       {/* CTA */}
       <section>
-        <Card className="bg-gradient-to-r from-epg-navy to-epg-navy-light text-white border-0 p-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">¿Listo para ser parte de nuestra comunidad?</h3>
-              <p className="text-gray-300">
-                Descubre nuestros programas y comienza tu formación de posgrado
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <Button 
-                size="lg" 
-                className="bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
-                asChild
-              >
-                <a href="/programas">Ver programas</a>
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white/10"
-                asChild
-              >
-                <a href="/admision">Admisión</a>
-              </Button>
-            </div>
-          </div>
-        </Card>
+        <CTABannerSideBySide
+          title="¿Listo para ser parte de nuestra comunidad?"
+          description="Descubre nuestros programas y comienza tu formación de posgrado"
+          primaryAction={{
+            label: "Ver programas",
+            href: "/programas",
+          }}
+          secondaryAction={{
+            label: "Admisión",
+            href: "/admision",
+          }}
+        />
       </section>
     </div>
   );

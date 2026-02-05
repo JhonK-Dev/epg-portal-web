@@ -21,6 +21,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { CTABanner } from '@/components/ui/cta-banner';
 
 type Modalidad = 'presencial' | 'semipresencial' | 'virtual' | 'todos';
 type TipoFiltro = TipoPrograma | 'todos';
@@ -339,27 +340,20 @@ export function ProgramasLista() {
       )}
 
       {/* CTA de contacto */}
-      <div className="mt-12 text-center bg-gradient-to-r from-epg-navy to-epg-navy-light rounded-xl p-8 text-white">
-        <h3 className="text-2xl font-bold mb-4">¿No encuentras lo que buscas?</h3>
-        <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-          Nuestro equipo de admisión puede ayudarte a encontrar el programa ideal según tu perfil profesional y objetivos académicos.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            size="lg" 
-            className="bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
-            asChild
-          >
-            <a href="/admision">Iniciar proceso de admisión</a>
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="border-white text-white hover:bg-white/10"
-          >
-            Contactar asesor
-          </Button>
-        </div>
+      <div className="mt-12">
+        <CTABanner
+          title="¿No encuentras lo que buscas?"
+          description="Nuestro equipo de admisión puede ayudarte a encontrar el programa ideal según tu perfil profesional y objetivos académicos."
+          primaryAction={{
+            label: "Iniciar proceso de admisión",
+            href: "/admision",
+          }}
+          secondaryAction={{
+            label: "Contactar asesor",
+            href: "#",
+          }}
+          className="text-center"
+        />
       </div>
     </div>
   );

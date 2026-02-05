@@ -29,6 +29,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { CTABanner } from '@/components/ui/cta-banner';
 
 // ========================================
 // TIMELINE COMPONENT
@@ -610,34 +611,22 @@ export function AdmisionContent() {
 
       {/* CTA Final */}
       <section id="inscribete">
-        <Card className="bg-gradient-to-r from-epg-navy to-epg-navy-light text-white p-8 md:p-12">
-          <div className="text-center max-w-2xl mx-auto">
-            <Badge className="bg-epg-gold text-epg-navy mb-4">¡Inscríbete ahora!</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Da el siguiente paso en tu carrera
-            </h2>
-            <p className="text-gray-300 mb-8">
-              Únete a la comunidad de profesionales que eligen la EPG UNAP para su formación de posgrado.
-              Las inscripciones cierran el 28 de febrero de 2025.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
-              >
-                <ExternalLink className="h-5 w-5 mr-2" />
-                Inscripción en línea
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white/10"
-              >
-                <HelpCircle className="h-5 w-5 mr-2" />
-                Contactar asesor
-              </Button>
-            </div>
-            <div className="mt-8 flex items-center justify-center gap-6 text-sm text-gray-400">
+        <CTABanner
+          badge="¡Inscríbete ahora!"
+          title="Da el siguiente paso en tu carrera"
+          description="Únete a la comunidad de profesionales que eligen la EPG UNAP para su formación de posgrado. Las inscripciones cierran el 28 de febrero de 2025."
+          primaryAction={{
+            label: "Inscripción en línea",
+            href: "#",
+            icon: <ExternalLink className="h-5 w-5 mr-2" />,
+          }}
+          secondaryAction={{
+            label: "Contactar asesor",
+            href: "#",
+            icon: <HelpCircle className="h-5 w-5 mr-2" />,
+          }}
+          footer={
+            <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>Ciudad Universitaria, Puno</span>
@@ -647,8 +636,8 @@ export function AdmisionContent() {
                 <span>Lun-Vie 8am - 5pm</span>
               </div>
             </div>
-          </div>
-        </Card>
+          }
+        />
       </section>
     </div>
   );
