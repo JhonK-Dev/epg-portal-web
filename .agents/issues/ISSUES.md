@@ -4,8 +4,8 @@
 
 **Ultima actualizacion:** 2026-02-05
 **Total issues:** 32
-**Completados:** 2
-**Pendientes:** 30
+**Completados:** 8
+**Pendientes:** 24
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Categoria | Total | Completados | Pendientes | GitHub Issues |
 |-----------|-------|-------------|------------|---------------|
-| Colores Hardcodeados | 8 | 2 | 6 | #30-#37 |
+| Colores Hardcodeados | 8 | 8 | 0 | #30-#37 (Todos cerrados) |
 | Codigo Duplicado | 15 | 0 | 15 | Pendiente crear |
 | Accesibilidad | 6 | 0 | 6 | Pendiente crear |
 | Consistencia de Diseno | 3 | 0 | 3 | Pendiente crear |
@@ -56,67 +56,73 @@
 ---
 
 ### COL-003: Reemplazar bg-green-500 en badge de admision Hero
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
 - **GitHub:** [#32](https://github.com/JhonK-Dev/epg-portal-web/issues/32)
+- **PR:** [#40](https://github.com/JhonK-Dev/epg-portal-web/pull/40) (Merged)
 - **Prioridad:** Alta
 - **Archivo:** `src/features/home/components/Hero.tsx`
 - **Linea:** 93
 - **Descripcion:** Badge "ABIERTO" usa `bg-green-500` en lugar de variable semantica.
-- **Solucion:** Usar `bg-success` despues de crear la variable CSS.
+- **Solucion:** Reemplazado por `bg-success` usando la variable CSS semantica.
 
 ---
 
 ### COL-004: Reemplazar bg-green-400 en AdmissionCTA
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
 - **GitHub:** [#33](https://github.com/JhonK-Dev/epg-portal-web/issues/33)
+- **PR:** [#41](https://github.com/JhonK-Dev/epg-portal-web/pull/41) (Merged)
 - **Prioridad:** Alta
 - **Archivo:** `src/features/home/components/AdmissionCTA.tsx`
 - **Linea:** 18
 - **Descripcion:** Indicador de estado usa color hardcodeado.
-- **Solucion:** Usar `bg-success` con la variable CSS semantica.
+- **Solucion:** Reemplazado por `bg-success` usando la variable CSS semantica.
 
 ---
 
 ### COL-005: Reemplazar bg-red-500 en ServiciosGrid
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
 - **GitHub:** [#34](https://github.com/JhonK-Dev/epg-portal-web/issues/34)
+- **PR:** [#42](https://github.com/JhonK-Dev/epg-portal-web/pull/42) (Merged)
 - **Prioridad:** Media
 - **Archivo:** `src/features/servicios/components/ServiciosGrid.tsx`
 - **Linea:** 134
 - **Descripcion:** Icono usa `bg-red-500` sin justificacion semantica.
-- **Solucion:** Evaluar si debe ser `bg-destructive` o crear variable especifica.
+- **Solucion:** Reemplazado por `bg-destructive` usando la variable CSS semantica.
 
 ---
 
 ### COL-006: Reemplazar colores destructivos en ProgramasLista
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
 - **GitHub:** [#35](https://github.com/JhonK-Dev/epg-portal-web/issues/35)
+- **PR:** [#43](https://github.com/JhonK-Dev/epg-portal-web/pull/43) (Merged)
 - **Prioridad:** Media
 - **Archivo:** `src/features/programas/components/ProgramasLista.tsx`
 - **Linea:** 284
 - **Descripcion:** Accion destructiva usa `text-red-600 hover:text-red-700 hover:bg-red-50`.
-- **Solucion:** Usar variantes de `--destructive` del tema.
+- **Solucion:** Reemplazado por variantes de `--destructive` del tema (`text-destructive`, `hover:text-destructive-dark`, `hover:bg-destructive/10`).
 
 ---
 
 ### COL-007: Centralizar colores de redes sociales en DocenteDetail
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
 - **GitHub:** [#36](https://github.com/JhonK-Dev/epg-portal-web/issues/36)
+- **PR:** [#44](https://github.com/JhonK-Dev/epg-portal-web/pull/44) (Merged)
 - **Prioridad:** Baja
 - **Archivo:** `src/features/docentes/components/DocenteDetail.tsx`
 - **Lineas:** 105-140
 - **Descripcion:** Colores de ORCID, Google Scholar, LinkedIn, ResearchGate estan hardcodeados.
-- **Solucion:** Crear objeto de configuracion en constants.ts para colores de redes sociales.
+- **Solucion:** Creado `socialNetworkColors` en `constants.ts` y funcion helper `getSocialNetworkClasses()` para centralizar colores.
 
 ---
 
 ### COL-008: Migrar colores de constants.ts a variables CSS
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
 - **GitHub:** [#37](https://github.com/JhonK-Dev/epg-portal-web/issues/37)
+- **PR:** [#45](https://github.com/JhonK-Dev/epg-portal-web/pull/45) (Merged)
 - **Prioridad:** Media
-- **Archivo:** `src/lib/constants.ts`
+- **Archivo:** `src/lib/constants.ts`, `src/styles/global.css`
 - **Descripcion:** 100+ clases Tailwind hardcodeadas para colores de tipos de programa, publicaciones, etc.
-- **Solucion:** Refactorizar para usar variables CSS del tema con Tailwind.
+- **Solucion:** Agregadas 40+ variables CSS en global.css para tipos de programa, grados academicos, modalidades, publicaciones y documentos. Actualizado constants.ts para usar las nuevas clases semanticas (ej: `bg-maestria-light text-maestria`).
 
 ---
 
@@ -413,4 +419,10 @@
 | 2026-02-05 | COL-001 | Completado | Agregadas variables CSS semanticas en global.css |
 | 2026-02-05 | COL-001 a COL-008 | Creados en GitHub | Issues #30-#37 creados |
 | 2026-02-05 | COL-002 | Completado | Agregada variable epg-gold-soft, PR #39 mergeado |
+| 2026-02-05 | COL-003 | Completado | Reemplazado bg-green-500 por bg-success en Hero, PR #40 mergeado |
+| 2026-02-05 | COL-004 | Completado | Reemplazado bg-green-400 por bg-success en AdmissionCTA, PR #41 mergeado |
+| 2026-02-05 | COL-005 | Completado | Reemplazado bg-red-500 por bg-destructive en ServiciosGrid, PR #42 mergeado |
+| 2026-02-05 | COL-006 | Completado | Reemplazado colores red-* por destructive en ProgramasLista, PR #43 mergeado |
+| 2026-02-05 | COL-007 | Completado | Centralizado colores redes sociales en constants.ts, PR #44 mergeado |
+| 2026-02-05 | COL-008 | Completado | Migradas 100+ clases a variables CSS, 40+ variables agregadas, PR #45 mergeado |
 
