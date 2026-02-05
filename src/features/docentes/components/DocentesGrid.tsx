@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { CTABannerSideBySide } from '@/components/ui/cta-banner'
 import { SearchInput } from '@/components/ui/search-input'
+import { FilterTabs } from '@/components/ui/filter-tabs'
 
 type FiltroGrado = 'todos' | 'doctores' | 'magisteres'
 
@@ -72,29 +73,17 @@ export function DocentesGrid() {
       {/* Filtros */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         {/* Tabs */}
-        <div className="flex gap-2">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setFiltroGrado(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                filtroGrado === tab.id
-                  ? 'bg-epg-navy text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              {tab.icon}
-              {tab.label}
-              <span
-                className={`ml-1 text-xs px-2 py-0.5 rounded-full ${
-                  filtroGrado === tab.id ? 'bg-white/20' : 'bg-gray-200'
-                }`}
-              >
-                {conteos[tab.id]}
-              </span>
-            </button>
-          ))}
-        </div>
+        <FilterTabs
+          tabs={tabs.map((tab) => ({
+            id: tab.id,
+            label: tab.label,
+            icon: tab.icon,
+            count: conteos[tab.id],
+          }))}
+          activeTab={filtroGrado}
+          onTabChange={(id) => setFiltroGrado(id as FiltroGrado)}
+          variant="rounded"
+        />
 
         {/* Búsqueda */}
         <SearchInput

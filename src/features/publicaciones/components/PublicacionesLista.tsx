@@ -17,6 +17,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { SearchInput } from '@/components/ui/search-input'
+import { FilterTabs } from '@/components/ui/filter-tabs'
 import { NewsletterForm } from '@/features/contacto'
 
 type TipoPublicacion = 'todas' | 'noticia' | 'evento' | 'aviso' | 'comunicado'
@@ -119,29 +120,17 @@ export function PublicacionesLista() {
       {/* Tabs y Búsqueda */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         {/* Tabs */}
-        <div className="flex overflow-x-auto gap-2 pb-2 lg:pb-0">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setTipoActivo(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-                tipoActivo === tab.id
-                  ? 'bg-epg-navy text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              {tab.icon}
-              {tab.label}
-              <span
-                className={`ml-1 text-xs px-2 py-0.5 rounded-full ${
-                  tipoActivo === tab.id ? 'bg-white/20' : 'bg-gray-200'
-                }`}
-              >
-                {conteos[tab.id]}
-              </span>
-            </button>
-          ))}
-        </div>
+        <FilterTabs
+          tabs={tabs.map((tab) => ({
+            id: tab.id,
+            label: tab.label,
+            icon: tab.icon,
+            count: conteos[tab.id],
+          }))}
+          activeTab={tipoActivo}
+          onTabChange={(id) => setTipoActivo(id as TipoPublicacion)}
+          variant="pill"
+        />
 
         {/* Búsqueda */}
         <SearchInput
