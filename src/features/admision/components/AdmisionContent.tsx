@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { SectionHeader } from '@/components/ui/section-header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { CTABanner } from '@/components/ui/cta-banner';
@@ -517,13 +518,11 @@ export function AdmisionContent() {
     <div className="space-y-16">
       {/* Timeline */}
       <section id="cronograma">
-        <div className="text-center mb-8">
-          <Badge className="bg-epg-gold/10 text-epg-gold mb-4">Cronograma</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy mb-4">Fechas Importantes</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Conoce las fechas clave del proceso de admisión 2025-I
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Cronograma", className: "bg-epg-gold/10 text-epg-gold" }}
+          title="Fechas Importantes"
+          description="Conoce las fechas clave del proceso de admisión 2025-I"
+        />
         <Card className="p-6">
           <Timeline />
         </Card>
@@ -531,25 +530,21 @@ export function AdmisionContent() {
 
       {/* Proceso de Admisión */}
       <section id="proceso">
-        <div className="text-center mb-8">
-          <Badge className="bg-blue-100 text-blue-800 mb-4">Paso a Paso</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy mb-4">Proceso de Admisión</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Sigue estos sencillos pasos para completar tu inscripción
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Paso a Paso", className: "bg-blue-100 text-blue-800" }}
+          title="Proceso de Admisión"
+          description="Sigue estos sencillos pasos para completar tu inscripción"
+        />
         <ProcesoAdmision />
       </section>
 
       {/* Programas con Vacantes */}
       <section id="programas">
-        <div className="text-center mb-8">
-          <Badge className="bg-emerald-100 text-emerald-800 mb-4">Disponibles</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy mb-4">Programas con Vacantes</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Selecciona el programa que mejor se adapte a tus objetivos profesionales
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Disponibles", className: "bg-emerald-100 text-emerald-800" }}
+          title="Programas con Vacantes"
+          description="Selecciona el programa que mejor se adapte a tus objetivos profesionales"
+        />
         <ProgramasVacantes />
         <div className="text-center mt-6">
           <Button variant="outline" asChild>
@@ -563,25 +558,21 @@ export function AdmisionContent() {
 
       {/* Requisitos */}
       <section id="requisitos">
-        <div className="text-center mb-8">
-          <Badge className="bg-purple-100 text-purple-800 mb-4">Documentación</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy mb-4">Requisitos de Admisión</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Prepara la documentación necesaria para tu inscripción
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Documentación", className: "bg-purple-100 text-purple-800" }}
+          title="Requisitos de Admisión"
+          description="Prepara la documentación necesaria para tu inscripción"
+        />
         <Requisitos />
       </section>
 
       {/* Costos */}
       <section id="costos">
-        <div className="text-center mb-8">
-          <Badge className="bg-amber-100 text-amber-800 mb-4">Inversión</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy mb-4">Costos y Formas de Pago</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Conoce la inversión requerida para tu formación de posgrado
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Inversión", className: "bg-amber-100 text-amber-800" }}
+          title="Costos y Formas de Pago"
+          description="Conoce la inversión requerida para tu formación de posgrado"
+        />
         <Costos />
         <Card className="mt-6 p-6 bg-blue-50 border-blue-200">
           <div className="flex items-start gap-4">
@@ -599,13 +590,11 @@ export function AdmisionContent() {
 
       {/* FAQ */}
       <section id="faq">
-        <div className="text-center mb-8">
-          <Badge className="bg-gray-100 text-gray-800 mb-4">Dudas</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy mb-4">Preguntas Frecuentes</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Resolvemos las dudas más comunes sobre el proceso de admisión
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Dudas", className: "bg-gray-100 text-gray-800" }}
+          title="Preguntas Frecuentes"
+          description="Resolvemos las dudas más comunes sobre el proceso de admisión"
+        />
         <FAQ />
       </section>
 

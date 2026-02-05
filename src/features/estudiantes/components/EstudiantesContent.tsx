@@ -42,6 +42,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { SectionHeader } from '@/components/ui/section-header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -88,10 +89,10 @@ function AccesosRapidos() {
   return (
     <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-<Badge className="bg-epg-gold/10 text-epg-gold mb-4">Servicios en Línea</Badge>
-          <h2 className="text-2xl font-bold text-epg-navy">Acceso Rápido</h2>
-        </div>
+        <SectionHeader
+          badge={{ label: "Servicios en Línea", className: "bg-epg-gold/10 text-epg-gold" }}
+          title="Acceso Rápido"
+        />
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {accesosRapidos.map((acceso) => (
@@ -124,11 +125,11 @@ function TramitesGrid() {
   return (
     <section className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <Badge className="bg-blue-100 text-blue-800 mb-4">Gestiones Académicas</Badge>
-          <h2 className="text-2xl font-bold text-epg-navy mb-2">Procesos y Trámites</h2>
-          <p className="text-gray-600">Gestiona tus procesos académicos de manera fácil y rápida</p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Gestiones Académicas", className: "bg-blue-100 text-blue-800" }}
+          title="Procesos y Trámites"
+          description="Gestiona tus procesos académicos de manera fácil y rápida"
+        />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tramitesEstudiantiles.map((tramite) => {
@@ -261,11 +262,11 @@ function DocumentosDescargables() {
   return (
     <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <Badge className="bg-red-100 text-red-800 mb-4">Recursos</Badge>
-          <h2 className="text-2xl font-bold text-epg-navy mb-2">Documentos Importantes</h2>
-          <p className="text-gray-600">Descarga reglamentos, formatos y guías oficiales</p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Recursos", className: "bg-red-100 text-red-800" }}
+          title="Documentos Importantes"
+          description="Descarga reglamentos, formatos y guías oficiales"
+        />
 
         <div className="grid md:grid-cols-2 gap-4">
           {documentosDescargables.map((doc) => {
@@ -334,11 +335,11 @@ function CalendarioAcademico() {
   return (
     <section className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <Badge className="bg-purple-100 text-purple-800 mb-4">Planificación</Badge>
-          <h2 className="text-2xl font-bold text-epg-navy mb-2">Calendario Académico</h2>
-          <p className="text-gray-600">Fechas importantes del semestre</p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Planificación", className: "bg-purple-100 text-purple-800" }}
+          title="Calendario Académico"
+          description="Fechas importantes del semestre"
+        />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {calendarioAcademico.slice(0, 8).map((fecha) => {
@@ -382,11 +383,13 @@ function RecursosAcademicosGrid() {
   return (
     <section className="py-12 bg-epg-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <Badge className="bg-white/10 text-white mb-4">Herramientas</Badge>
-          <h2 className="text-2xl font-bold text-white mb-2">Recursos Académicos</h2>
-          <p className="text-gray-300">Herramientas y plataformas para tu investigación</p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Herramientas", className: "bg-white/10 text-white" }}
+          title="Recursos Académicos"
+          description="Herramientas y plataformas para tu investigación"
+          titleColor="text-white"
+          descriptionColor="text-gray-300"
+        />
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {recursosAcademicos.map((recurso) => (
@@ -429,11 +432,11 @@ function PreguntasFrecuentesSection() {
   return (
     <section className="py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <Badge className="bg-amber-100 text-amber-800 mb-4">Ayuda</Badge>
-          <h2 className="text-2xl font-bold text-epg-navy mb-2">Preguntas Frecuentes</h2>
-          <p className="text-gray-600">Respuestas a las dudas más comunes de los estudiantes</p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Ayuda", className: "bg-amber-100 text-amber-800" }}
+          title="Preguntas Frecuentes"
+          description="Respuestas a las dudas más comunes de los estudiantes"
+        />
 
         <div className="space-y-3">
           {preguntasFrecuentes.map((faq) => (

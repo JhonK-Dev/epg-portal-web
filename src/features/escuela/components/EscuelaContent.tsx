@@ -21,6 +21,7 @@ import {
   BookOpen
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { SectionHeader } from '@/components/ui/section-header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -297,10 +298,10 @@ export function EscuelaContent() {
 
       {/* Misión y Visión */}
       <section id="mision-vision">
-        <div className="text-center mb-8">
-          <Badge className="bg-blue-100 text-blue-800 mb-4">Identidad Institucional</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy">Misión y Visión</h2>
-        </div>
+        <SectionHeader
+          badge={{ label: "Identidad Institucional", className: "bg-blue-100 text-blue-800" }}
+          title="Misión y Visión"
+        />
         
         <div className="grid md:grid-cols-2 gap-8">
           <Card className="border-l-4 border-l-epg-gold hover:shadow-lg transition-shadow">
@@ -335,49 +336,41 @@ export function EscuelaContent() {
 
       {/* Valores */}
       <section id="valores" className="bg-gray-50 -mx-4 px-4 py-12 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded-2xl">
-        <div className="text-center mb-8">
-          <Badge className="bg-purple-100 text-purple-800 mb-4">Principios</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy mb-4">Nuestros Valores</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Los valores que guían nuestra labor académica y compromiso institucional
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Principios", className: "bg-purple-100 text-purple-800" }}
+          title="Nuestros Valores"
+          description="Los valores que guían nuestra labor académica y compromiso institucional"
+        />
         <Valores />
       </section>
 
       {/* Estadísticas */}
       <section id="estadisticas">
-        <div className="text-center mb-8">
-          <Badge className="bg-emerald-100 text-emerald-800 mb-4">Logros</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy mb-4">EPG en Números</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Cifras que reflejan nuestro compromiso con la excelencia académica
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Logros", className: "bg-emerald-100 text-emerald-800" }}
+          title="EPG en Números"
+          description="Cifras que reflejan nuestro compromiso con la excelencia académica"
+        />
         <EstadisticasGrid />
       </section>
 
       {/* Autoridades */}
       <section id="autoridades">
-        <div className="text-center mb-8">
-          <Badge className="bg-amber-100 text-amber-800 mb-4">Equipo Directivo</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy mb-4">Autoridades</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Profesionales comprometidos con la excelencia académica
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Equipo Directivo", className: "bg-amber-100 text-amber-800" }}
+          title="Autoridades"
+          description="Profesionales comprometidos con la excelencia académica"
+        />
         <Autoridades />
       </section>
 
       {/* Documentos */}
       <section id="documentos">
-        <div className="text-center mb-8">
-          <Badge className="bg-gray-100 text-gray-800 mb-4">Normativa</Badge>
-          <h2 className="text-3xl font-bold text-epg-navy mb-4">Documentos Institucionales</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Accede a los reglamentos, formatos y guías de la escuela
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Normativa", className: "bg-gray-100 text-gray-800" }}
+          title="Documentos Institucionales"
+          description="Accede a los reglamentos, formatos y guías de la escuela"
+        />
         <Documentos />
       </section>
 

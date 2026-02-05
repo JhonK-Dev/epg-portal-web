@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react';
 import { formatShortDate, formatEventDate } from '@/lib/formatters';
 import { getPublicationTypeConfig } from '@/lib/constants';
+import { SectionHeader } from '@/components/ui/section-header';
 
 // Sample news and events
 const publications = [
@@ -64,23 +65,20 @@ export const NewsAndEvents: React.FC = () => {
     <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-          <div>
-            <span className="text-epg-gold font-semibold text-sm uppercase tracking-wider mb-2 block">
-              Mantente informado
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-epg-navy">
-              Noticias y Eventos
-            </h2>
-          </div>
-          <a
-            href="/publicaciones"
-            className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
-          >
-            Ver todas las publicaciones
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
+        <SectionHeader
+          badge={{ label: "Mantente informado", className: "text-epg-gold" }}
+          title="Noticias y Eventos"
+          align="left"
+          action={
+            <a
+              href="/publicaciones"
+              className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
+            >
+              Ver todas las publicaciones
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          }
+        />
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main News Column */}

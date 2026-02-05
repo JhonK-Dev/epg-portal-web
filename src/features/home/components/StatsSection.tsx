@@ -1,5 +1,6 @@
 import React from 'react';
 import { GraduationCap, Users, Award, BookOpen, Calendar, ThumbsUp } from 'lucide-react';
+import { SectionHeader } from '@/components/ui/section-header';
 
 const stats = [
   {
@@ -51,17 +52,14 @@ export const StatsSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="text-epg-gold font-semibold text-sm uppercase tracking-wider mb-2 block">
-            Nuestros números
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Cifras que nos respaldan
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Más de tres décadas formando líderes para el desarrollo de la Amazonía peruana.
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: "Nuestros números", className: "text-epg-gold" }}
+          title="Cifras que nos respaldan"
+          description="Más de tres décadas formando líderes para el desarrollo de la Amazonía peruana."
+          titleColor="text-white"
+          descriptionColor="text-gray-400"
+          className="mb-12"
+        />
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">

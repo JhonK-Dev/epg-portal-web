@@ -2,6 +2,7 @@ import React from 'react';
 import { GraduationCap, Users, Award, BookOpen, ArrowRight } from 'lucide-react';
 import { programas } from '@/data/programas';
 import { getProgramTypeConfig } from '@/lib/constants';
+import { SectionHeader } from '@/components/ui/section-header';
 
 // Get featured programs from data
 const featuredPrograms = programas.filter(p => 
@@ -13,26 +14,21 @@ export const FeaturedPrograms: React.FC = () => {
     <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-          <div>
-            <span className="text-epg-gold font-semibold text-sm uppercase tracking-wider mb-2 block">
-              Nuestra oferta académica
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-epg-navy">
-              Programas Destacados
-            </h2>
-            <p className="text-gray-600 mt-2 max-w-xl">
-              Descubre los programas más demandados por profesionales como tú.
-            </p>
-          </div>
-          <a
-            href="/programas"
-            className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
-          >
-            Ver todos los programas
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
+        <SectionHeader
+          badge={{ label: "Nuestra oferta académica", className: "text-epg-gold" }}
+          title="Programas Destacados"
+          description="Descubre los programas más demandados por profesionales como tú."
+          align="left"
+          action={
+            <a
+              href="/programas"
+              className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
+            >
+              Ver todos los programas
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          }
+        />
 
         {/* Programs Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
