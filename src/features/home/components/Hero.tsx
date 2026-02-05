@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
               <span className="text-white text-sm font-medium">
                 Universidad licenciada por SUNEDU
               </span>
-              <CheckCircle className="w-4 h-4 text-green-400" />
+              <CheckCircle className="w-4 h-4 text-success" />
             </div>
 
             {/* Main Heading */}
@@ -90,7 +90,7 @@ export const Hero: React.FC = () => {
           <div className="hidden lg:block">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
               <div className="flex items-center gap-2 mb-4">
-                <span className="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+<span className="inline-block bg-success text-success-foreground text-xs font-bold px-3 py-1 rounded-full animate-pulse">
                   ABIERTO
                 </span>
                 <span className="text-white/80 text-sm">Proceso de Admisión 2025-I</span>
