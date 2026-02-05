@@ -48,11 +48,49 @@
   --color-warning-foreground: var(--warning-foreground);
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
-  /* Colores de Programa */
+  /* Colores de Programa (sólidos) */
   --color-maestria: var(--maestria);
+  --color-maestria-light: var(--maestria-light);
   --color-doctorado: var(--doctorado);
+  --color-doctorado-light: var(--doctorado-light);
   --color-diplomado: var(--diplomado);
+  --color-diplomado-light: var(--diplomado-light);
   --color-curso: var(--curso);
+  --color-curso-light: var(--curso-light);
+  /* Colores de Grado Académico */
+  --color-grado-doctor: var(--grado-doctor);
+  --color-grado-doctor-light: var(--grado-doctor-light);
+  --color-grado-phd: var(--grado-phd);
+  --color-grado-phd-light: var(--grado-phd-light);
+  --color-grado-magister: var(--grado-magister);
+  --color-grado-magister-light: var(--grado-magister-light);
+  --color-grado-bachiller: var(--grado-bachiller);
+  --color-grado-bachiller-light: var(--grado-bachiller-light);
+  /* Colores de Modalidad */
+  --color-modalidad-presencial: var(--modalidad-presencial);
+  --color-modalidad-presencial-light: var(--modalidad-presencial-light);
+  --color-modalidad-semipresencial: var(--modalidad-semipresencial);
+  --color-modalidad-semipresencial-light: var(--modalidad-semipresencial-light);
+  --color-modalidad-virtual: var(--modalidad-virtual);
+  --color-modalidad-virtual-light: var(--modalidad-virtual-light);
+  /* Colores de Publicación */
+  --color-publicacion-noticia: var(--publicacion-noticia);
+  --color-publicacion-noticia-light: var(--publicacion-noticia-light);
+  --color-publicacion-evento: var(--publicacion-evento);
+  --color-publicacion-evento-light: var(--publicacion-evento-light);
+  --color-publicacion-aviso: var(--publicacion-aviso);
+  --color-publicacion-aviso-light: var(--publicacion-aviso-light);
+  --color-publicacion-comunicado: var(--publicacion-comunicado);
+  --color-publicacion-comunicado-light: var(--publicacion-comunicado-light);
+  /* Colores de Documento */
+  --color-documento-reglamento: var(--documento-reglamento);
+  --color-documento-reglamento-light: var(--documento-reglamento-light);
+  --color-documento-formato: var(--documento-formato);
+  --color-documento-formato-light: var(--documento-formato-light);
+  --color-documento-guia: var(--documento-guia);
+  --color-documento-guia-light: var(--documento-guia-light);
+  --color-documento-manual: var(--documento-manual);
+  --color-documento-manual-light: var(--documento-manual-light);
   /* Colores institucionales EPG UNAP */
   --color-epg-navy: #0A1628;
   --color-epg-navy-light: #0D2240;
@@ -107,9 +145,47 @@
   --info-foreground: #ffffff;
   /* Colores de Programa */
   --maestria: #2563eb;
+  --maestria-light: #dbeafe;
   --doctorado: #9333ea;
+  --doctorado-light: #f3e8ff;
   --diplomado: #059669;
+  --diplomado-light: #d1fae5;
   --curso: #d97706;
+  --curso-light: #fef3c7;
+  /* Colores de Grado Académico */
+  --grado-doctor: #92400e;
+  --grado-doctor-light: #fef3c7;
+  --grado-phd: #7c3aed;
+  --grado-phd-light: #f3e8ff;
+  --grado-magister: #1d4ed8;
+  --grado-magister-light: #dbeafe;
+  --grado-bachiller: #4b5563;
+  --grado-bachiller-light: #f3f4f6;
+  /* Colores de Modalidad */
+  --modalidad-presencial: #1d4ed8;
+  --modalidad-presencial-light: #dbeafe;
+  --modalidad-semipresencial: #7c3aed;
+  --modalidad-semipresencial-light: #f3e8ff;
+  --modalidad-virtual: #15803d;
+  --modalidad-virtual-light: #dcfce7;
+  /* Colores de Publicación */
+  --publicacion-noticia: #2563eb;
+  --publicacion-noticia-light: #dbeafe;
+  --publicacion-evento: #9333ea;
+  --publicacion-evento-light: #f3e8ff;
+  --publicacion-aviso: #15803d;
+  --publicacion-aviso-light: #dcfce7;
+  --publicacion-comunicado: #d97706;
+  --publicacion-comunicado-light: #fef3c7;
+  /* Colores de Documento */
+  --documento-reglamento: #dc2626;
+  --documento-reglamento-light: #fee2e2;
+  --documento-formato: #2563eb;
+  --documento-formato-light: #dbeafe;
+  --documento-guia: #15803d;
+  --documento-guia-light: #dcfce7;
+  --documento-manual: #9333ea;
+  --documento-manual-light: #f3e8ff;
 }
 
 .dark {
@@ -153,10 +229,48 @@
   --info: #3b82f6;
   --info-foreground: #ffffff;
   /* Colores de Programa (Dark Mode) */
-  --maestria: #2563eb;
-  --doctorado: #9333ea;
-  --diplomado: #059669;
-  --curso: #d97706;
+  --maestria: #3b82f6;
+  --maestria-light: #1e3a5f;
+  --doctorado: #a855f7;
+  --doctorado-light: #3b1f5c;
+  --diplomado: #10b981;
+  --diplomado-light: #064e3b;
+  --curso: #f59e0b;
+  --curso-light: #78350f;
+  /* Colores de Grado Académico (Dark Mode) */
+  --grado-doctor: #fbbf24;
+  --grado-doctor-light: #78350f;
+  --grado-phd: #a855f7;
+  --grado-phd-light: #3b1f5c;
+  --grado-magister: #3b82f6;
+  --grado-magister-light: #1e3a5f;
+  --grado-bachiller: #9ca3af;
+  --grado-bachiller-light: #374151;
+  /* Colores de Modalidad (Dark Mode) */
+  --modalidad-presencial: #3b82f6;
+  --modalidad-presencial-light: #1e3a5f;
+  --modalidad-semipresencial: #a855f7;
+  --modalidad-semipresencial-light: #3b1f5c;
+  --modalidad-virtual: #22c55e;
+  --modalidad-virtual-light: #14532d;
+  /* Colores de Publicación (Dark Mode) */
+  --publicacion-noticia: #3b82f6;
+  --publicacion-noticia-light: #1e3a5f;
+  --publicacion-evento: #a855f7;
+  --publicacion-evento-light: #3b1f5c;
+  --publicacion-aviso: #22c55e;
+  --publicacion-aviso-light: #14532d;
+  --publicacion-comunicado: #f59e0b;
+  --publicacion-comunicado-light: #78350f;
+  /* Colores de Documento (Dark Mode) */
+  --documento-reglamento: #ef4444;
+  --documento-reglamento-light: #7f1d1d;
+  --documento-formato: #3b82f6;
+  --documento-formato-light: #1e3a5f;
+  --documento-guia: #22c55e;
+  --documento-guia-light: #14532d;
+  --documento-manual: #a855f7;
+  --documento-manual-light: #3b1f5c;
 }
 
 @layer base {
