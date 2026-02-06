@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { publicaciones, getDestacadas } from '@/data/publicaciones'
 import { formatDate } from '@/lib/formatters'
+import { LinkArrow } from '@/components/ui/link-arrow'
 import {
   tipoPublicacionLabels,
   tipoPublicacionBadgeColors,
@@ -195,9 +196,9 @@ export function PublicacionesLista() {
                     <p className="text-gray-600 mb-4 line-clamp-2">
                       {pub.resumen}
                     </p>
-                    <span className="text-epg-gold font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Leer más <ChevronRight className="h-4 w-4" />
-                    </span>
+                    <LinkArrow className="text-epg-gold font-medium">
+                      Leer más
+                    </LinkArrow>
                   </CardContent>
                 </Card>
               </a>

@@ -3,6 +3,7 @@ import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react'
 import { formatShortDate, formatEventDate } from '@/lib/formatters'
 import { getPublicationTypeConfig } from '@/lib/constants'
 import { SectionHeader } from '@/components/ui/section-header'
+import { LinkArrow } from '@/components/ui/link-arrow'
 
 // Sample news and events
 const publications = [
@@ -113,10 +114,9 @@ export const NewsAndEvents: React.FC = () => {
                         <time className="text-gray-400 text-sm">
                           {formatShortDate(pub.fecha)}
                         </time>
-                        <span className="inline-flex items-center gap-1 text-epg-gold font-medium group-hover:gap-2 transition-all">
+                        <LinkArrow className="text-epg-gold font-medium">
                           Leer más
-                          <ArrowRight className="w-4 h-4" />
-                        </span>
+                        </LinkArrow>
                       </div>
                     </div>
                   </a>
