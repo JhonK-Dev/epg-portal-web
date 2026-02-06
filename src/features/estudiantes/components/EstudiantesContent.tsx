@@ -54,6 +54,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { CTABannerSideBySide } from '@/components/ui/cta-banner'
 import { PageHero } from '@/components/ui/page-hero'
+import { IconCircle } from '@/components/ui/icon-circle'
 
 // ========================================
 // ICON MAPPER HELPERS
@@ -113,9 +114,13 @@ function AccesosRapidos() {
               rel="noopener noreferrer"
               className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 group"
             >
-              <div className="w-14 h-14 bg-epg-navy rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-epg-gold transition-colors">
-                {accesoIconMap[acceso.icono]}
-              </div>
+              <IconCircle
+                icon={accesoIconMap[acceso.icono]}
+                size="lg"
+                variant="navy"
+                rounded="full"
+                className="mx-auto mb-4 group-hover:bg-epg-gold transition-colors"
+              />
               <span className="font-medium text-epg-navy block">
                 {acceso.nombre}
               </span>
