@@ -53,6 +53,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { CTABannerSideBySide } from '@/components/ui/cta-banner'
+import { PageHero } from '@/components/ui/page-hero'
 
 // ========================================
 // ICON MAPPER HELPERS
@@ -598,28 +599,13 @@ export function EstudiantesContent() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-epg-navy text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="text-sm mb-4">
-            <ol className="flex items-center gap-2">
-              <li>
-                <a href="/" className="text-gray-300 hover:text-white">
-                  Inicio
-                </a>
-              </li>
-              <li className="text-gray-400">/</li>
-              <li className="text-epg-gold">Estudiantes</li>
-            </ol>
-          </nav>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Portal del Estudiante
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl">
-            Accede a recursos, trámites y servicios exclusivos para estudiantes
-            de la Escuela de Postgrado.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        breadcrumbs={[{ label: 'Inicio', href: '/' }, { label: 'Estudiantes' }]}
+        title="Portal del Estudiante"
+        subtitle="Accede a recursos, trámites y servicios exclusivos para estudiantes de la Escuela de Postgrado."
+        variant="solid"
+        bgColorClass="bg-epg-navy"
+      />
 
       {/* Accesos Rápidos */}
       <AccesosRapidos />
