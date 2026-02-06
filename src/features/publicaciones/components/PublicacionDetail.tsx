@@ -1,8 +1,8 @@
-import type { Publicacion } from '@/types';
-import { formatDate, formatDateTime } from '@/lib/formatters';
-import { tipoPublicacionLabels, tipoPublicacionColors } from '@/lib/constants';
-import { 
-  Calendar, 
+import type { Publicacion } from '@/types'
+import { formatDate, formatDateTime } from '@/lib/formatters'
+import { tipoPublicacionLabels, tipoPublicacionColors } from '@/lib/constants'
+import {
+  Calendar,
   User,
   Tag,
   ArrowLeft,
@@ -12,16 +12,17 @@ import {
   Newspaper,
   CalendarDays,
   Bell,
-  Megaphone
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
+  Megaphone,
+} from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import { PageHero } from '@/components/ui/page-hero'
 
 interface PublicacionDetailProps {
-  publicacion: Publicacion;
-  publicacionesRelacionadas?: Publicacion[];
+  publicacion: Publicacion
+  publicacionesRelacionadas?: Publicacion[]
 }
 
 const tipoIcons: Record<string, React.ReactNode> = {
@@ -29,67 +30,63 @@ const tipoIcons: Record<string, React.ReactNode> = {
   evento: <CalendarDays className="h-5 w-5" />,
   aviso: <Bell className="h-5 w-5" />,
   comunicado: <Megaphone className="h-5 w-5" />,
-};
+}
 
-export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] }: PublicacionDetailProps) {
-
+export function PublicacionDetail({
+  publicacion,
+  publicacionesRelacionadas = [],
+}: PublicacionDetailProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Header */}
-      <div className={`${tipoPublicacionColors[publicacion.tipo]} text-white`}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-white/80 text-sm mb-6">
-            <a href="/" className="hover:text-white">Inicio</a>
-            <span>/</span>
-            <a href="/publicaciones" className="hover:text-white">Publicaciones</a>
-            <span>/</span>
-            <span className="text-white">{tipoPublicacionLabels[publicacion.tipo]}</span>
+      <PageHero
+        breadcrumbs={[
+          { label: 'Inicio', href: '/' },
+          { label: 'Publicaciones', href: '/publicaciones' },
+          { label: tipoPublicacionLabels[publicacion.tipo] },
+        ]}
+        title={publicacion.titulo}
+        bgColorClass={tipoPublicacionColors[publicacion.tipo]}
+        variant="solid"
+      >
+        <div className="flex items-center gap-3 mb-4">
+          <Badge className="bg-white/20 text-white hover:bg-white/30 gap-1">
+            {tipoIcons[publicacion.tipo]}
+            {tipoPublicacionLabels[publicacion.tipo]}
+          </Badge>
+          {publicacion.destacado && (
+            <Badge className="bg-epg-gold text-epg-navy">Destacado</Badge>
+          )}
+        </div>
+
+        <div className="flex flex-wrap items-center gap-4 text-white/80">
+          <div className="flex items-center gap-2">
+            <Calendar className="h-4 w-4" />
+            <span>{formatDate(publicacion.fecha)}</span>
           </div>
-
-          <div className="flex items-center gap-3 mb-4">
-            <Badge className="bg-white/20 text-white hover:bg-white/30 gap-1">
-              {tipoIcons[publicacion.tipo]}
-              {tipoPublicacionLabels[publicacion.tipo]}
-            </Badge>
-            {publicacion.destacado && (
-              <Badge className="bg-epg-gold text-epg-navy">
-                Destacado
-              </Badge>
-            )}
-          </div>
-
-          <h1 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">
-            {publicacion.titulo}
-          </h1>
-
-          <div className="flex flex-wrap items-center gap-4 text-white/80">
+          {publicacion.autor && (
             <div className="flex items-center gap-2">
-              <Calendar className="h-4 w-4" />
-              <span>{formatDate(publicacion.fecha)}</span>
-            </div>
-            {publicacion.autor && (
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4" />
-                <span>{publicacion.autor}</span>
-              </div>
-            )}
-          </div>
-
-          {/* Fecha del evento (si aplica) */}
-          {publicacion.tipo === 'evento' && publicacion.fechaEvento && (
-            <div className="mt-6 bg-white/10 rounded-lg p-4 inline-block">
-              <div className="flex items-center gap-3">
-                <CalendarDays className="h-6 w-6" />
-                <div>
-                  <p className="text-sm text-white/80">Fecha del evento</p>
-                  <p className="font-semibold">{formatDateTime(publicacion.fechaEvento)}</p>
-                </div>
-              </div>
+              <User className="h-4 w-4" />
+              <span>{publicacion.autor}</span>
             </div>
           )}
         </div>
-      </div>
+
+        {/* Fecha del evento (si aplica) */}
+        {publicacion.tipo === 'evento' && publicacion.fechaEvento && (
+          <div className="mt-6 bg-white/10 rounded-lg p-4 inline-block">
+            <div className="flex items-center gap-3">
+              <CalendarDays className="h-6 w-6" />
+              <div>
+                <p className="text-sm text-white/80">Fecha del evento</p>
+                <p className="font-semibold">
+                  {formatDateTime(publicacion.fechaEvento)}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </PageHero>
 
       {/* Content */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -99,8 +96,8 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
             {/* Image */}
             {publicacion.imagen && (
               <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src={publicacion.imagen} 
+                <img
+                  src={publicacion.imagen}
                   alt={publicacion.titulo}
                   className="w-full h-64 md:h-96 object-cover"
                 />
@@ -125,7 +122,11 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
                   <div className="flex items-center gap-2 flex-wrap">
                     <Tag className="h-4 w-4 text-gray-500" />
                     {publicacion.etiquetas.map((etiqueta, index) => (
-                      <Badge key={index} variant="secondary" className="text-sm">
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        className="text-sm"
+                      >
                         {etiqueta}
                       </Badge>
                     ))}
@@ -135,7 +136,9 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
 
               {/* Share */}
               <div className="mt-6 pt-6 border-t flex items-center justify-between">
-                <span className="text-sm text-gray-500">¿Te resultó útil esta información?</span>
+                <span className="text-sm text-gray-500">
+                  ¿Te resultó útil esta información?
+                </span>
                 <Button variant="outline" size="sm" className="gap-2">
                   <Share2 className="h-4 w-4" />
                   Compartir
@@ -144,8 +147,8 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
             </article>
 
             {/* Back Link */}
-            <a 
-              href="/publicaciones" 
+            <a
+              href="/publicaciones"
               className="flex items-center gap-2 text-epg-navy hover:underline mt-8"
             >
               <ArrowLeft className="h-4 w-4" />
@@ -167,7 +170,9 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
                       <Calendar className="h-5 w-5 text-epg-navy flex-shrink-0 mt-1" />
                       <div>
                         <p className="text-sm text-gray-500">Fecha</p>
-                        <p className="font-medium">{formatDateTime(publicacion.fechaEvento)}</p>
+                        <p className="font-medium">
+                          {formatDateTime(publicacion.fechaEvento)}
+                        </p>
                       </div>
                     </div>
                   )}
@@ -190,11 +195,14 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
             {/* Contact Card */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">¿Necesitas más información?</CardTitle>
+                <CardTitle className="text-lg">
+                  ¿Necesitas más información?
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-sm text-gray-600">
-                  Si tienes preguntas sobre esta publicación, no dudes en contactarnos.
+                  Si tienes preguntas sobre esta publicación, no dudes en
+                  contactarnos.
                 </p>
                 <Button variant="outline" className="w-full">
                   Contactar
@@ -206,17 +214,21 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
             {publicacionesRelacionadas.length > 0 && (
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Publicaciones Relacionadas</CardTitle>
+                  <CardTitle className="text-lg">
+                    Publicaciones Relacionadas
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {publicacionesRelacionadas.slice(0, 3).map((pub) => (
-                    <a 
+                    <a
                       key={pub.id}
                       href={`/publicaciones/${pub.slug}`}
                       className="block group"
                     >
                       <div className="flex gap-3">
-                        <div className={`w-1 ${tipoPublicacionColors[pub.tipo]} rounded-full flex-shrink-0`} />
+                        <div
+                          className={`w-1 ${tipoPublicacionColors[pub.tipo]} rounded-full flex-shrink-0`}
+                        />
                         <div>
                           <p className="font-medium text-sm group-hover:text-epg-navy line-clamp-2">
                             {pub.titulo}
@@ -235,5 +247,5 @@ export function PublicacionDetail({ publicacion, publicacionesRelacionadas = [] 
         </div>
       </div>
     </div>
-  );
+  )
 }

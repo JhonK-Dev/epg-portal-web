@@ -1,5 +1,15 @@
-import React from 'react';
-import { GraduationCap, Users, Award, BookOpen, Calendar, ThumbsUp } from 'lucide-react';
+import React from 'react'
+import {
+  GraduationCap,
+  Users,
+  Award,
+  BookOpen,
+  Calendar,
+  ThumbsUp,
+} from 'lucide-react'
+import { SectionHeader } from '@/components/ui/section-header'
+import { StatItem } from '@/components/ui/stat-item'
+import { IconCircle } from '@/components/ui/icon-circle'
 
 const stats = [
   {
@@ -38,7 +48,7 @@ const stats = [
     icon: ThumbsUp,
     description: 'Estudiantes satisfechos',
   },
-];
+]
 
 export const StatsSection: React.FC = () => {
   return (
@@ -51,44 +61,49 @@ export const StatsSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="text-epg-gold font-semibold text-sm uppercase tracking-wider mb-2 block">
-            Nuestros números
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Cifras que nos respaldan
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Más de tres décadas formando líderes para el desarrollo de la Amazonía peruana.
-          </p>
-        </div>
+        <SectionHeader
+          badge={{ label: 'Nuestros números', className: 'text-epg-gold' }}
+          title="Cifras que nos respaldan"
+          description="Más de tres décadas formando líderes para el desarrollo de la Amazonía peruana."
+          titleColor="text-white"
+          descriptionColor="text-gray-400"
+          className="mb-12"
+        />
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {stats.map((stat, index) => {
-            const Icon = stat.icon;
+            const Icon = stat.icon
             return (
               <div
                 key={index}
-                className="text-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all group"
+                className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all group"
               >
-                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-epg-gold/20 flex items-center justify-center group-hover:bg-epg-gold/30 transition-colors">
-                  <Icon className="w-6 h-6 text-epg-gold" />
-                </div>
-                <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-epg-gold font-medium text-sm mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-gray-500 text-xs hidden lg:block">
-                  {stat.description}
-                </div>
+                <StatItem
+                  value={stat.value}
+                  label={stat.label}
+                  description={stat.description}
+                  variant="card"
+                  icon={
+                    <IconCircle
+                      icon={<Icon className="w-6 h-6" />}
+                      size="md"
+                      variant="custom"
+                      bgColor="bg-epg-gold/20"
+                      iconColor="text-epg-gold"
+                      rounded="xl"
+                      className="mx-auto group-hover:bg-epg-gold/30 transition-colors"
+                    />
+                  }
+                  valueClassName="text-white"
+                  labelClassName="text-epg-gold"
+                  descriptionClassName="text-gray-500 hidden lg:block"
+                />
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

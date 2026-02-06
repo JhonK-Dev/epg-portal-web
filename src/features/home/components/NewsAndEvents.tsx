@@ -1,7 +1,9 @@
-import React from 'react';
-import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react';
-import { formatShortDate, formatEventDate } from '@/lib/formatters';
-import { getPublicationTypeConfig } from '@/lib/constants';
+import React from 'react'
+import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react'
+import { formatShortDate, formatEventDate } from '@/lib/formatters'
+import { getPublicationTypeConfig } from '@/lib/constants'
+import { SectionHeader } from '@/components/ui/section-header'
+import { LinkArrow } from '@/components/ui/link-arrow'
 
 // Sample news and events
 const publications = [
@@ -9,7 +11,8 @@ const publications = [
     id: 'not-001',
     titulo: 'Escuela de Postgrado obtiene acreditación internacional SIACES',
     tipo: 'noticia',
-    resumen: 'Nuestra escuela recibe reconocimiento internacional por la calidad de sus programas académicos.',
+    resumen:
+      'Nuestra escuela recibe reconocimiento internacional por la calidad de sus programas académicos.',
     fecha: '2025-01-15',
     slug: 'acreditacion-internacional-siaces',
     destacado: true,
@@ -18,7 +21,8 @@ const publications = [
     id: 'eve-001',
     titulo: 'III Congreso Internacional de Investigación en Postgrado',
     tipo: 'evento',
-    resumen: 'Congreso que reunirá investigadores de cuatro países para compartir avances científicos.',
+    resumen:
+      'Congreso que reunirá investigadores de cuatro países para compartir avances científicos.',
     fecha: '2025-01-20',
     fechaEvento: '2025-03-20',
     slug: 'congreso-internacional-investigacion',
@@ -28,12 +32,13 @@ const publications = [
     id: 'avi-001',
     titulo: 'Inicio de inscripciones para el proceso de admisión 2025-I',
     tipo: 'aviso',
-    resumen: 'Inscripciones abiertas para maestrías y doctorados del semestre 2025-I.',
+    resumen:
+      'Inscripciones abiertas para maestrías y doctorados del semestre 2025-I.',
     fecha: '2025-01-14',
     slug: 'inscripciones-admision-2025-i',
     destacado: true,
   },
-];
+]
 
 const events = [
   {
@@ -57,37 +62,34 @@ const events = [
     hora: '10:00',
     lugar: 'Sala de Capacitaciones',
   },
-];
+]
 
 export const NewsAndEvents: React.FC = () => {
   return (
-    <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="section-py px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="container-main">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-          <div>
-            <span className="text-epg-gold font-semibold text-sm uppercase tracking-wider mb-2 block">
-              Mantente informado
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-epg-navy">
-              Noticias y Eventos
-            </h2>
-          </div>
-          <a
-            href="/publicaciones"
-            className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
-          >
-            Ver todas las publicaciones
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
+        <SectionHeader
+          badge={{ label: 'Mantente informado', className: 'text-epg-gold' }}
+          title="Noticias y Eventos"
+          align="left"
+          action={
+            <a
+              href="/publicaciones"
+              className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
+            >
+              Ver todas las publicaciones
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          }
+        />
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main News Column */}
           <div className="lg:col-span-2 space-y-6">
             {publications.map((pub, index) => {
-              const typeConfig = getPublicationTypeConfig(pub.tipo);
-              
+              const typeConfig = getPublicationTypeConfig(pub.tipo)
+
               if (index === 0) {
                 // Featured/Large card for first item
                 return (
@@ -97,7 +99,9 @@ export const NewsAndEvents: React.FC = () => {
                     className="group block bg-gradient-to-br from-epg-navy to-epg-navy-light rounded-2xl overflow-hidden hover:shadow-xl transition-all"
                   >
                     <div className="p-8">
-                      <span className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-bold px-3 py-1 rounded-full mb-4`}>
+                      <span
+                        className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-bold px-3 py-1 rounded-full mb-4`}
+                      >
                         {typeConfig.label}
                       </span>
                       <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-epg-gold transition-colors">
@@ -110,14 +114,13 @@ export const NewsAndEvents: React.FC = () => {
                         <time className="text-gray-400 text-sm">
                           {formatShortDate(pub.fecha)}
                         </time>
-                        <span className="inline-flex items-center gap-1 text-epg-gold font-medium group-hover:gap-2 transition-all">
+                        <LinkArrow className="text-epg-gold font-medium">
                           Leer más
-                          <ArrowRight className="w-4 h-4" />
-                        </span>
+                        </LinkArrow>
                       </div>
                     </div>
                   </a>
-                );
+                )
               }
 
               // Regular cards for other items
@@ -131,7 +134,9 @@ export const NewsAndEvents: React.FC = () => {
                     <Calendar className="w-8 h-8 text-epg-gold/50" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <span className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-bold px-2 py-0.5 rounded mb-2`}>
+                    <span
+                      className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-bold px-2 py-0.5 rounded mb-2`}
+                    >
                       {typeConfig.label}
                     </span>
                     <h4 className="font-bold text-epg-navy group-hover:text-epg-gold transition-colors line-clamp-2 mb-1">
@@ -142,7 +147,7 @@ export const NewsAndEvents: React.FC = () => {
                     </time>
                   </div>
                 </a>
-              );
+              )
             })}
           </div>
 
@@ -156,8 +161,8 @@ export const NewsAndEvents: React.FC = () => {
 
               <div className="space-y-4">
                 {events.map((event) => {
-                  const eventDate = formatEventDate(event.fecha);
-                  
+                  const eventDate = formatEventDate(event.fecha)
+
                   return (
                     <div
                       key={event.id}
@@ -165,8 +170,12 @@ export const NewsAndEvents: React.FC = () => {
                     >
                       {/* Date Badge */}
                       <div className="w-14 h-14 bg-epg-navy rounded-lg flex flex-col items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-lg leading-none">{eventDate.day}</span>
-                        <span className="text-epg-gold text-xs font-medium">{eventDate.month}</span>
+                        <span className="text-white font-bold text-lg leading-none">
+                          {eventDate.day}
+                        </span>
+                        <span className="text-epg-gold text-xs font-medium">
+                          {eventDate.month}
+                        </span>
                       </div>
 
                       {/* Event Info */}
@@ -186,7 +195,7 @@ export const NewsAndEvents: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                  );
+                  )
                 })}
               </div>
 
@@ -201,5 +210,5 @@ export const NewsAndEvents: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

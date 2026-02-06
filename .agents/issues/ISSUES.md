@@ -2,10 +2,10 @@
 
 > **INSTRUCCIONES PARA EL AGENTE:** Al iniciar cada sesion, lee este archivo para conocer el estado actual de los issues. Actualiza el estado de cada issue cuando se complete.
 
-**Ultima actualizacion:** 2026-02-05
+**Ultima actualizacion:** 2026-02-06
 **Total issues:** 32
-**Completados:** 8
-**Pendientes:** 24
+**Completados:** 23
+**Pendientes:** 9
 
 ---
 
@@ -14,7 +14,7 @@
 | Categoria | Total | Completados | Pendientes | GitHub Issues |
 |-----------|-------|-------------|------------|---------------|
 | Colores Hardcodeados | 8 | 8 | 0 | #30-#37 (Todos cerrados) |
-| Codigo Duplicado | 15 | 0 | 15 | Pendiente crear |
+| Codigo Duplicado | 15 | 15 | 0 | #48-#62 (Todos cerrados) |
 | Accesibilidad | 6 | 0 | 6 | Pendiente crear |
 | Consistencia de Diseno | 3 | 0 | 3 | Pendiente crear |
 
@@ -129,7 +129,9 @@
 ## ISSUES DE CODIGO DUPLICADO
 
 ### DUP-001: Extraer componente CTABanner
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#48](https://github.com/JhonK-Dev/epg-portal-web/issues/48)
+- **PR:** [#63](https://github.com/JhonK-Dev/epg-portal-web/pull/63) (Merged)
 - **Prioridad:** Alta
 - **Archivos afectados:**
   - `src/features/servicios/components/ServiciosGrid.tsx` (166-200)
@@ -144,7 +146,9 @@
 ---
 
 ### DUP-002: Extraer componente SectionHeader
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#49](https://github.com/JhonK-Dev/epg-portal-web/issues/49)
+- **PR:** [#64](https://github.com/JhonK-Dev/epg-portal-web/pull/64) (Merged)
 - **Prioridad:** Alta
 - **Archivos afectados:**
   - `src/features/escuela/components/EscuelaContent.tsx` (247-259, 298-379)
@@ -159,7 +163,9 @@
 ---
 
 ### DUP-003: Extraer componente SearchInput
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#50](https://github.com/JhonK-Dev/epg-portal-web/issues/50)
+- **PR:** [#65](https://github.com/JhonK-Dev/epg-portal-web/pull/65) (Merged)
 - **Prioridad:** Alta
 - **Archivos afectados:**
   - `src/features/publicaciones/components/PublicacionesLista.tsx` (122-140)
@@ -171,7 +177,9 @@
 ---
 
 ### DUP-004: Extraer componente FilterTabs
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#51](https://github.com/JhonK-Dev/epg-portal-web/issues/51)
+- **PR:** [#66](https://github.com/JhonK-Dev/epg-portal-web/pull/66) (Merged)
 - **Prioridad:** Media
 - **Archivos afectados:**
   - `src/features/publicaciones/components/PublicacionesLista.tsx` (100-120)
@@ -182,7 +190,9 @@
 ---
 
 ### DUP-005: Extraer componente EmptyState
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#52](https://github.com/JhonK-Dev/epg-portal-web/issues/52)
+- **PR:** [#67](https://github.com/JhonK-Dev/epg-portal-web/pull/67) (Merged)
 - **Prioridad:** Media
 - **Archivos afectados:**
   - `src/features/publicaciones/components/PublicacionesLista.tsx` (207-227)
@@ -194,7 +204,9 @@
 ---
 
 ### DUP-006: Extraer componente PageHero
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#53](https://github.com/JhonK-Dev/epg-portal-web/issues/53)
+- **PR:** [#68](https://github.com/JhonK-Dev/epg-portal-web/pull/68) (Merged)
 - **Prioridad:** Alta
 - **Archivos afectados:**
   - `src/features/programas/components/ProgramaDetail.tsx` (33-113)
@@ -207,7 +219,9 @@
 ---
 
 ### DUP-007: Extraer componente IconCircle
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#54](https://github.com/JhonK-Dev/epg-portal-web/issues/54)
+- **PR:** [#69](https://github.com/JhonK-Dev/epg-portal-web/pull/69) (Merged)
 - **Prioridad:** Media
 - **Archivos afectados:**
   - `src/features/servicios/components/ServiciosGrid.tsx` (110-112, 134-136)
@@ -222,7 +236,9 @@
 ---
 
 ### DUP-008: Extraer componente FormInput
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#55](https://github.com/JhonK-Dev/epg-portal-web/issues/55)
+- **PR:** [#70](https://github.com/JhonK-Dev/epg-portal-web/pull/70) (Merged)
 - **Prioridad:** Media
 - **Archivos afectados:**
   - `src/features/contacto/components/ContactForm.tsx` (182-288)
@@ -233,7 +249,9 @@
 ---
 
 ### DUP-009: Extraer componente Accordion
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#56](https://github.com/JhonK-Dev/epg-portal-web/issues/56)
+- **PR:** [#71](https://github.com/JhonK-Dev/epg-portal-web/pull/71) (Merged)
 - **Prioridad:** Media
 - **Archivos afectados:**
   - `src/features/estudiantes/components/EstudiantesContent.tsx` (437-469)
@@ -244,7 +262,9 @@
 ---
 
 ### DUP-010: Extraer componente LinkArrow
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#57](https://github.com/JhonK-Dev/epg-portal-web/issues/57)
+- **PR:** [#72](https://github.com/JhonK-Dev/epg-portal-web/pull/72) (Merged)
 - **Prioridad:** Baja
 - **Archivos afectados:**
   - `src/features/home/components/FeaturedPrograms.tsx` (98-103)
@@ -257,7 +277,9 @@
 ---
 
 ### DUP-011: Extraer componente StatItem
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#58](https://github.com/JhonK-Dev/epg-portal-web/issues/58)
+- **PR:** [#73](https://github.com/JhonK-Dev/epg-portal-web/pull/73) (Merged)
 - **Prioridad:** Baja
 - **Archivos afectados:**
   - `src/features/home/components/StatsSection.tsx` (66-90)
@@ -269,7 +291,9 @@
 ---
 
 ### DUP-012: Extraer componente DocumentDownloadItem
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#59](https://github.com/JhonK-Dev/epg-portal-web/issues/59)
+- **PR:** [#74](https://github.com/JhonK-Dev/epg-portal-web/pull/74) (Merged)
 - **Prioridad:** Baja
 - **Archivos afectados:**
   - `src/features/escuela/components/EscuelaContent.tsx` (166-234)
@@ -280,7 +304,9 @@
 ---
 
 ### DUP-013: Extraer componente ResourceCard
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#60](https://github.com/JhonK-Dev/epg-portal-web/issues/60)
+- **PR:** [#75](https://github.com/JhonK-Dev/epg-portal-web/pull/75) (Merged)
 - **Prioridad:** Media
 - **Archivos afectados:**
   - `src/features/docentes/components/DocentesGrid.tsx` (224-265)
@@ -292,7 +318,9 @@
 ---
 
 ### DUP-014: Crear utilidades CSS compartidas
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#61](https://github.com/JhonK-Dev/epg-portal-web/issues/61)
+- **PR:** [#76](https://github.com/JhonK-Dev/epg-portal-web/pull/76) (Merged)
 - **Prioridad:** Alta
 - **Archivo:** `src/styles/global.css` o Tailwind config
 - **Descripcion:** Clases Tailwind repetidas 25+ veces en el proyecto.
@@ -308,7 +336,9 @@
 ---
 
 ### DUP-015: Extraer funcion de validacion de email
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#62](https://github.com/JhonK-Dev/epg-portal-web/issues/62)
+- **PR:** [#77](https://github.com/JhonK-Dev/epg-portal-web/pull/77) (Merged)
 - **Prioridad:** Baja
 - **Archivos afectados:**
   - `src/features/contacto/components/NewsletterForm.tsx` (20-23)
@@ -425,4 +455,22 @@
 | 2026-02-05 | COL-006 | Completado | Reemplazado colores red-* por destructive en ProgramasLista, PR #43 mergeado |
 | 2026-02-05 | COL-007 | Completado | Centralizado colores redes sociales en constants.ts, PR #44 mergeado |
 | 2026-02-05 | COL-008 | Completado | Migradas 100+ clases a variables CSS, 40+ variables agregadas, PR #45 mergeado |
+| 2026-02-05 | DUP-001 a DUP-015 | Creados en GitHub | Issues #48-#62 creados |
+| 2026-02-05 | DUP-001 | Completado | CTABanner extraido, PR #63 mergeado (JorgeAntonio/Copilot) |
+| 2026-02-05 | DUP-002 | Completado | SectionHeader extraido, PR #64 mergeado (JorgeAntonio/Copilot) |
+| 2026-02-05 | DUP-003 | Completado | SearchInput extraido, PR #65 mergeado (JorgeAntonio/Copilot) |
+| 2026-02-05 | DUP-004 | Completado | FilterTabs extraido, PR #66 mergeado (JorgeAntonio/Copilot) |
+| 2026-02-05 | DUP-005 | Completado | EmptyState extraido, PR #67 mergeado (JorgeAntonio/Copilot) |
+| 2026-02-05 | DUP-006 | Completado | PageHero extraido, PR #68 mergeado |
+| 2026-02-05 | DUP-007 | Completado | IconCircle extraido, PR #69 mergeado |
+| 2026-02-05 | DUP-008 | Completado | FormInput extraido, PR #70 mergeado |
+| 2026-02-05 | DUP-009 | Completado | Accordion extraido, PR #71 mergeado |
+| 2026-02-05 | DUP-010 | Completado | LinkArrow extraido, PR #72 mergeado |
+| 2026-02-05 | DUP-011 | Completado | StatItem extraido, PR #73 mergeado |
+| 2026-02-05 | DUP-012 | Completado | DocumentDownloadItem extraido, PR #74 mergeado |
+| 2026-02-05 | DUP-013 | Completado | ResourceCard extraido, PR #75 mergeado |
+| 2026-02-05 | DUP-014 | Completado | Utilidades CSS compartidas creadas, PR #76 mergeado |
+| 2026-02-05 | DUP-015 | Completado | validateEmail() extraido a validators.ts, PR #77 mergeado |
+| 2026-02-06 | - | Sincronizacion | developer sincronizado con master (commit 4c80a35) |
+| 2026-02-06 | - | Actualizacion ISSUES.md | Marcados DUP-001 a DUP-015 como completados |
 

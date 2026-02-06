@@ -1,35 +1,43 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { 
-  Loader2, 
-  CheckCircle, 
-  AlertCircle, 
-  User, 
-  Mail, 
+import { useState, type FormEvent, type ChangeEvent } from 'react'
+import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card'
+import { FormInput } from '@/components/ui/form-input'
+import {
+  Loader2,
+  CheckCircle,
+  AlertCircle,
+  User,
+  Mail,
   MessageSquare,
   FileText,
-  Send
-} from 'lucide-react';
+  Send,
+} from 'lucide-react'
+import { validateEmail } from '@/lib/validators'
 
-type FormStatus = 'idle' | 'loading' | 'success' | 'error';
+type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
 interface FormData {
-  nombre: string;
-  email: string;
-  asunto: string;
-  mensaje: string;
+  nombre: string
+  email: string
+  asunto: string
+  mensaje: string
 }
 
 interface FormErrors {
-  nombre?: string;
-  email?: string;
-  asunto?: string;
-  mensaje?: string;
+  nombre?: string
+  email?: string
+  asunto?: string
+  mensaje?: string
 }
 
 // Formspree endpoint - Replace with your actual Formspree form ID
-const FORMSPREE_CONTACT_ID = 'mzzboqpn';
+const FORMSPREE_CONTACT_ID = 'mzzboqpn'
 
 const asuntoOptions = [
   { value: '', label: 'Selecciona un asunto' },
@@ -40,7 +48,7 @@ const asuntoOptions = [
   { value: 'soporte-tecnico', label: 'Soporte técnico (SIGAE, Aula Virtual)' },
   { value: 'convenios', label: 'Convenios institucionales' },
   { value: 'otro', label: 'Otro' },
-];
+]
 
 export function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -48,94 +56,98 @@ export function ContactForm() {
     email: '',
     asunto: '',
     mensaje: '',
-  });
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<FormStatus>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+  })
+  const [errors, setErrors] = useState<FormErrors>({})
+  const [status, setStatus] = useState<FormStatus>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
+    const newErrors: FormErrors = {}
 
     if (!formData.nombre.trim()) {
-      newErrors.nombre = 'El nombre es requerido';
+      newErrors.nombre = 'El nombre es requerido'
     } else if (formData.nombre.trim().length < 3) {
-      newErrors.nombre = 'El nombre debe tener al menos 3 caracteres';
+      newErrors.nombre = 'El nombre debe tener al menos 3 caracteres'
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'El correo electrónico es requerido';
+      newErrors.email = 'El correo electrónico es requerido'
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Ingresa un correo electrónico válido';
+      newErrors.email = 'Ingresa un correo electrónico válido'
     }
 
     if (!formData.asunto) {
-      newErrors.asunto = 'Selecciona un asunto';
+      newErrors.asunto = 'Selecciona un asunto'
     }
 
     if (!formData.mensaje.trim()) {
-      newErrors.mensaje = 'El mensaje es requerido';
+      newErrors.mensaje = 'El mensaje es requerido'
     } else if (formData.mensaje.trim().length < 20) {
-      newErrors.mensaje = 'El mensaje debe tener al menos 20 caracteres';
+      newErrors.mensaje = 'El mensaje debe tener al menos 20 caracteres'
     }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
+      setErrors((prev) => ({ ...prev, [name]: undefined }))
     }
-  };
+  }
 
   const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setErrorMessage('');
+    e.preventDefault()
+    setErrorMessage('')
 
     if (!validateForm()) {
-      return;
+      return
     }
 
-    setStatus('loading');
+    setStatus('loading')
 
     try {
-      const asuntoLabel = asuntoOptions.find(opt => opt.value === formData.asunto)?.label || formData.asunto;
-      
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_CONTACT_ID}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
+      const asuntoLabel =
+        asuntoOptions.find((opt) => opt.value === formData.asunto)?.label ||
+        formData.asunto
+
+      const response = await fetch(
+        `https://formspree.io/f/${FORMSPREE_CONTACT_ID}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            nombre: formData.nombre,
+            email: formData.email,
+            asunto: asuntoLabel,
+            mensaje: formData.mensaje,
+            _subject: `[EPG UNAP] ${asuntoLabel} - ${formData.nombre}`,
+          }),
         },
-        body: JSON.stringify({
-          nombre: formData.nombre,
-          email: formData.email,
-          asunto: asuntoLabel,
-          mensaje: formData.mensaje,
-          _subject: `[EPG UNAP] ${asuntoLabel} - ${formData.nombre}`,
-        }),
-      });
+      )
 
       if (response.ok) {
-        setStatus('success');
-        setFormData({ nombre: '', email: '', asunto: '', mensaje: '' });
+        setStatus('success')
+        setFormData({ nombre: '', email: '', asunto: '', mensaje: '' })
       } else {
-        throw new Error('Error al enviar');
+        throw new Error('Error al enviar')
       }
     } catch {
-      setErrorMessage('Ocurrió un error al enviar el mensaje. Por favor, intenta nuevamente.');
-      setStatus('error');
+      setErrorMessage(
+        'Ocurrió un error al enviar el mensaje. Por favor, intenta nuevamente.',
+      )
+      setStatus('error')
     }
-  };
+  }
 
   if (status === 'success') {
     return (
@@ -149,7 +161,8 @@ export function ContactForm() {
               ¡Mensaje enviado exitosamente!
             </h3>
             <p className="text-green-700 mb-6">
-              Gracias por contactarnos. Responderemos a tu consulta en el menor tiempo posible.
+              Gracias por contactarnos. Responderemos a tu consulta en el menor
+              tiempo posible.
             </p>
             <Button
               onClick={() => setStatus('idle')}
@@ -161,13 +174,15 @@ export function ContactForm() {
           </div>
         </CardContent>
       </Card>
-    );
+    )
   }
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl text-epg-navy">Envíanos un mensaje</CardTitle>
+        <CardTitle className="text-2xl text-epg-navy">
+          Envíanos un mensaje
+        </CardTitle>
         <CardDescription>
           Completa el formulario y nos pondremos en contacto contigo pronto.
         </CardDescription>
@@ -175,64 +190,41 @@ export function ContactForm() {
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Nombre */}
-          <div>
-            <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-2">
-              Nombre completo <span className="text-red-500">*</span>
-            </label>
-            <div className="relative">
-              <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                value={formData.nombre}
-                onChange={handleChange}
-                disabled={status === 'loading'}
-                placeholder="Ingresa tu nombre completo"
-                className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none disabled:opacity-50 ${
-                  errors.nombre ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
-                }`}
-              />
-            </div>
-            {errors.nombre && (
-              <p className="mt-1 text-sm text-red-600 flex items-center gap-1">
-                <AlertCircle className="h-3 w-3" />
-                {errors.nombre}
-              </p>
-            )}
-          </div>
+          <FormInput
+            icon={<User className="h-5 w-5" />}
+            label="Nombre completo"
+            type="text"
+            id="nombre"
+            name="nombre"
+            value={formData.nombre}
+            onChange={handleChange}
+            disabled={status === 'loading'}
+            placeholder="Ingresa tu nombre completo"
+            error={errors.nombre}
+            required
+          />
 
           {/* Email */}
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              Correo electrónico <span className="text-red-500">*</span>
-            </label>
-            <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                disabled={status === 'loading'}
-                placeholder="tucorreo@ejemplo.com"
-                className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none disabled:opacity-50 ${
-                  errors.email ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
-                }`}
-              />
-            </div>
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-600 flex items-center gap-1">
-                <AlertCircle className="h-3 w-3" />
-                {errors.email}
-              </p>
-            )}
-          </div>
+          <FormInput
+            icon={<Mail className="h-5 w-5" />}
+            label="Correo electrónico"
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            disabled={status === 'loading'}
+            placeholder="tucorreo@ejemplo.com"
+            error={errors.email}
+            required
+          />
 
           {/* Asunto */}
           <div>
-            <label htmlFor="asunto" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="asunto"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Asunto <span className="text-red-500">*</span>
             </label>
             <div className="relative">
@@ -244,18 +236,30 @@ export function ContactForm() {
                 onChange={handleChange}
                 disabled={status === 'loading'}
                 className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none disabled:opacity-50 appearance-none bg-white ${
-                  errors.asunto ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
+                  errors.asunto
+                    ? 'border-red-500 ring-2 ring-red-200'
+                    : 'border-gray-300'
                 }`}
               >
-                {asuntoOptions.map(option => (
+                {asuntoOptions.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
                   </option>
                 ))}
               </select>
               <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <svg
+                  className="h-5 w-5 text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </div>
             </div>
@@ -269,7 +273,10 @@ export function ContactForm() {
 
           {/* Mensaje */}
           <div>
-            <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="mensaje"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Mensaje <span className="text-red-500">*</span>
             </label>
             <div className="relative">
@@ -283,7 +290,9 @@ export function ContactForm() {
                 placeholder="Escribe tu mensaje aquí..."
                 rows={5}
                 className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none disabled:opacity-50 resize-none ${
-                  errors.mensaje ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300'
+                  errors.mensaje
+                    ? 'border-red-500 ring-2 ring-red-200'
+                    : 'border-gray-300'
                 }`}
               />
             </div>
@@ -296,7 +305,9 @@ export function ContactForm() {
               ) : (
                 <span />
               )}
-              <span className={`text-xs ${formData.mensaje.length < 20 ? 'text-gray-400' : 'text-green-600'}`}>
+              <span
+                className={`text-xs ${formData.mensaje.length < 20 ? 'text-gray-400' : 'text-green-600'}`}
+              >
                 {formData.mensaje.length}/20 caracteres mínimo
               </span>
             </div>
@@ -331,12 +342,15 @@ export function ContactForm() {
 
           <p className="text-xs text-gray-500 text-center">
             Al enviar este formulario, aceptas nuestra{' '}
-            <a href="/politica-privacidad" className="text-epg-gold hover:underline">
+            <a
+              href="/politica-privacidad"
+              className="text-epg-gold hover:underline"
+            >
               Política de Privacidad
             </a>
           </p>
         </form>
       </CardContent>
     </Card>
-  );
+  )
 }

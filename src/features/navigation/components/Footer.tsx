@@ -1,5 +1,15 @@
-import React from 'react';
-import { Facebook, Instagram, Youtube, Linkedin, Twitter, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import React from 'react'
+import {
+  Facebook,
+  Instagram,
+  Youtube,
+  Linkedin,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+} from 'lucide-react'
 
 const footerLinks = {
   programas: [
@@ -26,25 +36,32 @@ const footerLinks = {
     { label: 'Correo Institucional', href: '/servicios/correo-institucional' },
     { label: 'Mesa de Partes', href: '/servicios/mesa-partes' },
   ],
-};
+}
 
 const socialLinks = [
   { icon: Facebook, href: 'https://facebook.com/epgunap', label: 'Facebook' },
-  { icon: Instagram, href: 'https://instagram.com/epgunap', label: 'Instagram' },
+  {
+    icon: Instagram,
+    href: 'https://instagram.com/epgunap',
+    label: 'Instagram',
+  },
   { icon: Youtube, href: 'https://youtube.com/@epgunap', label: 'YouTube' },
-  { icon: Linkedin, href: 'https://linkedin.com/company/epgunap', label: 'LinkedIn' },
+  {
+    icon: Linkedin,
+    href: 'https://linkedin.com/company/epgunap',
+    label: 'LinkedIn',
+  },
   { icon: Twitter, href: 'https://twitter.com/epgunap', label: 'X (Twitter)' },
-];
+]
 
 export const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="bg-epg-navy text-white">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container-main py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-          
           {/* Logo & Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
@@ -66,14 +83,17 @@ export const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-gray-400 text-sm mb-6">
-              Formando líderes para el desarrollo sostenible de la Amazonía peruana desde 1990.
+              Formando líderes para el desarrollo sostenible de la Amazonía
+              peruana desde 1990.
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-sm">
                 <MapPin className="w-5 h-5 text-epg-gold flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300">Calle Nauta N° 123, Iquitos - Loreto, Perú</span>
+                <span className="text-gray-300">
+                  Calle Nauta N° 123, Iquitos - Loreto, Perú
+                </span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Phone className="w-5 h-5 text-epg-gold flex-shrink-0" />
@@ -81,13 +101,18 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Mail className="w-5 h-5 text-epg-gold flex-shrink-0" />
-                <a href="mailto:epg@universidad.edu.pe" className="text-gray-300 hover:text-white transition-colors">
+                <a
+                  href="mailto:epg@universidad.edu.pe"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
                   epg@universidad.edu.pe
                 </a>
               </div>
               <div className="flex items-start gap-3 text-sm">
                 <Clock className="w-5 h-5 text-epg-gold flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300">Lunes a Viernes: 8:00 a.m. - 4:00 p.m.</span>
+                <span className="text-gray-300">
+                  Lunes a Viernes: 8:00 a.m. - 4:00 p.m.
+                </span>
               </div>
             </div>
           </div>
@@ -98,8 +123,8 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2">
               {footerLinks.programas.map((link) => (
                 <li key={link.href}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="text-sm text-gray-400 hover:text-epg-gold transition-colors"
                   >
                     {link.label}
@@ -115,8 +140,8 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2">
               {footerLinks.laEscuela.map((link) => (
                 <li key={link.href}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="text-sm text-gray-400 hover:text-epg-gold transition-colors"
                   >
                     {link.label}
@@ -132,8 +157,8 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2">
               {footerLinks.estudiantes.map((link) => (
                 <li key={link.href}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="text-sm text-gray-400 hover:text-epg-gold transition-colors"
                   >
                     {link.label}
@@ -149,8 +174,8 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2">
               {footerLinks.servicios.map((link) => (
                 <li key={link.href}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="text-sm text-gray-400 hover:text-epg-gold transition-colors"
                   >
                     {link.label}
@@ -182,10 +207,16 @@ export const Footer: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center gap-6 text-sm text-gray-400">
-              <a href="/politica-privacidad" className="hover:text-white transition-colors">
+              <a
+                href="/politica-privacidad"
+                className="hover:text-white transition-colors"
+              >
                 Política de Privacidad
               </a>
-              <a href="/terminos-condiciones" className="hover:text-white transition-colors">
+              <a
+                href="/terminos-condiciones"
+                className="hover:text-white transition-colors"
+              >
                 Términos y Condiciones
               </a>
             </div>
@@ -195,10 +226,11 @@ export const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div className="bg-epg-navy-dark py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main">
           <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
             <p className="text-sm text-gray-500">
-              © {currentYear} Escuela de Postgrado - Universidad Nacional de la Amazonía Peruana. Todos los derechos reservados.
+              © {currentYear} Escuela de Postgrado - Universidad Nacional de la
+              Amazonía Peruana. Todos los derechos reservados.
             </p>
             <p className="text-xs text-gray-600">
               Desarrollado con tecnología moderna
@@ -207,5 +239,5 @@ export const Footer: React.FC = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}

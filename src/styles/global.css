@@ -294,3 +294,30 @@
     letter-spacing: -0.025em;
   }
 }
+
+@layer components {
+  /* Container principal - usado en layouts y secciones */
+  .container-main {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Botón dorado principal */
+  .btn-gold {
+    @apply bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold transition-colors;
+  }
+
+  /* Botón outline blanco para fondos oscuros */
+  .btn-outline-white {
+    @apply border border-white text-white hover:bg-white/10 transition-colors;
+  }
+
+  /* Padding vertical estándar para secciones */
+  .section-py {
+    @apply py-16 lg:py-24;
+  }
+
+  /* Link con flecha - estilo estándar para enlaces destacados */
+  .link-arrow {
+    @apply text-epg-gold font-medium text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all;
+  }
+}

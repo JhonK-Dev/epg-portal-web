@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { ChevronDown, Menu, X, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react'
+import { ChevronDown, Menu, X, ExternalLink } from 'lucide-react'
 
 interface NavItem {
-  label: string;
-  href: string;
-  isExternal?: boolean;
+  label: string
+  href: string
+  isExternal?: boolean
 }
 
 interface DropdownItem {
-  label: string;
-  href: string;
-  items?: NavItem[];
+  label: string
+  href: string
+  items?: NavItem[]
 }
 
 const mainNavItems: NavItem[] = [
@@ -19,7 +19,7 @@ const mainNavItems: NavItem[] = [
   { label: 'Admisión', href: '/admision' },
   { label: 'Programas', href: '/programas' },
   { label: 'Contacto', href: '/contacto' },
-];
+]
 
 const secondaryNavItems: DropdownItem[] = [
   {
@@ -56,34 +56,50 @@ const secondaryNavItems: DropdownItem[] = [
     href: '/servicios',
     items: [
       { label: 'Todos los Servicios', href: '/servicios' },
-      { label: 'SIGAE', href: 'https://sigae.universidad.edu.pe', isExternal: true },
-      { label: 'Aula Virtual', href: 'https://aulavirtual.universidad.edu.pe', isExternal: true },
-      { label: 'Biblioteca Virtual', href: 'https://biblioteca.universidad.edu.pe', isExternal: true },
-      { label: 'Correo Institucional', href: 'https://outlook.office.com', isExternal: true },
+      {
+        label: 'SIGAE',
+        href: 'https://sigae.universidad.edu.pe',
+        isExternal: true,
+      },
+      {
+        label: 'Aula Virtual',
+        href: 'https://aulavirtual.universidad.edu.pe',
+        isExternal: true,
+      },
+      {
+        label: 'Biblioteca Virtual',
+        href: 'https://biblioteca.universidad.edu.pe',
+        isExternal: true,
+      },
+      {
+        label: 'Correo Institucional',
+        href: 'https://outlook.office.com',
+        isExternal: true,
+      },
     ],
   },
-];
+]
 
 export const Navbar: React.FC = () => {
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null)
 
   const toggleMobileDropdown = (label: string) => {
-    setMobileDropdown(mobileDropdown === label ? null : label);
-  };
+    setMobileDropdown(mobileDropdown === label ? null : label)
+  }
 
   return (
     <header className="w-full sticky top-0 z-50">
       {/* Main Navigation - Navy Bar */}
       <nav className="bg-epg-navy text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <a href="/" className="flex items-center gap-3 group">
-              <img 
-                src="/images/logo/logo-epg.webp" 
-                alt="Logo EPG UNAP" 
+              <img
+                src="/images/logo/logo-epg.webp"
+                alt="Logo EPG UNAP"
                 width={160}
                 height={48}
                 className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
@@ -108,7 +124,7 @@ export const Navbar: React.FC = () => {
             <div className="hidden md:block">
               <a
                 href="/admision"
-                className="bg-epg-gold text-epg-navy px-4 py-2 rounded-lg text-sm font-bold hover:bg-epg-gold-dark transition-colors"
+                className="btn-gold px-4 py-2 rounded-lg text-sm font-bold"
               >
                 Inscríbete
               </a>
@@ -116,7 +132,7 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile menu button */}
             <div className="md:hidden">
-              <button 
+              <button
                 className="p-2 rounded-md hover:bg-white/10"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
@@ -134,7 +150,7 @@ export const Navbar: React.FC = () => {
 
       {/* Secondary Navigation - Gold Bar - Desktop */}
       <nav className="bg-epg-gold-dark text-white hidden md:block">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-main">
           <div className="flex items-center justify-end h-11 gap-6">
             {secondaryNavItems.map((item) => (
               <div
@@ -159,11 +175,15 @@ export const Navbar: React.FC = () => {
                         key={subItem.label}
                         href={subItem.href}
                         target={subItem.isExternal ? '_blank' : undefined}
-                        rel={subItem.isExternal ? 'noopener noreferrer' : undefined}
+                        rel={
+                          subItem.isExternal ? 'noopener noreferrer' : undefined
+                        }
                         className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-epg-navy transition-colors"
                       >
                         {subItem.label}
-                        {subItem.isExternal && <ExternalLink className="w-3 h-3 text-gray-400" />}
+                        {subItem.isExternal && (
+                          <ExternalLink className="w-3 h-3 text-gray-400" />
+                        )}
                       </a>
                     ))}
                   </div>
@@ -185,7 +205,7 @@ export const Navbar: React.FC = () => {
                 href={item.href}
                 className="block px-3 py-2 text-white font-medium hover:bg-white/10 rounded-lg transition-colors"
               >
-              {item.label}
+                {item.label}
               </a>
             ))}
 
@@ -199,11 +219,11 @@ export const Navbar: React.FC = () => {
                   className="flex items-center justify-between w-full px-3 py-2 text-white font-medium hover:bg-white/10 rounded-lg transition-colors"
                 >
                   {item.label}
-                  <ChevronDown 
-                    className={`w-4 h-4 transition-transform ${mobileDropdown === item.label ? 'rotate-180' : ''}`} 
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${mobileDropdown === item.label ? 'rotate-180' : ''}`}
                   />
                 </button>
-                
+
                 {mobileDropdown === item.label && item.items && (
                   <div className="ml-4 mt-1 space-y-1">
                     {item.items.map((subItem) => (
@@ -211,11 +231,15 @@ export const Navbar: React.FC = () => {
                         key={subItem.label}
                         href={subItem.href}
                         target={subItem.isExternal ? '_blank' : undefined}
-                        rel={subItem.isExternal ? 'noopener noreferrer' : undefined}
+                        rel={
+                          subItem.isExternal ? 'noopener noreferrer' : undefined
+                        }
                         className="flex items-center justify-between px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
                       >
                         {subItem.label}
-                        {subItem.isExternal && <ExternalLink className="w-3 h-3 text-gray-500" />}
+                        {subItem.isExternal && (
+                          <ExternalLink className="w-3 h-3 text-gray-500" />
+                        )}
                       </a>
                     ))}
                   </div>
@@ -228,7 +252,7 @@ export const Navbar: React.FC = () => {
             {/* CTA Button */}
             <a
               href="/admision"
-              className="block w-full bg-epg-gold text-epg-navy px-4 py-3 rounded-lg text-center font-bold hover:bg-epg-gold-dark transition-colors"
+              className="block w-full btn-gold px-4 py-3 rounded-lg text-center font-bold"
             >
               Inscríbete ahora
             </a>
@@ -236,5 +260,5 @@ export const Navbar: React.FC = () => {
         </div>
       )}
     </header>
-  );
-};
+  )
+}
