@@ -29,7 +29,6 @@ import {
   ExternalLink,
   ChevronRight,
   ChevronDown,
-  ChevronUp,
   Search,
   Database,
   ShieldCheck,
@@ -43,6 +42,7 @@ import {
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { SectionHeader } from '@/components/ui/section-header'
+import { Accordion, type AccordionItem } from '@/components/ui/accordion'
 import {
   Card,
   CardContent,
@@ -500,8 +500,6 @@ function RecursosAcademicosGrid() {
 // FAQ COMPONENT
 // ========================================
 function PreguntasFrecuentesSection() {
-  const [openId, setOpenId] = useState<string | null>(null)
-
   const categoriaLabels: Record<PreguntaFrecuente['categoria'], string> = {
     matricula: 'Matrícula',
     tramites: 'Trámites',
@@ -509,6 +507,24 @@ function PreguntasFrecuentesSection() {
     pagos: 'Pagos',
     general: 'General',
   }
+
+  const accordionItems: AccordionItem[] = preguntasFrecuentes.map((faq) => ({
+    id: faq.id,
+    title: (
+      <div className="flex items-center gap-3">
+        <HelpCircle className="w-5 h-5 text-epg-gold flex-shrink-0" />
+        <span className="font-medium text-epg-navy">{faq.pregunta}</span>
+      </div>
+    ),
+    content: (
+      <div className="pl-8 pt-2 border-t animate-in slide-in-from-top-2">
+        <Badge variant="outline" className="mb-2 text-xs">
+          {categoriaLabels[faq.categoria]}
+        </Badge>
+        <p className="text-gray-600">{faq.respuesta}</p>
+      </div>
+    ),
+  }))
 
   return (
     <section className="py-12">
@@ -519,41 +535,12 @@ function PreguntasFrecuentesSection() {
           description="Respuestas a las dudas más comunes de los estudiantes"
         />
 
-        <div className="space-y-3">
-          {preguntasFrecuentes.map((faq) => (
-            <div
-              key={faq.id}
-              className="bg-white rounded-lg shadow-sm border overflow-hidden"
-            >
-              <button
-                onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <HelpCircle className="w-5 h-5 text-epg-gold flex-shrink-0" />
-                  <span className="font-medium text-epg-navy">
-                    {faq.pregunta}
-                  </span>
-                </div>
-                {openId === faq.id ? (
-                  <ChevronUp className="w-5 h-5 text-gray-400" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400" />
-                )}
-              </button>
-              {openId === faq.id && (
-                <div className="px-6 pb-4 animate-in slide-in-from-top-2">
-                  <div className="pl-8 pt-2 border-t">
-                    <Badge variant="outline" className="mb-2 text-xs">
-                      {categoriaLabels[faq.categoria]}
-                    </Badge>
-                    <p className="text-gray-600">{faq.respuesta}</p>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        <Accordion
+          items={accordionItems}
+          itemClassName="bg-white rounded-lg shadow-sm border overflow-hidden"
+          headerClassName="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+          contentClassName="px-6 pb-4"
+        />
 
         <div className="text-center mt-8">
           <p className="text-gray-600 mb-4">¿No encontraste lo que buscabas?</p>
