@@ -8,6 +8,7 @@ import {
   ThumbsUp,
 } from 'lucide-react'
 import { SectionHeader } from '@/components/ui/section-header'
+import { StatItem } from '@/components/ui/stat-item'
 import { IconCircle } from '@/components/ui/icon-circle'
 
 const stats = [
@@ -76,26 +77,28 @@ export const StatsSection: React.FC = () => {
             return (
               <div
                 key={index}
-                className="text-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all group"
+                className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all group"
               >
-                <IconCircle
-                  icon={<Icon className="w-6 h-6" />}
-                  size="md"
-                  variant="custom"
-                  bgColor="bg-epg-gold/20"
-                  iconColor="text-epg-gold"
-                  rounded="xl"
-                  className="mx-auto mb-4 group-hover:bg-epg-gold/30 transition-colors"
+                <StatItem
+                  value={stat.value}
+                  label={stat.label}
+                  description={stat.description}
+                  variant="card"
+                  icon={
+                    <IconCircle
+                      icon={<Icon className="w-6 h-6" />}
+                      size="md"
+                      variant="custom"
+                      bgColor="bg-epg-gold/20"
+                      iconColor="text-epg-gold"
+                      rounded="xl"
+                      className="mx-auto group-hover:bg-epg-gold/30 transition-colors"
+                    />
+                  }
+                  valueClassName="text-white"
+                  labelClassName="text-epg-gold"
+                  descriptionClassName="text-gray-500 hidden lg:block"
                 />
-                <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-epg-gold font-medium text-sm mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-gray-500 text-xs hidden lg:block">
-                  {stat.description}
-                </div>
               </div>
             )
           })}
