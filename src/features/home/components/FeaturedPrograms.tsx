@@ -4,6 +4,7 @@ import { programas } from '@/data/programas'
 import { getProgramTypeConfig } from '@/lib/constants'
 import { SectionHeader } from '@/components/ui/section-header'
 import { LinkArrow } from '@/components/ui/link-arrow'
+import { ResourceCard } from '@/components/ui/resource-card'
 
 // Get featured programs from data
 const featuredPrograms = programas.filter((p) =>
@@ -134,35 +135,21 @@ export const FeaturedPrograms: React.FC = () => {
 
         {/* Category Cards */}
         <div className="grid md:grid-cols-3 gap-6 mt-12">
-          <a
+          <ResourceCard
             href="/programas/maestrias"
-            className="group bg-gradient-to-br from-epg-navy to-epg-navy-light rounded-2xl p-6 text-white hover:shadow-xl transition-all"
-          >
-            <GraduationCap className="w-10 h-10 text-epg-gold mb-4" />
-            <h3 className="text-xl font-bold mb-2">Maestrías</h3>
-            <p className="text-gray-300 text-sm mb-4">
-              Programas de 2 años para profesionales que buscan especialización.
-            </p>
-            <span className="inline-flex items-center gap-1 text-epg-gold font-medium text-sm group-hover:gap-2 transition-all">
-              5 programas disponibles
-              <ArrowRight className="w-4 h-4" />
-            </span>
-          </a>
+            icon={GraduationCap}
+            title="Maestrías"
+            description="Programas de 2 años para profesionales que buscan especialización."
+            variant="gradient-navy"
+          />
 
-          <a
+          <ResourceCard
             href="/programas/doctorados"
-            className="group bg-gradient-to-br from-epg-gold to-epg-gold-dark rounded-2xl p-6 text-epg-navy hover:shadow-xl transition-all"
-          >
-            <Award className="w-10 h-10 text-epg-navy mb-4" />
-            <h3 className="text-xl font-bold mb-2">Doctorados</h3>
-            <p className="text-epg-navy/70 text-sm mb-4">
-              Investigación de alto nivel para líderes académicos.
-            </p>
-            <span className="inline-flex items-center gap-1 text-epg-navy font-medium text-sm group-hover:gap-2 transition-all">
-              3 programas disponibles
-              <ArrowRight className="w-4 h-4" />
-            </span>
-          </a>
+            icon={Award}
+            title="Doctorados"
+            description="Investigación de alto nivel para líderes académicos."
+            variant="gradient-gold"
+          />
 
           <a
             href="/programas/formacion-continua"

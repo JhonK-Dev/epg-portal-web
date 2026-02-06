@@ -19,6 +19,7 @@ import { SearchInput } from '@/components/ui/search-input'
 import { FilterTabs } from '@/components/ui/filter-tabs'
 import { EmptyState } from '@/components/ui/empty-state'
 import { IconCircle } from '@/components/ui/icon-circle'
+import { ResourceCard } from '@/components/ui/resource-card'
 
 type FiltroGrado = 'todos' | 'doctores' | 'magisteres'
 
@@ -220,43 +221,20 @@ export function DocentesGrid() {
             </p>
           </a>
 
-          <a
+          <ResourceCard
             href="https://aulavirtual.universidad.edu.pe"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow group text-center"
-          >
-            <IconCircle
-              icon={<GraduationCap className="h-7 w-7" />}
-              size="lg"
-              variant="navy"
-              rounded="lg"
-              className="mx-auto mb-4 group-hover:bg-epg-gold transition-colors"
-            />
-            <h3 className="font-bold text-epg-navy mb-2">Aula Virtual</h3>
-            <p className="text-gray-600 text-sm">
-              Administra tus cursos en la plataforma Moodle
-            </p>
-          </a>
+            icon={GraduationCap}
+            title="Aula Virtual"
+            description="Administra tus cursos en la plataforma Moodle"
+            external
+          />
 
-          <a
+          <ResourceCard
             href="/calendario-academico"
-            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow group text-center"
-          >
-            <IconCircle
-              icon={<Calendar className="h-7 w-7" />}
-              size="lg"
-              variant="navy"
-              rounded="lg"
-              className="mx-auto mb-4 group-hover:bg-epg-gold transition-colors"
-            />
-            <h3 className="font-bold text-epg-navy mb-2">
-              Calendario Académico
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Fechas importantes del semestre
-            </p>
-          </a>
+            icon={Calendar}
+            title="Calendario Académico"
+            description="Fechas importantes del semestre"
+          />
         </div>
       </section>
 
