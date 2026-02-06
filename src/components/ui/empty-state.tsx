@@ -1,29 +1,29 @@
-import * as React from 'react';
-import { cn } from '@/lib/utils';
-import { Card } from './card';
-import { Button } from './button';
+import * as React from 'react'
+import { cn } from '@/lib/utils'
+import { Card } from './card'
+import { Button } from './button'
 
 export interface EmptyStateProps {
   /** Icon to display */
-  icon: React.ReactNode;
+  icon: React.ReactNode
   /** Title text */
-  title: string;
+  title: string
   /** Description text */
-  description: string;
+  description: string
   /** Optional action button */
   action?: {
-    label: string;
-    onClick: () => void;
-  };
+    label: string
+    onClick: () => void
+  }
   /** Additional className for the container */
-  className?: string;
+  className?: string
   /** Variant for styling */
-  variant?: 'card' | 'inline';
+  variant?: 'card' | 'inline'
 }
 
 /**
  * EmptyState - A reusable component for displaying empty states or no results.
- * 
+ *
  * @example
  * // Basic usage with card variant
  * <EmptyState
@@ -35,7 +35,7 @@ export interface EmptyStateProps {
  *     onClick: () => clearFilters()
  *   }}
  * />
- * 
+ *
  * @example
  * // Inline variant without card wrapper
  * <EmptyState
@@ -66,21 +66,17 @@ export function EmptyState({
         </Button>
       )}
     </>
-  );
+  )
 
   if (variant === 'inline') {
     return (
       <div className={cn('text-center py-16 bg-white rounded-xl', className)}>
         {content}
       </div>
-    );
+    )
   }
 
-  return (
-    <Card className={cn('p-12 text-center', className)}>
-      {content}
-    </Card>
-  );
+  return <Card className={cn('p-12 text-center', className)}>{content}</Card>
 }
 
-export default EmptyState;
+export default EmptyState
