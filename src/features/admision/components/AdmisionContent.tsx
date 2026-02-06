@@ -37,6 +37,7 @@ import {
 } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { CTABanner } from '@/components/ui/cta-banner'
+import { IconCircle } from '@/components/ui/icon-circle'
 
 // ========================================
 // TIMELINE COMPONENT
@@ -63,11 +64,19 @@ function Timeline() {
               key={index}
               className="relative z-10 flex flex-col items-center"
             >
-              <div
-                className={`w-10 h-10 rounded-full ${tipoFechaAdmisionColors[fecha.tipo]} flex items-center justify-center text-white text-sm font-bold shadow-lg`}
-              >
-                {new Date(fecha.fecha).getDate()}
-              </div>
+              <IconCircle
+                icon={
+                  <span className="text-sm font-bold">
+                    {new Date(fecha.fecha).getDate()}
+                  </span>
+                }
+                size="md"
+                variant="custom"
+                bgColor={tipoFechaAdmisionColors[fecha.tipo]}
+                iconColor="text-white"
+                rounded="full"
+                className="shadow-lg"
+              />
               <Badge variant="secondary" className="mt-2 text-xs">
                 {tipoFechaAdmisionLabels[fecha.tipo]}
               </Badge>
@@ -83,11 +92,19 @@ function Timeline() {
       <div className="md:hidden space-y-4">
         {fechasProximas.slice(0, 5).map((fecha, index) => (
           <div key={index} className="flex items-center gap-4">
-            <div
-              className={`w-12 h-12 rounded-full ${tipoFechaAdmisionColors[fecha.tipo]} flex items-center justify-center text-white font-bold shadow-lg flex-shrink-0`}
-            >
-              {new Date(fecha.fecha).getDate()}
-            </div>
+            <IconCircle
+              icon={
+                <span className="font-bold">
+                  {new Date(fecha.fecha).getDate()}
+                </span>
+              }
+              size="md"
+              variant="custom"
+              bgColor={tipoFechaAdmisionColors[fecha.tipo]}
+              iconColor="text-white"
+              rounded="full"
+              className="shadow-lg"
+            />
             <div className="flex-1">
               <Badge variant="secondary" className="text-xs mb-1">
                 {tipoFechaAdmisionLabels[fecha.tipo]}

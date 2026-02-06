@@ -8,6 +8,7 @@ import {
   ThumbsUp,
 } from 'lucide-react'
 import { SectionHeader } from '@/components/ui/section-header'
+import { IconCircle } from '@/components/ui/icon-circle'
 
 const stats = [
   {
@@ -77,9 +78,15 @@ export const StatsSection: React.FC = () => {
                 key={index}
                 className="text-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all group"
               >
-                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-epg-gold/20 flex items-center justify-center group-hover:bg-epg-gold/30 transition-colors">
-                  <Icon className="w-6 h-6 text-epg-gold" />
-                </div>
+                <IconCircle
+                  icon={<Icon className="w-6 h-6" />}
+                  size="md"
+                  variant="custom"
+                  bgColor="bg-epg-gold/20"
+                  iconColor="text-epg-gold"
+                  rounded="xl"
+                  className="mx-auto mb-4 group-hover:bg-epg-gold/30 transition-colors"
+                />
                 <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
                   {stat.value}
                 </div>

@@ -18,6 +18,7 @@ import { CTABannerSideBySide } from '@/components/ui/cta-banner'
 import { SearchInput } from '@/components/ui/search-input'
 import { FilterTabs } from '@/components/ui/filter-tabs'
 import { EmptyState } from '@/components/ui/empty-state'
+import { IconCircle } from '@/components/ui/icon-circle'
 
 type FiltroGrado = 'todos' | 'doctores' | 'magisteres'
 
@@ -225,9 +226,13 @@ export function DocentesGrid() {
             rel="noopener noreferrer"
             className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow group text-center"
           >
-            <div className="w-14 h-14 bg-epg-navy rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-epg-gold transition-colors">
-              <GraduationCap className="h-7 w-7 text-white" />
-            </div>
+            <IconCircle
+              icon={<GraduationCap className="h-7 w-7" />}
+              size="lg"
+              variant="navy"
+              rounded="lg"
+              className="mx-auto mb-4 group-hover:bg-epg-gold transition-colors"
+            />
             <h3 className="font-bold text-epg-navy mb-2">Aula Virtual</h3>
             <p className="text-gray-600 text-sm">
               Administra tus cursos en la plataforma Moodle
@@ -238,9 +243,13 @@ export function DocentesGrid() {
             href="/calendario-academico"
             className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow group text-center"
           >
-            <div className="w-14 h-14 bg-epg-navy rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-epg-gold transition-colors">
-              <Calendar className="h-7 w-7 text-white" />
-            </div>
+            <IconCircle
+              icon={<Calendar className="h-7 w-7" />}
+              size="lg"
+              variant="navy"
+              rounded="lg"
+              className="mx-auto mb-4 group-hover:bg-epg-gold transition-colors"
+            />
             <h3 className="font-bold text-epg-navy mb-2">
               Calendario Académico
             </h3>

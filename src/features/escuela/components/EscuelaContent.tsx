@@ -40,6 +40,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { CTABannerSideBySide } from '@/components/ui/cta-banner'
+import { IconCircle } from '@/components/ui/icon-circle'
 
 // ========================================
 // AUTORIDADES COMPONENT
@@ -121,9 +122,15 @@ function EstadisticasGrid() {
           key={index}
           className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
         >
-          <div className="w-16 h-16 bg-epg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-epg-gold">
-            {stat.icono && iconMap[stat.icono]}
-          </div>
+          <IconCircle
+            icon={stat.icono && iconMap[stat.icono]}
+            size="xl"
+            variant="custom"
+            bgColor="bg-epg-gold/10"
+            iconColor="text-epg-gold"
+            rounded="full"
+            className="mx-auto mb-4"
+          />
           <p className="text-3xl font-bold text-epg-navy mb-1">{stat.valor}</p>
           <p className="text-sm text-gray-600">{stat.label}</p>
         </div>
