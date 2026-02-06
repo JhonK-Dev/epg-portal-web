@@ -9,6 +9,7 @@ import {
   tipoDocumentoColors,
   tipoDocumentoLabels,
 } from '@/lib/constants'
+import { StatItem } from '@/components/ui/stat-item'
 import {
   GraduationCap,
   Award,
@@ -120,19 +121,26 @@ function EstadisticasGrid() {
       {estadisticas.map((stat, index) => (
         <div
           key={index}
-          className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+          className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
         >
-          <IconCircle
-            icon={stat.icono && iconMap[stat.icono]}
-            size="xl"
-            variant="custom"
-            bgColor="bg-epg-gold/10"
-            iconColor="text-epg-gold"
-            rounded="full"
-            className="mx-auto mb-4"
+          <StatItem
+            value={stat.valor}
+            label={stat.label}
+            variant="card"
+            icon={
+              <IconCircle
+                icon={stat.icono && iconMap[stat.icono]}
+                size="xl"
+                variant="custom"
+                bgColor="bg-epg-gold/10"
+                iconColor="text-epg-gold"
+                rounded="full"
+                className="mx-auto"
+              />
+            }
+            valueClassName="text-epg-navy"
+            labelClassName="text-gray-600"
           />
-          <p className="text-3xl font-bold text-epg-navy mb-1">{stat.valor}</p>
-          <p className="text-sm text-gray-600">{stat.label}</p>
         </div>
       ))}
     </div>

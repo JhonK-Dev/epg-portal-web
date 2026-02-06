@@ -1,12 +1,13 @@
-import React from 'react';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import React from 'react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
+import { StatItem } from '@/components/ui/stat-item'
 
 export const Hero: React.FC = () => {
   return (
     <section className="relative w-full min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img 
+        <img
           src="/images/hero/epg-fondo.jpeg"
           alt="Escuela de Postgrado UNAP"
           className="w-full h-full object-cover object-center"
@@ -49,19 +50,21 @@ export const Hero: React.FC = () => {
 
             {/* Subtext */}
             <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
-              Forma parte de la Escuela de Postgrado líder en la Amazonía. Maestrías, Doctorados y Diplomados diseñados para transformar tu futuro profesional.
+              Forma parte de la Escuela de Postgrado líder en la Amazonía.
+              Maestrías, Doctorados y Diplomados diseñados para transformar tu
+              futuro profesional.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-12">
-              <a 
+              <a
                 href="/admision"
                 className="inline-flex items-center gap-2 bg-epg-gold hover:bg-epg-gold-dark text-epg-navy px-6 py-3 rounded-lg text-base font-bold transition-all hover:shadow-lg hover:shadow-epg-gold/20"
               >
                 Postula ahora
                 <ArrowRight className="w-5 h-5" />
               </a>
-              <a 
+              <a
                 href="/programas"
                 className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-white text-white px-6 py-3 rounded-lg text-base font-medium transition-all hover:bg-white/10"
               >
@@ -71,18 +74,27 @@ export const Hero: React.FC = () => {
 
             {/* Quick Stats */}
             <div className="flex flex-wrap gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-epg-gold">35+</div>
-                <div className="text-sm text-gray-400">Años de experiencia</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-epg-gold">2,500+</div>
-                <div className="text-sm text-gray-400">Egresados</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-epg-gold">20+</div>
-                <div className="text-sm text-gray-400">Programas</div>
-              </div>
+              <StatItem
+                value="35+"
+                label="Años de experiencia"
+                variant="inline"
+                valueClassName="text-epg-gold"
+                labelClassName="text-gray-400"
+              />
+              <StatItem
+                value="2,500+"
+                label="Egresados"
+                variant="inline"
+                valueClassName="text-epg-gold"
+                labelClassName="text-gray-400"
+              />
+              <StatItem
+                value="20+"
+                label="Programas"
+                variant="inline"
+                valueClassName="text-epg-gold"
+                labelClassName="text-gray-400"
+              />
             </div>
           </div>
 
@@ -90,18 +102,21 @@ export const Hero: React.FC = () => {
           <div className="hidden lg:block">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
               <div className="flex items-center gap-2 mb-4">
-<span className="inline-block bg-success text-success-foreground text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                <span className="inline-block bg-success text-success-foreground text-xs font-bold px-3 py-1 rounded-full animate-pulse">
                   ABIERTO
                 </span>
-                <span className="text-white/80 text-sm">Proceso de Admisión 2025-I</span>
+                <span className="text-white/80 text-sm">
+                  Proceso de Admisión 2025-I
+                </span>
               </div>
-              
+
               <h3 className="text-2xl font-bold text-white mb-4">
                 ¡Inscripciones abiertas!
               </h3>
-              
+
               <p className="text-gray-300 mb-6">
-                Aprovecha esta oportunidad para avanzar en tu carrera profesional. Contamos con vacantes limitadas.
+                Aprovecha esta oportunidad para avanzar en tu carrera
+                profesional. Contamos con vacantes limitadas.
               </p>
 
               <div className="space-y-3 mb-6">
@@ -136,5 +151,5 @@ export const Hero: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
