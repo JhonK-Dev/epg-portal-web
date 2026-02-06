@@ -35,9 +35,9 @@ export function LoadingSpinner({
         className
       )}
       role="status"
-      aria-label="Cargando..."
+      aria-label="Cargando…"
     >
-      <span className="sr-only">Cargando...</span>
+      <span className="sr-only">Cargando…</span>
     </div>
   );
 }
@@ -48,7 +48,7 @@ interface LoadingOverlayProps {
 }
 
 export function LoadingOverlay({ 
-  message = 'Cargando...', 
+  message = 'Cargando…', 
   className 
 }: LoadingOverlayProps) {
   return (

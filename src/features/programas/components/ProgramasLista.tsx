@@ -275,7 +275,7 @@ export function ProgramasLista() {
             {tipoFiltro !== 'todos' && (
               <Badge variant="secondary" className="gap-1">
                 {tipoLabels[tipoFiltro]}
-                <button onClick={() => setTipoFiltro('todos')}>
+                <button onClick={() => setTipoFiltro('todos')} aria-label="Quitar filtro de tipo de programa">
                   <X className="h-3 w-3" />
                 </button>
               </Badge>
@@ -284,7 +284,7 @@ export function ProgramasLista() {
             {modalidadFiltro !== 'todos' && (
               <Badge variant="secondary" className="gap-1">
                 {modalidadLabels[modalidadFiltro]}
-                <button onClick={() => setModalidadFiltro('todos')}>
+                <button onClick={() => setModalidadFiltro('todos')} aria-label="Quitar filtro de modalidad">
                   <X className="h-3 w-3" />
                 </button>
               </Badge>
@@ -293,7 +293,7 @@ export function ProgramasLista() {
             {busqueda.trim() && (
               <Badge variant="secondary" className="gap-1">
                 "{busqueda}"
-                <button onClick={() => setBusqueda('')}>
+                <button onClick={() => setBusqueda('')} aria-label="Quitar filtro de búsqueda">
                   <X className="h-3 w-3" />
                 </button>
               </Badge>

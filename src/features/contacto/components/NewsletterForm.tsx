@@ -87,6 +87,8 @@ export function NewsletterForm({
           disabled={status === 'loading' || status === 'success'}
           containerClassName="flex-1"
           className={`text-sm ${status === 'error' ? 'border-red-500' : ''}`}
+          autoComplete="email"
+          inputMode="email"
         />
         <Button
           type="submit"
@@ -143,6 +145,8 @@ export function NewsletterForm({
                   disabled={status === 'loading'}
                   containerClassName="flex-1"
                   className={`md:w-64 text-gray-900 placeholder-gray-500 ${status === 'error' ? 'ring-2 ring-red-500' : ''}`}
+                  autoComplete="email"
+                  inputMode="email"
                 />
                 <Button
                   type="submit"
@@ -152,7 +156,7 @@ export function NewsletterForm({
                   {status === 'loading' ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                      Enviando...
+                      Enviando…
                     </>
                   ) : (
                     'Suscribirse'
@@ -191,6 +195,8 @@ export function NewsletterForm({
           disabled={status === 'loading' || status === 'success'}
           containerClassName="flex-1"
           className={`text-gray-900 placeholder-gray-500 ${status === 'error' ? 'border-red-500 ring-2 ring-red-200' : ''}`}
+          autoComplete="email"
+          inputMode="email"
         />
         <Button
           type="submit"
@@ -200,7 +206,7 @@ export function NewsletterForm({
           {status === 'loading' && (
             <>
               <Loader2 className="h-4 w-4 animate-spin mr-2" />
-              Enviando...
+              Enviando…
             </>
           )}
           {status === 'success' && (
