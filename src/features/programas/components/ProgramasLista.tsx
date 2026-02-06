@@ -28,6 +28,7 @@ import {
 } from '@/components/ui/card'
 import { CTABanner } from '@/components/ui/cta-banner'
 import { SearchInput } from '@/components/ui/search-input'
+import { EmptyState } from '@/components/ui/empty-state'
 
 type Modalidad = 'presencial' | 'semipresencial' | 'virtual' | 'todos'
 type TipoFiltro = TipoPrograma | 'todos'
@@ -349,18 +350,16 @@ export function ProgramasLista() {
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 bg-white rounded-xl">
-          <GraduationCap className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">
-            No se encontraron programas
-          </h3>
-          <p className="text-gray-500 mb-6">
-            Intenta ajustar los filtros o el término de búsqueda.
-          </p>
-          <Button onClick={limpiarFiltros} variant="outline">
-            Limpiar filtros
-          </Button>
-        </div>
+        <EmptyState
+          icon={<GraduationCap className="h-16 w-16" />}
+          title="No se encontraron programas"
+          description="Intenta ajustar los filtros o el término de búsqueda."
+          action={{
+            label: 'Limpiar filtros',
+            onClick: limpiarFiltros,
+          }}
+          variant="inline"
+        />
       )}
 
       {/* CTA de contacto */}
