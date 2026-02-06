@@ -4,8 +4,8 @@
 
 **Ultima actualizacion:** 2026-02-06
 **Total issues:** 32
-**Completados:** 23
-**Pendientes:** 9
+**Completados:** 29
+**Pendientes:** 3
 
 ---
 
@@ -15,8 +15,8 @@
 |-----------|-------|-------------|------------|---------------|
 | Colores Hardcodeados | 8 | 8 | 0 | #30-#37 (Todos cerrados) |
 | Codigo Duplicado | 15 | 15 | 0 | #48-#62 (Todos cerrados) |
-| Accesibilidad | 6 | 0 | 6 | Pendiente crear |
-| Consistencia de Diseno | 3 | 0 | 3 | Pendiente crear |
+| Accesibilidad | 6 | 6 | 0 | #79-#84 (Todos cerrados) |
+| Consistencia de Diseno | 3 | 0 | 3 | #85-#87 |
 
 ---
 
@@ -351,7 +351,8 @@
 ## ISSUES DE ACCESIBILIDAD
 
 ### A11Y-001: Agregar aria-expanded al menu movil del Navbar
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#79](https://github.com/JhonK-Dev/epg-portal-web/issues/79)
 - **Prioridad:** Alta
 - **Archivo:** `src/features/navigation/components/Navbar.tsx`
 - **Linea:** 119-129
@@ -361,7 +362,8 @@
 ---
 
 ### A11Y-002: Agregar aria-hidden a SVGs decorativos
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#80](https://github.com/JhonK-Dev/epg-portal-web/issues/80)
 - **Prioridad:** Alta
 - **Archivos afectados:**
   - `src/features/home/components/Hero.tsx` (82-91)
@@ -373,7 +375,8 @@
 ---
 
 ### A11Y-003: Agregar autocomplete a inputs de formulario
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#81](https://github.com/JhonK-Dev/epg-portal-web/issues/81)
 - **Prioridad:** Alta
 - **Archivos afectados:**
   - `src/features/contacto/components/ContactForm.tsx`
@@ -384,7 +387,8 @@
 ---
 
 ### A11Y-004: Agregar inputmode a inputs especificos
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#82](https://github.com/JhonK-Dev/epg-portal-web/issues/82)
 - **Prioridad:** Media
 - **Archivos afectados:**
   - `src/features/contacto/components/ContactForm.tsx`
@@ -395,7 +399,8 @@
 ---
 
 ### A11Y-005: Reemplazar "..." por ellipsis tipografico
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#83](https://github.com/JhonK-Dev/epg-portal-web/issues/83)
 - **Prioridad:** Baja
 - **Archivos afectados:** Multiples archivos con textos de carga o truncamiento
 - **Descripcion:** Uso de `...` en lugar del caracter ellipsis `…`.
@@ -404,7 +409,8 @@
 ---
 
 ### A11Y-006: Agregar aria-label a botones de icono
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#84](https://github.com/JhonK-Dev/epg-portal-web/issues/84)
 - **Prioridad:** Alta
 - **Archivos afectados:** Multiples componentes con botones de icono
 - **Descripcion:** Botones que solo tienen icono necesitan `aria-label`.
@@ -416,6 +422,7 @@
 
 ### DES-001: Estandarizar padding de secciones
 - **Estado:** `[ ] Pendiente`
+- **GitHub:** [#85](https://github.com/JhonK-Dev/epg-portal-web/issues/85)
 - **Prioridad:** Media
 - **Archivos afectados:** Todos los componentes de seccion
 - **Descripcion:** Padding vertical varia entre `py-12`, `py-16`, `py-20`, `py-24` sin patron.
@@ -425,6 +432,7 @@
 
 ### DES-002: Estandarizar gaps en grids y flex
 - **Estado:** `[ ] Pendiente`
+- **GitHub:** [#86](https://github.com/JhonK-Dev/epg-portal-web/issues/86)
 - **Prioridad:** Media
 - **Archivos afectados:** Multiples componentes
 - **Descripcion:** Gaps varian entre `gap-4`, `gap-6`, `gap-8` sin sistema.
@@ -434,6 +442,7 @@
 
 ### DES-003: Estandarizar tamanos de iconos
 - **Estado:** `[ ] Pendiente`
+- **GitHub:** [#87](https://github.com/JhonK-Dev/epg-portal-web/issues/87)
 - **Prioridad:** Baja
 - **Archivos afectados:** Multiples componentes
 - **Descripcion:** Tamanos de iconos varian sin escala definida.
@@ -473,4 +482,7 @@
 | 2026-02-05 | DUP-015 | Completado | validateEmail() extraido a validators.ts, PR #77 mergeado |
 | 2026-02-06 | - | Sincronizacion | developer sincronizado con master (commit 4c80a35) |
 | 2026-02-06 | - | Actualizacion ISSUES.md | Marcados DUP-001 a DUP-015 como completados |
+| 2026-02-06 | A11Y-001 a A11Y-006 | Creados en GitHub | Issues #79-#84 creados |
+| 2026-02-06 | DES-001 a DES-003 | Creados en GitHub | Issues #85-#87 creados |
+| 2026-02-06 | A11Y-001 a A11Y-006 | Completados | aria-expanded, aria-hidden, autoComplete, inputMode, ellipsis, aria-label |
 

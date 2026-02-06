@@ -5,7 +5,7 @@ export const AdmissionCTA: React.FC = () => {
   return (
     <section className="section-py px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-epg-gold via-epg-gold to-epg-gold-dark relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
       </div>
@@ -15,7 +15,7 @@ export const AdmissionCTA: React.FC = () => {
           {/* Left Content */}
           <div>
             <div className="inline-flex items-center gap-2 bg-epg-navy text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-success rounded-full animate-pulse" aria-hidden="true" />
               Convocatoria abierta
             </div>
 

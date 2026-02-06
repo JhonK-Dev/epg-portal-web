@@ -136,6 +136,7 @@ export const Navbar: React.FC = () => {
                 className="p-2 rounded-md hover:bg-white/10"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+                aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? (
                   <X className="w-6 h-6" />
@@ -217,6 +218,7 @@ export const Navbar: React.FC = () => {
                 <button
                   onClick={() => toggleMobileDropdown(item.label)}
                   className="flex items-center justify-between w-full px-3 py-2 text-white font-medium hover:bg-white/10 rounded-lg transition-colors"
+                  aria-expanded={mobileDropdown === item.label}
                 >
                   {item.label}
                   <ChevronDown

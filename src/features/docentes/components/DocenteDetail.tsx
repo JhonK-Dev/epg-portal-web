@@ -329,7 +329,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                         {docente.proyectosInvestigacion.map(
                           (proyecto, index) => (
                             <li key={index} className="flex items-start gap-2">
-                              <div className="w-2 h-2 bg-epg-gold rounded-full mt-2 flex-shrink-0" />
+                              <div className="w-2 h-2 bg-epg-gold rounded-full mt-2 flex-shrink-0" aria-hidden="true" />
                               <span className="text-gray-600">{proyecto}</span>
                             </li>
                           ),

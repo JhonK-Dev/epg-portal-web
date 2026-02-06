@@ -54,7 +54,7 @@ export const StatsSection: React.FC = () => {
   return (
     <section className="py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-epg-navy relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full">
+      <div className="absolute top-0 left-0 w-full h-full" aria-hidden="true">
         <div className="absolute top-10 left-10 w-64 h-64 bg-epg-gold/5 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-epg-gold/5 rounded-full blur-3xl" />
       </div>
