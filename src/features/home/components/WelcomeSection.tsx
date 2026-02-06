@@ -1,8 +1,8 @@
-import React from 'react';
-import { CheckCircle2, GraduationCap } from 'lucide-react';
+import React from 'react'
+import { CheckCircle2, GraduationCap } from 'lucide-react'
 
 interface FeatureItem {
-  text: string;
+  text: string
 }
 
 const features: FeatureItem[] = [
@@ -18,21 +18,25 @@ const features: FeatureItem[] = [
   {
     text: 'Proporciona a los estudiantes oportunidades significativas para avanzar en sus carreras y desarrollo personal.',
   },
-];
+]
 
 export const WelcomeSection: React.FC = () => {
   return (
-    <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="section-py px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="container-main">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Preparándote para el futuro: Bienvenidos a la Escuela de Postgrado.
+              Preparándote para el futuro: Bienvenidos a la Escuela de
+              Postgrado.
             </h2>
 
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-              La EPG-UNAP, con autonomía y excelencia, ofrece maestrías y doctorados, destacando facultad calificada, investigación avanzada y contribución al desarrollo regional. ¡Explora los programas de posgrado de la UNAP y descubre las oportunidades que te esperan!
+              La EPG-UNAP, con autonomía y excelencia, ofrece maestrías y
+              doctorados, destacando facultad calificada, investigación avanzada
+              y contribución al desarrollo regional. ¡Explora los programas de
+              posgrado de la UNAP y descubre las oportunidades que te esperan!
             </p>
 
             {/* Features Card */}
@@ -52,7 +56,9 @@ export const WelcomeSection: React.FC = () => {
                 {features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 leading-relaxed">{feature.text}</span>
+                    <span className="text-gray-700 leading-relaxed">
+                      {feature.text}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -97,5 +103,5 @@ export const WelcomeSection: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

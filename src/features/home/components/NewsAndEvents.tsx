@@ -66,8 +66,8 @@ const events = [
 
 export const NewsAndEvents: React.FC = () => {
   return (
-    <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="section-py px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="container-main">
         {/* Section Header */}
         <SectionHeader
           badge={{ label: 'Mantente informado', className: 'text-epg-gold' }}

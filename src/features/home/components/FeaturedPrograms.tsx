@@ -13,8 +13,8 @@ const featuredPrograms = programas.filter((p) =>
 
 export const FeaturedPrograms: React.FC = () => {
   return (
-    <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section className="section-py px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <div className="container-main">
         {/* Section Header */}
         <SectionHeader
           badge={{

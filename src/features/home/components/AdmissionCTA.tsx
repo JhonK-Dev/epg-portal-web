@@ -1,16 +1,16 @@
-import React from 'react';
-import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react';
+import React from 'react'
+import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react'
 
 export const AdmissionCTA: React.FC = () => {
   return (
-    <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-epg-gold via-epg-gold to-epg-gold-dark relative overflow-hidden">
+    <section className="section-py px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-epg-gold via-epg-gold to-epg-gold-dark relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="container-main relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
@@ -24,7 +24,9 @@ export const AdmissionCTA: React.FC = () => {
             </h2>
 
             <p className="text-epg-navy/80 text-lg mb-8 max-w-lg">
-              El proceso de admisión 2025-I está abierto. No pierdas la oportunidad de formar parte de la Escuela de Postgrado líder en la Amazonía.
+              El proceso de admisión 2025-I está abierto. No pierdas la
+              oportunidad de formar parte de la Escuela de Postgrado líder en la
+              Amazonía.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -52,7 +54,9 @@ export const AdmissionCTA: React.FC = () => {
                   <Calendar className="w-6 h-6 text-epg-gold" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-epg-navy mb-1">Fechas importantes</h3>
+                  <h3 className="font-bold text-epg-navy mb-1">
+                    Fechas importantes
+                  </h3>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• Inscripciones: 15 de enero - 28 de febrero</li>
                     <li>• Examen de admisión: 8 de marzo</li>
@@ -69,7 +73,9 @@ export const AdmissionCTA: React.FC = () => {
                   <FileText className="w-6 h-6 text-epg-gold" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-epg-navy mb-1">Requisitos básicos</h3>
+                  <h3 className="font-bold text-epg-navy mb-1">
+                    Requisitos básicos
+                  </h3>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• Grado de Bachiller o Magíster</li>
                     <li>• DNI o Carnet de Extranjería</li>
@@ -86,15 +92,23 @@ export const AdmissionCTA: React.FC = () => {
                   <Phone className="w-6 h-6 text-epg-gold" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-epg-navy mb-1">¿Tienes dudas?</h3>
+                  <h3 className="font-bold text-epg-navy mb-1">
+                    ¿Tienes dudas?
+                  </h3>
                   <p className="text-sm text-gray-600 mb-2">
                     Nuestro equipo de admisión está disponible para ayudarte.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href="tel:+5165123456" className="text-sm text-epg-gold font-medium hover:underline">
+                    <a
+                      href="tel:+5165123456"
+                      className="text-sm text-epg-gold font-medium hover:underline"
+                    >
                       (065) 123-456
                     </a>
-                    <a href="mailto:admision@universidad.edu.pe" className="text-sm text-epg-gold font-medium hover:underline">
+                    <a
+                      href="mailto:admision@universidad.edu.pe"
+                      className="text-sm text-epg-gold font-medium hover:underline"
+                    >
                       admision@universidad.edu.pe
                     </a>
                   </div>
@@ -105,5 +119,5 @@ export const AdmissionCTA: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

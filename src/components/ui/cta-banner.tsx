@@ -1,8 +1,8 @@
-import * as React from "react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { cn } from "@/lib/utils"
+import * as React from 'react'
+import { Card } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
 
 export interface CTABannerAction {
   label: string
@@ -16,7 +16,7 @@ export interface CTABannerProps {
   description: string
   primaryAction: CTABannerAction
   secondaryAction?: CTABannerAction
-  variant?: "navy" | "gold"
+  variant?: 'navy' | 'gold'
   badge?: string
   footer?: React.ReactNode
   className?: string
@@ -27,27 +27,27 @@ export function CTABanner({
   description,
   primaryAction,
   secondaryAction,
-  variant = "navy",
+  variant = 'navy',
   badge,
   footer,
   className,
 }: CTABannerProps) {
   const gradientClass =
-    variant === "navy"
-      ? "bg-gradient-to-r from-epg-navy to-epg-navy-light"
-      : "bg-gradient-to-r from-epg-gold to-epg-gold-dark"
+    variant === 'navy'
+      ? 'bg-gradient-to-r from-epg-navy to-epg-navy-light'
+      : 'bg-gradient-to-r from-epg-gold to-epg-gold-dark'
 
   const primaryButtonClass =
-    variant === "navy"
-      ? "bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
-      : "bg-epg-navy text-white hover:bg-epg-navy-light font-semibold"
+    variant === 'navy'
+      ? 'btn-gold'
+      : 'bg-epg-navy text-white hover:bg-epg-navy-light font-semibold'
 
   return (
     <Card
       className={cn(
         gradientClass,
-        "text-white border-0 p-8 md:p-12",
-        className
+        'text-white border-0 p-8 md:p-12',
+        className,
       )}
       data-testid="cta-banner"
     >
@@ -58,24 +58,20 @@ export function CTABanner({
         )}
         <h2
           className={cn(
-            "text-2xl md:text-3xl font-bold mb-4",
-            footer && "md:text-4xl"
+            'text-2xl md:text-3xl font-bold mb-4',
+            footer && 'md:text-4xl',
           )}
         >
           {title}
         </h2>
         <p className="text-gray-300 mb-8">{description}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            size="lg"
-            className={primaryButtonClass}
-            asChild
-          >
+          <Button size="lg" className={primaryButtonClass} asChild>
             <a
               href={primaryAction.href}
               {...(primaryAction.external && {
-                target: "_blank",
-                rel: "noopener noreferrer",
+                target: '_blank',
+                rel: 'noopener noreferrer',
               })}
             >
               {primaryAction.icon}
@@ -86,14 +82,14 @@ export function CTABanner({
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white/10"
+              className="btn-outline-white"
               asChild
             >
               <a
                 href={secondaryAction.href}
                 {...(secondaryAction.external && {
-                  target: "_blank",
-                  rel: "noopener noreferrer",
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
                 })}
               >
                 {secondaryAction.icon}
@@ -114,22 +110,22 @@ export function CTABannerSideBySide({
   description,
   primaryAction,
   secondaryAction,
-  variant = "navy",
+  variant = 'navy',
   className,
-}: Omit<CTABannerProps, "badge" | "footer">) {
+}: Omit<CTABannerProps, 'badge' | 'footer'>) {
   const gradientClass =
-    variant === "navy"
-      ? "bg-gradient-to-r from-epg-navy to-epg-navy-light"
-      : "bg-gradient-to-r from-epg-gold to-epg-gold-dark"
+    variant === 'navy'
+      ? 'bg-gradient-to-r from-epg-navy to-epg-navy-light'
+      : 'bg-gradient-to-r from-epg-gold to-epg-gold-dark'
 
   const primaryButtonClass =
-    variant === "navy"
-      ? "bg-epg-gold text-epg-navy hover:bg-epg-gold-dark font-semibold"
-      : "bg-epg-navy text-white hover:bg-epg-navy-light font-semibold"
+    variant === 'navy'
+      ? 'btn-gold'
+      : 'bg-epg-navy text-white hover:bg-epg-navy-light font-semibold'
 
   return (
     <Card
-      className={cn(gradientClass, "text-white border-0 p-8", className)}
+      className={cn(gradientClass, 'text-white border-0 p-8', className)}
       data-testid="cta-banner-side-by-side"
     >
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -138,16 +134,12 @@ export function CTABannerSideBySide({
           <p className="text-gray-300">{description}</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button
-            size="lg"
-            className={primaryButtonClass}
-            asChild
-          >
+          <Button size="lg" className={primaryButtonClass} asChild>
             <a
               href={primaryAction.href}
               {...(primaryAction.external && {
-                target: "_blank",
-                rel: "noopener noreferrer",
+                target: '_blank',
+                rel: 'noopener noreferrer',
               })}
             >
               {primaryAction.icon}
@@ -158,14 +150,14 @@ export function CTABannerSideBySide({
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white/10"
+              className="btn-outline-white"
               asChild
             >
               <a
                 href={secondaryAction.href}
                 {...(secondaryAction.external && {
-                  target: "_blank",
-                  rel: "noopener noreferrer",
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
                 })}
               >
                 {secondaryAction.icon}
