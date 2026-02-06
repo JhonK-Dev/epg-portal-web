@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { Button } from '@/components/ui/button'
 import { FormInput } from '@/components/ui/form-input'
 import { Loader2, CheckCircle, AlertCircle, Mail } from 'lucide-react'
+import { validateEmail } from '@/lib/validators'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
@@ -20,11 +21,6 @@ export function NewsletterForm({
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<FormStatus>('idle')
   const [errorMessage, setErrorMessage] = useState('')
-
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()

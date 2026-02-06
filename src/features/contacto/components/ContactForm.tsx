@@ -18,6 +18,7 @@ import {
   FileText,
   Send,
 } from 'lucide-react'
+import { validateEmail } from '@/lib/validators'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
@@ -59,11 +60,6 @@ export function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [status, setStatus] = useState<FormStatus>('idle')
   const [errorMessage, setErrorMessage] = useState('')
-
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
