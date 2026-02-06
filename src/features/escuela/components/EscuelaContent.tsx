@@ -10,6 +10,7 @@ import {
   tipoDocumentoLabels,
 } from '@/lib/constants'
 import { StatItem } from '@/components/ui/stat-item'
+import { DocumentDownloadItem } from '@/components/ui/document-download-item'
 import {
   GraduationCap,
   Award,
@@ -209,18 +210,12 @@ function Documentos() {
         </CardHeader>
         <CardContent className="space-y-3">
           {reglamentos.map((doc) => (
-            <a
+            <DocumentDownloadItem
               key={doc.id}
-              href={doc.url}
-              className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
-            >
-              <div className="flex-1 min-w-0">
-                <p className="font-medium text-sm text-gray-900 group-hover:text-epg-navy truncate">
-                  {doc.nombre}
-                </p>
-              </div>
-              <Download className="h-4 w-4 text-gray-400 group-hover:text-epg-gold flex-shrink-0 ml-2" />
-            </a>
+              name={doc.nombre}
+              url={doc.url}
+              variant="simple"
+            />
           ))}
         </CardContent>
       </Card>
@@ -236,18 +231,12 @@ function Documentos() {
         </CardHeader>
         <CardContent className="space-y-3">
           {formatos.map((doc) => (
-            <a
+            <DocumentDownloadItem
               key={doc.id}
-              href={doc.url}
-              className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
-            >
-              <div className="flex-1 min-w-0">
-                <p className="font-medium text-sm text-gray-900 group-hover:text-epg-navy truncate">
-                  {doc.nombre}
-                </p>
-              </div>
-              <Download className="h-4 w-4 text-gray-400 group-hover:text-epg-gold flex-shrink-0 ml-2" />
-            </a>
+              name={doc.nombre}
+              url={doc.url}
+              variant="simple"
+            />
           ))}
         </CardContent>
       </Card>
@@ -263,18 +252,12 @@ function Documentos() {
         </CardHeader>
         <CardContent className="space-y-3">
           {guias.map((doc) => (
-            <a
+            <DocumentDownloadItem
               key={doc.id}
-              href={doc.url}
-              className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
-            >
-              <div className="flex-1 min-w-0">
-                <p className="font-medium text-sm text-gray-900 group-hover:text-epg-navy truncate">
-                  {doc.nombre}
-                </p>
-              </div>
-              <Download className="h-4 w-4 text-gray-400 group-hover:text-epg-gold flex-shrink-0 ml-2" />
-            </a>
+              name={doc.nombre}
+              url={doc.url}
+              variant="simple"
+            />
           ))}
         </CardContent>
       </Card>

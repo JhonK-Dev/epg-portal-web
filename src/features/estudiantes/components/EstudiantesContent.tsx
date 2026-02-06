@@ -43,6 +43,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { SectionHeader } from '@/components/ui/section-header'
 import { Accordion, type AccordionItem } from '@/components/ui/accordion'
+import { DocumentDownloadItem } from '@/components/ui/document-download-item'
 import {
   Card,
   CardContent,
@@ -315,39 +316,16 @@ function DocumentosDescargables() {
         />
 
         <div className="grid md:grid-cols-2 gap-4">
-          {documentosDescargables.map((doc) => {
-            const style = tipoIcon[doc.tipo]
-            return (
-              <a
-                key={doc.id}
-                href={doc.url}
-                className="flex items-center gap-4 bg-white rounded-lg p-4 hover:shadow-md transition-shadow group"
-              >
-                <div
-                  className={`w-10 h-10 ${style.bg} rounded flex items-center justify-center flex-shrink-0`}
-                >
-                  <FileText className={`w-5 h-5 ${style.text}`} />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-medium text-epg-navy group-hover:text-epg-gold transition-colors truncate">
-                    {doc.nombre}
-                  </h4>
-                  <div className="flex items-center gap-2">
-                    <Badge variant="outline" className="text-xs uppercase">
-                      {doc.tipo}
-                    </Badge>
-                    <span className="text-xs text-gray-500">
-                      Actualizado:{' '}
-                      {new Date(doc.fechaActualizacion).toLocaleDateString(
-                        'es-PE',
-                      )}
-                    </span>
-                  </div>
-                </div>
-                <Download className="w-5 h-5 text-gray-400 group-hover:text-epg-gold flex-shrink-0" />
-              </a>
-            )
-          })}
+          {documentosDescargables.map((doc) => (
+            <DocumentDownloadItem
+              key={doc.id}
+              name={doc.nombre}
+              url={doc.url}
+              type={doc.tipo}
+              date={doc.fechaActualizacion}
+              variant="detailed"
+            />
+          ))}
         </div>
 
         <div className="text-center mt-8">
