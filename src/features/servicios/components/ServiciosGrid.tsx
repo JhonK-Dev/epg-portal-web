@@ -1,4 +1,5 @@
 import { servicios } from '@/data/servicios'
+import { LinkArrow } from '@/components/ui/link-arrow'
 import {
   GraduationCap,
   Library,
@@ -89,10 +90,9 @@ export function ServiciosGrid() {
                       {servicio.descripcionCorta || servicio.descripcion}
                     </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-epg-gold font-medium text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                      <LinkArrow className="text-epg-gold font-medium text-sm">
                         {isExternal ? 'Acceder al servicio' : 'Ver información'}
-                        <ArrowRight className="h-4 w-4" />
-                      </span>
+                      </LinkArrow>
                       {isExternal && (
                         <Badge variant="secondary" className="text-xs">
                           Externo

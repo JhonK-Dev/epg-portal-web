@@ -3,6 +3,7 @@ import { GraduationCap, Users, Award, BookOpen, ArrowRight } from 'lucide-react'
 import { programas } from '@/data/programas'
 import { getProgramTypeConfig } from '@/lib/constants'
 import { SectionHeader } from '@/components/ui/section-header'
+import { LinkArrow } from '@/components/ui/link-arrow'
 
 // Get featured programs from data
 const featuredPrograms = programas.filter((p) =>
@@ -25,10 +26,9 @@ export const FeaturedPrograms: React.FC = () => {
           action={
             <a
               href="/programas"
-              className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
+              className="text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
             >
-              Ver todos los programas
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <LinkArrow>Ver todos los programas</LinkArrow>
             </a>
           }
         />
