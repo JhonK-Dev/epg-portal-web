@@ -22,7 +22,7 @@ export const ProgramSearch: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-epg-navy to-epg-navy-dark py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-b from-epg-navy to-epg-navy-dark section-py px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Title */}
         <div className="text-center mb-8">

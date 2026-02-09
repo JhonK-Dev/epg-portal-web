@@ -81,7 +81,7 @@ export function PageHero({
 
   return (
     <div className={cn(bgClass, 'text-white', className)}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         {/* Breadcrumb */}
         <nav className="text-sm mb-6" aria-label="Breadcrumb">
           <ol className="flex items-center gap-2">

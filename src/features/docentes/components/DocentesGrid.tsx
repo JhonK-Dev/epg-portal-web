@@ -203,7 +203,7 @@ export function DocentesGrid() {
       )}
 
       {/* Recursos para Docentes */}
-      <section className="bg-gray-50 -mx-4 px-4 py-12 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded-2xl">
+      <section className="bg-gray-50 -mx-4 px-4 py-12 lg:py-16 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded-2xl">
         <h2 className="text-2xl font-bold text-epg-navy mb-8 text-center">
           Recursos para Docentes
         </h2>

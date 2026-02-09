@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-epg-navy text-white">
       {/* Main Footer */}
-      <div className="container-main py-12">
+      <div className="container-main py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Logo & Info */}
           <div className="lg:col-span-2">

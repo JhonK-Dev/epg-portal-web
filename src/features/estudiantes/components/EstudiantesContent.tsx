@@ -96,7 +96,7 @@ const recursoIconMap: Record<string, React.ReactNode> = {
 // ========================================
 function AccesosRapidos() {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{
@@ -144,7 +144,7 @@ function TramitesGrid() {
     useState<TramiteEstudiantil | null>(null)
 
   return (
-    <section className="py-12">
+    <section className="py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{
@@ -307,7 +307,7 @@ function DocumentosDescargables() {
   }
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{ label: 'Recursos', className: 'bg-red-100 text-red-800' }}
@@ -373,7 +373,7 @@ function CalendarioAcademico() {
   }
 
   return (
-    <section className="py-12">
+    <section className="py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{
@@ -436,7 +436,7 @@ function CalendarioAcademico() {
 // ========================================
 function RecursosAcademicosGrid() {
   return (
-    <section className="py-12 bg-epg-navy">
+    <section className="py-12 lg:py-16 bg-epg-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{ label: 'Herramientas', className: 'bg-white/10 text-white' }}
@@ -505,7 +505,7 @@ function PreguntasFrecuentesSection() {
   }))
 
   return (
-    <section className="py-12">
+    <section className="py-12 lg:py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{ label: 'Ayuda', className: 'bg-amber-100 text-amber-800' }}
@@ -542,7 +542,7 @@ function PreguntasFrecuentesSection() {
 // ========================================
 function CtaSection() {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <CTABannerSideBySide
           title="¿Necesitas ayuda adicional?"
