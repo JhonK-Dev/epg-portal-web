@@ -206,7 +206,7 @@ export const Footer: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="flex items-center gap-6 text-sm text-gray-400">
+            <div className="flex items-center gap-4 text-sm text-gray-400">
               <a
                 href="/politica-privacidad"
                 className="hover:text-white transition-colors"

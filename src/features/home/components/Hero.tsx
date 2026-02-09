@@ -73,7 +73,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Quick Stats */}
-            <div className="flex flex-wrap gap-8">
+            <div className="flex flex-wrap gap-6">
               <StatItem
                 value="35+"
                 label="Años de experiencia"

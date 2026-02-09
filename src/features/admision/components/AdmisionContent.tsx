@@ -570,7 +570,7 @@ function ProgramasVacantes() {
   ]
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       {programasConVacantes.map(({ slug, vacantes }) => {
         const programa = programas.find((p) => p.slug === slug)
         if (!programa) return null
@@ -727,7 +727,7 @@ export function AdmisionContent() {
             icon: <HelpCircle className="h-5 w-5 mr-2" />,
           }}
           footer={
-            <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
+            <div className="flex items-center justify-center gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>Ciudad Universitaria, Puno</span>

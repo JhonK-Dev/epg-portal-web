@@ -106,7 +106,7 @@ function AccesosRapidos() {
           title="Acceso Rápido"
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {accesosRapidos.map((acceso) => (
             <a
               key={acceso.id}
@@ -384,7 +384,7 @@ function CalendarioAcademico() {
           description="Fechas importantes del semestre"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {calendarioAcademico.slice(0, 8).map((fecha) => {
             const style = tipoStyles[fecha.tipo]
             return (
