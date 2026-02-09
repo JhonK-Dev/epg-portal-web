@@ -213,7 +213,7 @@ export function DocentesGrid() {
             className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow group text-center"
           >
             <div className="w-14 h-14 bg-epg-navy rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-epg-gold transition-colors">
-              <BookOpen className="h-7 w-7 text-white" />
+              <BookOpen className="h-6 w-6 text-white" />
             </div>
             <h3 className="font-bold text-epg-navy mb-2">Material Académico</h3>
             <p className="text-gray-600 text-sm">

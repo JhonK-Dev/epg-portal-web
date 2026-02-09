@@ -198,7 +198,7 @@ export const Footer: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-epg-gold transition-colors group"
+                    className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-epg-gold transition-colors group"
                     aria-label={social.label}
                   >
                     <social.icon className="w-4 h-4 text-gray-400 group-hover:text-epg-navy" />

@@ -61,14 +61,14 @@ import { IconCircle } from '@/components/ui/icon-circle'
 // ICON MAPPER HELPERS
 // ========================================
 const accesoIconMap: Record<string, React.ReactNode> = {
-  clipboard: <ClipboardList className="w-7 h-7 text-white" />,
-  monitor: <Monitor className="w-7 h-7 text-white" />,
-  'book-open': <BookOpen className="w-7 h-7 text-white" />,
-  mail: <Mail className="w-7 h-7 text-white" />,
-  calendar: <Calendar className="w-7 h-7 text-white" />,
-  'file-text': <FileText className="w-7 h-7 text-white" />,
-  users: <Users className="w-7 h-7 text-white" />,
-  award: <Award className="w-7 h-7 text-white" />,
+  clipboard: <ClipboardList className="w-6 h-6 text-white" />,
+  monitor: <Monitor className="w-6 h-6 text-white" />,
+  'book-open': <BookOpen className="w-6 h-6 text-white" />,
+  mail: <Mail className="w-6 h-6 text-white" />,
+  calendar: <Calendar className="w-6 h-6 text-white" />,
+  'file-text': <FileText className="w-6 h-6 text-white" />,
+  users: <Users className="w-6 h-6 text-white" />,
+  award: <Award className="w-6 h-6 text-white" />,
 }
 
 const tramiteIconMap: Record<string, (className: string) => React.ReactNode> = {
