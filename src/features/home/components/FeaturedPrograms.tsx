@@ -78,6 +78,7 @@ export const FeaturedPrograms: React.FC = () => {
                     {program.descripcionCorta}
                   </p>
 
+
                   {/* Meta info */}
                   <div className="flex items-center gap-4 text-xs text-gray-500">
                     <span className="flex items-center gap-1">
