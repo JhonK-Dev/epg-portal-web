@@ -32,7 +32,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
         className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-8 flex flex-col items-center text-center"
       >
         <IconCircle
-          icon={<Icon className="h-7 w-7" />}
+          icon={<Icon className="h-6 w-6" />}
           variant="navy"
           size="lg"
           className="mb-4"

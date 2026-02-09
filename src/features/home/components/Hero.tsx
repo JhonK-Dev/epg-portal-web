@@ -15,14 +15,14 @@ export const Hero: React.FC = () => {
           fetchPriority="high"
         />
         {/* Navy Overlay with gradient for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-epg-navy/95 via-epg-navy/85 to-epg-navy/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-epg-navy/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-epg-navy/95 via-epg-navy/85 to-epg-navy/70" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-epg-navy/60 via-transparent to-transparent" aria-hidden="true" />
       </div>
 
       {/* Decorative elements - subtle glow effects */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-20 right-20 w-72 h-72 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
@@ -31,7 +31,7 @@ export const Hero: React.FC = () => {
           <div>
             {/* SUNEDU Badge */}
             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1" aria-hidden="true">
                 <div className="w-2 h-2 bg-epg-gold rounded-full" />
                 <div className="w-2 h-2 bg-epg-gold rounded-full" />
                 <div className="w-2 h-2 bg-epg-gold rounded-full" />
@@ -73,7 +73,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Quick Stats */}
-            <div className="flex flex-wrap gap-8">
+            <div className="flex flex-wrap gap-6">
               <StatItem
                 value="35+"
                 label="Años de experiencia"

@@ -201,6 +201,7 @@ export function ContactForm() {
             disabled={status === 'loading'}
             placeholder="Ingresa tu nombre completo"
             error={errors.nombre}
+            autoComplete="name"
             required
           />
 
@@ -216,6 +217,8 @@ export function ContactForm() {
             disabled={status === 'loading'}
             placeholder="tucorreo@ejemplo.com"
             error={errors.email}
+            autoComplete="email"
+            inputMode="email"
             required
           />
 
@@ -235,6 +238,7 @@ export function ContactForm() {
                 value={formData.asunto}
                 onChange={handleChange}
                 disabled={status === 'loading'}
+                autoComplete="off"
                 className={`w-full pl-12 pr-4 py-3 rounded-lg border focus:ring-2 focus:ring-epg-gold focus:border-transparent outline-none disabled:opacity-50 appearance-none bg-white ${
                   errors.asunto
                     ? 'border-red-500 ring-2 ring-red-200'
@@ -247,7 +251,7 @@ export function ContactForm() {
                   </option>
                 ))}
               </select>
-              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true">
                 <svg
                   className="h-5 w-5 text-gray-400"
                   fill="none"
@@ -330,7 +334,7 @@ export function ContactForm() {
             {status === 'loading' ? (
               <>
                 <Loader2 className="h-5 w-5 animate-spin mr-2" />
-                Enviando mensaje...
+                Enviando mensaje…
               </>
             ) : (
               <>

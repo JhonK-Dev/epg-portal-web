@@ -59,7 +59,7 @@ export const FeaturedPrograms: React.FC = () => {
                       <Icon className="w-16 h-16 text-white/20" />
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" aria-hidden="true" />
                   <div className="absolute top-4 left-4">
                     <span
                       className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-semibold px-3 py-1 rounded-full`}
@@ -78,6 +78,7 @@ export const FeaturedPrograms: React.FC = () => {
                     {program.descripcionCorta}
                   </p>
 
+
                   {/* Meta info */}
                   <div className="flex items-center gap-4 text-xs text-gray-500">
                     <span className="flex items-center gap-1">
@@ -86,6 +87,7 @@ export const FeaturedPrograms: React.FC = () => {
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
+                        aria-hidden="true"
                       >
                         <path
                           strokeLinecap="round"
@@ -102,6 +104,7 @@ export const FeaturedPrograms: React.FC = () => {
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
+                        aria-hidden="true"
                       >
                         <path
                           strokeLinecap="round"

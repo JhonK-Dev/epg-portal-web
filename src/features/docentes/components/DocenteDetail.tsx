@@ -145,7 +145,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
       </PageHero>
 
       {/* Content Section */}
-      <section className="py-12">
+      <section className="py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main Content */}
@@ -329,7 +329,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                         {docente.proyectosInvestigacion.map(
                           (proyecto, index) => (
                             <li key={index} className="flex items-start gap-2">
-                              <div className="w-2 h-2 bg-epg-gold rounded-full mt-2 flex-shrink-0" />
+                              <div className="w-2 h-2 bg-epg-gold rounded-full mt-2 flex-shrink-0" aria-hidden="true" />
                               <span className="text-gray-600">{proyecto}</span>
                             </li>
                           ),

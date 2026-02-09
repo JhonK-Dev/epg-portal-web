@@ -2,10 +2,10 @@
 
 > **INSTRUCCIONES PARA EL AGENTE:** Al iniciar cada sesion, lee este archivo para conocer el estado actual de los issues. Actualiza el estado de cada issue cuando se complete.
 
-**Ultima actualizacion:** 2026-02-06
+**Ultima actualizacion:** 2026-02-09
 **Total issues:** 32
-**Completados:** 23
-**Pendientes:** 9
+**Completados:** 32
+**Pendientes:** 0
 
 ---
 
@@ -15,8 +15,8 @@
 |-----------|-------|-------------|------------|---------------|
 | Colores Hardcodeados | 8 | 8 | 0 | #30-#37 (Todos cerrados) |
 | Codigo Duplicado | 15 | 15 | 0 | #48-#62 (Todos cerrados) |
-| Accesibilidad | 6 | 0 | 6 | Pendiente crear |
-| Consistencia de Diseno | 3 | 0 | 3 | Pendiente crear |
+| Accesibilidad | 6 | 6 | 0 | #79-#84 (Todos cerrados) |
+| Consistencia de Diseno | 3 | 3 | 0 | #85-#87 |
 
 ---
 
@@ -351,7 +351,8 @@
 ## ISSUES DE ACCESIBILIDAD
 
 ### A11Y-001: Agregar aria-expanded al menu movil del Navbar
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#79](https://github.com/JhonK-Dev/epg-portal-web/issues/79)
 - **Prioridad:** Alta
 - **Archivo:** `src/features/navigation/components/Navbar.tsx`
 - **Linea:** 119-129
@@ -361,7 +362,8 @@
 ---
 
 ### A11Y-002: Agregar aria-hidden a SVGs decorativos
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#80](https://github.com/JhonK-Dev/epg-portal-web/issues/80)
 - **Prioridad:** Alta
 - **Archivos afectados:**
   - `src/features/home/components/Hero.tsx` (82-91)
@@ -373,7 +375,8 @@
 ---
 
 ### A11Y-003: Agregar autocomplete a inputs de formulario
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#81](https://github.com/JhonK-Dev/epg-portal-web/issues/81)
 - **Prioridad:** Alta
 - **Archivos afectados:**
   - `src/features/contacto/components/ContactForm.tsx`
@@ -384,7 +387,8 @@
 ---
 
 ### A11Y-004: Agregar inputmode a inputs especificos
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#82](https://github.com/JhonK-Dev/epg-portal-web/issues/82)
 - **Prioridad:** Media
 - **Archivos afectados:**
   - `src/features/contacto/components/ContactForm.tsx`
@@ -395,7 +399,8 @@
 ---
 
 ### A11Y-005: Reemplazar "..." por ellipsis tipografico
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#83](https://github.com/JhonK-Dev/epg-portal-web/issues/83)
 - **Prioridad:** Baja
 - **Archivos afectados:** Multiples archivos con textos de carga o truncamiento
 - **Descripcion:** Uso de `...` en lugar del caracter ellipsis `…`.
@@ -404,7 +409,8 @@
 ---
 
 ### A11Y-006: Agregar aria-label a botones de icono
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#84](https://github.com/JhonK-Dev/epg-portal-web/issues/84)
 - **Prioridad:** Alta
 - **Archivos afectados:** Multiples componentes con botones de icono
 - **Descripcion:** Botones que solo tienen icono necesitan `aria-label`.
@@ -415,29 +421,32 @@
 ## ISSUES DE CONSISTENCIA DE DISENO
 
 ### DES-001: Estandarizar padding de secciones
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#85](https://github.com/JhonK-Dev/epg-portal-web/issues/85)
 - **Prioridad:** Media
-- **Archivos afectados:** Todos los componentes de seccion
+- **Archivos afectados:** 9 archivos (15 correcciones)
 - **Descripcion:** Padding vertical varia entre `py-12`, `py-16`, `py-20`, `py-24` sin patron.
-- **Solucion:** Definir estandar: `py-16 lg:py-24` para secciones principales.
+- **Solucion:** Secciones principales usan `section-py` (`py-16 lg:py-24`). Subsecciones estandarizadas a `py-12 lg:py-16`.
 
 ---
 
 ### DES-002: Estandarizar gaps en grids y flex
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#86](https://github.com/JhonK-Dev/epg-portal-web/issues/86)
 - **Prioridad:** Media
-- **Archivos afectados:** Multiples componentes
+- **Archivos afectados:** 4 archivos (6 correcciones)
 - **Descripcion:** Gaps varian entre `gap-4`, `gap-6`, `gap-8` sin sistema.
-- **Solucion:** Definir: `gap-6` para grids de cards, `gap-4` para elementos inline.
+- **Solucion:** Card grids estandarizados a `gap-6`, inline elements a `gap-4`, Hero stats a `gap-6`.
 
 ---
 
 ### DES-003: Estandarizar tamanos de iconos
-- **Estado:** `[ ] Pendiente`
+- **Estado:** `[x] Completado`
+- **GitHub:** [#87](https://github.com/JhonK-Dev/epg-portal-web/issues/87)
 - **Prioridad:** Baja
-- **Archivos afectados:** Multiples componentes
-- **Descripcion:** Tamanos de iconos varian sin escala definida.
-- **Solucion:** Definir escala: `w-4` (inline), `w-5` (small), `w-6` (default), `w-8` (large), `w-12` (feature).
+- **Archivos afectados:** 5 archivos (13 correcciones)
+- **Descripcion:** Tamanos de iconos varian sin escala definida. 13 iconos usaban `w-7 h-7` no estandar.
+- **Solucion:** Reemplazados todos los `w-7 h-7` por `w-6 h-6` (Default scale) para iconos dentro de contenedores `w-14 h-14`. Contenedor social del Footer estandarizado de `w-9` a `w-10`.
 
 ---
 
@@ -473,4 +482,11 @@
 | 2026-02-05 | DUP-015 | Completado | validateEmail() extraido a validators.ts, PR #77 mergeado |
 | 2026-02-06 | - | Sincronizacion | developer sincronizado con master (commit 4c80a35) |
 | 2026-02-06 | - | Actualizacion ISSUES.md | Marcados DUP-001 a DUP-015 como completados |
+| 2026-02-06 | A11Y-001 a A11Y-006 | Creados en GitHub | Issues #79-#84 creados |
+| 2026-02-06 | DES-001 a DES-003 | Creados en GitHub | Issues #85-#87 creados |
+| 2026-02-06 | A11Y-001 a A11Y-006 | Completados | aria-expanded, aria-hidden, autoComplete, inputMode, ellipsis, aria-label |
+| 2026-02-09 | DES-001 | Completado | 15 correcciones de padding en 9 archivos, commit c755e9a |
+| 2026-02-09 | DES-002 | Completado | 6 correcciones de gaps en 4 archivos, commit 26cd0eb |
+| 2026-02-09 | DES-003 | Completado | 13 correcciones de iconos en 5 archivos, commit e64d006 |
+| 2026-02-09 | - | Actualizacion ISSUES.md | 32/32 issues completados, todos los issues resueltos |
 
