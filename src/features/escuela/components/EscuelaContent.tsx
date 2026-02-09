@@ -177,7 +177,7 @@ function Valores() {
             <div
               className={`w-14 h-14 ${item.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform`}
             >
-              <IconComponent className="h-7 w-7" />
+              <IconComponent className="h-6 w-6" />
             </div>
             <p className="text-sm font-medium text-gray-800">{item.valor}</p>
           </div>
@@ -343,7 +343,7 @@ export function EscuelaContent() {
           <Card className="border-l-4 border-l-epg-gold hover:shadow-lg transition-shadow">
             <CardHeader>
               <div className="w-14 h-14 bg-epg-gold/10 rounded-full flex items-center justify-center mb-4">
-                <Target className="h-7 w-7 text-epg-gold" />
+                <Target className="h-6 w-6 text-epg-gold" />
               </div>
               <CardTitle className="text-2xl">Misión</CardTitle>
             </CardHeader>
@@ -357,7 +357,7 @@ export function EscuelaContent() {
           <Card className="border-l-4 border-l-epg-navy hover:shadow-lg transition-shadow">
             <CardHeader>
               <div className="w-14 h-14 bg-epg-navy/10 rounded-full flex items-center justify-center mb-4">
-                <Eye className="h-7 w-7 text-epg-navy" />
+                <Eye className="h-6 w-6 text-epg-navy" />
               </div>
               <CardTitle className="text-2xl">Visión</CardTitle>
             </CardHeader>

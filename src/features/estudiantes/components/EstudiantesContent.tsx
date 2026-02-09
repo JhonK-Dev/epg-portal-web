@@ -61,14 +61,14 @@ import { IconCircle } from '@/components/ui/icon-circle'
 // ICON MAPPER HELPERS
 // ========================================
 const accesoIconMap: Record<string, React.ReactNode> = {
-  clipboard: <ClipboardList className="w-7 h-7 text-white" />,
-  monitor: <Monitor className="w-7 h-7 text-white" />,
-  'book-open': <BookOpen className="w-7 h-7 text-white" />,
-  mail: <Mail className="w-7 h-7 text-white" />,
-  calendar: <Calendar className="w-7 h-7 text-white" />,
-  'file-text': <FileText className="w-7 h-7 text-white" />,
-  users: <Users className="w-7 h-7 text-white" />,
-  award: <Award className="w-7 h-7 text-white" />,
+  clipboard: <ClipboardList className="w-6 h-6 text-white" />,
+  monitor: <Monitor className="w-6 h-6 text-white" />,
+  'book-open': <BookOpen className="w-6 h-6 text-white" />,
+  mail: <Mail className="w-6 h-6 text-white" />,
+  calendar: <Calendar className="w-6 h-6 text-white" />,
+  'file-text': <FileText className="w-6 h-6 text-white" />,
+  users: <Users className="w-6 h-6 text-white" />,
+  award: <Award className="w-6 h-6 text-white" />,
 }
 
 const tramiteIconMap: Record<string, (className: string) => React.ReactNode> = {
@@ -96,7 +96,7 @@ const recursoIconMap: Record<string, React.ReactNode> = {
 // ========================================
 function AccesosRapidos() {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{
@@ -106,7 +106,7 @@ function AccesosRapidos() {
           title="Acceso Rápido"
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {accesosRapidos.map((acceso) => (
             <a
               key={acceso.id}
@@ -144,7 +144,7 @@ function TramitesGrid() {
     useState<TramiteEstudiantil | null>(null)
 
   return (
-    <section className="py-12">
+    <section className="py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{
@@ -307,7 +307,7 @@ function DocumentosDescargables() {
   }
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{ label: 'Recursos', className: 'bg-red-100 text-red-800' }}
@@ -373,7 +373,7 @@ function CalendarioAcademico() {
   }
 
   return (
-    <section className="py-12">
+    <section className="py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{
@@ -384,7 +384,7 @@ function CalendarioAcademico() {
           description="Fechas importantes del semestre"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {calendarioAcademico.slice(0, 8).map((fecha) => {
             const style = tipoStyles[fecha.tipo]
             return (
@@ -436,7 +436,7 @@ function CalendarioAcademico() {
 // ========================================
 function RecursosAcademicosGrid() {
   return (
-    <section className="py-12 bg-epg-navy">
+    <section className="py-12 lg:py-16 bg-epg-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{ label: 'Herramientas', className: 'bg-white/10 text-white' }}
@@ -505,7 +505,7 @@ function PreguntasFrecuentesSection() {
   }))
 
   return (
-    <section className="py-12">
+    <section className="py-12 lg:py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{ label: 'Ayuda', className: 'bg-amber-100 text-amber-800' }}
@@ -542,7 +542,7 @@ function PreguntasFrecuentesSection() {
 // ========================================
 function CtaSection() {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <CTABannerSideBySide
           title="¿Necesitas ayuda adicional?"
