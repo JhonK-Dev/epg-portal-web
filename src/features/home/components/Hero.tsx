@@ -1,12 +1,11 @@
 import React from 'react'
 import { ArrowRight } from 'lucide-react'
-import { StatItem } from '@/components/ui/stat-item'
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
+    <section className="relative w-full min-h-[85vh] flex items-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <img
           src="/images/hero/logo-front.jpeg"
           alt="Escuela de Postgrado UNAP"
@@ -14,153 +13,80 @@ export const Hero: React.FC = () => {
           loading="eager"
           fetchPriority="high"
         />
-        {/* Navy Overlay with gradient for better text readability */}
+        {/* Dark Navy Overlay with gradient for text readability */}
+        <div className="absolute inset-0 bg-epg-navy/70" aria-hidden="true" />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-epg-navy/80 via-epg-navy/70 to-epg-navy/50"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-epg-navy/60 via-transparent to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-epg-navy/80 via-epg-navy/60 to-transparent"
           aria-hidden="true"
         />
       </div>
 
-      {/* Decorative elements - subtle glow effects */}
-      <div
-        className="absolute top-20 right-20 w-72 h-72 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-20 left-20 w-96 h-96 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-1/2 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text */}
-          <div>
-            {/* SUNEDU Badge */}
-            {/* <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
-              <div className="flex items-center gap-1" aria-hidden="true">
-                <div className="w-2 h-2 bg-epg-gold rounded-full" />
-                <div className="w-2 h-2 bg-epg-gold rounded-full" />
-                <div className="w-2 h-2 bg-epg-gold rounded-full" />
-              </div>
-              <span className="text-white text-sm font-medium">
-                Universidad licenciada por SUNEDU
-              </span>
-              <CheckCircle className="w-4 h-4 text-success" />
-            </div> */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-12">
+        <div className="max-w-3xl ml-0">
+          {/* Main Heading */}
+          <h1 className="font-sans font-extrabold tracking-tight leading-tight mb-4">
+            <span className="block text-white text-4xl sm:text-5xl lg:text-6xl uppercase">
+              IMPULSA TU
+            </span>
+            <span className="block text-white text-4xl sm:text-5xl lg:text-6xl uppercase">
+              CARRERA CON UN
+            </span>
+            <span className="block text-epg-gold text-4xl sm:text-5xl lg:text-6xl uppercase">
+              POSTGRADO DE
+            </span>
+            <span className="block text-epg-gold text-4xl sm:text-5xl lg:text-6xl uppercase">
+              EXCELENCIA
+            </span>
+          </h1>
 
-            {/* Main Heading */}
-            <h1 className="text-4xl uppercase sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Impulsa tu carrera con un{' '}
-              <span className="text-epg-gold">Postgrado de Excelencia</span>
-            </h1>
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl text-gray-200 mb-6 max-w-2xl leading-relaxed">
+            Formación académica de alto nivel en la Amazonía peruana
+          </p>
 
-            {/* Subtext */}
-            {/* <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
-              Forma parte de la Escuela de Postgrado líder en la Amazonía.
-              Maestrías, Doctorados y Diplomados diseñados para transformar tu
-              futuro profesional.
-            </p> */}
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 mb-12">
-              <a
-                href="/admision"
-                className="inline-flex items-center gap-2 bg-epg-gold hover:bg-epg-gold-dark text-epg-navy px-6 py-3 rounded-lg text-base font-bold transition-all hover:shadow-lg hover:shadow-epg-gold/20"
-              >
-                Postula ahora
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="/programas"
-                className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-white text-white px-6 py-3 rounded-lg text-base font-medium transition-all hover:bg-white/10"
-              >
-                Ver programas
-              </a>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="flex flex-wrap gap-6">
-              <StatItem
-                value="35+"
-                label="Años de experiencia"
-                variant="inline"
-                valueClassName="text-epg-gold"
-                labelClassName="text-gray-400"
-              />
-              <StatItem
-                value="2,500+"
-                label="Egresados"
-                variant="inline"
-                valueClassName="text-epg-gold"
-                labelClassName="text-gray-400"
-              />
-              <StatItem
-                value="20+"
-                label="Programas"
-                variant="inline"
-                valueClassName="text-epg-gold"
-                labelClassName="text-gray-400"
-              />
-            </div>
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4 mb-8">
+            <a
+              href="/admision"
+              className="inline-flex items-center gap-2 bg-epg-gold hover:bg-epg-gold-dark text-epg-navy px-8 py-3 rounded-lg text-base font-bold shadow-lg shadow-epg-gold/25 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-epg-gold focus-visible:ring-offset-2 focus-visible:ring-offset-epg-navy"
+            >
+              Postula ahora
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <a
+              href="/programas"
+              className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white px-8 py-3 rounded-lg text-base font-semibold transition-all duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-epg-navy"
+            >
+              Explorar programas
+            </a>
           </div>
 
-          {/* Right Column - Admission Card */}
-          <div className="hidden lg:block">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="inline-block bg-success text-success-foreground text-xs font-bold px-3 py-1 rounded-full animate-pulse">
-                  ABIERTO
-                </span>
-                <span className="text-white/80 text-sm">
-                  Proceso de Admisión 2025-I
-                </span>
-              </div>
-
-              <h3 className="text-2xl font-bold text-white mb-4">
-                ¡Inscripciones abiertas!
-              </h3>
-
-              <p className="text-gray-300 mb-6">
-                Aprovecha esta oportunidad para avanzar en tu carrera
-                profesional. Contamos con vacantes limitadas.
-              </p>
-
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-3 text-white/90">
-                  <div className="w-8 h-8 bg-epg-gold/20 rounded-full flex items-center justify-center">
-                    <span className="text-epg-gold font-bold text-sm">1</span>
-                  </div>
-                  <span>Inscripciones hasta el 28 de febrero</span>
-                </div>
-                <div className="flex items-center gap-3 text-white/90">
-                  <div className="w-8 h-8 bg-epg-gold/20 rounded-full flex items-center justify-center">
-                    <span className="text-epg-gold font-bold text-sm">2</span>
-                  </div>
-                  <span>Examen de admisión: 8 de marzo</span>
-                </div>
-                <div className="flex items-center gap-3 text-white/90">
-                  <div className="w-8 h-8 bg-epg-gold/20 rounded-full flex items-center justify-center">
-                    <span className="text-epg-gold font-bold text-sm">3</span>
-                  </div>
-                  <span>Inicio de clases: 1 de abril</span>
-                </div>
-              </div>
-
-              <a
-                href="/admision"
-                className="block w-full bg-epg-gold hover:bg-epg-gold-dark text-epg-navy text-center py-3 rounded-lg font-bold transition-colors"
-              >
-                Inscríbete ahora
-              </a>
+          {/* Metrics Section */}
+          <div className="flex flex-wrap gap-6 md:gap-10 bg-white/5 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/10">
+            <div className="flex flex-col">
+              <span className="text-3xl md:text-4xl font-extrabold text-epg-gold tracking-tight">
+                35+
+              </span>
+              <span className="text-xs md:text-sm text-gray-300 mt-1 uppercase tracking-wide">
+                Años de experiencia
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-3xl md:text-4xl font-extrabold text-epg-gold tracking-tight">
+                2,500+
+              </span>
+              <span className="text-xs md:text-sm text-gray-300 mt-1 uppercase tracking-wide">
+                Egresados
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-3xl md:text-4xl font-extrabold text-epg-gold tracking-tight">
+                20+
+              </span>
+              <span className="text-xs md:text-sm text-gray-300 mt-1 uppercase tracking-wide">
+                Programas activos
+              </span>
             </div>
           </div>
         </div>
