@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { StatItem } from '@/components/ui/stat-item'
 
 export const Hero: React.FC = () => {
@@ -8,21 +8,36 @@ export const Hero: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero/epg-fondo.jpeg"
+          src="/images/hero/logo-front.jpeg"
           alt="Escuela de Postgrado UNAP"
           className="w-full h-full object-cover object-center"
           loading="eager"
           fetchPriority="high"
         />
         {/* Navy Overlay with gradient for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-epg-navy/95 via-epg-navy/85 to-epg-navy/70" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-epg-navy/60 via-transparent to-transparent" aria-hidden="true" />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-epg-navy/80 via-epg-navy/70 to-epg-navy/50"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-epg-navy/60 via-transparent to-transparent"
+          aria-hidden="true"
+        />
       </div>
 
       {/* Decorative elements - subtle glow effects */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-      <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div
+        className="absolute top-20 right-20 w-72 h-72 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-20 left-20 w-96 h-96 bg-epg-gold/5 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute top-1/2 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
@@ -30,7 +45,7 @@ export const Hero: React.FC = () => {
           {/* Left Column - Text */}
           <div>
             {/* SUNEDU Badge */}
-            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
+            {/* <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
               <div className="flex items-center gap-1" aria-hidden="true">
                 <div className="w-2 h-2 bg-epg-gold rounded-full" />
                 <div className="w-2 h-2 bg-epg-gold rounded-full" />
@@ -40,20 +55,20 @@ export const Hero: React.FC = () => {
                 Universidad licenciada por SUNEDU
               </span>
               <CheckCircle className="w-4 h-4 text-success" />
-            </div>
+            </div> */}
 
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-4xl uppercase sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Impulsa tu carrera con un{' '}
               <span className="text-epg-gold">Postgrado de Excelencia</span>
             </h1>
 
             {/* Subtext */}
-            <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
+            {/* <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
               Forma parte de la Escuela de Postgrado líder en la Amazonía.
               Maestrías, Doctorados y Diplomados diseñados para transformar tu
               futuro profesional.
-            </p>
+            </p> */}
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-12">
