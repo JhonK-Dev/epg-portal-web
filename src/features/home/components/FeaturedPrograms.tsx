@@ -22,7 +22,18 @@ const displayPrograms =
           .slice(0, 4 - featuredPrograms.length),
       ]
 
+// Helper function for pluralization
+const pluralize = (count: number, singular: string, plural: string): string => {
+  return count === 1 ? `${count} ${singular}` : `${count} ${plural}`
+}
+
 export const FeaturedPrograms: React.FC = () => {
+  // Calculate dynamic counters for each program type
+  const maestriasCount = programas.filter((p) => p.tipo === 'maestria' && p.estado === 'activo').length
+  const doctoradosCount = programas.filter((p) => p.tipo === 'doctorado' && p.estado === 'activo').length
+  const formacionContinuaCount = programas.filter(
+    (p) => (p.tipo === 'diplomado' || p.tipo === 'curso') && p.estado === 'activo'
+  ).length
   return (
     <section className="section-py px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="container-main">
@@ -153,7 +164,7 @@ export const FeaturedPrograms: React.FC = () => {
             href="/programas/maestrias"
             icon={GraduationCap}
             title="Maestrías"
-            description="Programas de 2 años para profesionales que buscan especialización."
+            description={`${pluralize(maestriasCount, 'programa disponible', 'programas disponibles')} de 2 años para profesionales que buscan especialización.`}
             variant="gradient-navy"
           />
 
@@ -161,7 +172,7 @@ export const FeaturedPrograms: React.FC = () => {
             href="/programas/doctorados"
             icon={Award}
             title="Doctorados"
-            description="Investigación de alto nivel para líderes académicos."
+            description={`${pluralize(doctoradosCount, 'programa disponible', 'programas disponibles')} de investigación de alto nivel para líderes académicos.`}
             variant="gradient-gold"
           />
 
@@ -175,7 +186,7 @@ export const FeaturedPrograms: React.FC = () => {
               Diplomados y cursos cortos de actualización profesional.
             </p>
             <span className="inline-flex items-center gap-1 text-epg-gold font-medium text-sm group-hover:gap-2 transition-all">
-              5 programas disponibles
+              {pluralize(formacionContinuaCount, 'programa disponible', 'programas disponibles')}
               <ArrowRight className="w-4 h-4" />
             </span>
           </a>
