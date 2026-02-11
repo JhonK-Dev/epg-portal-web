@@ -20,6 +20,19 @@ export const ProgramSearch: React.FC = () => {
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Calculate program counts by type
+  const getProgramCount = (tipo: string): number => {
+    if (tipo === 'all') return programas.length;
+    return programas.filter((p) => p.tipo === tipo).length;
+  };
+
+  // Get button text based on selected type
+  const getButtonText = (): string => {
+    const typeConfig = programTypes.find((t) => t.id === selectedType);
+    if (selectedType === 'all') return 'Buscar';
+    return `Buscar ${typeConfig?.label || ''}`;
+  };
+
   // Close suggestions when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -32,6 +45,24 @@ export const ProgramSearch: React.FC = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Update suggestions when filter type changes
+  useEffect(() => {
+    if (searchQuery.trim().length >= 2) {
+      const filtered = programas.filter((programa) => {
+        const matchesType = selectedType === 'all' || programa.tipo === selectedType;
+        const matchesQuery =
+          programa.nombre.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          programa.descripcionCorta.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          programa.facultad.toLowerCase().includes(searchQuery.toLowerCase());
+        
+        return matchesType && matchesQuery;
+      }).slice(0, 5);
+
+      setSuggestions(filtered);
+      setShowSuggestions(filtered.length > 0);
+    }
+  }, [selectedType, searchQuery]);
 
   // Handle input change and filter suggestions
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -118,20 +149,30 @@ export const ProgramSearch: React.FC = () => {
 
         {/* Program Type Filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {programTypes.map((type) => (
-            <button
-              key={type.id}
-              onClick={() => setSelectedType(type.id)}
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                selectedType === type.id
-                  ? 'bg-epg-gold text-epg-navy'
-                  : 'bg-white/10 text-white hover:bg-white/20'
-              }`}
-            >
-              {type.icon && <type.icon className="w-4 h-4" />}
-              {type.label}
-            </button>
-          ))}
+          {programTypes.map((type) => {
+            const count = getProgramCount(type.id);
+            return (
+              <button
+                key={type.id}
+                onClick={() => setSelectedType(type.id)}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                  selectedType === type.id
+                    ? 'bg-epg-gold text-epg-navy'
+                    : 'bg-white/10 text-white hover:bg-white/20'
+                }`}
+              >
+                {type.icon && <type.icon className="w-4 h-4" />}
+                <span>{type.label}</span>
+                <span className={`ml-1 px-2 py-0.5 rounded-full text-xs font-semibold ${
+                  selectedType === type.id
+                    ? 'bg-epg-navy/20 text-epg-navy'
+                    : 'bg-white/20 text-white'
+                }`}>
+                  {count}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Search Bar */}
@@ -162,9 +203,9 @@ export const ProgramSearch: React.FC = () => {
               <button
                 type="submit"
                 aria-label="Buscar programas académicos"
-                className="bg-epg-navy hover:bg-epg-navy-light text-white px-3 sm:px-6 py-3 rounded-xl font-medium transition-colors inline-flex items-center justify-center gap-2"
+                className="bg-epg-navy hover:bg-epg-navy-light text-white px-3 sm:px-6 py-3 rounded-xl font-medium transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                <span className="hidden sm:inline">Buscar</span>
+                <span className="hidden sm:inline">{getButtonText()}</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
               </button>
             </div>
