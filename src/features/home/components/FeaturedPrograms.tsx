@@ -7,9 +7,20 @@ import { LinkArrow } from '@/components/ui/link-arrow'
 import { ResourceCard } from '@/components/ui/resource-card'
 
 // Get featured programs from data
-const featuredPrograms = programas.filter((p) =>
-  ['mae-001', 'mae-002', 'doc-001', 'mae-003'].includes(p.id),
-)
+const featuredPrograms = programas
+  .filter((p) => p.destacado)
+  .slice(0, 4)
+
+// Fallback: if less than 4 featured, fill with active programs
+const displayPrograms =
+  featuredPrograms.length >= 4
+    ? featuredPrograms
+    : [
+        ...featuredPrograms,
+        ...programas
+          .filter((p) => !p.destacado && p.estado === 'activo')
+          .slice(0, 4 - featuredPrograms.length),
+      ]
 
 export const FeaturedPrograms: React.FC = () => {
   return (
@@ -36,7 +47,7 @@ export const FeaturedPrograms: React.FC = () => {
 
         {/* Programs Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredPrograms.map((program) => {
+          {displayPrograms.map((program) => {
             const typeConfig = getProgramTypeConfig(program.tipo)
             const Icon = typeConfig.icon || GraduationCap
 

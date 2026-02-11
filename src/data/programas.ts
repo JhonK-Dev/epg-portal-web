@@ -23,6 +23,7 @@ export const programas: Programa[] = [
     coordinador: 'Dr. Carlos Mendoza Ríos',
     inversion: 'S/. 12,500.00 (total)',
     imagen: '/images/programas/gestion-publica.jpg',
+    destacado: true,
   },
   {
     id: 'mae-002',
@@ -45,6 +46,7 @@ export const programas: Programa[] = [
     coordinador: 'Dra. Patricia Vargas Lozano',
     inversion: 'S/. 14,000.00 (total)',
     imagen: '/images/programas/derecho.jpg',
+    destacado: true,
   },
   {
     id: 'mae-003',
@@ -66,6 +68,7 @@ export const programas: Programa[] = [
     coordinador: 'Dr. Roberto Sánchez Torres',
     inversion: 'S/. 11,000.00 (total)',
     imagen: '/images/programas/educacion.jpg',
+    destacado: true,
   },
   {
     id: 'mae-004',
@@ -132,6 +135,7 @@ export const programas: Programa[] = [
     coordinador: 'Dr. Fernando Castillo Mendoza',
     inversion: 'S/. 25,000.00 (total)',
     imagen: '/images/programas/derecho.jpg',
+    destacado: true,
   },
   {
     id: 'doc-002',
