@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, ArrowRight, GraduationCap, Award, BookOpen } from 'lucide-react';
 import { programas } from '@/data/programas';
+import { busquedasPopulares, getBusquedaUrl } from '@/data/busquedas-populares';
 import { getProgramTypeConfig } from '@/lib/constants';
 import type { Programa } from '@/types';
 
@@ -266,10 +267,15 @@ export const ProgramSearch: React.FC = () => {
         {/* Quick Links */}
         <div className="flex flex-wrap justify-center gap-4 text-sm">
           <span className="text-gray-500">Búsquedas populares:</span>
-          <a href="/programas?q=gestion+publica" className="text-epg-gold hover:underline">Gestión Pública</a>
-          <a href="/programas?q=derecho" className="text-epg-gold hover:underline">Derecho</a>
-          <a href="/programas?q=educacion" className="text-epg-gold hover:underline">Educación</a>
-          <a href="/programas?q=ambiental" className="text-epg-gold hover:underline">Ambiental</a>
+          {busquedasPopulares.map((busqueda) => (
+            <a
+              key={busqueda.id}
+              href={getBusquedaUrl(busqueda)}
+              className="text-epg-gold hover:underline"
+            >
+              {busqueda.label}
+            </a>
+          ))}
         </div>
       </div>
     </section>
