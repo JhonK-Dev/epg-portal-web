@@ -149,26 +149,30 @@ export const ProgramSearch: React.FC = () => {
         </div>
 
         {/* Program Type Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
+        <div className="flex flex-wrap justify-center gap-3 mb-8" role="group" aria-label="Filtrar por tipo de programa">
           {programTypes.map((type) => {
             const count = getProgramCount(type.id);
+            const isSelected = selectedType === type.id;
             return (
               <button
                 key={type.id}
+                type="button"
                 onClick={() => setSelectedType(type.id)}
+                aria-pressed={isSelected}
+                aria-label={`Filtrar por ${type.label}, ${count} programas disponibles`}
                 className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                  selectedType === type.id
+                  isSelected
                     ? 'bg-epg-gold text-epg-navy'
                     : 'bg-white/10 text-white hover:bg-white/20'
                 }`}
               >
-                {type.icon && <type.icon className="w-4 h-4" />}
+                {type.icon && <type.icon className="w-4 h-4" aria-hidden="true" />}
                 <span>{type.label}</span>
                 <span className={`ml-1 px-2 py-0.5 rounded-full text-xs font-semibold ${
-                  selectedType === type.id
+                  isSelected
                     ? 'bg-epg-navy/20 text-epg-navy'
                     : 'bg-white/20 text-white'
-                }`}>
+                }`} aria-hidden="true">
                   {count}
                 </span>
               </button>
@@ -177,7 +181,7 @@ export const ProgramSearch: React.FC = () => {
         </div>
 
         {/* Search Bar */}
-        <form onSubmit={handleSearch} className="relative max-w-3xl mx-auto mb-8" ref={searchRef}>
+        <form onSubmit={handleSearch} role="search" className="relative max-w-3xl mx-auto mb-8" ref={searchRef}>
           <div className="flex items-center bg-white rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
             <div className="flex items-center flex-1 px-3 sm:px-6 py-3 sm:py-4">
               <Search className="w-5 h-5 text-gray-400 mr-2 sm:mr-3 flex-shrink-0" />
@@ -265,18 +269,21 @@ export const ProgramSearch: React.FC = () => {
         </form>
 
         {/* Quick Links */}
-        <div className="flex flex-wrap justify-center gap-4 text-sm">
-          <span className="text-gray-500">Búsquedas populares:</span>
-          {busquedasPopulares.map((busqueda) => (
-            <a
-              key={busqueda.id}
-              href={getBusquedaUrl(busqueda)}
-              className="text-epg-gold hover:underline"
-            >
-              {busqueda.label}
-            </a>
-          ))}
-        </div>
+        <nav aria-label="Búsquedas populares">
+          <div className="flex flex-wrap justify-center gap-4 text-sm">
+            <span className="text-gray-500" aria-hidden="true">Búsquedas populares:</span>
+            {busquedasPopulares.map((busqueda) => (
+              <a
+                key={busqueda.id}
+                href={getBusquedaUrl(busqueda)}
+                className="text-epg-gold hover:underline"
+                aria-label={`Buscar programas sobre ${busqueda.label}`}
+              >
+                {busqueda.label}
+              </a>
+            ))}
+          </div>
+        </nav>
       </div>
     </section>
   );
