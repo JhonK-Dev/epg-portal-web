@@ -25,6 +25,14 @@ export interface Programa {
   inversion?: string;
 }
 
+// --- BÚSQUEDAS POPULARES ---
+export interface BusquedaPopular {
+  id: string;
+  label: string; // Texto a mostrar al usuario
+  query: string; // Query para la URL (/programas?q=xxx)
+  tipo?: TipoPrograma; // Opcional: filtrar por tipo de programa
+}
+
 // --- PUBLICACIONES ---
 export type TipoPublicacion = 'noticia' | 'evento' | 'aviso' | 'comunicado';
 
