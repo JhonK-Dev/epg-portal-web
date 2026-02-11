@@ -75,6 +75,10 @@ export const FeaturedPrograms: React.FC = () => {
                       src={program.imagen}
                       alt={program.nombre}
                       className="w-full h-full object-cover"
+                      width="384"
+                      height="128"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
