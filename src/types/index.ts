@@ -23,6 +23,7 @@ export interface Programa {
   planEstudios?: string; // URL al PDF
   coordinador?: string;
   inversion?: string;
+  destacado?: boolean; // Mostrar en sección de programas destacados del Home
 }
 
 // --- BÚSQUEDAS POPULARES ---
