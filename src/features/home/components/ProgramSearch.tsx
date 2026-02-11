@@ -137,8 +137,8 @@ export const ProgramSearch: React.FC = () => {
         {/* Search Bar */}
         <form onSubmit={handleSearch} className="relative max-w-3xl mx-auto mb-8" ref={searchRef}>
           <div className="flex items-center bg-white rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-            <div className="flex items-center flex-1 px-6 py-4">
-              <Search className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+            <div className="flex items-center flex-1 px-3 sm:px-6 py-3 sm:py-4">
+              <Search className="w-5 h-5 text-gray-400 mr-2 sm:mr-3 flex-shrink-0" />
               <input
                 ref={inputRef}
                 type="search"
@@ -149,23 +149,23 @@ export const ProgramSearch: React.FC = () => {
                 aria-expanded={showSuggestions}
                 aria-controls="search-suggestions"
                 aria-activedescendant={activeSuggestionIndex >= 0 ? `suggestion-${activeSuggestionIndex}` : undefined}
-                placeholder="Buscar por nombre del programa, área o palabras clave..."
+                placeholder="Buscar programas..."
                 value={searchQuery}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
                 onFocus={() => searchQuery.trim().length >= 2 && suggestions.length > 0 && setShowSuggestions(true)}
                 autoComplete="off"
-                className="flex-1 bg-transparent outline-none text-gray-700 placeholder-gray-400 text-base"
+                className="flex-1 bg-transparent outline-none text-gray-700 placeholder-gray-400 text-sm sm:text-base"
               />
             </div>
-            <div className="pr-3">
+            <div className="pr-2 sm:pr-3">
               <button
                 type="submit"
                 aria-label="Buscar programas académicos"
-                className="bg-epg-navy hover:bg-epg-navy-light text-white px-6 py-3 rounded-xl font-medium transition-colors inline-flex items-center gap-2"
+                className="bg-epg-navy hover:bg-epg-navy-light text-white px-3 sm:px-6 py-3 rounded-xl font-medium transition-colors inline-flex items-center justify-center gap-2"
               >
-                Buscar
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                <span className="hidden sm:inline">Buscar</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
               </button>
             </div>
           </div>
