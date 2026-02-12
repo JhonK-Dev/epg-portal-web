@@ -35,9 +35,9 @@ export const NewsAndEvents: React.FC = () => {
           }
         />
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {/* Main News Column */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="md:col-span-2 space-y-6">
             {publications.map((pub, index) => {
               const typeConfig = getPublicationTypeConfig(pub.tipo)
 
@@ -103,7 +103,7 @@ export const NewsAndEvents: React.FC = () => {
           </div>
 
           {/* Events Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="md:col-span-1 lg:sticky lg:top-4 self-start">
             <div className="bg-gray-50 rounded-2xl p-6">
               <h3 className="font-bold text-epg-navy text-lg mb-6 flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-epg-gold" />
