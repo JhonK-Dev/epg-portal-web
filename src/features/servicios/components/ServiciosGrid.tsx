@@ -1,4 +1,5 @@
 import { servicios } from '@/data/servicios'
+import { contactoSoporte } from '@/data/contacto'
 import { LinkArrow } from '@/components/ui/link-arrow'
 import {
   GraduationCap,
@@ -157,13 +158,13 @@ export function ServiciosGrid() {
                   </p>
                   <div className="flex gap-2">
                     <Button variant="outline" size="sm" asChild>
-                      <a href="mailto:soporte@universidad.edu.pe">
+                      <a href={`mailto:${contactoSoporte.email}`}>
                         <Mail className="h-4 w-4 mr-1" />
                         Soporte
                       </a>
                     </Button>
                     <Button variant="outline" size="sm" asChild>
-                      <a href="tel:+5165123456">
+                      <a href={`tel:${contactoSoporte.telefono}`}>
                         <Phone className="h-4 w-4 mr-1" />
                         Llamar
                       </a>
@@ -183,12 +184,12 @@ export function ServiciosGrid() {
           description="Nuestro equipo de soporte está disponible para ayudarte con cualquier consulta"
           primaryAction={{
             label: 'Escribir a soporte',
-            href: 'mailto:soporte@universidad.edu.pe',
+            href: `mailto:${contactoSoporte.email}`,
             icon: <Mail className="h-4 w-4 mr-2" />,
           }}
           secondaryAction={{
-            label: '(065) 123-456',
-            href: 'tel:+5165123456',
+            label: contactoSoporte.telefonoDisplay,
+            href: `tel:${contactoSoporte.telefono}`,
             icon: <Phone className="h-4 w-4 mr-2" />,
           }}
         />

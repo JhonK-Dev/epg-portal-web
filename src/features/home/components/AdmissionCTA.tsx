@@ -1,5 +1,6 @@
 import React from 'react'
 import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react'
+import { contactoAdmision } from '@/data/contacto'
 
 export const AdmissionCTA: React.FC = () => {
   return (
@@ -100,16 +101,16 @@ export const AdmissionCTA: React.FC = () => {
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href="tel:+5165123456"
+                      href={`tel:${contactoAdmision.telefono}`}
                       className="text-sm text-epg-gold font-medium hover:underline"
                     >
-                      (065) 123-456
+                      {contactoAdmision.telefonoDisplay}
                     </a>
                     <a
-                      href="mailto:admision@universidad.edu.pe"
+                      href={`mailto:${contactoAdmision.email}`}
                       className="text-sm text-epg-gold font-medium hover:underline"
                     >
-                      admision@universidad.edu.pe
+                      {contactoAdmision.email}
                     </a>
                   </div>
                 </div>

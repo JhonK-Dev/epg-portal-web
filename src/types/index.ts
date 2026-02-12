@@ -209,8 +209,10 @@ export interface NavGroup {
 // --- INFORMACIÓN INSTITUCIONAL ---
 export interface InfoContacto {
   direccion: string;
-  telefono: string;
+  telefono: string;          // Formato para href (ej: +51987654321)
+  telefonoDisplay: string;   // Formato visual (ej: (065) 987-654-321)
   email: string;
+  whatsapp?: string;         // Número para wa.me link
   horarioAtencion: string;
   coordenadas?: {
     lat: number;
