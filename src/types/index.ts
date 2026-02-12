@@ -169,6 +169,24 @@ export interface FechaImportante {
   tipo: 'inscripcion' | 'examen' | 'resultados' | 'matricula' | 'inicio_clases';
 }
 
+// --- PROCESO DE ADMISIÓN ---
+export interface FechaImportanteAdmision {
+  etiqueta: string;
+  fechaInicio: string;
+  fechaFin?: string;
+  descripcion?: string;
+}
+
+export interface ProcesoAdmision {
+  id: string;
+  periodo: string;
+  anio: number;
+  fechaApertura: string;
+  fechaCierre: string;
+  fechasImportantes: FechaImportanteAdmision[];
+  estadoOverride?: 'abierta' | 'cerrada' | 'proximamente' | 'en_evaluacion';
+}
+
 // --- ESTUDIANTES ---
 export interface ProcesoEstudiantil {
   id: string;
