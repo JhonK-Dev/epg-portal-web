@@ -1,4 +1,5 @@
 import React from 'react'
+import type { LucideIcon } from 'lucide-react'
 import {
   GraduationCap,
   Users,
@@ -10,45 +11,17 @@ import {
 import { SectionHeader } from '@/components/ui/section-header'
 import { StatItem } from '@/components/ui/stat-item'
 import { IconCircle } from '@/components/ui/icon-circle'
+import { estadisticasInstitucionales } from '@/data/estadisticas'
 
-const stats = [
-  {
-    value: '35+',
-    label: 'Años de Trayectoria',
-    icon: Calendar,
-    description: 'Formando profesionales desde 1990',
-  },
-  {
-    value: '2,500+',
-    label: 'Egresados',
-    icon: Users,
-    description: 'Profesionales que lideran el cambio',
-  },
-  {
-    value: '15+',
-    label: 'Maestrías',
-    icon: GraduationCap,
-    description: 'Programas de especialización',
-  },
-  {
-    value: '5',
-    label: 'Doctorados',
-    icon: Award,
-    description: 'Investigación de alto nivel',
-  },
-  {
-    value: '120+',
-    label: 'Docentes',
-    icon: BookOpen,
-    description: 'Profesionales especializados',
-  },
-  {
-    value: '98%',
-    label: 'Satisfacción',
-    icon: ThumbsUp,
-    description: 'Estudiantes satisfechos',
-  },
-]
+// Map icon names to Lucide components
+const iconMap: Record<string, LucideIcon> = {
+  Calendar,
+  Users,
+  GraduationCap,
+  Award,
+  BookOpen,
+  ThumbsUp,
+}
 
 export const StatsSection: React.FC = () => {
   return (
@@ -72,11 +45,11 @@ export const StatsSection: React.FC = () => {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon
+          {estadisticasInstitucionales.map((stat) => {
+            const Icon = iconMap[stat.icon]
             return (
               <div
-                key={index}
+                key={stat.id}
                 className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all group"
               >
                 <StatItem
