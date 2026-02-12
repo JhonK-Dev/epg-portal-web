@@ -89,6 +89,7 @@ export const Navbar = () => {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isHidden, setIsHidden] = useState(false);
   const lastScrollY = useRef(0);
+  const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,11 +99,19 @@ export const Navbar = () => {
       setIsAtTop(currentScrollY < 50);
 
       // Detectar dirección del scroll
-      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        // Scroll down - ocultar navbar
-        setIsHidden(true);
+      if (currentScrollY > lastScrollY.current && currentScrollY > 150) {
+        // Scroll down - ocultar navbar con delay
+        if (!hideTimeoutRef.current) {
+          hideTimeoutRef.current = setTimeout(() => {
+            setIsHidden(true);
+          }, 800); // Esperar 800ms antes de ocultar
+        }
       } else {
-        // Scroll up - mostrar navbar
+        // Scroll up - mostrar navbar inmediatamente
+        if (hideTimeoutRef.current) {
+          clearTimeout(hideTimeoutRef.current);
+          hideTimeoutRef.current = null;
+        }
         setIsHidden(false);
       }
 
@@ -110,7 +119,12 @@ export const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (hideTimeoutRef.current) {
+        clearTimeout(hideTimeoutRef.current);
+      }
+    };
   }, []);
 
   const toggleMobileDropdown = (label: string) => {
@@ -119,15 +133,15 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`w-full fixed top-0 z-50 transition-transform duration-300 ${
-        isHidden ? '-translate-y-full' : 'translate-y-0'
+      className={`w-full fixed top-0 z-50 transition-all duration-500 ease-out ${
+        isHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
       }`}
     >
       {/* Main Navigation - Navy Bar */}
       <nav
-        className={`transition-all duration-300 ${
+        className={`transition-all duration-500 ease-out ${
           isAtTop
-            ? 'bg-transparent text-white'
+            ? 'bg-epg-navy/5 text-white backdrop-blur-md'
             : 'bg-epg-navy text-white shadow-lg'
         }`}
       >
@@ -189,9 +203,9 @@ export const Navbar = () => {
 
       {/* Secondary Navigation - Gold Bar - Desktop */}
       <nav
-        className={`hidden md:block transition-all duration-300 ${
+        className={`hidden md:block transition-all duration-500 ease-out ${
           isAtTop
-            ? 'bg-transparent/80 text-white'
+            ? 'bg-epg-navy/5 text-white backdrop-blur-sm'
             : 'bg-epg-gold-dark text-white'
         }`}
       >
