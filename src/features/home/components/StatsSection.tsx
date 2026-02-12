@@ -71,7 +71,7 @@ export const StatsSection: React.FC = () => {
         />
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6">
           {stats.map((stat, index) => {
             const Icon = stat.icon
             return (
