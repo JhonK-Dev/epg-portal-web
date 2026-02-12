@@ -54,6 +54,8 @@ export interface Publicacion {
   resumen: string;
   fecha: string;
   fechaEvento?: string; // Solo para eventos
+  hora?: string; // Solo para eventos
+  lugar?: string; // Solo para eventos
   imagen?: string;
   slug: string;
   autor?: string;

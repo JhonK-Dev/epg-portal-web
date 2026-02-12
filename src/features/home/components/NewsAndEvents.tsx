@@ -2,67 +2,18 @@ import React from 'react'
 import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react'
 import { formatShortDate, formatEventDate } from '@/lib/formatters'
 import { getPublicationTypeConfig } from '@/lib/constants'
+import { getDestacadas, getEventos } from '@/data/publicaciones'
 import { SectionHeader } from '@/components/ui/section-header'
 import { LinkArrow } from '@/components/ui/link-arrow'
 
-// Sample news and events
-const publications = [
-  {
-    id: 'not-001',
-    titulo: 'Escuela de Postgrado obtiene acreditación internacional SIACES',
-    tipo: 'noticia',
-    resumen:
-      'Nuestra escuela recibe reconocimiento internacional por la calidad de sus programas académicos.',
-    fecha: '2025-01-15',
-    slug: 'acreditacion-internacional-siaces',
-    destacado: true,
-  },
-  {
-    id: 'eve-001',
-    titulo: 'III Congreso Internacional de Investigación en Postgrado',
-    tipo: 'evento',
-    resumen:
-      'Congreso que reunirá investigadores de cuatro países para compartir avances científicos.',
-    fecha: '2025-01-20',
-    fechaEvento: '2025-03-20',
-    slug: 'congreso-internacional-investigacion',
-    destacado: true,
-  },
-  {
-    id: 'avi-001',
-    titulo: 'Inicio de inscripciones para el proceso de admisión 2025-I',
-    tipo: 'aviso',
-    resumen:
-      'Inscripciones abiertas para maestrías y doctorados del semestre 2025-I.',
-    fecha: '2025-01-14',
-    slug: 'inscripciones-admision-2025-i',
-    destacado: true,
-  },
-]
+// Obtener publicaciones destacadas (máximo 3)
+const publications = getDestacadas().slice(0, 3)
 
-const events = [
-  {
-    id: 'eve-001',
-    titulo: 'III Congreso Internacional de Investigación',
-    fecha: '2025-03-20',
-    hora: '09:00',
-    lugar: 'Auditorio Principal - EPG',
-  },
-  {
-    id: 'eve-002',
-    titulo: 'Seminario: Nuevas tendencias en Gestión Pública',
-    fecha: '2025-02-15',
-    hora: '15:00',
-    lugar: 'Auditorio Principal - EPG',
-  },
-  {
-    id: 'eve-003',
-    titulo: 'Taller de Redacción de Artículos Científicos',
-    fecha: '2025-02-22',
-    hora: '10:00',
-    lugar: 'Sala de Capacitaciones',
-  },
-]
+// Obtener eventos futuros ordenados por fecha
+const events = getEventos()
+  .filter(event => event.fechaEvento && new Date(event.fechaEvento) >= new Date())
+  .sort((a, b) => new Date(a.fechaEvento!).getTime() - new Date(b.fechaEvento!).getTime())
+  .slice(0, 3)
 
 export const NewsAndEvents: React.FC = () => {
   return (
@@ -161,7 +112,7 @@ export const NewsAndEvents: React.FC = () => {
 
               <div className="space-y-4">
                 {events.map((event) => {
-                  const eventDate = formatEventDate(event.fecha)
+                  const eventDate = formatEventDate(event.fechaEvento || event.fecha)
 
                   return (
                     <div
@@ -184,14 +135,18 @@ export const NewsAndEvents: React.FC = () => {
                           {event.titulo}
                         </h4>
                         <div className="flex items-center gap-3 text-xs text-gray-500">
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
-                            {event.hora}
-                          </span>
-                          <span className="flex items-center gap-1 truncate">
-                            <MapPin className="w-3 h-3 flex-shrink-0" />
-                            <span className="truncate">{event.lugar}</span>
-                          </span>
+                          {event.hora && (
+                            <span className="flex items-center gap-1">
+                              <Clock className="w-3 h-3" />
+                              {event.hora}
+                            </span>
+                          )}
+                          {event.lugar && (
+                            <span className="flex items-center gap-1 truncate">
+                              <MapPin className="w-3 h-3 flex-shrink-0" />
+                              <span className="truncate">{event.lugar}</span>
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
