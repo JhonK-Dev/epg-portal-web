@@ -1,5 +1,5 @@
-import React from 'react'
-import type { LucideIcon } from 'lucide-react'
+import React from 'react';
+import type { LucideIcon } from 'lucide-react';
 import {
   GraduationCap,
   Users,
@@ -7,11 +7,11 @@ import {
   BookOpen,
   Calendar,
   ThumbsUp,
-} from 'lucide-react'
-import { SectionHeader } from '@/components/ui/section-header'
-import { StatItem } from '@/components/ui/stat-item'
-import { IconCircle } from '@/components/ui/icon-circle'
-import { estadisticasInstitucionales } from '@/data/estadisticas'
+} from 'lucide-react';
+import { SectionHeader } from '@/components/ui/section-header';
+import { StatItem } from '@/components/ui/stat-item';
+import { IconCircle } from '@/components/ui/icon-circle';
+import { estadisticasInstitucionales } from '@/data/estadisticas';
 
 // Map icon names to Lucide components
 const iconMap: Record<string, LucideIcon> = {
@@ -21,7 +21,7 @@ const iconMap: Record<string, LucideIcon> = {
   Award,
   BookOpen,
   ThumbsUp,
-}
+};
 
 export const StatsSection: React.FC = () => {
   return (
@@ -44,9 +44,9 @@ export const StatsSection: React.FC = () => {
         />
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {estadisticasInstitucionales.map((stat) => {
-            const Icon = iconMap[stat.icon]
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6">
+          {estadisticasInstitucionales.map((stat, index) => {
+            const Icon = iconMap[stat.icon];
             return (
               <div
                 key={stat.id}
@@ -73,10 +73,10 @@ export const StatsSection: React.FC = () => {
                   descriptionClassName="text-gray-500 text-xs sm:text-sm"
                 />
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
