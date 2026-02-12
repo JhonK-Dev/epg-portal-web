@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
-import { ChevronDown, Menu, X, ExternalLink } from 'lucide-react'
+import { ChevronDown, ExternalLink, Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 interface NavItem {
-  label: string
-  href: string
-  isExternal?: boolean
+  label: string;
+  href: string;
+  isExternal?: boolean;
 }
 
 interface DropdownItem {
-  label: string
-  href: string
-  items?: NavItem[]
+  label: string;
+  href: string;
+  items?: NavItem[];
 }
 
 const mainNavItems: NavItem[] = [
@@ -19,7 +19,7 @@ const mainNavItems: NavItem[] = [
   { label: 'Admisión', href: '/admision' },
   { label: 'Programas', href: '/programas' },
   { label: 'Contacto', href: '/contacto' },
-]
+];
 
 const secondaryNavItems: DropdownItem[] = [
   {
@@ -78,21 +78,73 @@ const secondaryNavItems: DropdownItem[] = [
       },
     ],
   },
-]
+];
 
-export const Navbar: React.FC = () => {
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null)
+export const Navbar = () => {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+
+  // Estados para el comportamiento de scroll
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Detectar si estamos en el hero (top)
+      setIsAtTop(currentScrollY < 50);
+
+      // Detectar dirección del scroll
+      if (currentScrollY > lastScrollY.current && currentScrollY > 150) {
+        // Scroll down - ocultar navbar con delay
+        if (!hideTimeoutRef.current) {
+          hideTimeoutRef.current = setTimeout(() => {
+            setIsHidden(true);
+          }, 800); // Esperar 800ms antes de ocultar
+        }
+      } else {
+        // Scroll up - mostrar navbar inmediatamente
+        if (hideTimeoutRef.current) {
+          clearTimeout(hideTimeoutRef.current);
+          hideTimeoutRef.current = null;
+        }
+        setIsHidden(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (hideTimeoutRef.current) {
+        clearTimeout(hideTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const toggleMobileDropdown = (label: string) => {
-    setMobileDropdown(mobileDropdown === label ? null : label)
-  }
+    setMobileDropdown(mobileDropdown === label ? null : label);
+  };
 
   return (
-    <header className="w-full sticky top-0 z-50">
+    <header
+      className={`w-full fixed top-0 z-50 transition-all duration-500 ease-out ${
+        isHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+      }`}
+    >
       {/* Main Navigation - Navy Bar */}
-      <nav className="bg-epg-navy text-white">
+      <nav
+        className={`transition-all duration-500 ease-out ${
+          isAtTop
+            ? 'bg-epg-navy/5 text-white backdrop-blur-md'
+            : 'bg-epg-navy text-white shadow-lg'
+        }`}
+      >
         <div className="container-main">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -150,7 +202,13 @@ export const Navbar: React.FC = () => {
       </nav>
 
       {/* Secondary Navigation - Gold Bar - Desktop */}
-      <nav className="bg-epg-gold-dark text-white hidden md:block">
+      <nav
+        className={`hidden md:block transition-all duration-500 ease-out ${
+          isAtTop
+            ? 'bg-epg-navy/5 text-white backdrop-blur-sm'
+            : 'bg-epg-gold-dark text-white'
+        }`}
+      >
         <div className="container-main">
           <div className="flex items-center justify-end h-11 gap-6">
             {secondaryNavItems.map((item) => (
@@ -262,5 +320,5 @@ export const Navbar: React.FC = () => {
         </div>
       )}
     </header>
-  )
-}
+  );
+};

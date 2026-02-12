@@ -1,9 +1,9 @@
-import React from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react';
+import React from 'react';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full min-h-[85vh] flex items-center overflow-hidden">
+    <section className="relative w-full min-h-[85vh] flex items-center overflow-hidden pt-8">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -92,5 +92,5 @@ export const Hero: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
