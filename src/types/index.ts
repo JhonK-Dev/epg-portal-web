@@ -26,6 +26,15 @@ export interface Programa {
   destacado?: boolean; // Mostrar en sección de programas destacados del Home
 }
 
+// --- ESTADÍSTICAS INSTITUCIONALES ---
+export interface Estadistica {
+  id: string;
+  value: string;
+  label: string;
+  description: string;
+  icon: string; // Nombre del icono de Lucide
+}
+
 // --- BÚSQUEDAS POPULARES ---
 export interface BusquedaPopular {
   id: string;
@@ -45,6 +54,8 @@ export interface Publicacion {
   resumen: string;
   fecha: string;
   fechaEvento?: string; // Solo para eventos
+  hora?: string; // Solo para eventos
+  lugar?: string; // Solo para eventos
   imagen?: string;
   slug: string;
   autor?: string;
