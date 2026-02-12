@@ -97,7 +97,7 @@ export const StatsSection: React.FC = () => {
                   }
                   valueClassName="text-white"
                   labelClassName="text-epg-gold"
-                  descriptionClassName="text-gray-500 hidden lg:block"
+                  descriptionClassName="text-gray-500 text-xs sm:text-sm"
                 />
               </div>
             )
