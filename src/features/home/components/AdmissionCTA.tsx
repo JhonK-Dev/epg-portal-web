@@ -1,5 +1,6 @@
 import React from 'react'
 import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react'
+import { getConvocatoriasAbiertas } from '@/data/convocatorias'
 
 export const AdmissionCTA: React.FC = () => {
   return (
@@ -14,20 +15,33 @@ export const AdmissionCTA: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-epg-navy text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-success rounded-full animate-pulse" aria-hidden="true" />
-              Convocatoria abierta
-            </div>
+            {(() => {
+              const abiertas = getConvocatoriasAbiertas()
+              const abierta = abiertas.length > 0
+              const nombre = abiertas[0]?.nombre
+              return (
+                <div className="mb-6">
+                  <div className="inline-flex items-center gap-2 bg-epg-navy text-white px-4 py-2 rounded-full text-sm font-medium">
+                    <span
+                      className={`w-2 h-2 rounded-full ${abierta ? 'bg-success animate-pulse' : 'bg-amber-500'}`}
+                      aria-hidden="true"
+                    />
+                    {abierta ? 'Convocatoria abierta' : 'Sin convocatoria abierta'}
+                  </div>
+                  <p className="text-epg-navy/80 text-sm mt-2">
+                    {abierta
+                      ? `${nombre ?? 'Proceso de admisión'} está abierto. No pierdas la oportunidad de postular.`
+                      : 'Actualmente no hay procesos de admisión abiertos. Revisa nuestras próximas convocatorias.'}
+                  </p>
+                </div>
+              )
+            })()}
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-epg-navy mb-6 leading-tight">
               Inicia tu camino hacia la excelencia académica
             </h2>
 
-            <p className="text-epg-navy/80 text-lg mb-8 max-w-lg">
-              El proceso de admisión 2025-I está abierto. No pierdas la
-              oportunidad de formar parte de la Escuela de Postgrado líder en la
-              Amazonía.
-            </p>
+            {/* paragraph moved above and now dynamic */}
 
             <div className="flex flex-wrap gap-4">
               <a
