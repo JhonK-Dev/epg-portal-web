@@ -1,10 +1,9 @@
 import { ArrowRight } from 'lucide-react';
 import React from 'react';
-import { getConvocatoriasAbiertas } from '@/data/convocatorias';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full min-h-[85vh] flex items-center overflow-hidden pt-8">
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -23,27 +22,10 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-12">
-        <div className="max-w-3xl ml-0">
-          {/* Status badge (dynamic) */}
-          {(() => {
-            const abiertas = getConvocatoriasAbiertas();
-            const abierta = abiertas.length > 0;
-            return (
-              <div className="mb-4">
-                <div className="inline-flex items-center gap-2 bg-epg-navy text-white px-3 py-1 rounded-full text-sm font-medium">
-                  <span
-                    className={`w-2 h-2 rounded-full ${abierta ? 'bg-success animate-pulse' : 'bg-amber-500'}`}
-                    aria-hidden="true"
-                  />
-                  {abierta ? 'Convocatoria abierta' : 'Sin convocatoria abierta'}
-                </div>
-              </div>
-            );
-          })()}
-
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16">
+        <div className="max-w-3xl">
           {/* Main Heading */}
-          <h1 className="font-sans font-extrabold tracking-tight leading-tight mb-4">
+          <h1 className="font-sans font-extrabold tracking-tight leading-tight mb-6">
             <span className="block text-white text-4xl sm:text-5xl lg:text-6xl uppercase">
               IMPULSA TU
             </span>
@@ -59,12 +41,12 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-200 mb-6 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed">
             Formación académica de alto nivel en la Amazonía peruana
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 mb-8">
+          <div className="flex flex-wrap gap-4 mb-10">
             <a
               href="/admision"
               className="inline-flex items-center gap-2 bg-epg-gold hover:bg-epg-gold-dark text-epg-navy px-8 py-3 rounded-lg text-base font-bold shadow-lg shadow-epg-gold/25 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-epg-gold focus-visible:ring-offset-2 focus-visible:ring-offset-epg-navy"
@@ -81,7 +63,7 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Metrics Section */}
-          <div className="flex flex-wrap gap-6 md:gap-10 bg-white/5 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/10">
+          <div className="flex flex-wrap gap-6 md:gap-10 bg-white/5 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/10 max-w-2xl">
             <div className="flex flex-col">
               <span className="text-3xl md:text-4xl font-extrabold text-epg-gold tracking-tight">
                 35+
