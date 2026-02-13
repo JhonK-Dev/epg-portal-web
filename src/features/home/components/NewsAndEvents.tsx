@@ -115,23 +115,24 @@ export const NewsAndEvents: React.FC = () => {
                   const eventDate = formatEventDate(event.fechaEvento || event.fecha)
 
                   return (
-                    <div
+                    <a
                       key={event.id}
-                      className="flex gap-4 p-3 bg-white rounded-xl hover:shadow-md transition-all cursor-pointer"
+                      href={`/publicaciones/${event.slug}`}
+                      className="flex gap-4 p-3 bg-white rounded-xl hover:shadow-md transition-all group"
                     >
                       {/* Date Badge */}
-                      <div className="w-14 h-14 bg-epg-navy rounded-lg flex flex-col items-center justify-center flex-shrink-0">
+                      <div className="w-14 h-14 bg-epg-navy group-hover:bg-epg-gold rounded-lg flex flex-col items-center justify-center flex-shrink-0 transition-colors">
                         <span className="text-white font-bold text-lg leading-none">
                           {eventDate.day}
                         </span>
-                        <span className="text-epg-gold text-xs font-medium">
+                        <span className="text-epg-gold group-hover:text-epg-navy text-xs font-medium transition-colors">
                           {eventDate.month}
                         </span>
                       </div>
 
                       {/* Event Info */}
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-epg-navy text-sm line-clamp-2 mb-1">
+                        <h4 className="font-semibold text-epg-navy group-hover:text-epg-gold text-sm line-clamp-2 mb-1 transition-colors">
                           {event.titulo}
                         </h4>
                         <div className="flex items-center gap-3 text-xs text-gray-500">
@@ -149,7 +150,7 @@ export const NewsAndEvents: React.FC = () => {
                           )}
                         </div>
                       </div>
-                    </div>
+                    </a>
                   )
                 })}
               </div>
