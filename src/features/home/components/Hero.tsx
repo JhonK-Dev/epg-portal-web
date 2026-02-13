@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import React from 'react';
+import { getConvocatoriasAbiertas } from '@/data/convocatorias';
 
 export const Hero: React.FC = () => {
   return (
@@ -24,6 +25,23 @@ export const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-12">
         <div className="max-w-3xl ml-0">
+          {/* Status badge (dynamic) */}
+          {(() => {
+            const abiertas = getConvocatoriasAbiertas();
+            const abierta = abiertas.length > 0;
+            return (
+              <div className="mb-4">
+                <div className="inline-flex items-center gap-2 bg-epg-navy text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <span
+                    className={`w-2 h-2 rounded-full ${abierta ? 'bg-success animate-pulse' : 'bg-amber-500'}`}
+                    aria-hidden="true"
+                  />
+                  {abierta ? 'Convocatoria abierta' : 'Sin convocatoria abierta'}
+                </div>
+              </div>
+            );
+          })()}
+
           {/* Main Heading */}
           <h1 className="font-sans font-extrabold tracking-tight leading-tight mb-4">
             <span className="block text-white text-4xl sm:text-5xl lg:text-6xl uppercase">
