@@ -1,4 +1,5 @@
 import type { Publicacion } from '@/types';
+import { contactoGeneral } from './contacto';
 
 export const publicaciones: Publicacion[] = [
   // NOTICIAS
@@ -227,7 +228,7 @@ Acercarse a la Oficina de Registros Académicos en horario de atención: Lunes a
 
 La atención regular se reanudará el 1 de marzo de 2025.
 
-Para consultas urgentes, escribir a: epg@universidad.edu.pe`,
+Para consultas urgentes, escribir a: ${contactoGeneral.email}`,
     resumen: 'Horario especial de atención durante el período vacacional de febrero.',
     fecha: '2025-01-25',
     imagen: '/images/publicaciones/congreso.jpg',

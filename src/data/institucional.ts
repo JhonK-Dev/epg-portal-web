@@ -1,16 +1,9 @@
-import type { InfoContacto, RedSocial, Estadistica, Documento, ProcesoEstudiantil, Sustentacion } from '@/types';
+import type { RedSocial, Estadistica, Documento, ProcesoEstudiantil, Sustentacion } from '@/types';
+import { contactoGeneral } from './contacto';
 
 // --- INFORMACIÓN DE CONTACTO ---
-export const infoContacto: InfoContacto = {
-  direccion: 'Calle Nauta N° 123, Iquitos - Loreto, Perú',
-  telefono: '(065) 123-456',
-  email: 'epg@universidad.edu.pe',
-  horarioAtencion: 'Lunes a Viernes: 8:00 a.m. - 4:00 p.m.',
-  coordenadas: {
-    lat: -3.7437,
-    lng: -73.2516,
-  },
-};
+// Re-exportar desde contacto.ts para mantener compatibilidad
+export const infoContacto = contactoGeneral;
 
 // --- REDES SOCIALES ---
 export const redesSociales: RedSocial[] = [
