@@ -2,67 +2,18 @@ import React from 'react'
 import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react'
 import { formatShortDate, formatEventDate } from '@/lib/formatters'
 import { getPublicationTypeConfig } from '@/lib/constants'
+import { getDestacadas, getEventos } from '@/data/publicaciones'
 import { SectionHeader } from '@/components/ui/section-header'
 import { LinkArrow } from '@/components/ui/link-arrow'
 
-// Sample news and events
-const publications = [
-  {
-    id: 'not-001',
-    titulo: 'Escuela de Postgrado obtiene acreditación internacional SIACES',
-    tipo: 'noticia',
-    resumen:
-      'Nuestra escuela recibe reconocimiento internacional por la calidad de sus programas académicos.',
-    fecha: '2025-01-15',
-    slug: 'acreditacion-internacional-siaces',
-    destacado: true,
-  },
-  {
-    id: 'eve-001',
-    titulo: 'III Congreso Internacional de Investigación en Postgrado',
-    tipo: 'evento',
-    resumen:
-      'Congreso que reunirá investigadores de cuatro países para compartir avances científicos.',
-    fecha: '2025-01-20',
-    fechaEvento: '2025-03-20',
-    slug: 'congreso-internacional-investigacion',
-    destacado: true,
-  },
-  {
-    id: 'avi-001',
-    titulo: 'Inicio de inscripciones para el proceso de admisión 2025-I',
-    tipo: 'aviso',
-    resumen:
-      'Inscripciones abiertas para maestrías y doctorados del semestre 2025-I.',
-    fecha: '2025-01-14',
-    slug: 'inscripciones-admision-2025-i',
-    destacado: true,
-  },
-]
+// Obtener publicaciones destacadas (máximo 3)
+const publications = getDestacadas().slice(0, 3)
 
-const events = [
-  {
-    id: 'eve-001',
-    titulo: 'III Congreso Internacional de Investigación',
-    fecha: '2025-03-20',
-    hora: '09:00',
-    lugar: 'Auditorio Principal - EPG',
-  },
-  {
-    id: 'eve-002',
-    titulo: 'Seminario: Nuevas tendencias en Gestión Pública',
-    fecha: '2025-02-15',
-    hora: '15:00',
-    lugar: 'Auditorio Principal - EPG',
-  },
-  {
-    id: 'eve-003',
-    titulo: 'Taller de Redacción de Artículos Científicos',
-    fecha: '2025-02-22',
-    hora: '10:00',
-    lugar: 'Sala de Capacitaciones',
-  },
-]
+// Obtener eventos futuros ordenados por fecha
+const events = getEventos()
+  .filter(event => event.fechaEvento && new Date(event.fechaEvento) >= new Date())
+  .sort((a, b) => new Date(a.fechaEvento!).getTime() - new Date(b.fechaEvento!).getTime())
+  .slice(0, 3)
 
 export const NewsAndEvents: React.FC = () => {
   return (
@@ -84,9 +35,9 @@ export const NewsAndEvents: React.FC = () => {
           }
         />
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {/* Main News Column */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="md:col-span-2 space-y-6">
             {publications.map((pub, index) => {
               const typeConfig = getPublicationTypeConfig(pub.tipo)
 
@@ -152,7 +103,7 @@ export const NewsAndEvents: React.FC = () => {
           </div>
 
           {/* Events Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="md:col-span-1 lg:sticky lg:top-4 self-start">
             <div className="bg-gray-50 rounded-2xl p-6">
               <h3 className="font-bold text-epg-navy text-lg mb-6 flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-epg-gold" />
@@ -161,40 +112,45 @@ export const NewsAndEvents: React.FC = () => {
 
               <div className="space-y-4">
                 {events.map((event) => {
-                  const eventDate = formatEventDate(event.fecha)
+                  const eventDate = formatEventDate(event.fechaEvento || event.fecha)
 
                   return (
-                    <div
+                    <a
                       key={event.id}
-                      className="flex gap-4 p-3 bg-white rounded-xl hover:shadow-md transition-all cursor-pointer"
+                      href={`/publicaciones/${event.slug}`}
+                      className="flex gap-4 p-3 bg-white rounded-xl hover:shadow-md transition-all group"
                     >
                       {/* Date Badge */}
-                      <div className="w-14 h-14 bg-epg-navy rounded-lg flex flex-col items-center justify-center flex-shrink-0">
+                      <div className="w-14 h-14 bg-epg-navy group-hover:bg-epg-gold rounded-lg flex flex-col items-center justify-center flex-shrink-0 transition-colors">
                         <span className="text-white font-bold text-lg leading-none">
                           {eventDate.day}
                         </span>
-                        <span className="text-epg-gold text-xs font-medium">
+                        <span className="text-epg-gold group-hover:text-epg-navy text-xs font-medium transition-colors">
                           {eventDate.month}
                         </span>
                       </div>
 
                       {/* Event Info */}
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-epg-navy text-sm line-clamp-2 mb-1">
+                        <h4 className="font-semibold text-epg-navy group-hover:text-epg-gold text-sm line-clamp-2 mb-1 transition-colors">
                           {event.titulo}
                         </h4>
                         <div className="flex items-center gap-3 text-xs text-gray-500">
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
-                            {event.hora}
-                          </span>
-                          <span className="flex items-center gap-1 truncate">
-                            <MapPin className="w-3 h-3 flex-shrink-0" />
-                            <span className="truncate">{event.lugar}</span>
-                          </span>
+                          {event.hora && (
+                            <span className="flex items-center gap-1">
+                              <Clock className="w-3 h-3" />
+                              {event.hora}
+                            </span>
+                          )}
+                          {event.lugar && (
+                            <span className="flex items-center gap-1 truncate">
+                              <MapPin className="w-3 h-3 flex-shrink-0" />
+                              <span className="truncate">{event.lugar}</span>
+                            </span>
+                          )}
                         </div>
                       </div>
-                    </div>
+                    </a>
                   )
                 })}
               </div>

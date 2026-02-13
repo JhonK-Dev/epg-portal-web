@@ -7,11 +7,33 @@ import { LinkArrow } from '@/components/ui/link-arrow'
 import { ResourceCard } from '@/components/ui/resource-card'
 
 // Get featured programs from data
-const featuredPrograms = programas.filter((p) =>
-  ['mae-001', 'mae-002', 'doc-001', 'mae-003'].includes(p.id),
-)
+const featuredPrograms = programas
+  .filter((p) => p.destacado)
+  .slice(0, 4)
+
+// Fallback: if less than 4 featured, fill with active programs
+const displayPrograms =
+  featuredPrograms.length >= 4
+    ? featuredPrograms
+    : [
+        ...featuredPrograms,
+        ...programas
+          .filter((p) => !p.destacado && p.estado === 'activo')
+          .slice(0, 4 - featuredPrograms.length),
+      ]
+
+// Helper function for pluralization
+const pluralize = (count: number, singular: string, plural: string): string => {
+  return count === 1 ? `${count} ${singular}` : `${count} ${plural}`
+}
 
 export const FeaturedPrograms: React.FC = () => {
+  // Calculate dynamic counters for each program type
+  const maestriasCount = programas.filter((p) => p.tipo === 'maestria' && p.estado === 'activo').length
+  const doctoradosCount = programas.filter((p) => p.tipo === 'doctorado' && p.estado === 'activo').length
+  const formacionContinuaCount = programas.filter(
+    (p) => (p.tipo === 'diplomado' || p.tipo === 'curso') && p.estado === 'activo'
+  ).length
   return (
     <section className="section-py px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="container-main">
@@ -35,8 +57,8 @@ export const FeaturedPrograms: React.FC = () => {
         />
 
         {/* Programs Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredPrograms.map((program) => {
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+          {displayPrograms.map((program) => {
             const typeConfig = getProgramTypeConfig(program.tipo)
             const Icon = typeConfig.icon || GraduationCap
 
@@ -53,6 +75,10 @@ export const FeaturedPrograms: React.FC = () => {
                       src={program.imagen}
                       alt={program.nombre}
                       className="w-full h-full object-cover"
+                      width="384"
+                      height="128"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -142,7 +168,7 @@ export const FeaturedPrograms: React.FC = () => {
             href="/programas/maestrias"
             icon={GraduationCap}
             title="Maestrías"
-            description="Programas de 2 años para profesionales que buscan especialización."
+            description={`${pluralize(maestriasCount, 'programa disponible', 'programas disponibles')} de 2 años para profesionales que buscan especialización.`}
             variant="gradient-navy"
           />
 
@@ -150,7 +176,7 @@ export const FeaturedPrograms: React.FC = () => {
             href="/programas/doctorados"
             icon={Award}
             title="Doctorados"
-            description="Investigación de alto nivel para líderes académicos."
+            description={`${pluralize(doctoradosCount, 'programa disponible', 'programas disponibles')} de investigación de alto nivel para líderes académicos.`}
             variant="gradient-gold"
           />
 
@@ -164,7 +190,7 @@ export const FeaturedPrograms: React.FC = () => {
               Diplomados y cursos cortos de actualización profesional.
             </p>
             <span className="inline-flex items-center gap-1 text-epg-gold font-medium text-sm group-hover:gap-2 transition-all">
-              5 programas disponibles
+              {pluralize(formacionContinuaCount, 'programa disponible', 'programas disponibles')}
               <ArrowRight className="w-4 h-4" />
             </span>
           </a>

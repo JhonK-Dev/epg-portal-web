@@ -1,4 +1,5 @@
 import type { Publicacion } from '@/types';
+import { contactoGeneral } from './contacto';
 
 export const publicaciones: Publicacion[] = [
   // NOTICIAS
@@ -87,6 +88,8 @@ Fecha límite de inscripción: 10 de marzo de 2025.`,
     resumen: 'Congreso que reunirá investigadores de cuatro países para compartir avances científicos.',
     fecha: '2025-01-20',
     fechaEvento: '2025-03-20',
+    hora: '09:00',
+    lugar: 'Auditorio Principal - EPG',
     imagen: '/images/publicaciones/congreso.jpg',
     slug: 'congreso-internacional-investigacion',
     autor: 'Unidad de Investigación',
@@ -112,6 +115,8 @@ Cupo limitado a 100 participantes.`,
     resumen: 'Seminario gratuito sobre tendencias actuales en gestión del sector público.',
     fecha: '2025-01-18',
     fechaEvento: '2025-02-15',
+    hora: '15:00',
+    lugar: 'Auditorio Principal - EPG',
     imagen: '/images/publicaciones/seminario.jpg',
     slug: 'seminario-gestion-publica',
     autor: 'Coordinación de Gestión Pública',
@@ -136,6 +141,8 @@ Certificación: 20 horas académicas.`,
     resumen: 'Aprende a redactar y publicar artículos en revistas científicas indexadas.',
     fecha: '2025-01-12',
     fechaEvento: '2025-02-22',
+    hora: '10:00',
+    lugar: 'Sala de Capacitaciones',
     imagen: '/images/publicaciones/taller.jpg',
     slug: 'taller-redaccion-articulos',
     autor: 'Unidad de Investigación',
@@ -221,7 +228,7 @@ Acercarse a la Oficina de Registros Académicos en horario de atención: Lunes a
 
 La atención regular se reanudará el 1 de marzo de 2025.
 
-Para consultas urgentes, escribir a: epg@universidad.edu.pe`,
+Para consultas urgentes, escribir a: ${contactoGeneral.email}`,
     resumen: 'Horario especial de atención durante el período vacacional de febrero.',
     fecha: '2025-01-25',
     imagen: '/images/publicaciones/congreso.jpg',

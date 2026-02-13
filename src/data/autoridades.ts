@@ -1,5 +1,8 @@
 import type { Autoridad } from '@/types';
 
+// ⚠️ IMPORTANTE: Reemplazar con emails reales antes de producción
+// Los emails deben seguir el patrón: [cargo].epg@unap.edu.pe (ejemplo)
+
 export const autoridades: Autoridad[] = [
   {
     id: 'aut-001',
@@ -8,8 +11,8 @@ export const autoridades: Autoridad[] = [
     cargo: 'Director de la Escuela de Postgrado',
     grado: 'doctor',
     foto: '/images/autoridades/director.jpg',
-    email: 'direccion.epg@universidad.edu.pe',
-    telefono: '(065) 123-456',
+    email: 'direccion.epg@unap.edu.pe',
+    telefono: '(065) 987-654-320',
     orden: 1,
   },
   {
@@ -19,8 +22,8 @@ export const autoridades: Autoridad[] = [
     cargo: 'Subdirectora Académica',
     grado: 'doctor',
     foto: '/images/autoridades/subdirectora.jpg',
-    email: 'academica.epg@universidad.edu.pe',
-    telefono: '(065) 123-457',
+    email: 'academica.epg@unap.edu.pe',
+    telefono: '(065) 987-654-321',
     orden: 2,
   },
   {
@@ -30,8 +33,8 @@ export const autoridades: Autoridad[] = [
     cargo: 'Director de Investigación',
     grado: 'doctor',
     foto: '/images/autoridades/investigacion.jpg',
-    email: 'investigacion.epg@universidad.edu.pe',
-    telefono: '(065) 123-458',
+    email: 'investigacion.epg@unap.edu.pe',
+    telefono: '(065) 987-654-322',
     orden: 3,
   },
   {
@@ -41,8 +44,8 @@ export const autoridades: Autoridad[] = [
     cargo: 'Secretaria Académica',
     grado: 'magister',
     foto: '/images/autoridades/secretaria.jpg',
-    email: 'secretaria.epg@universidad.edu.pe',
-    telefono: '(065) 123-459',
+    email: 'secretaria.epg@unap.edu.pe',
+    telefono: '(065) 987-654-323',
     orden: 4,
   },
   {
@@ -52,8 +55,8 @@ export const autoridades: Autoridad[] = [
     cargo: 'Jefe de Admisión',
     grado: 'magister',
     foto: '/images/autoridades/admision.jpg',
-    email: 'admision.epg@universidad.edu.pe',
-    telefono: '(065) 123-460',
+    email: 'admision.epg@unap.edu.pe',
+    telefono: '(065) 987-654-324',
     orden: 5,
   },
   {
@@ -63,8 +66,8 @@ export const autoridades: Autoridad[] = [
     cargo: 'Jefa de Grados y Títulos',
     grado: 'magister',
     foto: '/images/autoridades/grados.jpg',
-    email: 'grados.epg@universidad.edu.pe',
-    telefono: '(065) 123-461',
+    email: 'grados.epg@unap.edu.pe',
+    telefono: '(065) 987-654-325',
     orden: 6,
   },
 ];

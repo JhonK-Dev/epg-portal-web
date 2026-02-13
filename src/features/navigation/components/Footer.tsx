@@ -10,6 +10,7 @@ import {
   MapPin,
   Clock,
 } from 'lucide-react'
+import { contactoGeneral } from '@/data/contacto'
 
 const footerLinks = {
   programas: [
@@ -92,26 +93,31 @@ export const Footer: React.FC = () => {
               <div className="flex items-start gap-3 text-sm">
                 <MapPin className="w-5 h-5 text-epg-gold flex-shrink-0 mt-0.5" />
                 <span className="text-gray-300">
-                  Calle Nauta N° 123, Iquitos - Loreto, Perú
+                  {contactoGeneral.direccion}
                 </span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Phone className="w-5 h-5 text-epg-gold flex-shrink-0" />
-                <span className="text-gray-300">(065) 123-456</span>
+                <a
+                  href={`tel:${contactoGeneral.telefono}`}
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  {contactoGeneral.telefonoDisplay}
+                </a>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Mail className="w-5 h-5 text-epg-gold flex-shrink-0" />
                 <a
-                  href="mailto:epg@universidad.edu.pe"
+                  href={`mailto:${contactoGeneral.email}`}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  epg@universidad.edu.pe
+                  {contactoGeneral.email}
                 </a>
               </div>
               <div className="flex items-start gap-3 text-sm">
                 <Clock className="w-5 h-5 text-epg-gold flex-shrink-0 mt-0.5" />
                 <span className="text-gray-300">
-                  Lunes a Viernes: 8:00 a.m. - 4:00 p.m.
+                  {contactoGeneral.horarioAtencion}
                 </span>
               </div>
             </div>
