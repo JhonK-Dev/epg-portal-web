@@ -57,7 +57,7 @@ export const FeaturedPrograms: React.FC = () => {
         />
 
         {/* Programs Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {displayPrograms.map((program) => {
             const typeConfig = getProgramTypeConfig(program.tipo)
             const Icon = typeConfig.icon || GraduationCap
@@ -66,7 +66,7 @@ export const FeaturedPrograms: React.FC = () => {
               <a
                 key={program.id}
                 href={`/programas/${program.slug}`}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-epg-gold/30"
+                className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-epg-gold/30"
               >
                 {/* Card Header with image or gradient */}
                 <div className="h-32 bg-gradient-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
@@ -88,7 +88,7 @@ export const FeaturedPrograms: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" aria-hidden="true" />
                   <div className="absolute top-4 left-4">
                     <span
-                      className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-semibold px-3 py-1 rounded-full`}
+                      className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-semibold px-3 py-1 rounded-md`}
                     >
                       {typeConfig.label}
                     </span>
@@ -182,7 +182,7 @@ export const FeaturedPrograms: React.FC = () => {
 
           <a
             href="/programas/formacion-continua"
-            className="group bg-white border-2 border-gray-200 hover:border-epg-gold rounded-2xl p-6 text-epg-navy hover:shadow-xl transition-all"
+            className="group bg-white border-2 border-gray-200 hover:border-epg-gold rounded-lg p-6 text-epg-navy hover:shadow-xl transition-all"
           >
             <BookOpen className="w-10 h-10 text-epg-gold mb-4" />
             <h3 className="text-xl font-bold mb-2">Formación Continua</h3>
