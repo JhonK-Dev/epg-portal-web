@@ -35,7 +35,10 @@ export const StatsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <SectionHeader
-          badge={{ label: 'Nuestros números', className: 'text-epg-gold' }}
+          badge={{
+            label: 'Nuestros números',
+            className: 'text-epg-navy bg-epg-gold/80 px-2 py-1 rounded',
+          }}
           title="Cifras que nos respaldan"
           description="Más de tres décadas formando líderes para el desarrollo de la Amazonía peruana."
           titleColor="text-white"
