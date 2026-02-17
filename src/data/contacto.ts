@@ -7,12 +7,12 @@ import type { InfoContacto } from '@/types';
  * Información de contacto general de la EPG
  */
 export const contactoGeneral: InfoContacto = {
-  direccion: 'Calle Nauta N° 123, Iquitos - Loreto, Perú',
+  direccion: 'Calle los Rosales S/N - Sta cuadra San Juan Bautista',
   telefono: '+51987654320',              // Formato internacional para links
   telefonoDisplay: '(065) 987-654-320',  // Formato visual
-  email: 'epg@unap.edu.pe',              // Placeholder - reemplazar con email real
+  email: 'postgradounap.edu.pe',              // Placeholder - reemplazar con email real
   whatsapp: '+51987654320',
-  horarioAtencion: 'Lunes a Viernes: 8:00 a.m. - 4:00 p.m.',
+  horarioAtencion: 'Lunes a Viernes: 7:00 a.m. - 2:00 p.m.',
   coordenadas: {
     lat: -3.7437,
     lng: -73.2516,
