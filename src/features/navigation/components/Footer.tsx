@@ -66,11 +66,11 @@ export const Footer: React.FC = () => {
           {/* Logo & Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+              <div className="flex items-center -space-x-2">
+                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center border-2 border-epg-navy">
                   <span className="text-epg-navy font-bold text-lg">U</span>
                 </div>
-                <div className="w-10 h-10 bg-epg-gold rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-epg-gold rounded-full flex items-center justify-center border-2 border-epg-navy z-10">
                   <span className="text-epg-navy font-bold text-lg">E</span>
                 </div>
               </div>
@@ -231,14 +231,13 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-epg-navy-dark py-4">
+      <div className="bg-epg-navy-dark py-4 border-t border-gray-800">
         <div className="container-main">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
-            <p className="text-sm text-gray-500">
-              © {currentYear} Escuela de Postgrado - Universidad Nacional de la
-              Amazonía Peruana. Todos los derechos reservados.
+          <div className="text-center text-sm text-gray-500">
+            <p>
+              © {currentYear} Escuela de Postgrado - Universidad Nacional de la Amazonía Peruana. Todos los derechos reservados.
             </p>
-            <p className="text-xs text-gray-600">
+            <p className="mt-1 text-xs text-gray-600">
               Desarrollado con tecnología moderna
             </p>
           </div>
