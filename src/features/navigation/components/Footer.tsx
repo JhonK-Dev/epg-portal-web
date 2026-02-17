@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   Facebook,
   Instagram,
@@ -9,8 +9,8 @@ import {
   Phone,
   MapPin,
   Clock,
-} from 'lucide-react'
-import { contactoGeneral } from '@/data/contacto'
+} from 'lucide-react';
+import { contactoGeneral } from '@/data/contacto';
 
 const footerLinks = {
   programas: [
@@ -37,7 +37,7 @@ const footerLinks = {
     { label: 'Correo Institucional', href: '/servicios/correo-institucional' },
     { label: 'Mesa de Partes', href: '/servicios/mesa-partes' },
   ],
-}
+};
 
 const socialLinks = [
   { icon: Facebook, href: 'https://facebook.com/epgunap', label: 'Facebook' },
@@ -53,35 +53,32 @@ const socialLinks = [
     label: 'LinkedIn',
   },
   { icon: Twitter, href: 'https://twitter.com/epgunap', label: 'X (Twitter)' },
-]
+];
 
 export const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-epg-navy text-white">
       {/* Main Footer */}
-      <div className="container-main py-12 lg:py-16">
+      <div className="container-main py-10 lg:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Logo & Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-epg-navy font-bold text-lg">U</span>
-                </div>
-                <div className="w-10 h-10 bg-epg-gold rounded-full flex items-center justify-center">
-                  <span className="text-epg-navy font-bold text-lg">E</span>
-                </div>
-              </div>
-              <div>
+              <img
+                src="/public/images/logo/logo-epg.webp"
+                alt="Escuela de Postgrado Logo"
+                className="w-64 h-auto object-contain"
+              />
+              {/* <div>
                 <span className="text-sm font-semibold leading-tight block">
                   ESCUELA DE POSTGRADO
                 </span>
                 <span className="text-xs text-gray-400">
                   Universidad Nacional de la Amazonía Peruana
                 </span>
-              </div>
+              </div> */}
             </div>
             <p className="text-gray-400 text-sm mb-6">
               Formando líderes para el desarrollo sostenible de la Amazonía
@@ -193,7 +190,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Social Links */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
+        {/* <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-400">Síguenos:</span>
@@ -227,23 +224,23 @@ export const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-epg-navy-dark py-4">
+      <div className="bg-epg-navy-dark py-4 border-t border-gray-800">
         <div className="container-main">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
-            <p className="text-sm text-gray-500">
+          <div className="text-center text-sm text-gray-500">
+            <p>
               © {currentYear} Escuela de Postgrado - Universidad Nacional de la
               Amazonía Peruana. Todos los derechos reservados.
             </p>
-            <p className="text-xs text-gray-600">
-              Desarrollado con tecnología moderna
+            <p className="mt-1 text-xs text-gray-600">
+              Oficina de Soporte Informático
             </p>
           </div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};

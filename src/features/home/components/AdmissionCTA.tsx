@@ -15,11 +15,12 @@ export const AdmissionCTA: React.FC = () => {
   const convocatoriaAbierta = estaConvocatoriaAbierta()
   
   return (
-    <section className="section-py px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-epg-gold via-epg-gold to-epg-gold-dark relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
+    <section className="section-py px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-100 via-blue-50 to-blue-100 relative overflow-hidden">
+      {/* Decorative elements - subtle blue accents */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-200/40 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/40 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl" />
       </div>
 
       <div className="container-main relative z-10">
@@ -27,7 +28,9 @@ export const AdmissionCTA: React.FC = () => {
           {/* Left Content */}
           <div>
             <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
-              convocatoriaAbierta ? 'bg-epg-navy text-white' : 'bg-white/30 text-epg-navy'
+              convocatoriaAbierta 
+                ? 'bg-epg-navy text-white' 
+                : 'bg-gray-100 text-epg-navy'
             }`}>
               {convocatoriaAbierta && (
                 <span className="w-2 h-2 bg-success rounded-full animate-pulse" aria-hidden="true" />
@@ -39,7 +42,7 @@ export const AdmissionCTA: React.FC = () => {
               Inicia tu camino hacia la excelencia académica
             </h2>
 
-            <p className="text-epg-navy/80 text-lg mb-8 max-w-lg">
+            <p className="text-gray-600 text-lg mb-8 max-w-lg">
               {proceso ? (
                 convocatoriaAbierta ? (
                   <>El proceso de admisión <strong>{proceso.periodo}</strong> está abierto. No pierdas la oportunidad de formar parte de la Escuela de Postgrado líder en la Amazonía.</>
@@ -58,14 +61,14 @@ export const AdmissionCTA: React.FC = () => {
                 <>
                   <a
                     href="/admision"
-                    className="inline-flex items-center gap-2 bg-epg-navy hover:bg-epg-navy-light text-white px-6 py-3 rounded-lg font-bold transition-all hover:shadow-lg"
+                    className="inline-flex items-center gap-2 bg-epg-gold hover:bg-epg-gold-dark text-epg-navy px-6 py-3 rounded-lg font-bold transition-all hover:shadow-lg"
                   >
                     Inscríbete ahora
                     <ArrowRight className="w-5 h-5" />
                   </a>
                   <a
                     href="/programas"
-                    className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-epg-navy px-6 py-3 rounded-lg font-bold transition-all"
+                    className="inline-flex items-center gap-2 border-2 border-epg-navy text-epg-navy hover:bg-epg-navy hover:text-white px-6 py-3 rounded-lg font-bold transition-all"
                   >
                     Ver programas
                   </a>
@@ -73,7 +76,7 @@ export const AdmissionCTA: React.FC = () => {
               ) : (
                 <a
                   href="/programas"
-                  className="inline-flex items-center gap-2 bg-epg-navy hover:bg-epg-navy-light text-white px-6 py-3 rounded-lg font-bold transition-all hover:shadow-lg"
+                  className="inline-flex items-center gap-2 bg-epg-gold hover:bg-epg-gold-dark text-epg-navy px-6 py-3 rounded-lg font-bold transition-all hover:shadow-lg"
                 >
                   Explorar programas
                   <ArrowRight className="w-5 h-5" />
@@ -84,10 +87,10 @@ export const AdmissionCTA: React.FC = () => {
 
           {/* Right Content - Info Cards */}
           <div className="grid gap-4">
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-epg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Calendar className="w-6 h-6 text-epg-gold" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Calendar className="w-6 h-6 text-blue-800" />
                 </div>
                 <div>
                   <h3 className="font-bold text-epg-navy mb-1">
@@ -100,23 +103,23 @@ export const AdmissionCTA: React.FC = () => {
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-sm text-gray-600">No hay fechas disponibles en este momento.</p>
+                    <p className="text-sm text-gray-500">No hay fechas disponibles en este momento.</p>
                   )}
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-epg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FileText className="w-6 h-6 text-epg-gold" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-6 h-6 text-blue-800" />
                 </div>
                 <div>
                   <h3 className="font-bold text-epg-navy mb-1">
                     Requisitos básicos
                   </h3>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Grado de Bachiller o Magíster</li>
+                    <li>• grado de Bachiller o Magíster</li>
                     <li>• DNI o Carnet de Extranjería</li>
                     <li>• Certificado de estudios</li>
                     <li>• Curriculum vitae documentado</li>
@@ -125,10 +128,10 @@ export const AdmissionCTA: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-epg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-epg-gold" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-blue-800" />
                 </div>
                 <div>
                   <h3 className="font-bold text-epg-navy mb-1">
@@ -140,13 +143,14 @@ export const AdmissionCTA: React.FC = () => {
                   <div className="flex flex-wrap gap-3">
                     <a
                       href={`tel:${contactoAdmision.telefono}`}
-                      className="text-sm text-epg-gold font-medium hover:underline"
+                      className="text-sm text-epg-navy font-medium hover:text-blue-800 transition-colors"
                     >
                       {contactoAdmision.telefonoDisplay}
                     </a>
+                    <span className="text-blue-400">|</span>
                     <a
                       href={`mailto:${contactoAdmision.email}`}
-                      className="text-sm text-epg-gold font-medium hover:underline"
+                      className="text-sm text-epg-navy font-medium hover:text-blue-800 transition-colors"
                     >
                       {contactoAdmision.email}
                     </a>
