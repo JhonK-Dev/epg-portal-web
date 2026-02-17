@@ -15,12 +15,12 @@ export const AdmissionCTA: React.FC = () => {
   const convocatoriaAbierta = estaConvocatoriaAbierta()
   
   return (
-    <section className="section-py px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="section-py px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-100 via-blue-50 to-blue-100 relative overflow-hidden">
       {/* Decorative elements - subtle blue accents */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-200/30 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/30 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-200/40 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/40 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl" />
       </div>
 
       <div className="container-main relative z-10">
@@ -87,10 +87,10 @@ export const AdmissionCTA: React.FC = () => {
 
           {/* Right Content - Info Cards */}
           <div className="grid gap-4">
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-100/50">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Calendar className="w-6 h-6 text-blue-700" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Calendar className="w-6 h-6 text-blue-800" />
                 </div>
                 <div>
                   <h3 className="font-bold text-epg-navy mb-1">
@@ -109,10 +109,10 @@ export const AdmissionCTA: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-100/50">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <FileText className="w-6 h-6 text-blue-700" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-6 h-6 text-blue-800" />
                 </div>
                 <div>
                   <h3 className="font-bold text-epg-navy mb-1">
@@ -128,10 +128,10 @@ export const AdmissionCTA: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-100/50">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-blue-700" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-blue-800" />
                 </div>
                 <div>
                   <h3 className="font-bold text-epg-navy mb-1">
@@ -143,14 +143,14 @@ export const AdmissionCTA: React.FC = () => {
                   <div className="flex flex-wrap gap-3">
                     <a
                       href={`tel:${contactoAdmision.telefono}`}
-                      className="text-sm text-epg-navy font-medium hover:text-blue-700 transition-colors"
+                      className="text-sm text-epg-navy font-medium hover:text-blue-800 transition-colors"
                     >
                       {contactoAdmision.telefonoDisplay}
                     </a>
-                    <span className="text-blue-300">|</span>
+                    <span className="text-blue-400">|</span>
                     <a
                       href={`mailto:${contactoAdmision.email}`}
-                      className="text-sm text-epg-navy font-medium hover:text-blue-700 transition-colors"
+                      className="text-sm text-epg-navy font-medium hover:text-blue-800 transition-colors"
                     >
                       {contactoAdmision.email}
                     </a>
