@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { GraduationCap, Users, Award, BookOpen, ArrowRight } from 'lucide-react'
+import { getActivePrograms } from '@/lib/api'
+import type { ApiProgram } from '@/lib/api/types'
 import { programas } from '@/data/programas'
 import { getProgramTypeConfig } from '@/lib/constants'
 import { SectionHeader } from '@/components/ui/section-header'
@@ -7,34 +9,130 @@ import { Separator } from '@/components/ui/separator'
 import { LinkArrow } from '@/components/ui/link-arrow'
 import { ResourceCard } from '@/components/ui/resource-card'
 
-// Get featured programs from data
-const featuredPrograms = programas
-  .filter((p) => p.destacado)
-  .slice(0, 4)
-
-// Fallback: if less than 4 featured, fill with active programs
-const displayPrograms =
-  featuredPrograms.length >= 4
-    ? featuredPrograms
-    : [
-        ...featuredPrograms,
-        ...programas
-          .filter((p) => !p.destacado && p.estado === 'activo')
-          .slice(0, 4 - featuredPrograms.length),
-      ]
-
-// Helper function for pluralization
 const pluralize = (count: number, singular: string, plural: string): string => {
   return count === 1 ? `${count} ${singular}` : `${count} ${plural}`
 }
 
+function transformApiProgram(apiProgram: ApiProgram) {
+  const programType = apiProgram.program_type === 2 ? 'doctorado' : 'maestria'
+  return {
+    id: apiProgram.uuid,
+    nombre: apiProgram.name,
+    tipo: programType,
+    descripcion: apiProgram.description,
+    descripcionCorta: apiProgram.description.slice(0, 100) + '...',
+    duracion: 'Por definir',
+    creditos: 0,
+    modalidad: 'presencial' as const,
+    estado: apiProgram.is_active ? 'activo' : 'inactivo' as const,
+    slug: apiProgram.uuid,
+    facultad: 'Escuela de Postgrado UNAP',
+    imagen: apiProgram.background,
+    destacado: true,
+  }
+}
+
+const fallbackPrograms = programas
+  .filter((p) => p.destacado)
+  .slice(0, 4)
+
+const fallbackDisplay = fallbackPrograms.length >= 4
+  ? fallbackPrograms
+  : [
+      ...fallbackPrograms,
+      ...programas
+        .filter((p) => !p.destacado && p.estado === 'activo')
+        .slice(0, 4 - fallbackPrograms.length),
+    ]
+
 export const FeaturedPrograms: React.FC = () => {
-  // Calculate dynamic counters for each program type
-  const maestriasCount = programas.filter((p) => p.tipo === 'maestria' && p.estado === 'activo').length
-  const doctoradosCount = programas.filter((p) => p.tipo === 'doctorado' && p.estado === 'activo').length
-  const formacionContinuaCount = programas.filter(
-    (p) => (p.tipo === 'diplomado' || p.tipo === 'curso') && p.estado === 'activo'
-  ).length
+  const [programs, setPrograms] = useState<ApiProgram[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [useFallback, setUseFallback] = useState(false)
+
+  useEffect(() => {
+    async function fetchPrograms() {
+      try {
+        setLoading(true)
+        const data = await getActivePrograms()
+        setPrograms(data)
+        setError(null)
+        setUseFallback(false)
+      } catch (err) {
+        console.warn('API fetch failed, using fallback data:', err)
+        setError('API no disponible, mostrando datos de respaldo')
+        setUseFallback(true)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchPrograms()
+  }, [])
+
+  const displayPrograms = useFallback 
+    ? fallbackDisplay 
+    : programs.slice(0, 4).map(transformApiProgram)
+
+  const maestriasCount = useFallback 
+    ? programas.filter((p) => p.tipo === 'maestria' && p.estado === 'activo').length
+    : programs.filter((p) => p.program_type === 1).length
+  const doctoradosCount = useFallback 
+    ? programas.filter((p) => p.tipo === 'doctorado' && p.estado === 'activo').length
+    : programs.filter((p) => p.program_type === 2).length
+  const formacionContinuaCount = useFallback 
+    ? programas.filter((p) => (p.tipo === 'diplomado' || p.tipo === 'curso') && p.estado === 'activo').length
+    : 0
+
+  if (loading) {
+    return (
+      <section className="home-section px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="container-main">
+          <SectionHeader
+            badge={{
+              label: 'Nuestra oferta académica',
+              className: 'text-epg-gold',
+            }}
+            title="Programas Destacados"
+            description="Cargando programas..."
+            align="left"
+          />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="bg-white rounded-lg shadow-lg overflow-hidden animate-pulse">
+                <div className="h-32 bg-gray-200" />
+                <div className="p-5">
+                  <div className="h-6 bg-gray-200 rounded mb-2" />
+                  <div className="h-4 bg-gray-200 rounded mb-4" />
+                  <div className="h-4 bg-gray-200 rounded w-2/3" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="home-section px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="container-main">
+          <SectionHeader
+            badge={{
+              label: 'Nuestra oferta académica',
+              className: 'text-epg-gold',
+            }}
+            title="Programas Destacados"
+            description="No se pudieron cargar los programas. Intente más tarde."
+            align="left"
+          />
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="home-section px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="container-main">
@@ -192,7 +290,7 @@ export const FeaturedPrograms: React.FC = () => {
           />
 
           <ResourceCard
-            href="/programas/formacion-continua"
+            href="/programas/diplomados"
             icon={BookOpen}
             title="Formación Continua"
             description={`${pluralize(formacionContinuaCount, 'programa disponible', 'programas disponibles')} de diplomados y cursos cortos de actualización profesional.`}
