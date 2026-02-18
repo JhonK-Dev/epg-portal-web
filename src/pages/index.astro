@@ -3,11 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import { Navbar } from '../features/navigation';
 import { 
   Hero, 
-  ProgramSearch, 
+  ProgramSearchWithStats, 
   FeaturedPrograms,
-  StatsSection,
-  NewsAndEvents,
-  AdmissionCTA
+  AdmissionCTA,
+  ContactSection
 } from '../features/home';
 ---
 
@@ -24,16 +23,13 @@ import {
     <!-- Programas Destacados -->
     <FeaturedPrograms client:load />
     
-    <!-- Búsqueda de Programas -->
-    <ProgramSearch client:load />
-    
-    <!-- Estadísticas Institucionales -->
-    <StatsSection client:load />
-    
-    <!-- Noticias y Eventos -->
-    <NewsAndEvents client:load />
+    <!-- Búsqueda de Programas + Estadísticas Institucionales -->
+    <ProgramSearchWithStats client:load />
     
     <!-- CTA de Admisión -->
     <AdmissionCTA client:load />
+    
+    <!-- Formulario de Contacto -->
+    <ContactSection client:load />
   </main>
 </Layout>

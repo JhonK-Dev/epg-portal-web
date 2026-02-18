@@ -1,3 +1,4 @@
+import { SectionHeader } from '@/components/ui/section-header';
 import {
   calcularEstadoProceso,
   estaConvocatoriaAbierta,
@@ -7,7 +8,6 @@ import {
 } from '@/data/admision';
 import { contactoAdmision } from '@/data/contacto';
 import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react';
-import { SectionHeader } from '@/components/ui/section-header';
 import React from 'react';
 
 export const AdmissionCTA: React.FC = () => {
@@ -16,17 +16,13 @@ export const AdmissionCTA: React.FC = () => {
   const convocatoriaAbierta = estaConvocatoriaAbierta();
 
   return (
-    <section className="home-section px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-100 via-blue-50 to-blue-100 relative overflow-hidden">
-      {/* Decorative elements - subtle blue accents */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-200/40 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/40 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl" />
-      </div>
-
+    <section className="home-section px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="container-main relative z-10">
         <SectionHeader
-          badge={{ label: 'Admisión / Convocatoria', className: 'text-epg-navy bg-epg-gold/80 px-2 py-1 rounded' }}
+          badge={{
+            label: 'Admisión / Convocatoria',
+            className: 'text-epg-navy bg-epg-gold/80 px-2 py-1 rounded',
+          }}
           title="Tu siguiente paso académico"
           description="Revisa fechas, requisitos y canales de contacto para iniciar tu postulación."
           align="left"
