@@ -36,7 +36,7 @@ export const FeaturedPrograms: React.FC = () => {
     (p) => (p.tipo === 'diplomado' || p.tipo === 'curso') && p.estado === 'activo'
   ).length
   return (
-    <section className="section-py px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="home-section px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="container-main">
         {/* Section Header */}
         <SectionHeader
