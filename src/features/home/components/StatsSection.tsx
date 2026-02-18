@@ -25,7 +25,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export const StatsSection: React.FC = () => {
   return (
-    <section className="section-py px-4 sm:px-6 lg:px-8 bg-epg-navy relative overflow-hidden">
+    <section className="home-section px-4 sm:px-6 lg:px-8 bg-epg-navy relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full" aria-hidden="true">
         <div className="absolute top-10 left-10 w-64 h-64 bg-epg-gold/5 rounded-full blur-3xl" />

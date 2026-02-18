@@ -17,7 +17,7 @@ const events = getEventos()
 
 export const NewsAndEvents: React.FC = () => {
   return (
-    <section className="section-py px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="home-section px-4 sm:px-6 lg:px-8 bg-white">
       <div className="container-main">
         {/* Section Header */}
         <SectionHeader
