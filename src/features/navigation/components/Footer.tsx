@@ -189,8 +189,26 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        <div className="mt-10 rounded-xl border border-white/10 bg-white/5 p-4 text-center text-sm text-gray-200">
+          <span className="text-gray-300">¿Listo para postular?</span>{' '}
+          <a
+            href="/admision"
+            className="text-epg-gold font-semibold hover:text-epg-gold-dark transition-colors"
+          >
+            Revisa la convocatoria vigente
+          </a>
+          <span className="text-gray-400"> o </span>
+          <a
+            href="/contacto"
+            className="text-epg-gold font-semibold hover:text-epg-gold-dark transition-colors"
+          >
+            habla con admisión
+          </a>
+          .
+        </div>
+
         {/* Social Links */}
-        {/* <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className="mt-8 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-400">Síguenos:</span>
@@ -224,7 +242,7 @@ export const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
 
       {/* Bottom Bar */}
