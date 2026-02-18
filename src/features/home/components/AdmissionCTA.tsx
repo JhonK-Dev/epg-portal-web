@@ -7,6 +7,7 @@ import {
 } from '@/data/admision';
 import { contactoAdmision } from '@/data/contacto';
 import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react';
+import { SectionHeader } from '@/components/ui/section-header';
 import React from 'react';
 
 export const AdmissionCTA: React.FC = () => {
@@ -24,6 +25,13 @@ export const AdmissionCTA: React.FC = () => {
       </div>
 
       <div className="container-main relative z-10">
+        <SectionHeader
+          badge={{ label: 'Admisión / Convocatoria', className: 'text-epg-navy bg-epg-gold/80 px-2 py-1 rounded' }}
+          title="Tu siguiente paso académico"
+          description="Revisa fechas, requisitos y canales de contacto para iniciar tu postulación."
+          align="left"
+          className="mb-10"
+        />
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
