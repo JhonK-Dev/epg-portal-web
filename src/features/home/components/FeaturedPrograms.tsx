@@ -5,6 +5,7 @@ import { getProgramTypeConfig } from '@/lib/constants'
 import { SectionHeader } from '@/components/ui/section-header'
 import { LinkArrow } from '@/components/ui/link-arrow'
 import { ResourceCard } from '@/components/ui/resource-card'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 // Get featured programs from data
 const featuredPrograms = programas
@@ -34,11 +35,21 @@ export const FeaturedPrograms: React.FC = () => {
   const formacionContinuaCount = programas.filter(
     (p) => (p.tipo === 'diplomado' || p.tipo === 'curso') && p.estado === 'activo'
   ).length
+  
+  const headerAnimation = useScrollAnimation()
+  const cardsAnimation = useScrollAnimation({ threshold: 0.05 })
+  const categoriesAnimation = useScrollAnimation({ threshold: 0.1 })
+  
   return (
     <section className="section-py px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="container-main">
         {/* Section Header */}
-        <SectionHeader
+        <div
+          ref={headerAnimation.ref as React.RefObject<HTMLDivElement>}
+          className={`${headerAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+          style={{ animationDuration: '600ms', animationFillMode: 'forwards' }}
+        >
+          <SectionHeader
           badge={{
             label: 'Nuestra oferta académica',
             className: 'text-epg-gold',
@@ -55,10 +66,14 @@ export const FeaturedPrograms: React.FC = () => {
             </a>
           }
         />
+        </div>
 
         {/* Programs Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {displayPrograms.map((program) => {
+        <div 
+          ref={cardsAnimation.ref as React.RefObject<HTMLDivElement>}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
+          {displayPrograms.map((program, index) => {
             const typeConfig = getProgramTypeConfig(program.tipo)
             const Icon = typeConfig.icon || GraduationCap
 
@@ -66,7 +81,8 @@ export const FeaturedPrograms: React.FC = () => {
               <a
                 key={program.id}
                 href={`/programas/${program.slug}`}
-                className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-epg-gold/30"
+                className={`group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-epg-gold/30 ${cardsAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                style={{ animationDelay: `${index * 100}ms`, animationDuration: '500ms', animationFillMode: 'forwards' }}
               >
                 {/* Card Header with image or gradient */}
                 <div className="h-32 bg-gradient-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
@@ -163,26 +179,34 @@ export const FeaturedPrograms: React.FC = () => {
         </div>
 
         {/* Category Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
-          <ResourceCard
-            href="/programas/maestrias"
-            icon={GraduationCap}
-            title="Maestrías"
-            description={`${pluralize(maestriasCount, 'programa disponible', 'programas disponibles')} de 2 años para profesionales que buscan especialización.`}
-            variant="gradient-navy"
-          />
+        <div 
+          ref={categoriesAnimation.ref as React.RefObject<HTMLDivElement>}
+          className="grid md:grid-cols-3 gap-6 mt-12"
+        >
+          <div className={`${categoriesAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0ms', animationDuration: '500ms', animationFillMode: 'forwards' }}>
+            <ResourceCard
+              href="/programas/maestrias"
+              icon={GraduationCap}
+              title="Maestrías"
+              description={`${pluralize(maestriasCount, 'programa disponible', 'programas disponibles')} de 2 años para profesionales que buscan especialización.`}
+              variant="gradient-navy"
+            />
+          </div>
 
-          <ResourceCard
-            href="/programas/doctorados"
-            icon={Award}
-            title="Doctorados"
-            description={`${pluralize(doctoradosCount, 'programa disponible', 'programas disponibles')} de investigación de alto nivel para líderes académicos.`}
-            variant="gradient-gold"
-          />
+          <div className={`${categoriesAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '100ms', animationDuration: '500ms', animationFillMode: 'forwards' }}>
+            <ResourceCard
+              href="/programas/doctorados"
+              icon={Award}
+              title="Doctorados"
+              description={`${pluralize(doctoradosCount, 'programa disponible', 'programas disponibles')} de investigación de alto nivel para líderes académicos.`}
+              variant="gradient-gold"
+            />
+          </div>
 
           <a
             href="/programas/formacion-continua"
-            className="group bg-white border-2 border-gray-200 hover:border-epg-gold rounded-lg p-6 text-epg-navy hover:shadow-xl transition-all"
+            className={`group bg-white border-2 border-gray-200 hover:border-epg-gold rounded-lg p-6 text-epg-navy hover:shadow-xl transition-all ${categoriesAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+            style={{ animationDelay: '200ms', animationDuration: '500ms', animationFillMode: 'forwards' }}
           >
             <BookOpen className="w-10 h-10 text-epg-gold mb-4" />
             <h3 className="text-xl font-bold mb-2">Formación Continua</h3>

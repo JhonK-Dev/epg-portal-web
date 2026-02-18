@@ -5,6 +5,7 @@ import { getPublicationTypeConfig } from '@/lib/constants'
 import { getDestacadas, getEventos } from '@/data/publicaciones'
 import { SectionHeader } from '@/components/ui/section-header'
 import { LinkArrow } from '@/components/ui/link-arrow'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 // Obtener publicaciones destacadas (máximo 3)
 const publications = getDestacadas().slice(0, 3)
@@ -16,26 +17,38 @@ const events = getEventos()
   .slice(0, 3)
 
 export const NewsAndEvents: React.FC = () => {
+  const headerAnimation = useScrollAnimation()
+  const newsAnimation = useScrollAnimation({ threshold: 0.1 })
+  const eventsAnimation = useScrollAnimation({ threshold: 0.1 })
+  
   return (
     <section className="section-py px-4 sm:px-6 lg:px-8 bg-white">
       <div className="container-main">
-        {/* Section Header */}
-        <SectionHeader
-          badge={{ label: 'Mantente informado', className: 'text-epg-gold' }}
-          title="Noticias y Eventos"
-          align="left"
-          action={
-            <a
-              href="/publicaciones"
-              className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
-            >
-              Ver todas las publicaciones
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-          }
-        />
+        <div
+          ref={headerAnimation.ref as React.RefObject<HTMLDivElement>}
+          className={`${headerAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+          style={{ animationDuration: '600ms', animationFillMode: 'forwards' }}
+        >
+          <SectionHeader
+            badge={{ label: 'Mantente informado', className: 'text-epg-gold' }}
+            title="Noticias y Eventos"
+            align="left"
+            action={
+              <a
+                href="/publicaciones"
+                className="inline-flex items-center gap-2 text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
+              >
+                Ver todas las publicaciones
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+            }
+          />
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div 
+          ref={newsAnimation.ref as React.RefObject<HTMLDivElement>}
+          className="grid md:grid-cols-3 gap-6 md:gap-8"
+        >
           {/* Main News Column */}
           <div className="md:col-span-2 space-y-6">
             {publications.map((pub, index) => {
@@ -47,7 +60,8 @@ export const NewsAndEvents: React.FC = () => {
                   <a
                     key={pub.id}
                     href={`/publicaciones/${pub.slug}`}
-                    className="group block bg-gradient-to-br from-epg-navy to-epg-navy-light rounded-2xl overflow-hidden hover:shadow-xl transition-all"
+                    className={`group block bg-gradient-to-br from-epg-navy to-epg-navy-light rounded-2xl overflow-hidden hover:shadow-xl transition-all ${newsAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                    style={{ animationDelay: '0ms', animationDuration: '500ms', animationFillMode: 'forwards' }}
                   >
                     <div className="p-8">
                       <span
@@ -79,7 +93,8 @@ export const NewsAndEvents: React.FC = () => {
                 <a
                   key={pub.id}
                   href={`/publicaciones/${pub.slug}`}
-                  className="group flex gap-4 bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-all"
+                  className={`group flex gap-4 bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-all ${newsAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  style={{ animationDelay: `${index * 100}ms`, animationDuration: '500ms', animationFillMode: 'forwards' }}
                 >
                   <div className="w-24 h-24 bg-gradient-to-br from-epg-navy to-epg-navy-light rounded-lg flex-shrink-0 flex items-center justify-center">
                     <Calendar className="w-8 h-8 text-epg-gold/50" />
@@ -103,7 +118,11 @@ export const NewsAndEvents: React.FC = () => {
           </div>
 
           {/* Events Sidebar */}
-          <div className="md:col-span-1 lg:sticky lg:top-4 self-start">
+          <div 
+            ref={eventsAnimation.ref as React.RefObject<HTMLDivElement>}
+            className={`md:col-span-1 lg:sticky lg:top-4 self-start ${eventsAnimation.isVisible ? 'animate-fade-in-right' : 'opacity-0'}`}
+            style={{ animationDuration: '600ms', animationFillMode: 'forwards' }}
+          >
             <div className="bg-gray-50 rounded-2xl p-6">
               <h3 className="font-bold text-epg-navy text-lg mb-6 flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-epg-gold" />
@@ -111,14 +130,15 @@ export const NewsAndEvents: React.FC = () => {
               </h3>
 
               <div className="space-y-4">
-                {events.map((event) => {
+                {events.map((event, index) => {
                   const eventDate = formatEventDate(event.fechaEvento || event.fecha)
 
                   return (
                     <a
                       key={event.id}
                       href={`/publicaciones/${event.slug}`}
-                      className="flex gap-4 p-3 bg-white rounded-xl hover:shadow-md transition-all group"
+                      className={`flex gap-4 p-3 bg-white rounded-xl hover:shadow-md transition-all group ${eventsAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                      style={{ animationDelay: `${(index + 1) * 100}ms`, animationDuration: '400ms', animationFillMode: 'forwards' }}
                     >
                       {/* Date Badge */}
                       <div className="w-14 h-14 bg-epg-navy group-hover:bg-epg-gold rounded-lg flex flex-col items-center justify-center flex-shrink-0 transition-colors">
