@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { Navbar } from '../../features/navigation';
 import { ContactForm } from '../../features/contacto';
+import { contactoGeneral } from '../../data/contacto';
 ---
 
 <Layout 
@@ -64,7 +65,7 @@ import { ContactForm } from '../../features/contacto';
                   </div>
                   <div>
                     <p class="font-medium text-gray-900">Teléfono</p>
-                    <a href="tel:+5165232241" class="text-gray-600 text-sm hover:text-epg-gold">(065) 232-241</a>
+                    <a href={`tel:${contactoGeneral.telefono}`} class="text-gray-600 text-sm hover:text-epg-gold">{contactoGeneral.telefonoDisplay}</a>
                   </div>
                 </div>
 
@@ -76,7 +77,7 @@ import { ContactForm } from '../../features/contacto';
                   </div>
                   <div>
                     <p class="font-medium text-gray-900">Correo electrónico</p>
-                    <a href="mailto:epg@unapiquitos.edu.pe" class="text-gray-600 text-sm hover:text-epg-gold">epg@unapiquitos.edu.pe</a>
+                    <a href={`mailto:${contactoGeneral.email}`} class="text-gray-600 text-sm hover:text-epg-gold">{contactoGeneral.email}</a>
                   </div>
                 </div>
 
@@ -88,7 +89,7 @@ import { ContactForm } from '../../features/contacto';
                   </div>
                   <div>
                     <p class="font-medium text-gray-900">Horario de atención</p>
-                    <p class="text-gray-600 text-sm">Lunes a Viernes<br/>8:00 a.m. - 4:00 p.m.</p>
+                    <p class="text-gray-600 text-sm">{contactoGeneral.horarioAtencion}</p>
                   </div>
                 </div>
               </div>

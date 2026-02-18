@@ -1,97 +1,147 @@
-import React from 'react'
-import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react'
-import { getConvocatoriasAbiertas } from '@/data/convocatorias'
+import {
+  calcularEstadoProceso,
+  estaConvocatoriaAbierta,
+  formatearFechaImportante,
+  getProcesoActual,
+  getTextoEstado,
+} from '@/data/admision';
+import { contactoAdmision } from '@/data/contacto';
+import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react';
+import React from 'react';
 
 export const AdmissionCTA: React.FC = () => {
+  const proceso = getProcesoActual();
+  const estado = proceso ? calcularEstadoProceso(proceso) : 'cerrada';
+  const convocatoriaAbierta = estaConvocatoriaAbierta();
+
   return (
-    <section className="section-py px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-epg-gold via-epg-gold to-epg-gold-dark relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
+    <section className="section-py px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-100 via-blue-50 to-blue-100 relative overflow-hidden">
+      {/* Decorative elements - subtle blue accents */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-200/40 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/40 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl" />
       </div>
 
       <div className="container-main relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            {(() => {
-              const abiertas = getConvocatoriasAbiertas()
-              const abierta = abiertas.length > 0
-              const nombre = abiertas[0]?.nombre
-              return (
-                <div className="mb-6">
-                  <div className="inline-flex items-center gap-2 bg-epg-navy text-white px-4 py-2 rounded-full text-sm font-medium">
-                    <span
-                      className={`w-2 h-2 rounded-full ${abierta ? 'bg-success animate-pulse' : 'bg-amber-500'}`}
-                      aria-hidden="true"
-                    />
-                    {abierta ? 'Convocatoria abierta' : 'Sin convocatoria abierta'}
-                  </div>
-                  <p className="text-epg-navy/80 text-sm mt-2">
-                    {abierta
-                      ? `${nombre ?? 'Proceso de admisión'} está abierto. No pierdas la oportunidad de postular.`
-                      : 'Actualmente no hay procesos de admisión abiertos. Revisa nuestras próximas convocatorias.'}
-                  </p>
-                </div>
-              )
-            })()}
+            <div
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+                convocatoriaAbierta
+                  ? 'bg-epg-navy text-white'
+                  : 'bg-gray-100 text-epg-navy'
+              }`}
+            >
+              {convocatoriaAbierta && (
+                <span
+                  className="w-2 h-2 bg-success rounded-full animate-pulse"
+                  aria-hidden="true"
+                />
+              )}
+              {getTextoEstado(estado)}
+            </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-epg-navy mb-6 leading-tight">
               Inicia tu camino hacia la excelencia académica
             </h2>
 
-            {/* paragraph moved above and now dynamic */}
+            <p className="text-gray-600 text-lg mb-8 max-w-lg">
+              {proceso ? (
+                convocatoriaAbierta ? (
+                  <>
+                    El proceso de admisión <strong>{proceso.periodo}</strong>{' '}
+                    está abierto. No pierdas la oportunidad de formar parte de
+                    la Escuela de Postgrado líder en la Amazonía.
+                  </>
+                ) : estado === 'proximamente' ? (
+                  <>
+                    El proceso de admisión <strong>{proceso.periodo}</strong>{' '}
+                    abrirá próximamente. Mantente atento a las fechas de
+                    inscripción.
+                  </>
+                ) : (
+                  <>
+                    El proceso de admisión <strong>{proceso.periodo}</strong> ha
+                    cerrado. Pronto anunciaremos nuevas convocatorias.
+                  </>
+                )
+              ) : (
+                'Próximamente anunciaremos nuevas convocatorias de admisión.'
+              )}
+            </p>
 
             <div className="flex flex-wrap gap-4">
-              <a
-                href="/admision"
-                className="inline-flex items-center gap-2 bg-epg-navy hover:bg-epg-navy-light text-white px-6 py-3 rounded-lg font-bold transition-all hover:shadow-lg"
-              >
-                Inscríbete ahora
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="/programas"
-                className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-epg-navy px-6 py-3 rounded-lg font-bold transition-all"
-              >
-                Ver programas
-              </a>
+              {convocatoriaAbierta ? (
+                <>
+                  <a
+                    href="/admision"
+                    className="inline-flex items-center gap-2 bg-epg-gold hover:bg-epg-gold-dark text-epg-navy px-6 py-3 rounded-lg font-bold transition-all hover:shadow-lg"
+                  >
+                    Inscríbete ahora
+                    <ArrowRight className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="/programas"
+                    className="inline-flex items-center gap-2 border-2 border-epg-navy text-epg-navy hover:bg-epg-navy hover:text-white px-6 py-3 rounded-lg font-bold transition-all"
+                  >
+                    Ver programas
+                  </a>
+                </>
+              ) : (
+                <a
+                  href="/programas"
+                  className="inline-flex items-center gap-2 bg-epg-gold hover:bg-epg-gold-dark text-epg-navy px-6 py-3 rounded-lg font-bold transition-all hover:shadow-lg"
+                >
+                  Explorar programas
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              )}
             </div>
           </div>
 
           {/* Right Content - Info Cards */}
           <div className="grid gap-4">
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-epg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Calendar className="w-6 h-6 text-epg-gold" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Calendar className="w-6 h-6 text-blue-800" />
                 </div>
                 <div>
                   <h3 className="font-bold text-epg-navy mb-1">
-                    Fechas importantes
+                    {proceso
+                      ? `Fechas importantes ${proceso.periodo}`
+                      : 'Fechas importantes'}
                   </h3>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Inscripciones: 15 de enero - 28 de febrero</li>
-                    <li>• Examen de admisión: 8 de marzo</li>
-                    <li>• Resultados: 12 de marzo</li>
-                    <li>• Inicio de clases: 1 de abril</li>
-                  </ul>
+                  {proceso ? (
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      {proceso.fechasImportantes.map((fecha, index) => (
+                        <li key={index}>
+                          • {fecha.etiqueta}: {formatearFechaImportante(fecha)}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm text-gray-500">
+                      No hay fechas disponibles en este momento.
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-epg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <FileText className="w-6 h-6 text-epg-gold" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-6 h-6 text-blue-800" />
                 </div>
                 <div>
                   <h3 className="font-bold text-epg-navy mb-1">
                     Requisitos básicos
                   </h3>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Grado de Bachiller o Magíster</li>
+                    <li>• grado de Bachiller o Magíster</li>
                     <li>• DNI o Carnet de Extranjería</li>
                     <li>• Certificado de estudios</li>
                     <li>• Curriculum vitae documentado</li>
@@ -100,10 +150,10 @@ export const AdmissionCTA: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-epg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-epg-gold" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-blue-800" />
                 </div>
                 <div>
                   <h3 className="font-bold text-epg-navy mb-1">
@@ -114,16 +164,17 @@ export const AdmissionCTA: React.FC = () => {
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href="tel:+5165123456"
-                      className="text-sm text-epg-gold font-medium hover:underline"
+                      href={`tel:${contactoAdmision.telefono}`}
+                      className="text-sm text-epg-navy font-medium hover:text-blue-800 transition-colors"
                     >
-                      (065) 123-456
+                      {contactoAdmision.telefonoDisplay}
                     </a>
+                    <span className="text-blue-400">|</span>
                     <a
-                      href="mailto:admision@universidad.edu.pe"
-                      className="text-sm text-epg-gold font-medium hover:underline"
+                      href={`mailto:${contactoAdmision.email}`}
+                      className="text-sm text-epg-navy font-medium hover:text-blue-800 transition-colors"
                     >
-                      admision@universidad.edu.pe
+                      {contactoAdmision.email}
                     </a>
                   </div>
                 </div>
@@ -133,5 +184,5 @@ export const AdmissionCTA: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

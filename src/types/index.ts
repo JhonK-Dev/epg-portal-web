@@ -169,6 +169,24 @@ export interface FechaImportante {
   tipo: 'inscripcion' | 'examen' | 'resultados' | 'matricula' | 'inicio_clases';
 }
 
+// --- PROCESO DE ADMISIÓN ---
+export interface FechaImportanteAdmision {
+  etiqueta: string;
+  fechaInicio: string;
+  fechaFin?: string;
+  descripcion?: string;
+}
+
+export interface ProcesoAdmision {
+  id: string;
+  periodo: string;
+  anio: number;
+  fechaApertura: string;
+  fechaCierre: string;
+  fechasImportantes: FechaImportanteAdmision[];
+  estadoOverride?: 'abierta' | 'cerrada' | 'proximamente' | 'en_evaluacion';
+}
+
 // --- ESTUDIANTES ---
 export interface ProcesoEstudiantil {
   id: string;
@@ -209,8 +227,10 @@ export interface NavGroup {
 // --- INFORMACIÓN INSTITUCIONAL ---
 export interface InfoContacto {
   direccion: string;
-  telefono: string;
+  telefono: string;          // Formato para href (ej: +51987654321)
+  telefonoDisplay: string;   // Formato visual (ej: (065) 987-654-321)
   email: string;
+  whatsapp?: string;         // Número para wa.me link
   horarioAtencion: string;
   coordenadas?: {
     lat: number;
