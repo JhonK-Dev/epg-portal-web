@@ -136,20 +136,20 @@ export const ProgramSearch: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-epg-navy to-epg-navy-dark section-py px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-b from-epg-navy to-epg-navy-dark py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Title */}
-        <div className="text-center mb-8">
-          <h2 className="text-white text-2xl sm:text-3xl font-bold mb-3">
+        <div className="text-center mb-6">
+          <h2 className="text-white text-2xl sm:text-3xl font-bold mb-2">
             Encuentra tu programa ideal
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto">
+          <p className="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
             Explora nuestra oferta académica de maestrías, doctorados y programas de formación continua.
           </p>
         </div>
 
         {/* Program Type Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8" role="group" aria-label="Filtrar por tipo de programa">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6" role="group" aria-label="Filtrar por tipo de programa">
           {programTypes.map((type) => {
             const count = getProgramCount(type.id);
             const isSelected = selectedType === type.id;
@@ -160,7 +160,7 @@ export const ProgramSearch: React.FC = () => {
                 onClick={() => setSelectedType(type.id)}
                 aria-pressed={isSelected}
                 aria-label={`Filtrar por ${type.label}, ${count} programas disponibles`}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   isSelected
                     ? 'bg-epg-gold text-epg-navy'
                     : 'bg-white/10 text-white hover:bg-white/20'
@@ -181,9 +181,9 @@ export const ProgramSearch: React.FC = () => {
         </div>
 
         {/* Search Bar */}
-        <form onSubmit={handleSearch} role="search" className="relative max-w-3xl mx-auto mb-8" ref={searchRef}>
-          <div className="flex items-center bg-white rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-            <div className="flex items-center flex-1 px-3 sm:px-6 py-3 sm:py-4">
+        <form onSubmit={handleSearch} role="search" className="relative max-w-3xl mx-auto mb-4" ref={searchRef}>
+          <div className="flex items-center bg-white rounded-xl overflow-hidden shadow-xl shadow-black/15">
+            <div className="flex items-center flex-1 px-3 sm:px-5 py-2.5 sm:py-3">
               <Search className="w-5 h-5 text-gray-400 mr-2 sm:mr-3 flex-shrink-0" />
               <input
                 ref={inputRef}
@@ -195,7 +195,7 @@ export const ProgramSearch: React.FC = () => {
                 aria-expanded={showSuggestions}
                 aria-controls="search-suggestions"
                 aria-activedescendant={activeSuggestionIndex >= 0 ? `suggestion-${activeSuggestionIndex}` : undefined}
-                placeholder="Buscar programas..."
+                placeholder="Buscar programas…"
                 value={searchQuery}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
@@ -208,13 +208,17 @@ export const ProgramSearch: React.FC = () => {
               <button
                 type="submit"
                 aria-label="Buscar programas académicos"
-                className="bg-epg-navy hover:bg-epg-navy-light text-white px-3 sm:px-6 py-3 rounded-xl font-medium transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
+                className="bg-epg-navy hover:bg-epg-navy-light text-white px-3 sm:px-5 py-2.5 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
               >
                 <span className="hidden sm:inline">{getButtonText()}</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
               </button>
             </div>
           </div>
+
+          <p className="text-xs sm:text-sm text-gray-400 text-center mt-3">
+            Al buscar, te llevamos a la página de programas.
+          </p>
 
           {/* Dropdown de Sugerencias */}
           {showSuggestions && suggestions.length > 0 && (
@@ -270,7 +274,7 @@ export const ProgramSearch: React.FC = () => {
 
         {/* Quick Links */}
         <nav aria-label="Búsquedas populares">
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <div className="flex flex-wrap justify-center gap-3 text-xs sm:text-sm">
             <span className="text-gray-500" aria-hidden="true">Búsquedas populares:</span>
             {busquedasPopulares.map((busqueda) => (
               <a
