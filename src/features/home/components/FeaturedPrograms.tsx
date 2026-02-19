@@ -58,7 +58,7 @@ export const FeaturedPrograms = ({
                 className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-epg-gold/30"
               >
                 {/* Card Header with image or gradient */}
-                <div className="h-32 bg-gradient-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
+                <div className="h-32 bg-linear-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
                   {program.imagen ? (
                     <img
                       src={program.imagen}
@@ -75,7 +75,7 @@ export const FeaturedPrograms = ({
                     </div>
                   )}
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+                    className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"
                     aria-hidden="true"
                   />
                   <div className="absolute top-4 left-4">
