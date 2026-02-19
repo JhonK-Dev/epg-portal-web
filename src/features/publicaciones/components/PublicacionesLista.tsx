@@ -5,7 +5,7 @@ import { LinkArrow } from '@/components/ui/link-arrow'
 import {
   tipoPublicacionLabels,
   tipoPublicacionBadgeColors,
-} from '@/lib/constants'
+} from '@/lib/config'
 import {
   Newspaper,
   Calendar,

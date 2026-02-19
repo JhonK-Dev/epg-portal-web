@@ -1,10 +1,10 @@
+/**
+ * Utilidades compartidas entre APIs
+ * @module lib/api/shared
+ */
+
 import { API_BASE_URL, API_TIMEOUT } from 'astro:env/server';
-import { ApiEndpoints } from './endpoints';
 
-// Initialize endpoints manager with environment variable
-const endpoints = new ApiEndpoints(API_BASE_URL);
-
-export { endpoints };
 export { API_BASE_URL };
 
 export class ApiError extends Error {

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, ArrowRight, GraduationCap, Award, BookOpen } from 'lucide-react';
 import { programas } from '@/data/programas';
 import { busquedasPopulares, getBusquedaUrl } from '@/data/busquedas-populares';
-import { getProgramTypeConfig } from '@/lib/constants';
+import { getProgramTypeConfig } from '@/lib/config';
 import type { Programa } from '@/types';
 
 const programTypes = [

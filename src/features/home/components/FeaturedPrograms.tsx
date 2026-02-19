@@ -2,7 +2,7 @@ import { LinkArrow } from '@/components/ui/link-arrow';
 import { ResourceCard } from '@/components/ui/resource-card';
 import { SectionHeader } from '@/components/ui/section-header';
 import { Separator } from '@/components/ui/separator';
-import { getProgramTypeConfig } from '@/lib/constants';
+import { getProgramTypeConfig } from '@/lib/config';
 import type { Programa } from '@/types';
 import { ArrowRight, Award, BookOpen, GraduationCap } from 'lucide-react';
 

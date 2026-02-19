@@ -1,6 +1,6 @@
 import type { Publicacion } from '@/types'
 import { formatDate, formatDateTime } from '@/lib/formatters'
-import { tipoPublicacionLabels, tipoPublicacionColors } from '@/lib/constants'
+import { tipoPublicacionLabels, tipoPublicacionColors } from '@/lib/config'
 import {
   Calendar,
   User,

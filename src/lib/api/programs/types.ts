@@ -1,3 +1,8 @@
+/**
+ * Tipos específicos del microservicio de Programas
+ * @module lib/api/programs/types
+ */
+
 export interface ApiProgram {
   id: number;
   uuid: string;

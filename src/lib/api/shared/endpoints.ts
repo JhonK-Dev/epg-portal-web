@@ -3,6 +3,8 @@
  * 
  * This class provides a centralized way to manage all API endpoints,
  * avoiding hardcoded strings scattered throughout the codebase.
+ * 
+ * @module lib/api/shared/endpoints
  */
 
 export class ApiEndpoints {
@@ -11,6 +13,7 @@ export class ApiEndpoints {
   // Program endpoints
   get programs() {
     return {
+      base: '/program/program/',
       list: '/program/program/',
       detail: (uuid: string) => `/program/program/${uuid}/`,
       byType: (typeId: number) => `/program/program/?program_type=${typeId}`,
@@ -44,3 +47,13 @@ export const ApiServices = {
 } as const;
 
 export type ApiServiceType = typeof ApiServices[keyof typeof ApiServices];
+
+// Singleton instance - se inicializa en client.ts con env vars
+let endpointsInstance: ApiEndpoints | null = null;
+
+export function getEndpoints(baseUrl: string): ApiEndpoints {
+  if (!endpointsInstance) {
+    endpointsInstance = new ApiEndpoints(baseUrl);
+  }
+  return endpointsInstance;
+}
