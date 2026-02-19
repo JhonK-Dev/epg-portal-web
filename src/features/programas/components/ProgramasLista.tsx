@@ -2,9 +2,10 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { CTABanner } from '@/components/ui/cta-banner';
 import { EmptyState } from '@/components/ui/empty-state';
+import { useDebounce } from '@/hooks/use-debounce';
 import type { ApiProgram } from '@/lib/api';
 import { GraduationCap, Search, X } from 'lucide-react';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ProgramCard } from './program-card';
 
 interface ProgramasListaProps {
@@ -68,34 +69,39 @@ export function ProgramasLista({
   currentFilter,
   searchQuery,
 }: ProgramasListaProps) {
-  const searchInputRef = useRef<HTMLInputElement>(null);
+  const [searchValue, setSearchValue] = useState(searchQuery);
+  const debouncedSearch = useDebounce(searchValue, 400);
+  const isInitialMount = useRef(true);
 
-  // Handle search form submission
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const searchValue = formData.get('search') as string;
-    window.location.href = getSearchUrl(searchValue, currentFilter);
-  };
+  // Navigate when debounced search value changes
+  useEffect(() => {
+    // Skip the initial mount to avoid navigating on page load
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    // Only navigate if the debounced value differs from the current URL query
+    if (debouncedSearch !== searchQuery) {
+      window.location.href = getSearchUrl(debouncedSearch, currentFilter);
+    }
+  }, [debouncedSearch]);
 
   // Clear search input and navigate
   const handleClearSearch = () => {
-    if (searchInputRef.current) {
-      searchInputRef.current.value = '';
-    }
+    setSearchValue('');
     window.location.href = getSearchUrl('', currentFilter);
+  };
+
+  const filterToTipo: Record<number, string> = {
+    1: 'maestria',
+    2: 'doctorado',
+    3: 'diplomado',
   };
 
   const tipoFiltro =
     currentFilter === 'todos'
       ? 'todos'
-      : currentFilter === 1
-        ? 'maestria'
-        : currentFilter === 2
-          ? 'doctorado'
-          : currentFilter === 3
-            ? 'diplomado'
-            : 'curso';
+      : (filterToTipo[currentFilter] ?? 'todos');
 
   const hayFiltrosActivos = tipoFiltro !== 'todos' || searchQuery.trim() !== '';
 
@@ -124,30 +130,26 @@ export function ProgramasLista({
       <div className="bg-white rounded-xl shadow-sm p-4 mb-8">
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Búsqueda */}
-          <form onSubmit={handleSearch} className="flex-1 flex gap-2">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <input
-                ref={searchInputRef}
-                type="text"
-                name="search"
-                defaultValue={searchQuery}
-                placeholder="Buscar por nombre o descripción..."
-                className="w-full pl-10 pr-10 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
-              />
-              {searchQuery.trim() && (
-                <button
-                  type="button"
-                  onClick={handleClearSearch}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-                  aria-label="Limpiar búsqueda"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              )}
-            </div>
-            <Button type="submit">Buscar</Button>
-          </form>
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              placeholder="Buscar por nombre o descripción..."
+              className="w-full pl-10 pr-10 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
+            />
+            {searchValue.trim() && (
+              <button
+                type="button"
+                onClick={handleClearSearch}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                aria-label="Limpiar búsqueda"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
