@@ -24,20 +24,20 @@ try {
 
 const fallbackPrograms = programas
   .filter((p) => p.destacado)
-  .slice(0, 4);
+  .slice(0, 6);
 
-const fallbackDisplay = fallbackPrograms.length >= 4
+const fallbackDisplay = fallbackPrograms.length >= 6
   ? fallbackPrograms
   : [
       ...fallbackPrograms,
       ...programas
         .filter((p) => !p.destacado && p.estado === 'activo')
-        .slice(0, 4 - fallbackPrograms.length),
+        .slice(0, 6 - fallbackPrograms.length),
     ];
 
 const displayPrograms = useFallback 
   ? fallbackDisplay 
-  : apiPrograms.slice(0, 4).map((apiProgram) => ({
+  : apiPrograms.slice(0, 6).map((apiProgram) => ({
       id: apiProgram.uuid,
       nombre: apiProgram.name,
       tipo: apiProgram.program_type === 2 ? 'doctorado' as const : 'maestria' as const,
