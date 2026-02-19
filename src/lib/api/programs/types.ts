@@ -29,6 +29,7 @@ export interface ProgramFilters {
   area__id?: number;
   program_type__abbreviation?: string;
   program_type__abbreviation__icontains?: string;
+  search?: string;
 }
 
 export interface ProgramType {

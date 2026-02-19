@@ -10,60 +10,30 @@ import {
 } from '../features/home';
 import { getActivePrograms } from '../lib/api';
 import type { ApiProgram } from '../lib/api/programs/types';
-import { programas } from '../data/programas';
 
 let apiPrograms: ApiProgram[] = [];
-let useFallback = false;
+let hasError = false;
 
 try {
   apiPrograms = await getActivePrograms();
 } catch (error) {
-  console.warn('API fetch failed, using fallback data:', error);
-  useFallback = true;
+  console.error('Error fetching programs:', error);
+  hasError = true;
 }
 
-const fallbackPrograms = programas
-  .filter((p) => p.destacado)
-  .slice(0, 6);
+const displayPrograms = apiPrograms.slice(0, 6).map((apiProgram) => ({
+  id: apiProgram.uuid,
+  nombre: apiProgram.name,
+  tipo: apiProgram.program_type === 2 ? 'doctorado' as const : 'maestria' as const,
+  descripcion: apiProgram.description,
+  descripcionCorta: apiProgram.description.slice(0, 100) + '...',
+  slug: apiProgram.uuid,
+  imagen: apiProgram.background,
+}));
 
-const fallbackDisplay = fallbackPrograms.length >= 6
-  ? fallbackPrograms
-  : [
-      ...fallbackPrograms,
-      ...programas
-        .filter((p) => !p.destacado && p.estado === 'activo')
-        .slice(0, 6 - fallbackPrograms.length),
-    ];
-
-const displayPrograms = useFallback 
-  ? fallbackDisplay 
-  : apiPrograms.slice(0, 6).map((apiProgram) => ({
-      id: apiProgram.uuid,
-      nombre: apiProgram.name,
-      tipo: apiProgram.program_type === 2 ? 'doctorado' as const : 'maestria' as const,
-      descripcion: apiProgram.description,
-      descripcionCorta: apiProgram.description.slice(0, 100) + '...',
-      duracion: 'Por definir',
-      creditos: 0,
-      modalidad: 'presencial' as const,
-      estado: apiProgram.is_active ? 'activo' as const : 'inactivo' as const,
-      slug: apiProgram.uuid,
-      facultad: 'Escuela de Postgrado UNAP',
-      imagen: apiProgram.background,
-      destacado: true,
-    }));
-
-const maestriasCount = useFallback 
-  ? programas.filter((p) => p.tipo === 'maestria' && p.estado === 'activo').length
-  : apiPrograms.filter((p) => p.program_type === 1).length;
-
-const doctoradosCount = useFallback 
-  ? programas.filter((p) => p.tipo === 'doctorado' && p.estado === 'activo').length
-  : apiPrograms.filter((p) => p.program_type === 2).length;
-
-const formacionContinuaCount = useFallback 
-  ? programas.filter((p) => (p.tipo === 'diplomado' || p.tipo === 'curso') && p.estado === 'activo').length
-  : 0;
+const maestriasCount = apiPrograms.filter((p) => p.program_type === 1).length;
+const doctoradosCount = apiPrograms.filter((p) => p.program_type === 2).length;
+const formacionContinuaCount = 0; // La API no tiene este tipo aún
 ---
 
 <Layout 
@@ -82,6 +52,7 @@ const formacionContinuaCount = useFallback
       maestriasCount={maestriasCount}
       doctoradosCount={doctoradosCount}
       formacionContinuaCount={formacionContinuaCount}
+      hasError={hasError}
     />
     
     <!-- Búsqueda de Programas + Estadísticas Institucionales -->

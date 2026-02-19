@@ -1,39 +1,29 @@
-import { useState, useMemo } from 'react'
-import type { Programa, TipoPrograma } from '@/types'
-import { programas } from '@/data/programas'
-import {
-  tipoProgramaLabels,
-  tipoProgramaButtonColors,
-  tipoProgramaBadgeColors,
-  modalidadLabels,
-  modalidadColors,
-} from '@/lib/config'
-import {
-  Filter,
-  GraduationCap,
-  Clock,
-  MapPin,
-  BookOpen,
-  ChevronDown,
-  X,
-} from 'lucide-react'
+import { tipoProgramaLabels, tipoProgramaBadgeColors } from '@/lib/config'
+import { GraduationCap, Search, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
 import { CTABanner } from '@/components/ui/cta-banner'
-import { SearchInput } from '@/components/ui/search-input'
 import { EmptyState } from '@/components/ui/empty-state'
 
-type Modalidad = 'presencial' | 'semipresencial' | 'virtual' | 'todos'
-type TipoFiltro = TipoPrograma | 'todos'
+interface Program {
+  id: string
+  nombre: string
+  tipo: 'maestria' | 'doctorado' | 'diplomado' | 'curso'
+  descripcion: string
+  descripcionCorta: string
+  slug: string
+  imagen?: string
+  isActive?: boolean
+}
 
-// Use labels from constants, adding plural forms for display
+interface ProgramasListaProps {
+  programs: Program[]
+  hasError: boolean
+  currentFilter: number | 'todos'
+  searchQuery: string
+}
+
+// Map program_type numbers to labels
 const tipoLabels: Record<string, string> = {
   todos: 'Todos los programas',
   maestria: 'Maestrías',
@@ -42,119 +32,136 @@ const tipoLabels: Record<string, string> = {
   curso: 'Cursos',
 }
 
-interface ProgramaCardProps {
-  programa: Programa
+// Map filter value to URL param
+const getFilterUrl = (tipo: string, currentSearch: string) => {
+  const params = new URLSearchParams()
+  
+  if (tipo !== 'todos') {
+    const typeMap: Record<string, number> = {
+      maestria: 1,
+      doctorado: 2,
+      diplomado: 3,
+      curso: 4,
+    }
+    params.set('program_type', String(typeMap[tipo]))
+  }
+  
+  if (currentSearch) {
+    params.set('search', currentSearch)
+  }
+  
+  const queryString = params.toString()
+  return queryString ? `/programas?${queryString}` : '/programas'
 }
 
-function ProgramaCard({ programa }: ProgramaCardProps) {
+// Get search URL with new search term
+const getSearchUrl = (searchTerm: string, currentFilter: number | 'todos') => {
+  const params = new URLSearchParams()
+  
+  if (searchTerm) {
+    params.set('search', searchTerm)
+  }
+  
+  if (currentFilter !== 'todos') {
+    params.set('program_type', String(currentFilter))
+  }
+  
+  const queryString = params.toString()
+  return queryString ? `/programas?${queryString}` : '/programas'
+}
+
+// Get clear filters URL
+const getClearUrl = () => '/programas'
+
+function ProgramaCard({ programa }: { programa: Program }) {
   return (
     <a href={`/programas/${programa.slug}`} className="group block">
-      <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-transparent hover:border-l-epg-gold">
-        <CardHeader className="pb-3">
-          <div className="flex items-start justify-between gap-2 mb-2">
-            <Badge className={tipoProgramaBadgeColors[programa.tipo]}>
-              {tipoLabels[programa.tipo]}
-            </Badge>
-            <Badge className={modalidadColors[programa.modalidad]}>
-              {modalidadLabels[programa.modalidad]}
-            </Badge>
-          </div>
-          <CardTitle className="text-lg group-hover:text-epg-navy transition-colors leading-tight">
-            {programa.nombre}
-          </CardTitle>
-          <CardDescription className="line-clamp-2">
-            {programa.descripcionCorta}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-2 text-sm text-gray-600">
-            <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-gray-400" />
-              <span>{programa.duracion}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <BookOpen className="h-4 w-4 text-gray-400" />
-              <span>{programa.creditos} créditos</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-gray-400" />
-              <span className="truncate">{programa.facultad}</span>
-            </div>
-          </div>
-
-          {programa.inversion && (
-            <div className="mt-4 pt-4 border-t">
-              <p className="text-sm text-gray-500">Inversión</p>
-              <p className="font-semibold text-epg-navy">
-                {programa.inversion}
-              </p>
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+        {/* Imagen */}
+        <div className="h-48 bg-gradient-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
+          {programa.imagen ? (
+            <img
+              src={programa.imagen}
+              alt={programa.nombre}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <GraduationCap className="w-16 h-16 text-white/20" />
             </div>
           )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+        </div>
 
-          <div className="mt-4">
+        {/* Contenido */}
+        <div className="p-5 flex-1 flex flex-col">
+          <div className="mb-3">
+            <Badge className={tipoProgramaBadgeColors[programa.tipo]}>
+              {tipoProgramaLabels[programa.tipo]}
+            </Badge>
+          </div>
+          
+          <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-epg-navy transition-colors leading-tight">
+            {programa.nombre}
+          </h3>
+          
+          <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-1">
+            {programa.descripcionCorta}
+          </p>
+
+          <div className="pt-4 border-t border-gray-100 mt-auto">
             <span className="text-epg-gold font-medium text-sm group-hover:underline">
               Ver detalles →
             </span>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </a>
   )
 }
 
-export function ProgramasLista() {
-  const [tipoFiltro, setTipoFiltro] = useState<TipoFiltro>('todos')
-  const [modalidadFiltro, setModalidadFiltro] = useState<Modalidad>('todos')
-  const [busqueda, setBusqueda] = useState('')
-  const [mostrarFiltros, setMostrarFiltros] = useState(false)
-
-  const programasFiltrados = useMemo(() => {
-    return programas.filter((programa) => {
-      // Filtro por tipo
-      if (tipoFiltro !== 'todos' && programa.tipo !== tipoFiltro) {
-        return false
-      }
-
-      // Filtro por modalidad
-      if (
-        modalidadFiltro !== 'todos' &&
-        programa.modalidad !== modalidadFiltro
-      ) {
-        return false
-      }
-
-      // Filtro por búsqueda
-      if (busqueda.trim()) {
-        const searchLower = busqueda.toLowerCase()
-        return (
-          programa.nombre.toLowerCase().includes(searchLower) ||
-          programa.descripcion.toLowerCase().includes(searchLower) ||
-          programa.facultad.toLowerCase().includes(searchLower)
-        )
-      }
-
-      return true
-    })
-  }, [tipoFiltro, modalidadFiltro, busqueda])
-
-  const conteosPorTipo = useMemo(() => {
-    const conteos: Record<string, number> = { todos: programas.length }
-    programas.forEach((p) => {
-      conteos[p.tipo] = (conteos[p.tipo] || 0) + 1
-    })
-    return conteos
-  }, [])
-
-  const limpiarFiltros = () => {
-    setTipoFiltro('todos')
-    setModalidadFiltro('todos')
-    setBusqueda('')
+export function ProgramasLista({ 
+  programs, 
+  hasError, 
+  currentFilter, 
+  searchQuery 
+}: ProgramasListaProps) {
+  
+  // Handle search form submission
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    const searchValue = formData.get('search') as string
+    window.location.href = getSearchUrl(searchValue, currentFilter)
   }
 
-  const hayFiltrosActivos =
-    tipoFiltro !== 'todos' ||
-    modalidadFiltro !== 'todos' ||
-    busqueda.trim() !== ''
+  const tipoFiltro = currentFilter === 'todos' ? 'todos' : 
+    currentFilter === 1 ? 'maestria' : 
+    currentFilter === 2 ? 'doctorado' : 
+    currentFilter === 3 ? 'diplomado' : 'curso'
+
+  const hayFiltrosActivos = tipoFiltro !== 'todos' || searchQuery.trim() !== ''
+
+  // Estado de error
+  if (hasError) {
+    return (
+      <div className="text-center py-16">
+        <div className="bg-red-50 border border-red-200 rounded-xl p-8 max-w-lg mx-auto">
+          <GraduationCap className="h-16 w-16 text-red-400 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-red-800 mb-2">
+            No se pudieron cargar los programas
+          </h3>
+          <p className="text-red-600 mb-6">
+            Estamos experimentando problemas técnicos. Por favor, intenta nuevamente más tarde.
+          </p>
+          <Button onClick={() => window.location.reload()}>
+            Reintentar
+          </Button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div>
@@ -162,110 +169,20 @@ export function ProgramasLista() {
       <div className="bg-white rounded-xl shadow-sm p-4 mb-8">
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Búsqueda */}
-          <SearchInput
-            value={busqueda}
-            onChange={setBusqueda}
-            placeholder="Buscar por nombre, descripción o facultad..."
-            className="flex-1"
-            size="md"
-          />
-
-          {/* Botón de filtros (móvil) */}
-          <Button
-            variant="outline"
-            className="lg:hidden gap-2"
-            onClick={() => setMostrarFiltros(!mostrarFiltros)}
-          >
-            <Filter className="h-4 w-4" />
-            Filtros
-            <ChevronDown
-              className={`h-4 w-4 transition-transform ${mostrarFiltros ? 'rotate-180' : ''}`}
-            />
-          </Button>
-
-          {/* Filtros (desktop) */}
-          <div className="hidden lg:flex gap-4">
-            {/* Tipo de programa */}
-            <select
-              value={tipoFiltro}
-              onChange={(e) => setTipoFiltro(e.target.value as TipoFiltro)}
-              className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white min-w-[180px]"
-            >
-              <option value="todos">Todos los tipos</option>
-              <option value="maestria">
-                Maestrías ({conteosPorTipo.maestria || 0})
-              </option>
-              <option value="doctorado">
-                Doctorados ({conteosPorTipo.doctorado || 0})
-              </option>
-              <option value="diplomado">
-                Diplomados ({conteosPorTipo.diplomado || 0})
-              </option>
-              <option value="curso">
-                Cursos ({conteosPorTipo.curso || 0})
-              </option>
-            </select>
-
-            {/* Modalidad */}
-            <select
-              value={modalidadFiltro}
-              onChange={(e) => setModalidadFiltro(e.target.value as Modalidad)}
-              className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white min-w-[180px]"
-            >
-              <option value="todos">Todas las modalidades</option>
-              <option value="presencial">Presencial</option>
-              <option value="semipresencial">Semipresencial</option>
-              <option value="virtual">Virtual</option>
-            </select>
-          </div>
+          <form onSubmit={handleSearch} className="flex-1 flex gap-2">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                name="search"
+                defaultValue={searchQuery}
+                placeholder="Buscar por nombre o descripción..."
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
+              />
+            </div>
+            <Button type="submit">Buscar</Button>
+          </form>
         </div>
-
-        {/* Filtros móvil expandidos */}
-        {mostrarFiltros && (
-          <div className="lg:hidden mt-4 pt-4 border-t grid gap-4 sm:grid-cols-2">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Tipo de programa
-              </label>
-              <select
-                value={tipoFiltro}
-                onChange={(e) => setTipoFiltro(e.target.value as TipoFiltro)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
-              >
-                <option value="todos">Todos los tipos</option>
-                <option value="maestria">
-                  Maestrías ({conteosPorTipo.maestria || 0})
-                </option>
-                <option value="doctorado">
-                  Doctorados ({conteosPorTipo.doctorado || 0})
-                </option>
-                <option value="diplomado">
-                  Diplomados ({conteosPorTipo.diplomado || 0})
-                </option>
-                <option value="curso">
-                  Cursos ({conteosPorTipo.curso || 0})
-                </option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Modalidad
-              </label>
-              <select
-                value={modalidadFiltro}
-                onChange={(e) =>
-                  setModalidadFiltro(e.target.value as Modalidad)
-                }
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
-              >
-                <option value="todos">Todas las modalidades</option>
-                <option value="presencial">Presencial</option>
-                <option value="semipresencial">Semipresencial</option>
-                <option value="virtual">Virtual</option>
-              </select>
-            </div>
-          </div>
-        )}
 
         {/* Filtros activos */}
         {hayFiltrosActivos && (
@@ -275,77 +192,68 @@ export function ProgramasLista() {
             {tipoFiltro !== 'todos' && (
               <Badge variant="secondary" className="gap-1">
                 {tipoLabels[tipoFiltro]}
-                <button onClick={() => setTipoFiltro('todos')} aria-label="Quitar filtro de tipo de programa">
+                <a href={getSearchUrl(searchQuery, 'todos')} aria-label="Quitar filtro de tipo">
                   <X className="h-3 w-3" />
-                </button>
+                </a>
               </Badge>
             )}
 
-            {modalidadFiltro !== 'todos' && (
+            {searchQuery.trim() && (
               <Badge variant="secondary" className="gap-1">
-                {modalidadLabels[modalidadFiltro]}
-                <button onClick={() => setModalidadFiltro('todos')} aria-label="Quitar filtro de modalidad">
+                "{searchQuery}"
+                <a href={getFilterUrl(tipoFiltro, '')} aria-label="Quitar búsqueda">
                   <X className="h-3 w-3" />
-                </button>
+                </a>
               </Badge>
             )}
 
-            {busqueda.trim() && (
-              <Badge variant="secondary" className="gap-1">
-                "{busqueda}"
-                <button onClick={() => setBusqueda('')} aria-label="Quitar filtro de búsqueda">
-                  <X className="h-3 w-3" />
-                </button>
-              </Badge>
-            )}
-
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={limpiarFiltros}
-              className="text-destructive hover:text-destructive/80 hover:bg-destructive/10"
-            >
-              Limpiar todo
-            </Button>
+            <a href={getClearUrl()}>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-destructive hover:text-destructive/80 hover:bg-destructive/10"
+              >
+                Limpiar todo
+              </Button>
+            </a>
           </div>
         )}
       </div>
 
       {/* Tabs de tipo rápido */}
       <div className="flex flex-wrap gap-2 mb-6">
-        {(
-          ['todos', 'maestria', 'doctorado', 'diplomado', 'curso'] as const
-        ).map((tipo) => (
-          <Button
-            key={tipo}
-            variant={tipoFiltro === tipo ? 'default' : 'outline'}
-            size="sm"
-            onClick={() => setTipoFiltro(tipo)}
-            className={
-              tipoFiltro === tipo ? 'bg-epg-navy hover:bg-epg-navy-dark' : ''
-            }
-          >
-            {tipoLabels[tipo]}
-            <span className="ml-1 text-xs opacity-70">
-              ({conteosPorTipo[tipo] || 0})
-            </span>
-          </Button>
-        ))}
+        {(['todos', 'maestria', 'doctorado', 'diplomado', 'curso'] as const).map(
+          (tipo) => (
+            <a key={tipo} href={getFilterUrl(tipo, searchQuery)}>
+              <Button
+                variant={tipoFiltro === tipo ? 'default' : 'outline'}
+                size="sm"
+                className={
+                  tipoFiltro === tipo
+                    ? 'bg-epg-navy hover:bg-epg-navy-dark'
+                    : ''
+                }
+              >
+                {tipoLabels[tipo]}
+              </Button>
+            </a>
+          )
+        )}
       </div>
 
       {/* Resultados */}
       <div className="mb-4 flex items-center justify-between">
         <p className="text-gray-600">
-          {programasFiltrados.length === 1
+          {programs.length === 1
             ? '1 programa encontrado'
-            : `${programasFiltrados.length} programas encontrados`}
+            : `${programs.length} programas encontrados`}
         </p>
       </div>
 
       {/* Grid de programas */}
-      {programasFiltrados.length > 0 ? (
+      {programs.length > 0 ? (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {programasFiltrados.map((programa) => (
+          {programs.map((programa) => (
             <ProgramaCard key={programa.id} programa={programa} />
           ))}
         </div>
@@ -356,7 +264,7 @@ export function ProgramasLista() {
           description="Intenta ajustar los filtros o el término de búsqueda."
           action={{
             label: 'Limpiar filtros',
-            onClick: limpiarFiltros,
+            onClick: () => (window.location.href = getClearUrl()),
           }}
           variant="inline"
         />
@@ -373,7 +281,7 @@ export function ProgramasLista() {
           }}
           secondaryAction={{
             label: 'Contactar asesor',
-            href: '#',
+            href: '/contacto',
           }}
           className="text-center"
         />
