@@ -18,16 +18,6 @@ export const AdmissionCTA: React.FC = () => {
   return (
     <section className="home-section px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="container-main relative z-10">
-        <SectionHeader
-          badge={{
-            label: 'Admisión / Convocatoria',
-            className: 'text-epg-navy bg-epg-gold/80 px-2 py-1 rounded',
-          }}
-          title="Tu siguiente paso académico"
-          description="Revisa fechas, requisitos y canales de contacto para iniciar tu postulación."
-          align="left"
-          className="mb-10"
-        />
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
