@@ -7,6 +7,7 @@ import type { ApiProgram } from '@/lib/api';
 import { GraduationCap, Search, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { ProgramCard } from './program-card';
+import { navigate } from 'astro:transitions/client';
 
 interface ProgramasListaProps {
   programs: ApiProgram[];
@@ -82,14 +83,14 @@ export function ProgramasLista({
     }
     // Only navigate if the debounced value differs from the current URL query
     if (debouncedSearch !== searchQuery) {
-      window.location.href = getSearchUrl(debouncedSearch, currentFilter);
+      navigate(getSearchUrl(debouncedSearch, currentFilter));
     }
   }, [debouncedSearch]);
 
   // Clear search input and navigate
   const handleClearSearch = () => {
     setSearchValue('');
-    window.location.href = getSearchUrl('', currentFilter);
+    navigate(getSearchUrl('', currentFilter));
   };
 
   const filterToTipo: Record<number, string> = {
@@ -236,7 +237,7 @@ export function ProgramasLista({
           description="Intenta ajustar los filtros o el término de búsqueda."
           action={{
             label: 'Limpiar filtros',
-            onClick: () => (window.location.href = getClearUrl()),
+            onClick: () => navigate(getClearUrl()),
           }}
           variant="inline"
         />
