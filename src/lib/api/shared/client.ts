@@ -4,8 +4,9 @@
  */
 
 import { API_BASE_URL, API_TIMEOUT } from 'astro:env/server';
+import { endpoints } from './endpoints';
 
-export { API_BASE_URL };
+export { API_BASE_URL, endpoints };
 
 export class ApiError extends Error {
   constructor(
@@ -50,15 +51,15 @@ export async function fetchApi<T>(
     return response.json();
   } catch (error) {
     clearTimeout(timeoutId);
-    
+
     if (error instanceof ApiError) {
       throw error;
     }
-    
+
     if (error instanceof Error && error.name === 'AbortError') {
       throw new ApiError(`Request timeout after ${API_TIMEOUT}ms`);
     }
-    
+
     throw new ApiError(
       error instanceof Error ? error.message : 'Unknown API error'
     );

@@ -3,7 +3,7 @@
  * @module lib/config/program-types
  */
 
-import { GraduationCap, Award, BookOpen, type LucideIcon } from 'lucide-react';
+import { Award, BookOpen, GraduationCap, type LucideIcon } from 'lucide-react';
 
 export interface ProgramTypeConfig {
   label: string;
@@ -16,43 +16,44 @@ export interface ProgramTypeConfig {
  * Obtiene la configuración visual para un tipo de programa
  * Usado principalmente en FeaturedPrograms
  */
-export function getProgramTypeConfig(tipo: string): ProgramTypeConfig {
-  const configs: Record<string, ProgramTypeConfig> = {
-    maestria: { 
-      label: 'Maestría', 
-      bgColor: 'bg-maestria-light', 
-      textColor: 'text-maestria', 
-      icon: GraduationCap 
+export function getProgramTypeConfig(tipo: number): ProgramTypeConfig {
+  const configs: Record<number, ProgramTypeConfig> = {
+    1: {
+      label: 'Maestría',
+      bgColor: 'bg-maestria-light',
+      textColor: 'text-maestria',
+      icon: GraduationCap,
     },
-    doctorado: { 
-      label: 'Doctorado', 
-      bgColor: 'bg-doctorado-light', 
-      textColor: 'text-doctorado', 
-      icon: Award 
+    2: {
+      label: 'Doctorado',
+      bgColor: 'bg-doctorado-light',
+      textColor: 'text-doctorado',
+      icon: Award,
     },
-    diplomado: { 
-      label: 'Diplomado', 
-      bgColor: 'bg-diplomado-light', 
-      textColor: 'text-diplomado', 
-      icon: BookOpen 
+    3: {
+      label: 'Diplomado',
+      bgColor: 'bg-diplomado-light',
+      textColor: 'text-diplomado',
+      icon: BookOpen,
     },
   };
-  
-  return configs[tipo] || { 
-    label: 'Programa', 
-    bgColor: 'bg-muted', 
-    textColor: 'text-muted-foreground', 
-    icon: GraduationCap 
-  };
+
+  return (
+    configs[tipo] || {
+      label: 'Programa',
+      bgColor: 'bg-muted',
+      textColor: 'text-muted-foreground',
+      icon: GraduationCap,
+    }
+  );
 }
 
 // Etiquetas para tipos de programa
-export const tipoProgramaLabels: Record<string, string> = {
-  todos: 'Todos los programas',
-  maestria: 'Maestría',
-  doctorado: 'Doctorado',
-  diplomado: 'Diplomado',
-  curso: 'Curso',
+export const tipoProgramaLabels: Record<number, string> = {
+  1: 'Maestría',
+  2: 'Doctorado',
+  3: 'Diplomado',
+  4: 'Curso',
 };
 
 // Colores de fondo para tipos de programa
@@ -63,18 +64,10 @@ export const tipoProgramaColors: Record<string, string> = {
   curso: 'bg-curso',
 };
 
-// Colores con hover para botones
-export const tipoProgramaButtonColors: Record<string, string> = {
-  maestria: 'bg-maestria hover:bg-maestria/90',
-  doctorado: 'bg-doctorado hover:bg-doctorado/90',
-  diplomado: 'bg-diplomado hover:bg-diplomado/90',
-  curso: 'bg-curso hover:bg-curso/90',
-};
-
 // Colores para badges
-export const tipoProgramaBadgeColors: Record<string, string> = {
-  maestria: 'bg-maestria-light text-maestria',
-  doctorado: 'bg-doctorado-light text-doctorado',
-  diplomado: 'bg-diplomado-light text-diplomado',
-  curso: 'bg-curso-light text-curso',
+export const tipoProgramaBadgeColors: Record<number, string> = {
+  1: 'bg-maestria-light text-maestria',
+  2: 'bg-doctorado-light text-doctorado',
+  3: 'bg-diplomado-light text-diplomado',
+  4: 'bg-curso-light text-curso',
 };
