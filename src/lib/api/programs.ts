@@ -1,9 +1,10 @@
-import { fetchApi, buildQueryString } from './client';
+import { fetchApi, buildQueryString, endpoints } from './client';
 import type { ApiProgram, ProgramFilters } from './types';
 
 export async function getPrograms(filters?: ProgramFilters): Promise<ApiProgram[]> {
+  const baseEndpoint = endpoints.programs.list;
   const queryString = filters ? buildQueryString(filters as Record<string, unknown>) : '';
-  return fetchApi<ApiProgram[]>(`/program/program/${queryString}`);
+  return fetchApi<ApiProgram[]>(`${baseEndpoint}${queryString}`);
 }
 
 export async function getActivePrograms(): Promise<ApiProgram[]> {

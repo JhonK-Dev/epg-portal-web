@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -7,6 +7,20 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://epg.unapiquitos.edu.pe',
+  env: {
+    schema: {
+      API_BASE_URL: envField.string({
+        context: "server",
+        access: "public",
+        default: "https://api.postgradounap.edu.pe"
+      }),
+      API_TIMEOUT: envField.number({
+        context: "server",
+        access: "public",
+        default: 10000
+      }),
+    }
+  },
   integrations: [
     react(),
     sitemap({

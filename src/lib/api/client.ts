@@ -1,4 +1,11 @@
-export const API_BASE_URL = 'https://api.postgradounap.edu.pe';
+import { API_BASE_URL, API_TIMEOUT } from 'astro:env/server';
+import { ApiEndpoints } from './endpoints';
+
+// Initialize endpoints manager with environment variable
+const endpoints = new ApiEndpoints(API_BASE_URL);
+
+export { endpoints };
+export { API_BASE_URL };
 
 export class ApiError extends Error {
   constructor(
@@ -17,23 +24,45 @@ export async function fetchApi<T>(
 ): Promise<T> {
   const url = `${API_BASE_URL}${endpoint}`;
 
-  const response = await fetch(url, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), API_TIMEOUT);
 
-  if (!response.ok) {
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+      },
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new ApiError(
+        `API request failed: ${response.statusText}`,
+        response.status,
+        response.statusText
+      );
+    }
+
+    return response.json();
+  } catch (error) {
+    clearTimeout(timeoutId);
+    
+    if (error instanceof ApiError) {
+      throw error;
+    }
+    
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new ApiError(`Request timeout after ${API_TIMEOUT}ms`);
+    }
+    
     throw new ApiError(
-      `API request failed: ${response.statusText}`,
-      response.status,
-      response.statusText
+      error instanceof Error ? error.message : 'Unknown API error'
     );
   }
-
-  return response.json();
 }
 
 export function buildQueryString(params: Record<string, unknown>): string {
