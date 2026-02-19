@@ -1,138 +1,43 @@
-import React, { useEffect, useState } from 'react'
-import { GraduationCap, Users, Award, BookOpen, ArrowRight } from 'lucide-react'
-import { getActivePrograms } from '@/lib/api'
-import type { ApiProgram } from '@/lib/api/types'
-import { programas } from '@/data/programas'
-import { getProgramTypeConfig } from '@/lib/constants'
-import { SectionHeader } from '@/components/ui/section-header'
-import { Separator } from '@/components/ui/separator'
-import { LinkArrow } from '@/components/ui/link-arrow'
-import { ResourceCard } from '@/components/ui/resource-card'
+import { LinkArrow } from '@/components/ui/link-arrow';
+import { ResourceCard } from '@/components/ui/resource-card';
+import { SectionHeader } from '@/components/ui/section-header';
+import { Separator } from '@/components/ui/separator';
+import { getProgramTypeConfig } from '@/lib/constants';
+import { ArrowRight, Award, BookOpen, GraduationCap } from 'lucide-react';
+
+interface Program {
+  id: string;
+  nombre: string;
+  tipo: string;
+  descripcion: string;
+  descripcionCorta: string;
+  duracion: string;
+  creditos: number;
+  modalidad: 'presencial' | 'semipresencial' | 'virtual';
+  estado: 'activo' | 'inactivo' | 'proximamente';
+  slug: string;
+  facultad: string;
+  imagen?: string;
+  destacado?: boolean;
+}
+
+interface FeaturedProgramsProps {
+  programs: Program[];
+  maestriasCount: number;
+  doctoradosCount: number;
+  formacionContinuaCount: number;
+}
 
 const pluralize = (count: number, singular: string, plural: string): string => {
-  return count === 1 ? `${count} ${singular}` : `${count} ${plural}`
-}
+  return count === 1 ? `${count} ${singular}` : `${count} ${plural}`;
+};
 
-function transformApiProgram(apiProgram: ApiProgram) {
-  const programType = apiProgram.program_type === 2 ? 'doctorado' : 'maestria'
-  return {
-    id: apiProgram.uuid,
-    nombre: apiProgram.name,
-    tipo: programType,
-    descripcion: apiProgram.description,
-    descripcionCorta: apiProgram.description.slice(0, 100) + '...',
-    duracion: 'Por definir',
-    creditos: 0,
-    modalidad: 'presencial' as const,
-    estado: apiProgram.is_active ? 'activo' : 'inactivo' as const,
-    slug: apiProgram.uuid,
-    facultad: 'Escuela de Postgrado UNAP',
-    imagen: apiProgram.background,
-    destacado: true,
-  }
-}
-
-const fallbackPrograms = programas
-  .filter((p) => p.destacado)
-  .slice(0, 4)
-
-const fallbackDisplay = fallbackPrograms.length >= 4
-  ? fallbackPrograms
-  : [
-      ...fallbackPrograms,
-      ...programas
-        .filter((p) => !p.destacado && p.estado === 'activo')
-        .slice(0, 4 - fallbackPrograms.length),
-    ]
-
-export const FeaturedPrograms: React.FC = () => {
-  const [programs, setPrograms] = useState<ApiProgram[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [useFallback, setUseFallback] = useState(false)
-
-  useEffect(() => {
-    async function fetchPrograms() {
-      try {
-        setLoading(true)
-        const data = await getActivePrograms()
-        setPrograms(data)
-        setError(null)
-        setUseFallback(false)
-      } catch (err) {
-        console.warn('API fetch failed, using fallback data:', err)
-        setError('API no disponible, mostrando datos de respaldo')
-        setUseFallback(true)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchPrograms()
-  }, [])
-
-  const displayPrograms = useFallback 
-    ? fallbackDisplay 
-    : programs.slice(0, 4).map(transformApiProgram)
-
-  const maestriasCount = useFallback 
-    ? programas.filter((p) => p.tipo === 'maestria' && p.estado === 'activo').length
-    : programs.filter((p) => p.program_type === 1).length
-  const doctoradosCount = useFallback 
-    ? programas.filter((p) => p.tipo === 'doctorado' && p.estado === 'activo').length
-    : programs.filter((p) => p.program_type === 2).length
-  const formacionContinuaCount = useFallback 
-    ? programas.filter((p) => (p.tipo === 'diplomado' || p.tipo === 'curso') && p.estado === 'activo').length
-    : 0
-
-  if (loading) {
-    return (
-      <section className="home-section px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="container-main">
-          <SectionHeader
-            badge={{
-              label: 'Nuestra oferta académica',
-              className: 'text-epg-gold',
-            }}
-            title="Programas Destacados"
-            description="Cargando programas..."
-            align="left"
-          />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-white rounded-lg shadow-lg overflow-hidden animate-pulse">
-                <div className="h-32 bg-gray-200" />
-                <div className="p-5">
-                  <div className="h-6 bg-gray-200 rounded mb-2" />
-                  <div className="h-4 bg-gray-200 rounded mb-4" />
-                  <div className="h-4 bg-gray-200 rounded w-2/3" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  if (error) {
-    return (
-      <section className="home-section px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="container-main">
-          <SectionHeader
-            badge={{
-              label: 'Nuestra oferta académica',
-              className: 'text-epg-gold',
-            }}
-            title="Programas Destacados"
-            description="No se pudieron cargar los programas. Intente más tarde."
-            align="left"
-          />
-        </div>
-      </section>
-    )
-  }
-
+export const FeaturedPrograms = ({
+  programs,
+  maestriasCount,
+  doctoradosCount,
+  formacionContinuaCount,
+}: FeaturedProgramsProps) => {
   return (
     <section className="home-section px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="container-main">
@@ -157,9 +62,9 @@ export const FeaturedPrograms: React.FC = () => {
 
         {/* Programs Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {displayPrograms.map((program) => {
-            const typeConfig = getProgramTypeConfig(program.tipo)
-            const Icon = typeConfig.icon || GraduationCap
+          {programs.map((program) => {
+            const typeConfig = getProgramTypeConfig(program.tipo);
+            const Icon = typeConfig.icon || GraduationCap;
 
             return (
               <a
@@ -184,7 +89,10 @@ export const FeaturedPrograms: React.FC = () => {
                       <Icon className="w-16 h-16 text-white/20" />
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" aria-hidden="true" />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+                    aria-hidden="true"
+                  />
                   <div className="absolute top-4 left-4">
                     <span
                       className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-semibold px-3 py-1 rounded-md`}
@@ -202,7 +110,6 @@ export const FeaturedPrograms: React.FC = () => {
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                     {program.descripcionCorta}
                   </p>
-
 
                   {/* Meta info */}
                   <div className="flex items-center gap-4 text-xs text-gray-500">
@@ -257,7 +164,7 @@ export const FeaturedPrograms: React.FC = () => {
                   </span>
                 </div>
               </a>
-            )
+            );
           })}
         </div>
 
@@ -299,5 +206,5 @@ export const FeaturedPrograms: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
