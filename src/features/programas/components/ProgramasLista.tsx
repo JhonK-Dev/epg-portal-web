@@ -4,6 +4,7 @@ import { CTABanner } from '@/components/ui/cta-banner';
 import { EmptyState } from '@/components/ui/empty-state';
 import type { ApiProgram } from '@/lib/api';
 import { GraduationCap, Search, X } from 'lucide-react';
+import { useRef } from 'react';
 import { ProgramCard } from './program-card';
 
 interface ProgramasListaProps {
@@ -67,12 +68,22 @@ export function ProgramasLista({
   currentFilter,
   searchQuery,
 }: ProgramasListaProps) {
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
   // Handle search form submission
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const searchValue = formData.get('search') as string;
     window.location.href = getSearchUrl(searchValue, currentFilter);
+  };
+
+  // Clear search input and navigate
+  const handleClearSearch = () => {
+    if (searchInputRef.current) {
+      searchInputRef.current.value = '';
+    }
+    window.location.href = getSearchUrl('', currentFilter);
   };
 
   const tipoFiltro =
@@ -117,20 +128,53 @@ export function ProgramasLista({
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
               <input
+                ref={searchInputRef}
                 type="text"
                 name="search"
                 defaultValue={searchQuery}
                 placeholder="Buscar por nombre o descripción..."
-                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
+                className="w-full pl-10 pr-10 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
               />
+              {searchQuery.trim() && (
+                <button
+                  type="button"
+                  onClick={handleClearSearch}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Limpiar búsqueda"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
             </div>
             <Button type="submit">Buscar</Button>
           </form>
         </div>
+      </div>
 
-        {/* Filtros activos */}
+      {/* Tabs de tipo rápido + filtros activos */}
+      <div className="flex flex-wrap items-center gap-2 mb-6">
+        {(['todos', 'maestria', 'doctorado', 'diplomado'] as const).map(
+          (tipo) => (
+            <a key={tipo} href={getFilterUrl(tipo, searchQuery)}>
+              <Button
+                variant={tipoFiltro === tipo ? 'default' : 'outline'}
+                size="sm"
+                className={
+                  tipoFiltro === tipo
+                    ? 'bg-epg-navy hover:bg-epg-navy-dark text-white'
+                    : ''
+                }
+              >
+                {tipoLabels[tipo]}
+              </Button>
+            </a>
+          )
+        )}
+
+        {/* Filtros activos al lado de los botones */}
         {hayFiltrosActivos && (
-          <div className="mt-4 pt-4 border-t flex flex-wrap items-center gap-2">
+          <>
+            <span className="text-sm text-gray-400 ml-2">|</span>
             <span className="text-sm text-gray-500">Filtros activos:</span>
 
             {tipoFiltro !== 'todos' && (
@@ -159,32 +203,11 @@ export function ProgramasLista({
 
             <a
               href={getClearUrl()}
-              className="text-sm text-destructive hover:text-destructive/80 hover:underline ml-2"
+              className="text-sm text-destructive hover:text-destructive/80 hover:underline"
             >
               Limpiar todo
             </a>
-          </div>
-        )}
-      </div>
-
-      {/* Tabs de tipo rápido */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {(['todos', 'maestria', 'doctorado', 'diplomado'] as const).map(
-          (tipo) => (
-            <a key={tipo} href={getFilterUrl(tipo, searchQuery)}>
-              <Button
-                variant={tipoFiltro === tipo ? 'default' : 'outline'}
-                size="sm"
-                className={
-                  tipoFiltro === tipo
-                    ? 'bg-epg-navy hover:bg-epg-navy-dark text-white'
-                    : ''
-                }
-              >
-                {tipoLabels[tipo]}
-              </Button>
-            </a>
-          )
+          </>
         )}
       </div>
 
