@@ -88,13 +88,13 @@ export const Footer: React.FC = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-sm">
-                <MapPin className="w-5 h-5 text-epg-gold flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-epg-gold shrink-0 mt-0.5" />
                 <span className="text-gray-300">
                   {contactoGeneral.direccion}
                 </span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <Phone className="w-5 h-5 text-epg-gold flex-shrink-0" />
+                <Phone className="w-5 h-5 text-epg-gold shrink-0" />
                 <a
                   href={`tel:${contactoGeneral.telefono}`}
                   className="text-gray-300 hover:text-white transition-colors"
@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <Mail className="w-5 h-5 text-epg-gold flex-shrink-0" />
+                <Mail className="w-5 h-5 text-epg-gold shrink-0" />
                 <a
                   href={`mailto:${contactoGeneral.email}`}
                   className="text-gray-300 hover:text-white transition-colors"
@@ -112,7 +112,7 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
               <div className="flex items-start gap-3 text-sm">
-                <Clock className="w-5 h-5 text-epg-gold flex-shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-epg-gold shrink-0 mt-0.5" />
                 <span className="text-gray-300">
                   {contactoGeneral.horarioAtencion}
                 </span>
