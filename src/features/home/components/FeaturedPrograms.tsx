@@ -3,26 +3,11 @@ import { ResourceCard } from '@/components/ui/resource-card';
 import { SectionHeader } from '@/components/ui/section-header';
 import { Separator } from '@/components/ui/separator';
 import { getProgramTypeConfig } from '@/lib/constants';
+import type { Programa } from '@/types';
 import { ArrowRight, Award, BookOpen, GraduationCap } from 'lucide-react';
 
-interface Program {
-  id: string;
-  nombre: string;
-  tipo: string;
-  descripcion: string;
-  descripcionCorta: string;
-  duracion: string;
-  creditos: number;
-  modalidad: 'presencial' | 'semipresencial' | 'virtual';
-  estado: 'activo' | 'inactivo' | 'proximamente';
-  slug: string;
-  facultad: string;
-  imagen?: string;
-  destacado?: boolean;
-}
-
 interface FeaturedProgramsProps {
-  programs: Program[];
+  programs: Programa[] | [];
   maestriasCount: number;
   doctoradosCount: number;
   formacionContinuaCount: number;

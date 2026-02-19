@@ -8,10 +8,11 @@ import {
   AdmissionCTA,
   ContactSection
 } from '../features/home';
-import { getActivePrograms, ApiError } from '../lib/api';
+import { getActivePrograms } from '../lib/api';
+import type { ApiProgram } from '../lib/api/types';
 import { programas } from '../data/programas';
 
-let apiPrograms = [];
+let apiPrograms: ApiProgram[] = [];
 let useFallback = false;
 
 try {
@@ -39,13 +40,13 @@ const displayPrograms = useFallback
   : apiPrograms.slice(0, 4).map((apiProgram) => ({
       id: apiProgram.uuid,
       nombre: apiProgram.name,
-      tipo: apiProgram.program_type === 2 ? 'doctorado' : 'maestria',
+      tipo: apiProgram.program_type === 2 ? 'doctorado' as const : 'maestria' as const,
       descripcion: apiProgram.description,
       descripcionCorta: apiProgram.description.slice(0, 100) + '...',
       duracion: 'Por definir',
       creditos: 0,
       modalidad: 'presencial' as const,
-      estado: apiProgram.is_active ? 'activo' : 'inactivo' as const,
+      estado: apiProgram.is_active ? 'activo' as const : 'inactivo' as const,
       slug: apiProgram.uuid,
       facultad: 'Escuela de Postgrado UNAP',
       imagen: apiProgram.background,
