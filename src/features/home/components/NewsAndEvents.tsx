@@ -1,7 +1,7 @@
 import React from 'react'
 import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react'
 import { formatShortDate, formatEventDate } from '@/lib/formatters'
-import { getPublicationTypeConfig } from '@/lib/constants'
+import { getPublicationTypeConfig } from '@/lib/config'
 import { getDestacadas, getEventos } from '@/data/publicaciones'
 import { SectionHeader } from '@/components/ui/section-header'
 import { LinkArrow } from '@/components/ui/link-arrow'

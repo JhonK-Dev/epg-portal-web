@@ -1,23 +1,23 @@
-import React from 'react';
+import { contactoGeneral } from '@/data/contacto';
 import {
+  Clock,
   Facebook,
   Instagram,
-  Youtube,
   Linkedin,
-  Twitter,
   Mail,
-  Phone,
   MapPin,
-  Clock,
+  Phone,
+  Twitter,
+  Youtube,
 } from 'lucide-react';
-import { contactoGeneral } from '@/data/contacto';
+import React from 'react';
 
 const footerLinks = {
   programas: [
     { label: 'Maestrías', href: '/programas/maestrias' },
     { label: 'Doctorados', href: '/programas/doctorados' },
-    { label: 'Diplomados', href: '/programas/formacion-continua' },
-    { label: 'Cursos', href: '/programas/formacion-continua' },
+    { label: 'Diplomados', href: '/programas/diplomados' },
+    { label: 'Cursos', href: '/programas/cursos' },
   ],
   laEscuela: [
     { label: 'Presentación', href: '/escuela' },
@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="/public/images/logo/logo-epg.webp"
+                src="/images/logo/logo-epg.webp"
                 alt="Escuela de Postgrado Logo"
                 className="w-38  h-auto"
               />
@@ -82,13 +82,13 @@ export const Footer: React.FC = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-sm">
-                <MapPin className="w-5 h-5 text-epg-gold flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-epg-gold shrink-0 mt-0.5" />
                 <span className="text-gray-300">
                   {contactoGeneral.direccion}
                 </span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <Phone className="w-5 h-5 text-epg-gold flex-shrink-0" />
+                <Phone className="w-5 h-5 text-epg-gold shrink-0" />
                 <a
                   href={`tel:${contactoGeneral.telefono}`}
                   className="text-gray-300 hover:text-white transition-colors"
@@ -97,7 +97,7 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <Mail className="w-5 h-5 text-epg-gold flex-shrink-0" />
+                <Mail className="w-5 h-5 text-epg-gold shrink-0" />
                 <a
                   href={`mailto:${contactoGeneral.email}`}
                   className="text-gray-300 hover:text-white transition-colors"
@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
               <div className="flex items-start gap-3 text-sm">
-                <Clock className="w-5 h-5 text-epg-gold flex-shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-epg-gold shrink-0 mt-0.5" />
                 <span className="text-gray-300">
                   {contactoGeneral.horarioAtencion}
                 </span>

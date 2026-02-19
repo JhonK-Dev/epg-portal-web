@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { docentes, getDoctores, getMagisteres } from '@/data/docentes'
-import { getGradoInfo } from '@/lib/constants'
+import { getGradoInfo } from '@/lib/config'
 import {
   Search,
   Mail,

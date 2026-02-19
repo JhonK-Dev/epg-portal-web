@@ -1,7 +1,47 @@
 ---
+export const prerender = false;
+
 import Layout from '../../layouts/Layout.astro';
 import { Navbar } from '../../features/navigation';
 import { ProgramasLista } from '../../features/programas';
+import type { ApiProgram } from '../../lib/api/programs/types';
+import { getProgramsList } from '@/lib/api/programs';
+
+// Get query parameters from URL
+const url = new URL(Astro.request.url);
+const searchQuery = url.searchParams.get('search') || '';
+const programTypeParam = url.searchParams.get('program_type');
+const programType = programTypeParam ? parseInt(programTypeParam, 10) : undefined;
+
+let apiPrograms: ApiProgram[] = [];
+let hasError = false;
+
+try {
+  const filters: { is_active?: boolean; program_type?: number; search?: string } = {
+    is_active: true,
+  };
+  
+  if (programType) {
+    filters.program_type = programType;
+  }
+  
+  if (searchQuery) {
+    filters.search = searchQuery;
+  }
+  
+  apiPrograms = await getProgramsList(filters);
+} catch (error) {
+  console.error('Error fetching programs:', error);
+  hasError = true;
+}
+
+// Calculate dynamic counters
+const totalCount = apiPrograms.length;
+const maestriasCount = apiPrograms.filter((p) => p.program_type === 1).length;
+const doctoradosCount = apiPrograms.filter((p) => p.program_type === 2).length;
+
+// Current filter for UI
+const currentFilter = programType || 'todos';
 ---
 
 <Layout 
@@ -12,7 +52,7 @@ import { ProgramasLista } from '../../features/programas';
   <Navbar client:load />
   <main class="min-h-screen">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-epg-navy to-epg-navy-light text-white py-16">
+    <section class="bg-linear-to-br from-epg-navy to-epg-navy-light text-white py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="text-sm mb-4">
           <ol class="flex items-center gap-2">
@@ -28,20 +68,27 @@ import { ProgramasLista } from '../../features/programas';
           <p class="text-xl text-gray-300 mb-6">
             Descubre nuestra oferta de maestrías, doctorados y programas de formación continua diseñados para impulsar tu carrera profesional y contribuir al desarrollo de la región.
           </p>
-          <div class="flex flex-wrap gap-4">
-            <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2">
-              <span class="text-2xl font-bold text-epg-gold">14</span>
-              <span class="text-gray-300 ml-2">Programas activos</span>
+          
+          {hasError ? (
+            <div class="bg-red-500/20 border border-red-500/50 rounded-lg px-4 py-3">
+              <p class="text-red-200">No se pudieron cargar los contadores. Intente más tarde.</p>
             </div>
-            <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2">
-              <span class="text-2xl font-bold text-epg-gold">5</span>
-              <span class="text-gray-300 ml-2">Maestrías</span>
+          ) : (
+            <div class="flex flex-wrap gap-4">
+              <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2">
+                <span class="text-2xl font-bold text-epg-gold">{totalCount}</span>
+                <span class="text-gray-300 ml-2">Programas activos</span>
+              </div>
+              <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2">
+                <span class="text-2xl font-bold text-epg-gold">{maestriasCount}</span>
+                <span class="text-gray-300 ml-2">Maestrías</span>
+              </div>
+              <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2">
+                <span class="text-2xl font-bold text-epg-gold">{doctoradosCount}</span>
+                <span class="text-gray-300 ml-2">Doctorados</span>
+              </div>
             </div>
-            <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2">
-              <span class="text-2xl font-bold text-epg-gold">3</span>
-              <span class="text-gray-300 ml-2">Doctorados</span>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
@@ -49,7 +96,13 @@ import { ProgramasLista } from '../../features/programas';
     <!-- Lista de Programas -->
     <section class="py-12 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ProgramasLista client:load />
+        <ProgramasLista 
+          programs={apiPrograms}
+          hasError={hasError}
+          currentFilter={currentFilter}
+          searchQuery={searchQuery}
+          client:load 
+        />
       </div>
     </section>
   </main>

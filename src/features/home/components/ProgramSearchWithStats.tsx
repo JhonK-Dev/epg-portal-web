@@ -3,7 +3,7 @@ import { StatItem } from '@/components/ui/stat-item';
 import { busquedasPopulares, getBusquedaUrl } from '@/data/busquedas-populares';
 import { estadisticasInstitucionales } from '@/data/estadisticas';
 import { programas } from '@/data/programas';
-import { getProgramTypeConfig } from '@/lib/constants';
+import { getProgramTypeConfig } from '@/lib/config';
 import type { Programa } from '@/types';
 import type { LucideIcon } from 'lucide-react';
 import {
