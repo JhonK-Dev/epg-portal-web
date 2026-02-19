@@ -19,7 +19,6 @@ const tipoLabels: Record<string, string> = {
   maestria: 'Maestrías',
   doctorado: 'Doctorados',
   diplomado: 'Diplomados',
-  curso: 'Cursos',
 };
 
 // Map filter value to URL param
@@ -31,7 +30,6 @@ const getFilterUrl = (tipo: string, currentSearch: string) => {
       maestria: 1,
       doctorado: 2,
       diplomado: 3,
-      curso: 4,
     };
     params.set('program_type', String(typeMap[tipo]));
   }
@@ -159,14 +157,11 @@ export function ProgramasLista({
               </Badge>
             )}
 
-            <a href={getClearUrl()}>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-destructive hover:text-destructive/80 hover:bg-destructive/10"
-              >
-                Limpiar todo
-              </Button>
+            <a
+              href={getClearUrl()}
+              className="text-sm text-destructive hover:text-destructive/80 hover:underline ml-2"
+            >
+              Limpiar todo
             </a>
           </div>
         )}
@@ -174,21 +169,23 @@ export function ProgramasLista({
 
       {/* Tabs de tipo rápido */}
       <div className="flex flex-wrap gap-2 mb-6">
-        {(
-          ['todos', 'maestria', 'doctorado', 'diplomado', 'curso'] as const
-        ).map((tipo) => (
-          <a key={tipo} href={getFilterUrl(tipo, searchQuery)}>
-            <Button
-              variant={tipoFiltro === tipo ? 'default' : 'outline'}
-              size="sm"
-              className={
-                tipoFiltro === tipo ? 'bg-epg-navy hover:bg-epg-navy-dark' : ''
-              }
-            >
-              {tipoLabels[tipo]}
-            </Button>
-          </a>
-        ))}
+        {(['todos', 'maestria', 'doctorado', 'diplomado'] as const).map(
+          (tipo) => (
+            <a key={tipo} href={getFilterUrl(tipo, searchQuery)}>
+              <Button
+                variant={tipoFiltro === tipo ? 'default' : 'outline'}
+                size="sm"
+                className={
+                  tipoFiltro === tipo
+                    ? 'bg-epg-navy hover:bg-epg-navy-dark text-white'
+                    : ''
+                }
+              >
+                {tipoLabels[tipo]}
+              </Button>
+            </a>
+          )
+        )}
       </div>
 
       {/* Resultados */}
