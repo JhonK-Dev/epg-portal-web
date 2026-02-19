@@ -4,8 +4,12 @@
  */
 
 import { API_BASE_URL, API_TIMEOUT } from 'astro:env/server';
+import { ApiEndpoints } from './endpoints';
 
 export { API_BASE_URL };
+
+// Singleton instance of ApiEndpoints
+export const endpoints = new ApiEndpoints(API_BASE_URL);
 
 export class ApiError extends Error {
   constructor(

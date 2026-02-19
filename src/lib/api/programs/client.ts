@@ -3,14 +3,12 @@
  * @module lib/api/programs/client
  */
 
-import { fetchApi, buildQueryString } from '../shared';
+import { fetchApi, buildQueryString, endpoints } from '../shared';
 import type { ApiProgram, ProgramFilters } from './types';
-
-const BASE_ENDPOINT = '/program/program/';
 
 export async function getPrograms(filters?: ProgramFilters): Promise<ApiProgram[]> {
   const queryString = filters ? buildQueryString(filters as Record<string, unknown>) : '';
-  return fetchApi<ApiProgram[]>(`${BASE_ENDPOINT}${queryString}`);
+  return fetchApi<ApiProgram[]>(`${endpoints.programs.list}${queryString}`);
 }
 
 export async function getActivePrograms(): Promise<ApiProgram[]> {

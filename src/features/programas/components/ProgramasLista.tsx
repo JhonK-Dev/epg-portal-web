@@ -1,26 +1,26 @@
-import { tipoProgramaLabels, tipoProgramaBadgeColors } from '@/lib/config'
-import { GraduationCap, Search, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { CTABanner } from '@/components/ui/cta-banner'
-import { EmptyState } from '@/components/ui/empty-state'
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { CTABanner } from '@/components/ui/cta-banner';
+import { EmptyState } from '@/components/ui/empty-state';
+import { tipoProgramaBadgeColors, tipoProgramaLabels } from '@/lib/config';
+import { GraduationCap, Search, X } from 'lucide-react';
 
 interface Program {
-  id: string
-  nombre: string
-  tipo: 'maestria' | 'doctorado' | 'diplomado' | 'curso'
-  descripcion: string
-  descripcionCorta: string
-  slug: string
-  imagen?: string
-  isActive?: boolean
+  id: string;
+  nombre: string;
+  tipo: 'maestria' | 'doctorado' | 'diplomado' | 'curso';
+  descripcion: string;
+  descripcionCorta: string;
+  slug: string;
+  imagen?: string;
+  isActive?: boolean;
 }
 
 interface ProgramasListaProps {
-  programs: Program[]
-  hasError: boolean
-  currentFilter: number | 'todos'
-  searchQuery: string
+  programs: Program[];
+  hasError: boolean;
+  currentFilter: number | 'todos';
+  searchQuery: string;
 }
 
 // Map program_type numbers to labels
@@ -30,55 +30,55 @@ const tipoLabels: Record<string, string> = {
   doctorado: 'Doctorados',
   diplomado: 'Diplomados',
   curso: 'Cursos',
-}
+};
 
 // Map filter value to URL param
 const getFilterUrl = (tipo: string, currentSearch: string) => {
-  const params = new URLSearchParams()
-  
+  const params = new URLSearchParams();
+
   if (tipo !== 'todos') {
     const typeMap: Record<string, number> = {
       maestria: 1,
       doctorado: 2,
       diplomado: 3,
       curso: 4,
-    }
-    params.set('program_type', String(typeMap[tipo]))
+    };
+    params.set('program_type', String(typeMap[tipo]));
   }
-  
+
   if (currentSearch) {
-    params.set('search', currentSearch)
+    params.set('search', currentSearch);
   }
-  
-  const queryString = params.toString()
-  return queryString ? `/programas?${queryString}` : '/programas'
-}
+
+  const queryString = params.toString();
+  return queryString ? `/programas?${queryString}` : '/programas';
+};
 
 // Get search URL with new search term
 const getSearchUrl = (searchTerm: string, currentFilter: number | 'todos') => {
-  const params = new URLSearchParams()
-  
+  const params = new URLSearchParams();
+
   if (searchTerm) {
-    params.set('search', searchTerm)
+    params.set('search', searchTerm);
   }
-  
+
   if (currentFilter !== 'todos') {
-    params.set('program_type', String(currentFilter))
+    params.set('program_type', String(currentFilter));
   }
-  
-  const queryString = params.toString()
-  return queryString ? `/programas?${queryString}` : '/programas'
-}
+
+  const queryString = params.toString();
+  return queryString ? `/programas?${queryString}` : '/programas';
+};
 
 // Get clear filters URL
-const getClearUrl = () => '/programas'
+const getClearUrl = () => '/programas';
 
 function ProgramaCard({ programa }: { programa: Program }) {
   return (
     <a href={`/programas/${programa.slug}`} className="group block">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
         {/* Imagen */}
-        <div className="h-48 bg-gradient-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
+        <div className="h-48 bg-linear-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
           {programa.imagen ? (
             <img
               src={programa.imagen}
@@ -91,7 +91,7 @@ function ProgramaCard({ programa }: { programa: Program }) {
               <GraduationCap className="w-16 h-16 text-white/20" />
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
         </div>
 
         {/* Contenido */}
@@ -101,11 +101,11 @@ function ProgramaCard({ programa }: { programa: Program }) {
               {tipoProgramaLabels[programa.tipo]}
             </Badge>
           </div>
-          
+
           <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-epg-navy transition-colors leading-tight">
             {programa.nombre}
           </h3>
-          
+
           <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-1">
             {programa.descripcionCorta}
           </p>
@@ -118,30 +118,35 @@ function ProgramaCard({ programa }: { programa: Program }) {
         </div>
       </div>
     </a>
-  )
+  );
 }
 
-export function ProgramasLista({ 
-  programs, 
-  hasError, 
-  currentFilter, 
-  searchQuery 
+export function ProgramasLista({
+  programs,
+  hasError,
+  currentFilter,
+  searchQuery,
 }: ProgramasListaProps) {
-  
   // Handle search form submission
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    const searchValue = formData.get('search') as string
-    window.location.href = getSearchUrl(searchValue, currentFilter)
-  }
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const searchValue = formData.get('search') as string;
+    window.location.href = getSearchUrl(searchValue, currentFilter);
+  };
 
-  const tipoFiltro = currentFilter === 'todos' ? 'todos' : 
-    currentFilter === 1 ? 'maestria' : 
-    currentFilter === 2 ? 'doctorado' : 
-    currentFilter === 3 ? 'diplomado' : 'curso'
+  const tipoFiltro =
+    currentFilter === 'todos'
+      ? 'todos'
+      : currentFilter === 1
+        ? 'maestria'
+        : currentFilter === 2
+          ? 'doctorado'
+          : currentFilter === 3
+            ? 'diplomado'
+            : 'curso';
 
-  const hayFiltrosActivos = tipoFiltro !== 'todos' || searchQuery.trim() !== ''
+  const hayFiltrosActivos = tipoFiltro !== 'todos' || searchQuery.trim() !== '';
 
   // Estado de error
   if (hasError) {
@@ -153,14 +158,13 @@ export function ProgramasLista({
             No se pudieron cargar los programas
           </h3>
           <p className="text-red-600 mb-6">
-            Estamos experimentando problemas técnicos. Por favor, intenta nuevamente más tarde.
+            Estamos experimentando problemas técnicos. Por favor, intenta
+            nuevamente más tarde.
           </p>
-          <Button onClick={() => window.location.reload()}>
-            Reintentar
-          </Button>
+          <Button onClick={() => window.location.reload()}>Reintentar</Button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -192,7 +196,10 @@ export function ProgramasLista({
             {tipoFiltro !== 'todos' && (
               <Badge variant="secondary" className="gap-1">
                 {tipoLabels[tipoFiltro]}
-                <a href={getSearchUrl(searchQuery, 'todos')} aria-label="Quitar filtro de tipo">
+                <a
+                  href={getSearchUrl(searchQuery, 'todos')}
+                  aria-label="Quitar filtro de tipo"
+                >
                   <X className="h-3 w-3" />
                 </a>
               </Badge>
@@ -201,7 +208,10 @@ export function ProgramasLista({
             {searchQuery.trim() && (
               <Badge variant="secondary" className="gap-1">
                 "{searchQuery}"
-                <a href={getFilterUrl(tipoFiltro, '')} aria-label="Quitar búsqueda">
+                <a
+                  href={getFilterUrl(tipoFiltro, '')}
+                  aria-label="Quitar búsqueda"
+                >
                   <X className="h-3 w-3" />
                 </a>
               </Badge>
@@ -222,23 +232,21 @@ export function ProgramasLista({
 
       {/* Tabs de tipo rápido */}
       <div className="flex flex-wrap gap-2 mb-6">
-        {(['todos', 'maestria', 'doctorado', 'diplomado', 'curso'] as const).map(
-          (tipo) => (
-            <a key={tipo} href={getFilterUrl(tipo, searchQuery)}>
-              <Button
-                variant={tipoFiltro === tipo ? 'default' : 'outline'}
-                size="sm"
-                className={
-                  tipoFiltro === tipo
-                    ? 'bg-epg-navy hover:bg-epg-navy-dark'
-                    : ''
-                }
-              >
-                {tipoLabels[tipo]}
-              </Button>
-            </a>
-          )
-        )}
+        {(
+          ['todos', 'maestria', 'doctorado', 'diplomado', 'curso'] as const
+        ).map((tipo) => (
+          <a key={tipo} href={getFilterUrl(tipo, searchQuery)}>
+            <Button
+              variant={tipoFiltro === tipo ? 'default' : 'outline'}
+              size="sm"
+              className={
+                tipoFiltro === tipo ? 'bg-epg-navy hover:bg-epg-navy-dark' : ''
+              }
+            >
+              {tipoLabels[tipo]}
+            </Button>
+          </a>
+        ))}
       </div>
 
       {/* Resultados */}
@@ -287,5 +295,5 @@ export function ProgramasLista({
         />
       </div>
     </div>
-  )
+  );
 }
