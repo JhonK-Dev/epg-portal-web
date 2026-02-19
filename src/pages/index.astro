@@ -10,6 +10,7 @@ import {
 } from '../features/home';
 import { getFeaturedPrograms } from '../lib/api';
 import type { ApiProgram } from '../lib/api/programs/types';
+import ScrollReveal from '@/components/ui/scroll-reveal.astro';
 
 let apiPrograms: ApiProgram[] = [];
 let hasError = false;
@@ -38,13 +39,15 @@ const formacionContinuaCount = 0; // La API no tiene este tipo aún
     <Hero client:load />
     
     <!-- Programas Destacados - Server-side rendered -->
-    <FeaturedPrograms 
-      programs={apiPrograms}
-      maestriasCount={maestriasCount}
-      doctoradosCount={doctoradosCount}
-      formacionContinuaCount={formacionContinuaCount}
-      hasError={hasError}
-    />
+    <ScrollReveal animation="fade-in-up">
+      <FeaturedPrograms 
+        programs={apiPrograms}
+        maestriasCount={maestriasCount}
+        doctoradosCount={doctoradosCount}
+        formacionContinuaCount={formacionContinuaCount}
+        hasError={hasError}
+      />
+    </ScrollReveal>
     
     <!-- Búsqueda de Programas + Estadísticas Institucionales -->
     <ProgramSearchWithStats client:load />

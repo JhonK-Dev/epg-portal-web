@@ -1,4 +1,5 @@
 import { SectionHeader } from '@/components/ui/section-header';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import {
   calcularEstadoProceso,
   estaConvocatoriaAbierta,
@@ -14,6 +15,11 @@ export const AdmissionCTA: React.FC = () => {
   const proceso = getProcesoActual();
   const estado = proceso ? calcularEstadoProceso(proceso) : 'cerrada';
   const convocatoriaAbierta = estaConvocatoriaAbierta();
+  
+  const [leftContentRef, leftVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
+  const [card1Ref, card1Visible] = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
+  const [card2Ref, card2Visible] = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
+  const [card3Ref, card3Visible] = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
 
   return (
     <section className="home-section px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -30,7 +36,10 @@ export const AdmissionCTA: React.FC = () => {
         />
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div>
+          <div 
+            ref={leftContentRef}
+            className={`transition-all duration-700 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+          >
             <div
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
                 convocatoriaAbierta
@@ -107,7 +116,10 @@ export const AdmissionCTA: React.FC = () => {
 
           {/* Right Content - Info Cards */}
           <div className="grid gap-4">
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
+            <div 
+              ref={card1Ref}
+              className={`bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50 transition-all duration-500 ${card1Visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
+            >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Calendar className="w-6 h-6 text-blue-800" />
@@ -135,7 +147,10 @@ export const AdmissionCTA: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
+            <div 
+              ref={card2Ref}
+              className={`bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50 transition-all duration-500 delay-100 ${card2Visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
+            >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <FileText className="w-6 h-6 text-blue-800" />
@@ -154,7 +169,10 @@ export const AdmissionCTA: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50">
+            <div 
+              ref={card3Ref}
+              className={`bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-blue-200/50 transition-all duration-500 delay-200 ${card3Visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
+            >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Phone className="w-6 h-6 text-blue-800" />

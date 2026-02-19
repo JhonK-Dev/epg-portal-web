@@ -4,6 +4,7 @@ import { busquedasPopulares, getBusquedaUrl } from '@/data/busquedas-populares';
 import { estadisticasInstitucionales } from '@/data/estadisticas';
 import { programas } from '@/data/programas';
 import { getProgramTypeConfig } from '@/lib/config';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import type { Programa } from '@/types';
 import type { LucideIcon } from 'lucide-react';
 import {
@@ -42,6 +43,8 @@ export const ProgramSearchWithStats: React.FC = () => {
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const searchRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  
+  const [statsRef, statsVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
   const getProgramCount = (tipo: string): number => {
     if (tipo === 'all') return programas.length;
@@ -347,7 +350,10 @@ export const ProgramSearchWithStats: React.FC = () => {
         <div className="border-t border-white/10 mb-10" />
 
         {/* ── Stats Grid ── */}
-        <div className="max-w-7xl mx-auto">
+        <div 
+          ref={statsRef}
+          className={`max-w-7xl mx-auto transition-all duration-700 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
           <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6">
             {estadisticasInstitucionales.map((stat) => {
               const Icon = iconMap[stat.icon];
