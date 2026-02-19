@@ -16,8 +16,8 @@ const footerLinks = {
   programas: [
     { label: 'Maestrías', href: '/programas/maestrias' },
     { label: 'Doctorados', href: '/programas/doctorados' },
-    { label: 'Diplomados', href: '/programas/formacion-continua' },
-    { label: 'Cursos', href: '/programas/formacion-continua' },
+    { label: 'Diplomados', href: '/programas/diplomados' },
+    { label: 'Cursos', href: '/programas/cursos' },
   ],
   laEscuela: [
     { label: 'Presentación', href: '/escuela' },

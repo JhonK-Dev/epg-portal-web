@@ -1,40 +1,28 @@
-import React from 'react'
-import { GraduationCap, Users, Award, BookOpen, ArrowRight } from 'lucide-react'
-import { programas } from '@/data/programas'
-import { getProgramTypeConfig } from '@/lib/constants'
-import { SectionHeader } from '@/components/ui/section-header'
-import { Separator } from '@/components/ui/separator'
-import { LinkArrow } from '@/components/ui/link-arrow'
-import { ResourceCard } from '@/components/ui/resource-card'
+import { LinkArrow } from '@/components/ui/link-arrow';
+import { ResourceCard } from '@/components/ui/resource-card';
+import { SectionHeader } from '@/components/ui/section-header';
+import { Separator } from '@/components/ui/separator';
+import { getProgramTypeConfig } from '@/lib/constants';
+import type { Programa } from '@/types';
+import { ArrowRight, Award, BookOpen, GraduationCap } from 'lucide-react';
 
-// Get featured programs from data
-const featuredPrograms = programas
-  .filter((p) => p.destacado)
-  .slice(0, 4)
-
-// Fallback: if less than 4 featured, fill with active programs
-const displayPrograms =
-  featuredPrograms.length >= 4
-    ? featuredPrograms
-    : [
-        ...featuredPrograms,
-        ...programas
-          .filter((p) => !p.destacado && p.estado === 'activo')
-          .slice(0, 4 - featuredPrograms.length),
-      ]
-
-// Helper function for pluralization
-const pluralize = (count: number, singular: string, plural: string): string => {
-  return count === 1 ? `${count} ${singular}` : `${count} ${plural}`
+interface FeaturedProgramsProps {
+  programs: Programa[] | [];
+  maestriasCount: number;
+  doctoradosCount: number;
+  formacionContinuaCount: number;
 }
 
-export const FeaturedPrograms: React.FC = () => {
-  // Calculate dynamic counters for each program type
-  const maestriasCount = programas.filter((p) => p.tipo === 'maestria' && p.estado === 'activo').length
-  const doctoradosCount = programas.filter((p) => p.tipo === 'doctorado' && p.estado === 'activo').length
-  const formacionContinuaCount = programas.filter(
-    (p) => (p.tipo === 'diplomado' || p.tipo === 'curso') && p.estado === 'activo'
-  ).length
+const pluralize = (count: number, singular: string, plural: string): string => {
+  return count === 1 ? `${count} ${singular}` : `${count} ${plural}`;
+};
+
+export const FeaturedPrograms = ({
+  programs,
+  maestriasCount,
+  doctoradosCount,
+  formacionContinuaCount,
+}: FeaturedProgramsProps) => {
   return (
     <section className="home-section px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="container-main">
@@ -59,9 +47,9 @@ export const FeaturedPrograms: React.FC = () => {
 
         {/* Programs Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {displayPrograms.map((program) => {
-            const typeConfig = getProgramTypeConfig(program.tipo)
-            const Icon = typeConfig.icon || GraduationCap
+          {programs.map((program) => {
+            const typeConfig = getProgramTypeConfig(program.tipo);
+            const Icon = typeConfig.icon || GraduationCap;
 
             return (
               <a
@@ -70,7 +58,7 @@ export const FeaturedPrograms: React.FC = () => {
                 className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-epg-gold/30"
               >
                 {/* Card Header with image or gradient */}
-                <div className="h-32 bg-gradient-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
+                <div className="h-32 bg-linear-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
                   {program.imagen ? (
                     <img
                       src={program.imagen}
@@ -86,7 +74,10 @@ export const FeaturedPrograms: React.FC = () => {
                       <Icon className="w-16 h-16 text-white/20" />
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" aria-hidden="true" />
+                  <div
+                    className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"
+                    aria-hidden="true"
+                  />
                   <div className="absolute top-4 left-4">
                     <span
                       className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-semibold px-3 py-1 rounded-md`}
@@ -104,7 +95,6 @@ export const FeaturedPrograms: React.FC = () => {
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                     {program.descripcionCorta}
                   </p>
-
 
                   {/* Meta info */}
                   <div className="flex items-center gap-4 text-xs text-gray-500">
@@ -159,7 +149,7 @@ export const FeaturedPrograms: React.FC = () => {
                   </span>
                 </div>
               </a>
-            )
+            );
           })}
         </div>
 
@@ -192,7 +182,7 @@ export const FeaturedPrograms: React.FC = () => {
           />
 
           <ResourceCard
-            href="/programas/formacion-continua"
+            href="/programas/diplomados"
             icon={BookOpen}
             title="Formación Continua"
             description={`${pluralize(formacionContinuaCount, 'programa disponible', 'programas disponibles')} de diplomados y cursos cortos de actualización profesional.`}
@@ -201,5 +191,5 @@ export const FeaturedPrograms: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
