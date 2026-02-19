@@ -78,6 +78,14 @@ export const FeaturedPrograms = ({
 
         <Separator className="my-10 bg-gray-200/70" />
 
+        <SectionHeader
+          badge={{ label: 'Explora por tipo', className: 'text-epg-gold' }}
+          title="Elige el nivel que buscas"
+          description="Accede rápido a maestrías, doctorados o formación continua."
+          align="left"
+          className="mb-6"
+        />
+
         {/* Category Cards */}
         <div className="grid md:grid-cols-3 gap-6 mt-8">
           <ResourceCard
