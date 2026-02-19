@@ -46,13 +46,7 @@ const socialLinks = [
     href: 'https://instagram.com/epgunap',
     label: 'Instagram',
   },
-  { icon: Youtube, href: 'https://youtube.com/@epgunap', label: 'YouTube' },
-  {
-    icon: Linkedin,
-    href: 'https://linkedin.com/company/epgunap',
-    label: 'LinkedIn',
-  },
-  { icon: Twitter, href: 'https://twitter.com/epgunap', label: 'X (Twitter)' },
+  
 ];
 
 export const Footer: React.FC = () => {
@@ -69,7 +63,7 @@ export const Footer: React.FC = () => {
               <img
                 src="/images/logo/logo-epg.webp"
                 alt="Escuela de Postgrado Logo"
-                className="w-64 h-auto object-contain"
+                className="w-38  h-auto"
               />
               {/* <div>
                 <span className="text-sm font-semibold leading-tight block">
@@ -189,24 +183,6 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-10 rounded-xl border border-white/10 bg-white/5 p-4 text-center text-sm text-gray-200">
-          <span className="text-gray-300">¿Listo para postular?</span>{' '}
-          <a
-            href="/admision"
-            className="text-epg-gold font-semibold hover:text-epg-gold-dark transition-colors"
-          >
-            Revisa la convocatoria vigente
-          </a>
-          <span className="text-gray-400"> o </span>
-          <a
-            href="/contacto"
-            className="text-epg-gold font-semibold hover:text-epg-gold-dark transition-colors"
-          >
-            habla con admisión
-          </a>
-          .
-        </div>
-
         {/* Social Links */}
         <div className="mt-8 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -228,12 +204,6 @@ export const Footer: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center gap-4 text-sm text-gray-400">
-              <a
-                href="/politica-privacidad"
-                className="hover:text-white transition-colors"
-              >
-                Política de Privacidad
-              </a>
               <a
                 href="/terminos-condiciones"
                 className="hover:text-white transition-colors"
