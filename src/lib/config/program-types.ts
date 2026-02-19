@@ -64,14 +64,6 @@ export const tipoProgramaColors: Record<string, string> = {
   curso: 'bg-curso',
 };
 
-// Colores con hover para botones
-export const tipoProgramaButtonColors: Record<string, string> = {
-  maestria: 'bg-maestria hover:bg-maestria/90',
-  doctorado: 'bg-doctorado hover:bg-doctorado/90',
-  diplomado: 'bg-diplomado hover:bg-diplomado/90',
-  curso: 'bg-curso hover:bg-curso/90',
-};
-
 // Colores para badges
 export const tipoProgramaBadgeColors: Record<number, string> = {
   1: 'bg-maestria-light text-maestria',

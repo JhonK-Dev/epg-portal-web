@@ -8,20 +8,19 @@ import {
   AdmissionCTA,
   ContactSection
 } from '../features/home';
-import { getActivePrograms } from '../lib/api';
+import { getFeaturedPrograms } from '../lib/api';
 import type { ApiProgram } from '../lib/api/programs/types';
 
 let apiPrograms: ApiProgram[] = [];
 let hasError = false;
 
 try {
-  apiPrograms = await getActivePrograms();
+  apiPrograms = await getFeaturedPrograms();
 } catch (error) {
   console.error('Error fetching programs:', error);
   hasError = true;
 }
 
-const displayPrograms: ApiProgram[] = apiPrograms.slice(0, 6);
 
 const maestriasCount = apiPrograms.filter((p) => p.program_type === 1).length;
 const doctoradosCount = apiPrograms.filter((p) => p.program_type === 2).length;
@@ -40,7 +39,7 @@ const formacionContinuaCount = 0; // La API no tiene este tipo aún
     
     <!-- Programas Destacados - Server-side rendered -->
     <FeaturedPrograms 
-      programs={displayPrograms}
+      programs={apiPrograms}
       maestriasCount={maestriasCount}
       doctoradosCount={doctoradosCount}
       formacionContinuaCount={formacionContinuaCount}

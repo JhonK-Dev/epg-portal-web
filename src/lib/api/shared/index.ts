@@ -3,7 +3,14 @@
  * @module lib/api/shared
  */
 
-export { fetchApi, buildQueryString, API_BASE_URL, ApiError, endpoints } from './client';
-export { ApiEndpoints, ApiServices, getEndpoints } from './endpoints';
-export type { ApiServiceType } from './endpoints';
+export {
+  API_BASE_URL,
+  ApiError,
+  buildQueryString,
+  endpoints,
+  fetchApi,
+} from './client';
+export { ApiEndpoints } from './endpoints';
+export { ApiServices } from './servives';
+export type { ApiServiceType } from './servives';
 export type { ApiResponse, PaginatedApiResponse } from './types';

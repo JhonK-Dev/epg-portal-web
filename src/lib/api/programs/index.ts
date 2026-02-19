@@ -3,11 +3,11 @@
  * @module lib/api/programs
  */
 
-export type { ApiProgram, ProgramFilters, ProgramType, Area } from './types';
 export {
-  getPrograms,
-  getActivePrograms,
-  getProgramsByType,
-  getProgramByUuid,
   getFeaturedPrograms,
+  getProgramByUuid,
+  getPrograms,
+  getProgramsList,
 } from './client';
+
+export type { ApiProgram, Area, ProgramFilters, ProgramType } from './types';
