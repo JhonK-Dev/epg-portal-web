@@ -8,7 +8,7 @@ import {
   getGradoInfo,
   tipoDocumentoColors,
   tipoDocumentoLabels,
-} from '@/lib/constants'
+} from '@/lib/config'
 import { StatItem } from '@/components/ui/stat-item'
 import { DocumentDownloadItem } from '@/components/ui/document-download-item'
 import {

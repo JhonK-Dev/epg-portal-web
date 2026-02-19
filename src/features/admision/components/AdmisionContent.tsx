@@ -6,7 +6,7 @@ import {
   tipoFechaAdmisionColors,
   tipoFechaAdmisionLabels,
   tipoProgramaBadgeColors,
-} from '@/lib/constants'
+} from '@/lib/config'
 import {
   Calendar,
   Clock,

@@ -2,12 +2,12 @@ import { LinkArrow } from '@/components/ui/link-arrow';
 import { ResourceCard } from '@/components/ui/resource-card';
 import { SectionHeader } from '@/components/ui/section-header';
 import { Separator } from '@/components/ui/separator';
-import { getProgramTypeConfig } from '@/lib/constants';
-import type { Programa } from '@/types';
+import { getProgramTypeConfig } from '@/lib/config';
+import type { Program } from '@/types/programas';
 import { ArrowRight, Award, BookOpen, GraduationCap } from 'lucide-react';
 
 interface FeaturedProgramsProps {
-  programs: Programa[] | [];
+  programs: Program[] | [];
   maestriasCount: number;
   doctoradosCount: number;
   formacionContinuaCount: number;

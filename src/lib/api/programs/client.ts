@@ -1,10 +1,16 @@
-import { fetchApi, buildQueryString, endpoints } from './client';
+/**
+ * Cliente para el microservicio de Programas
+ * @module lib/api/programs/client
+ */
+
+import { fetchApi, buildQueryString } from '../shared';
 import type { ApiProgram, ProgramFilters } from './types';
 
+const BASE_ENDPOINT = '/program/program/';
+
 export async function getPrograms(filters?: ProgramFilters): Promise<ApiProgram[]> {
-  const baseEndpoint = endpoints.programs.list;
   const queryString = filters ? buildQueryString(filters as Record<string, unknown>) : '';
-  return fetchApi<ApiProgram[]>(`${baseEndpoint}${queryString}`);
+  return fetchApi<ApiProgram[]>(`${BASE_ENDPOINT}${queryString}`);
 }
 
 export async function getActivePrograms(): Promise<ApiProgram[]> {
