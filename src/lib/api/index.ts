@@ -16,7 +16,7 @@
 // Shared utilities
 export { API_BASE_URL, ApiError, buildQueryString, fetchApi } from './shared';
 
-export { ApiEndpoints, ApiServices } from './shared';
+export { ApiServices, endpoints } from './shared';
 
 export type {
   ApiResponse,

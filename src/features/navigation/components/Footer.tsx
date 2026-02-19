@@ -1,16 +1,16 @@
-import React from 'react';
+import { contactoGeneral } from '@/data/contacto';
 import {
+  Clock,
   Facebook,
   Instagram,
-  Youtube,
   Linkedin,
-  Twitter,
   Mail,
-  Phone,
   MapPin,
-  Clock,
+  Phone,
+  Twitter,
+  Youtube,
 } from 'lucide-react';
-import { contactoGeneral } from '@/data/contacto';
+import React from 'react';
 
 const footerLinks = {
   programas: [
@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="/public/images/logo/logo-epg.webp"
+                src="/images/logo/logo-epg.webp"
                 alt="Escuela de Postgrado Logo"
                 className="w-64 h-auto object-contain"
               />

@@ -10,7 +10,6 @@ export {
   endpoints,
   fetchApi,
 } from './client';
-export { ApiEndpoints } from './endpoints';
 export { ApiServices } from './servives';
 export type { ApiServiceType } from './servives';
 export type { ApiResponse, PaginatedApiResponse } from './types';
