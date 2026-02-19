@@ -1,14 +1,14 @@
+import { Button } from '@/components/ui/button';
 import { LinkArrow } from '@/components/ui/link-arrow';
 import { ResourceCard } from '@/components/ui/resource-card';
 import { SectionHeader } from '@/components/ui/section-header';
 import { Separator } from '@/components/ui/separator';
+import type { ApiProgram } from '@/lib/api/programs/types';
 import { getProgramTypeConfig } from '@/lib/config';
-import type { Program } from '@/types/programas';
 import { ArrowRight, Award, BookOpen, GraduationCap } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 interface FeaturedProgramsProps {
-  programs: Program[] | [];
+  programs: ApiProgram[] | [];
   maestriasCount: number;
   doctoradosCount: number;
   formacionContinuaCount: number;
@@ -56,32 +56,31 @@ export const FeaturedPrograms = ({
               No se pudieron cargar los programas
             </h3>
             <p className="text-red-600 mb-6">
-              Estamos experimentando problemas técnicos. Por favor, intenta nuevamente más tarde.
+              Estamos experimentando problemas técnicos. Por favor, intenta
+              nuevamente más tarde.
             </p>
-            <Button onClick={() => window.location.reload()}>
-              Reintentar
-            </Button>
+            <Button onClick={() => window.location.reload()}>Reintentar</Button>
           </div>
         ) : (
           <>
             {/* Programs Grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {programs.map((program) => {
-                const typeConfig = getProgramTypeConfig(program.tipo);
+                const typeConfig = getProgramTypeConfig(program.program_type);
                 const Icon = typeConfig.icon || GraduationCap;
 
                 return (
                   <a
                     key={program.id}
-                    href={`/programas/${program.slug}`}
+                    href={`/programas/${program.name}`}
                     className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-epg-gold/30"
                   >
                     {/* Card Header with image or gradient */}
                     <div className="h-32 bg-linear-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
-                      {program.imagen ? (
+                      {program.background ? (
                         <img
-                          src={program.imagen}
-                          alt={program.nombre}
+                          src={program.background}
+                          alt={program.name}
                           className="w-full h-full object-cover"
                           width="384"
                           height="128"
@@ -109,10 +108,10 @@ export const FeaturedPrograms = ({
                     {/* Card Body */}
                     <div className="p-5">
                       <h3 className="font-bold text-epg-navy text-lg mb-2 group-hover:text-epg-gold transition-colors line-clamp-2">
-                        {program.nombre}
+                        {program.name}
                       </h3>
                       <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                        {program.descripcionCorta}
+                        {program.description}
                       </p>
                     </div>
 

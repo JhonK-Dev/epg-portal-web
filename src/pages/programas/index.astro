@@ -38,18 +38,6 @@ const totalCount = apiPrograms.length;
 const maestriasCount = apiPrograms.filter((p) => p.program_type === 1).length;
 const doctoradosCount = apiPrograms.filter((p) => p.program_type === 2).length;
 
-// Transform API data for UI
-const displayPrograms = apiPrograms.map((apiProgram) => ({
-  id: apiProgram.uuid,
-  nombre: apiProgram.name,
-  tipo: apiProgram.program_type === 2 ? 'doctorado' as const : 'maestria' as const,
-  descripcion: apiProgram.description,
-  descripcionCorta: apiProgram.description.slice(0, 150) + '...',
-  slug: apiProgram.uuid,
-  imagen: apiProgram.background,
-  isActive: apiProgram.is_active,
-}));
-
 // Current filter for UI
 const currentFilter = programType || 'todos';
 ---
@@ -62,7 +50,7 @@ const currentFilter = programType || 'todos';
   <Navbar client:load />
   <main class="min-h-screen">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-epg-navy to-epg-navy-light text-white py-16">
+    <section class="bg-linear-to-br from-epg-navy to-epg-navy-light text-white py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="text-sm mb-4">
           <ol class="flex items-center gap-2">
@@ -107,7 +95,7 @@ const currentFilter = programType || 'todos';
     <section class="py-12 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ProgramasLista 
-          programs={displayPrograms}
+          programs={apiPrograms}
           hasError={hasError}
           currentFilter={currentFilter}
           searchQuery={searchQuery}
