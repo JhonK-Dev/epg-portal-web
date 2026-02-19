@@ -3,8 +3,8 @@ import { Button } from '@/components/ui/button';
 import { CTABanner } from '@/components/ui/cta-banner';
 import { EmptyState } from '@/components/ui/empty-state';
 import type { ApiProgram } from '@/lib/api';
-import { tipoProgramaBadgeColors, tipoProgramaLabels } from '@/lib/config';
 import { GraduationCap, Search, X } from 'lucide-react';
+import { ProgramCard } from './program-card';
 
 interface ProgramasListaProps {
   programs: ApiProgram[];
@@ -62,54 +62,6 @@ const getSearchUrl = (searchTerm: string, currentFilter: number | 'todos') => {
 
 // Get clear filters URL
 const getClearUrl = () => '/programas';
-
-function ProgramaCard({ programa }: { programa: ApiProgram }) {
-  return (
-    <a href={`/programas/${programa.name}`} className="group block">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-        {/* Imagen */}
-        <div className="h-48 bg-linear-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
-          {programa.background ? (
-            <img
-              src={programa.background}
-              alt={programa.name}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-            />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <GraduationCap className="w-16 h-16 text-white/20" />
-            </div>
-          )}
-          <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
-        </div>
-
-        {/* Contenido */}
-        <div className="p-5 flex-1 flex flex-col">
-          <div className="mb-3">
-            <Badge className={tipoProgramaBadgeColors[programa.program_type]}>
-              {tipoProgramaLabels[programa.program_type]}
-            </Badge>
-          </div>
-
-          <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-epg-navy transition-colors leading-tight">
-            {programa.name}
-          </h3>
-
-          <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-1">
-            {programa.description}
-          </p>
-
-          <div className="pt-4 border-t border-gray-100 mt-auto">
-            <span className="text-epg-gold font-medium text-sm group-hover:underline">
-              Ver detalles →
-            </span>
-          </div>
-        </div>
-      </div>
-    </a>
-  );
-}
 
 export function ProgramasLista({
   programs,
@@ -252,7 +204,7 @@ export function ProgramasLista({
       {programs.length > 0 ? (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {programs.map((programa) => (
-            <ProgramaCard key={programa.id} programa={programa} />
+            <ProgramCard key={programa.id} programa={programa} />
           ))}
         </div>
       ) : (

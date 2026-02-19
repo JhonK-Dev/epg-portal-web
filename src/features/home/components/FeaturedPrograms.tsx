@@ -3,9 +3,9 @@ import { LinkArrow } from '@/components/ui/link-arrow';
 import { ResourceCard } from '@/components/ui/resource-card';
 import { SectionHeader } from '@/components/ui/section-header';
 import { Separator } from '@/components/ui/separator';
+import { ProgramCard } from '@/features/programas';
 import type { ApiProgram } from '@/lib/api/programs/types';
-import { getProgramTypeConfig } from '@/lib/config';
-import { ArrowRight, Award, BookOpen, GraduationCap } from 'lucide-react';
+import { Award, BookOpen, GraduationCap } from 'lucide-react';
 
 interface FeaturedProgramsProps {
   programs: ApiProgram[] | [];
@@ -65,66 +65,13 @@ export const FeaturedPrograms = ({
           <>
             {/* Programs Grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {programs.map((program) => {
-                const typeConfig = getProgramTypeConfig(program.program_type);
-                const Icon = typeConfig.icon || GraduationCap;
-
-                return (
-                  <a
-                    key={program.id}
-                    href={`/programas/${program.name}`}
-                    className="group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-epg-gold/30"
-                  >
-                    {/* Card Header with image or gradient */}
-                    <div className="h-32 bg-linear-to-br from-epg-navy to-epg-navy-light relative overflow-hidden">
-                      {program.background ? (
-                        <img
-                          src={program.background}
-                          alt={program.name}
-                          className="w-full h-full object-cover"
-                          width="384"
-                          height="128"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <Icon className="w-16 h-16 text-white/20" />
-                        </div>
-                      )}
-                      <div
-                        className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"
-                        aria-hidden="true"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span
-                          className={`inline-block ${typeConfig.bgColor} ${typeConfig.textColor} text-xs font-semibold px-3 py-1 rounded-md`}
-                        >
-                          {typeConfig.label}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Card Body */}
-                    <div className="p-5">
-                      <h3 className="font-bold text-epg-navy text-lg mb-2 group-hover:text-epg-gold transition-colors line-clamp-2">
-                        {program.name}
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                        {program.description}
-                      </p>
-                    </div>
-
-                    {/* Card Footer */}
-                    <div className="px-5 pb-5">
-                      <span className="inline-flex items-center gap-1 text-epg-gold font-medium text-sm group-hover:gap-2 transition-all">
-                        Ver programa
-                        <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  </a>
-                );
-              })}
+              {programs.map((program) => (
+                <ProgramCard
+                  key={program.id}
+                  programa={program}
+                  variant="compact"
+                />
+              ))}
             </div>
           </>
         )}
