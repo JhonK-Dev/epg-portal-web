@@ -1,0 +1,125 @@
+---
+// FeaturedPrograms.astro — Pure Astro component, zero client-side JS
+// React UI components (SectionHeader, ProgramCard, etc.) render on server only — no client:* directive needed.
+import { LinkArrow } from '@/components/ui/link-arrow';
+import { ResourceCard } from '@/components/ui/resource-card';
+import { SectionHeader } from '@/components/ui/section-header';
+import { Separator } from '@/components/ui/separator';
+import { ProgramCard } from '@/features/programas';
+import type { ApiProgram } from '@/lib/api/programs/types';
+import { Award, BookOpen, GraduationCap } from 'lucide-react';
+
+interface Props {
+  programs: ApiProgram[];
+  maestriasCount: number;
+  doctoradosCount: number;
+  formacionContinuaCount: number;
+  hasError?: boolean;
+}
+
+const {
+  programs,
+  maestriasCount,
+  doctoradosCount,
+  formacionContinuaCount,
+  hasError = false,
+} = Astro.props;
+
+const pluralize = (count: number, singular: string, plural: string): string => {
+  return count === 1 ? `${count} ${singular}` : `${count} ${plural}`;
+};
+---
+
+<section class="home-section px-4 sm:px-6 lg:px-8 bg-gray-50">
+  <div class="container-main">
+    <!-- Section Header with Action Link -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+      <div class="text-left">
+        <span class="font-semibold text-sm uppercase tracking-wider mb-2 block text-epg-gold">
+          Nuestra oferta académica
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-epg-navy">
+          Programas Destacados
+        </h2>
+        <p class="mt-2 max-w-xl text-gray-600">
+          Descubre los programas más demandados por profesionales como tú.
+        </p>
+      </div>
+      <a
+        href="/programas"
+        class="text-epg-navy font-semibold hover:text-epg-gold transition-colors group"
+      >
+        <LinkArrow>Ver todos los programas</LinkArrow>
+      </a>
+    </div>
+
+    <!-- Error State -->
+    {hasError ? (
+      <div class="bg-red-50 border border-red-200 rounded-xl p-8 text-center">
+        <GraduationCap className="h-16 w-16 text-red-400 mx-auto mb-4" />
+        <h3 class="text-xl font-semibold text-red-800 mb-2">
+          No se pudieron cargar los programas
+        </h3>
+        <p class="text-red-600 mb-6">
+          Estamos experimentando problemas técnicos. Por favor, intenta
+          nuevamente más tarde.
+        </p>
+        <a
+          href="/"
+          class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-epg-navy text-white hover:bg-epg-navy-light px-4 py-2 transition-colors"
+        >
+          Reintentar
+        </a>
+      </div>
+    ) : (
+      <>
+        <!-- Programs Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {programs.map((program) => (
+            <ProgramCard
+              programa={program}
+              variant="compact"
+            />
+          ))}
+        </div>
+      </>
+    )}
+
+    <Separator className="my-10 bg-gray-200/70" />
+
+    <SectionHeader
+      badge={{ label: 'Explora por tipo', className: 'text-epg-gold' }}
+      title="Elige el nivel que buscas"
+      description="Accede rápido a maestrías, doctorados o formación continua."
+      align="left"
+      className="mb-6"
+    />
+
+    <!-- Category Cards -->
+    <div class="grid md:grid-cols-3 gap-6 mt-8">
+      <ResourceCard
+        href="/programas?program_type=1"
+        icon={GraduationCap}
+        title="Maestrías"
+        description={`${pluralize(maestriasCount, 'programa disponible', 'programas disponibles')} de 2 años para profesionales que buscan especialización.`}
+        variant="gradient-navy"
+      />
+
+      <ResourceCard
+        href="/programas?program_type=2"
+        icon={Award}
+        title="Doctorados"
+        description={`${pluralize(doctoradosCount, 'programa disponible', 'programas disponibles')} de investigación de alto nivel para líderes académicos.`}
+        variant="gradient-gold"
+      />
+
+      <ResourceCard
+        href="/programas/diplomados"
+        icon={BookOpen}
+        title="Formación Continua"
+        description={`${pluralize(formacionContinuaCount, 'programa disponible', 'programas disponibles')} de diplomados y cursos cortos de actualización profesional.`}
+        variant="gradient-navy"
+      />
+    </div>
+  </div>
+</section>

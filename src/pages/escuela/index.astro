@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Navbar } from '../../features/navigation';
+import Navbar from '../../features/navigation/components/Navbar.astro';
 import { EscuelaContent } from '../../features/escuela';
 ---
 
@@ -9,10 +9,10 @@ import { EscuelaContent } from '../../features/escuela';
   description="Historia, misión, visión y valores de la Escuela de Postgrado de la UNAP. Más de 35 años formando líderes para la Amazonía peruana."
   keywords={["historia EPG UNAP", "sobre escuela postgrado", "misión visión UNAP", "autoridades EPG Iquitos"]}
 >
-  <Navbar client:load />
+  <Navbar />
   <main class="min-h-screen">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-epg-navy via-epg-navy-light to-epg-navy-light text-white py-20">
+    <section class="bg-linear-to-br from-epg-navy via-epg-navy-light to-epg-navy-light text-white py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="text-sm mb-6">
           <ol class="flex items-center gap-2">

@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Navbar, Footer } from '../../features/navigation';
+import Navbar from '../../features/navigation/components/Navbar.astro';
 import { DocenteDetail } from '../../features/docentes';
 import { docentes, getDocenteById, getAllDocenteIds } from '../../data/docentes';
 
@@ -34,9 +34,8 @@ const nombreCompleto = `${gradoLabels[docente.grado] || ''} ${docente.nombres} $
   keywords={[`${docente.nombres} ${docente.apellidos}`, docente.especialidad, "docente UNAP", "investigador postgrado"]}
   type="article"
 >
-  <Navbar client:load />
+  <Navbar />
   <main class="min-h-screen">
     <DocenteDetail client:load docente={docente} />
   </main>
-  <Footer />
 </Layout>

@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Navbar, Footer } from '../../features/navigation';
+import Navbar from '../../features/navigation/components/Navbar.astro';
 import { EstudiantesContent } from '../../features/estudiantes';
 ---
 
@@ -9,9 +9,8 @@ import { EstudiantesContent } from '../../features/estudiantes';
   description="Accede a recursos, trámites y servicios exclusivos para estudiantes de la Escuela de Postgrado de la UNAP. SIGAE, Aula Virtual, Biblioteca."
   keywords={["portal estudiante UNAP", "trámites postgrado", "SIGAE EPG", "aula virtual maestría", "estudiantes postgrado Iquitos"]}
 >
-  <Navbar client:load />
+  <Navbar />
   <main class="min-h-screen">
     <EstudiantesContent client:load />
   </main>
-  <Footer />
 </Layout>

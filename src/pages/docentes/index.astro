@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Navbar } from '../../features/navigation';
+import Navbar from '../../features/navigation/components/Navbar.astro';
 import { DocentesGrid } from '../../features/docentes';
 ---
 
@@ -9,10 +9,10 @@ import { DocentesGrid } from '../../features/docentes';
   description="Conoce a los docentes de alto nivel académico de la Escuela de Postgrado UNAP. Doctores e investigadores comprometidos con la excelencia educativa."
   keywords={["docentes UNAP", "profesores postgrado Iquitos", "investigadores Amazonía", "plana docente EPG"]}
 >
-  <Navbar client:load />
+  <Navbar />
   <main class="min-h-screen">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-epg-navy via-epg-navy-light to-epg-navy-light text-white py-20">
+    <section class="bg-linear-to-br from-epg-navy via-epg-navy-light to-epg-navy-light text-white py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="text-sm mb-6">
           <ol class="flex items-center gap-2">

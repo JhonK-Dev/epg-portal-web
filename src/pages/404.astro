@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Navbar } from '../features/navigation';
+import Navbar from '../features/navigation/components/Navbar.astro';
 import { contactoGeneral } from '../data/contacto';
 ---
 
@@ -9,8 +9,8 @@ import { contactoGeneral } from '../data/contacto';
   description="La página que buscas no existe o ha sido movida. Visita nuestra página principal para encontrar lo que necesitas."
   noindex={true}
 >
-  <Navbar client:load />
-  <main class="min-h-[calc(100vh-200px)] flex items-center justify-center bg-gradient-to-b from-gray-50 to-white">
+  <Navbar />
+  <main class="min-h-[calc(100vh-200px)] flex items-center justify-center bg-linear-to-b from-gray-50 to-white">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
       <!-- Ilustración 404 -->
       <div class="relative mb-8">
@@ -18,7 +18,7 @@ import { contactoGeneral } from '../data/contacto';
           404
         </div>
         <div class="absolute inset-0 flex items-center justify-center">
-<div class="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-epg-navy to-epg-navy-light rounded-full flex items-center justify-center shadow-2xl">
+<div class="w-32 h-32 md:w-40 md:h-40 bg-linear-to-br from-epg-navy to-epg-navy-light rounded-full flex items-center justify-center shadow-2xl">
             <svg 
               class="w-16 h-16 md:w-20 md:h-20 text-epg-gold"
               fill="none" 
