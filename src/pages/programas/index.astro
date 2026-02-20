@@ -2,7 +2,7 @@
 export const prerender = false;
 
 import Layout from '../../layouts/Layout.astro';
-import { Navbar } from '../../features/navigation';
+import Navbar from '../../features/navigation/components/Navbar.astro';
 import { ProgramasLista } from '../../features/programas';
 import type { ApiProgram } from '../../lib/api/programs/types';
 import { getProgramsList } from '@/lib/api/programs';
@@ -49,7 +49,7 @@ const currentFilter = programType || 'todos';
   description="Descubre nuestra oferta de maestrías, doctorados, diplomados y cursos de especialización. Programas acreditados con docentes de alto nivel en Iquitos."
   keywords={["programas postgrado UNAP", "maestrías Iquitos", "doctorados Amazonía", "diplomados EPG", "cursos especialización Loreto"]}
 >
-  <Navbar client:load />
+  <Navbar />
   <main class="min-h-screen">
     <!-- Hero Section -->
     <section class="bg-linear-to-br from-epg-navy to-epg-navy-light text-white py-16">

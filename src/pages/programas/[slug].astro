@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Navbar } from '../../features/navigation';
+import Navbar from '../../features/navigation/components/Navbar.astro';
 import { ProgramaDetail } from '../../features/programas';
 import { programas, getProgramaBySlug } from '../../data/programas';
 
@@ -35,7 +35,7 @@ const tipoLabels: Record<string, string> = {
   keywords={[programaData.nombre, tipoLabels[programaData.tipo], "postgrado UNAP", "programa académico Iquitos"]}
   type="article"
 >
-  <Navbar client:load />
+  <Navbar />
   <main>
     <ProgramaDetail programa={programaData} client:load />
   </main>

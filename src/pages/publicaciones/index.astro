@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Navbar } from '../../features/navigation';
+import Navbar from '../../features/navigation/components/Navbar.astro';
 import { PublicacionesLista } from '../../features/publicaciones';
 ---
 
@@ -9,10 +9,10 @@ import { PublicacionesLista } from '../../features/publicaciones';
   description="Mantente informado sobre las últimas novedades, eventos académicos y comunicados oficiales de la Escuela de Postgrado UNAP."
   keywords={["noticias EPG UNAP", "eventos postgrado", "comunicados universidad", "novedades académicas Iquitos"]}
 >
-  <Navbar client:load />
+  <Navbar />
   <main class="min-h-screen">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-epg-navy via-epg-navy-light to-epg-navy-light text-white py-20">
+    <section class="bg-linear-to-br from-epg-navy via-epg-navy-light to-epg-navy-light text-white py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="text-sm mb-6">
           <ol class="flex items-center gap-2">

@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
-import { Footer } from "../features/navigation";
-import { ScrollToTop } from "../components/ui/scroll-to-top";
+import Footer from "../features/navigation/components/Footer.astro";
+import ScrollToTop from "../components/ui/ScrollToTop.astro";
 import { ClientRouter } from "astro:transitions";
 
 interface Props {
@@ -148,8 +148,8 @@ const keywordsString = keywords.join(", ");
 	</head>
 	<body class="min-h-screen bg-background flex flex-col">
 		<slot />
-		<Footer client:load />
-		<ScrollToTop client:load />
+		<Footer />
+		<ScrollToTop />
 		<script>
 			import "../scripts/scroll-reveal";
 		</script>
