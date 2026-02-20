@@ -1,9 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Search, ArrowRight, GraduationCap, Award, BookOpen } from 'lucide-react';
-import { programas } from '@/data/programas';
 import { busquedasPopulares, getBusquedaUrl } from '@/data/busquedas-populares';
+import { programas } from '@/data/programas';
 import { getProgramTypeConfig } from '@/lib/config';
 import type { Programa } from '@/types';
+import {
+  ArrowRight,
+  Award,
+  BookOpen,
+  GraduationCap,
+  Search,
+} from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const programTypes = [
   { id: 'all', label: 'Todos', icon: null },
@@ -18,7 +24,7 @@ export const ProgramSearch: React.FC = () => {
   const [suggestions, setSuggestions] = useState<Programa[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
-  const searchRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Calculate program counts by type
@@ -37,7 +43,10 @@ export const ProgramSearch: React.FC = () => {
   // Close suggestions when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setShowSuggestions(false);
         setActiveSuggestionIndex(-1);
       }
@@ -50,15 +59,20 @@ export const ProgramSearch: React.FC = () => {
   // Update suggestions when filter type changes
   useEffect(() => {
     if (searchQuery.trim().length >= 2) {
-      const filtered = programas.filter((programa) => {
-        const matchesType = selectedType === 'all' || programa.tipo === selectedType;
-        const matchesQuery =
-          programa.nombre.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          programa.descripcionCorta.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          programa.facultad.toLowerCase().includes(searchQuery.toLowerCase());
-        
-        return matchesType && matchesQuery;
-      }).slice(0, 5);
+      const filtered = programas
+        .filter((programa) => {
+          const matchesType =
+            selectedType === 'all' || programa.tipo === selectedType;
+          const matchesQuery =
+            programa.nombre.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            programa.descripcionCorta
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase()) ||
+            programa.facultad.toLowerCase().includes(searchQuery.toLowerCase());
+
+          return matchesType && matchesQuery;
+        })
+        .slice(0, 5);
 
       setSuggestions(filtered);
       setShowSuggestions(filtered.length > 0);
@@ -73,15 +87,20 @@ export const ProgramSearch: React.FC = () => {
 
     if (query.trim().length >= 2) {
       // Filter programs by query and selected type
-      const filtered = programas.filter((programa) => {
-        const matchesType = selectedType === 'all' || programa.tipo === selectedType;
-        const matchesQuery =
-          programa.nombre.toLowerCase().includes(query.toLowerCase()) ||
-          programa.descripcionCorta.toLowerCase().includes(query.toLowerCase()) ||
-          programa.facultad.toLowerCase().includes(query.toLowerCase());
-        
-        return matchesType && matchesQuery;
-      }).slice(0, 5); // Limit to 5 suggestions
+      const filtered = programas
+        .filter((programa) => {
+          const matchesType =
+            selectedType === 'all' || programa.tipo === selectedType;
+          const matchesQuery =
+            programa.nombre.toLowerCase().includes(query.toLowerCase()) ||
+            programa.descripcionCorta
+              .toLowerCase()
+              .includes(query.toLowerCase()) ||
+            programa.facultad.toLowerCase().includes(query.toLowerCase());
+
+          return matchesType && matchesQuery;
+        })
+        .slice(0, 5); // Limit to 5 suggestions
 
       setSuggestions(filtered);
       setShowSuggestions(true);
@@ -125,7 +144,7 @@ export const ProgramSearch: React.FC = () => {
     }
   };
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = (e: { preventDefault(): void }) => {
     e.preventDefault();
     setShowSuggestions(false);
     // Redirect to programs page with search query
@@ -136,7 +155,7 @@ export const ProgramSearch: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-epg-navy to-epg-navy-dark home-section-compact px-4 sm:px-6 lg:px-8">
+    <section className="bg-linear-to-b from-epg-navy to-epg-navy-dark home-section-compact px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Title */}
         <div className="text-center mb-6">
@@ -144,12 +163,17 @@ export const ProgramSearch: React.FC = () => {
             Encuentra tu programa ideal
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
-            Explora nuestra oferta académica de maestrías, doctorados y programas de formación continua.
+            Explora nuestra oferta académica de maestrías, doctorados y
+            programas de formación continua.
           </p>
         </div>
 
         {/* Program Type Filters */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6" role="group" aria-label="Filtrar por tipo de programa">
+        <div
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6"
+          role="group"
+          aria-label="Filtrar por tipo de programa"
+        >
           {programTypes.map((type) => {
             const count = getProgramCount(type.id);
             const isSelected = selectedType === type.id;
@@ -166,13 +190,18 @@ export const ProgramSearch: React.FC = () => {
                     : 'bg-white/10 text-white hover:bg-white/20'
                 }`}
               >
-                {type.icon && <type.icon className="w-4 h-4" aria-hidden="true" />}
+                {type.icon && (
+                  <type.icon className="w-4 h-4" aria-hidden="true" />
+                )}
                 <span>{type.label}</span>
-                <span className={`ml-1 px-2 py-0.5 rounded-full text-xs font-semibold ${
-                  isSelected
-                    ? 'bg-epg-navy/20 text-epg-navy'
-                    : 'bg-white/20 text-white'
-                }`} aria-hidden="true">
+                <span
+                  className={`ml-1 px-2 py-0.5 rounded-full text-xs font-semibold ${
+                    isSelected
+                      ? 'bg-epg-navy/20 text-epg-navy'
+                      : 'bg-white/20 text-white'
+                  }`}
+                  aria-hidden="true"
+                >
                   {count}
                 </span>
               </button>
@@ -181,10 +210,15 @@ export const ProgramSearch: React.FC = () => {
         </div>
 
         {/* Search Bar */}
-        <form onSubmit={handleSearch} role="search" className="relative max-w-3xl mx-auto mb-4" ref={searchRef}>
+        <form
+          onSubmit={handleSearch}
+          role="search"
+          className="relative max-w-3xl mx-auto mb-4"
+          ref={searchRef}
+        >
           <div className="flex items-center bg-white rounded-xl overflow-hidden shadow-xl shadow-black/15">
             <div className="flex items-center flex-1 px-3 sm:px-5 py-2.5 sm:py-3">
-              <Search className="w-5 h-5 text-gray-400 mr-2 sm:mr-3 flex-shrink-0" />
+              <Search className="w-5 h-5 text-gray-400 mr-2 sm:mr-3 shrink-0" />
               <input
                 ref={inputRef}
                 type="search"
@@ -194,12 +228,20 @@ export const ProgramSearch: React.FC = () => {
                 aria-label="Buscar programas académicos por nombre, área o palabras clave"
                 aria-expanded={showSuggestions}
                 aria-controls="search-suggestions"
-                aria-activedescendant={activeSuggestionIndex >= 0 ? `suggestion-${activeSuggestionIndex}` : undefined}
+                aria-activedescendant={
+                  activeSuggestionIndex >= 0
+                    ? `suggestion-${activeSuggestionIndex}`
+                    : undefined
+                }
                 placeholder="Buscar programas…"
                 value={searchQuery}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
-                onFocus={() => searchQuery.trim().length >= 2 && suggestions.length > 0 && setShowSuggestions(true)}
+                onFocus={() =>
+                  searchQuery.trim().length >= 2 &&
+                  suggestions.length > 0 &&
+                  setShowSuggestions(true)
+                }
                 autoComplete="off"
                 className="flex-1 bg-transparent outline-none text-gray-700 placeholder-gray-400 text-sm sm:text-base"
               />
@@ -211,7 +253,10 @@ export const ProgramSearch: React.FC = () => {
                 className="bg-epg-navy hover:bg-epg-navy-light text-white px-3 sm:px-5 py-2.5 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
               >
                 <span className="hidden sm:inline">{getButtonText()}</span>
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                <ArrowRight
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                  aria-hidden="true"
+                />
               </button>
             </div>
           </div>
@@ -228,9 +273,17 @@ export const ProgramSearch: React.FC = () => {
               className="absolute top-full mt-2 w-full bg-white rounded-xl shadow-2xl border border-gray-200 py-2 z-50 max-h-96 overflow-y-auto"
             >
               {suggestions.map((programa, index) => {
-                const typeConfig = getProgramTypeConfig(programa.tipo);
+                const tipoToNumber: Record<string, number> = {
+                  maestria: 1,
+                  doctorado: 2,
+                  diplomado: 3,
+                  curso: 4,
+                };
+                const typeConfig = getProgramTypeConfig(
+                  tipoToNumber[programa.tipo] ?? 0
+                );
                 const Icon = typeConfig.icon || GraduationCap;
-                
+
                 return (
                   <a
                     key={programa.id}
@@ -243,7 +296,9 @@ export const ProgramSearch: React.FC = () => {
                     }`}
                     onMouseEnter={() => setActiveSuggestionIndex(index)}
                   >
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${typeConfig.bgColor}`}>
+                    <div
+                      className={`w-10 h-10 rounded-lg flex items-center justify-center ${typeConfig.bgColor}`}
+                    >
                       <Icon className={`w-5 h-5 ${typeConfig.textColor}`} />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -257,14 +312,15 @@ export const ProgramSearch: React.FC = () => {
                   </a>
                 );
               })}
-              
+
               {/* Ver todos los resultados */}
               <div className="border-t mt-2 pt-2 px-4">
                 <a
                   href={`/programas?q=${searchQuery}${selectedType !== 'all' ? `&tipo=${selectedType}` : ''}`}
                   className="text-epg-gold text-sm font-medium hover:underline inline-flex items-center gap-1"
                 >
-                  Ver todos los resultados ({suggestions.length === 5 ? '5+' : suggestions.length})
+                  Ver todos los resultados (
+                  {suggestions.length === 5 ? '5+' : suggestions.length})
                   <ArrowRight className="w-3 h-3" />
                 </a>
               </div>
@@ -275,7 +331,9 @@ export const ProgramSearch: React.FC = () => {
         {/* Quick Links */}
         <nav aria-label="Búsquedas populares">
           <div className="flex flex-wrap justify-center gap-3 text-xs sm:text-sm">
-            <span className="text-gray-500" aria-hidden="true">Búsquedas populares:</span>
+            <span className="text-gray-500" aria-hidden="true">
+              Búsquedas populares:
+            </span>
             {busquedasPopulares.map((busqueda) => (
               <a
                 key={busqueda.id}

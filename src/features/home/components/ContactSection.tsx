@@ -4,7 +4,7 @@ import { FormInput } from '@/components/ui/form-input';
 import { SectionHeader } from '@/components/ui/section-header';
 import { Separator } from '@/components/ui/separator';
 import { contactoGeneral, getWhatsappHref } from '@/data/contacto';
-import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+
 import {
   CheckCircle,
   Clock,
@@ -71,9 +71,6 @@ export const ContactSection: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
-  const [formRef, formVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
-  const [infoRef, infoVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -132,9 +129,9 @@ export const ContactSection: React.FC = () => {
 
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
           {/* ── Contact Form ── */}
-          <div 
-            ref={formRef}
-            className={`lg:col-span-3 transition-all duration-700 ${formVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+          <div
+            className="scroll-reveal lg:col-span-3"
+            data-animation="fade-in-left"
           >
             <Card className="rounded-2xl border-gray-100 shadow-sm">
               <CardContent className="p-6 sm:p-8">
@@ -272,9 +269,10 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* ── Contact Info Sidebar ── */}
-          <div 
-            ref={infoRef}
-            className={`lg:col-span-2 space-y-4 transition-all duration-700 delay-100 ${infoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
+          <div
+            className="scroll-reveal lg:col-span-2 space-y-4"
+            data-animation="fade-in-right"
+            data-delay="100"
           >
             {contactInfo.map((item, index) => (
               <React.Fragment key={item.label}>
