@@ -1,0 +1,93 @@
+---
+interface Props {
+  animation?: 'fade-in' | 'fade-in-up' | 'fade-in-down' | 'fade-in-left' | 'fade-in-right' | 'slide-in-up' | 'slide-in-down' | 'slide-in-left' | 'slide-in-right' | 'zoom-in' | 'zoom-in-up';
+  delay?: number;
+  duration?: number;
+  threshold?: number;
+  once?: boolean;
+  class?: string;
+}
+
+const {
+  animation = 'fade-in-up',
+  delay = 0,
+  duration = 600,
+  threshold = 0.1,
+  once = true,
+  class: className = '',
+} = Astro.props;
+
+const animationMap: Record<string, string> = {
+  'fade-in': 'animate-fade-in',
+  'fade-in-up': 'animate-fade-in-up',
+  'fade-in-down': 'animate-fade-in-down',
+  'fade-in-left': 'animate-fade-in-left',
+  'fade-in-right': 'animate-fade-in-right',
+  'slide-in-up': 'animate-slide-in-from-bottom',
+  'slide-in-down': 'animate-slide-in-from-top',
+  'slide-in-left': 'animate-slide-in-from-right',
+  'slide-in-right': 'animate-slide-in-from-left',
+  'zoom-in': 'animate-zoom-in',
+  'zoom-in-up': 'animate-zoom-in-up',
+};
+---
+
+<div
+  class:list={['scroll-reveal', className]}
+  data-animation={animationMap[animation]}
+  data-delay={delay}
+  data-duration={duration}
+  data-threshold={threshold}
+  data-once={once}
+>
+  <slot />
+</div>
+
+<script>
+  function initScrollReveal() {
+    const elements = document.querySelectorAll('.scroll-reveal');
+    
+    if (elements.length === 0) return;
+
+    elements.forEach((element) => {
+      const el = element as HTMLElement;
+      const animation = el.dataset.animation || 'animate-fade-in-up';
+      const delay = parseInt(el.dataset.delay || '0', 10);
+      const duration = parseInt(el.dataset.duration || '600', 10);
+      const threshold = parseFloat(el.dataset.threshold || '0.1');
+      const once = el.dataset.once !== 'false';
+
+      el.style.opacity = '0';
+      el.style.transitionDuration = `${duration}ms`;
+      el.style.transitionDelay = `${delay}ms`;
+      el.style.transitionProperty = 'opacity, transform';
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              el.classList.add(animation);
+              el.style.opacity = '1';
+              
+              if (once) {
+                observer.unobserve(entry.target);
+              }
+            } else if (!once) {
+              el.classList.remove(animation);
+              el.style.opacity = '0';
+            }
+          });
+        },
+        { threshold }
+      );
+
+      observer.observe(el);
+    });
+  }
+
+  document.addEventListener('astro:page-load', initScrollReveal);
+  
+  if (document.readyState === 'complete') {
+    initScrollReveal();
+  }
+</script>

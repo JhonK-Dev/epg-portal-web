@@ -331,4 +331,18 @@
   .link-arrow {
     @apply text-epg-gold font-medium text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all;
   }
+
+  /* Scroll Reveal - animaciones al hacer scroll */
+  .scroll-reveal {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
 }
