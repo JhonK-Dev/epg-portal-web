@@ -11,6 +11,7 @@ import {
 import { getFeaturedPrograms } from '../lib/api';
 import type { ApiProgram } from '../lib/api/programs/types';
 
+
 let apiPrograms: ApiProgram[] = [];
 let hasError = false;
 
@@ -38,13 +39,16 @@ const formacionContinuaCount = 0; // La API no tiene este tipo aún
     <Hero client:load />
     
     <!-- Programas Destacados - Server-side rendered -->
-    <FeaturedPrograms 
-      programs={apiPrograms}
-      maestriasCount={maestriasCount}
-      doctoradosCount={doctoradosCount}
-      formacionContinuaCount={formacionContinuaCount}
-      hasError={hasError}
-    />
+    <div class="scroll-reveal">
+      <FeaturedPrograms 
+        programs={apiPrograms}
+        maestriasCount={maestriasCount}
+        doctoradosCount={doctoradosCount}
+        formacionContinuaCount={formacionContinuaCount}
+        hasError={hasError}
+        client:load
+      />
+    </div>
     
     <!-- Búsqueda de Programas + Estadísticas Institucionales -->
     <ProgramSearchWithStats client:load />

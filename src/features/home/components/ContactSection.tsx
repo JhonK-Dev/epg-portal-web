@@ -4,6 +4,7 @@ import { FormInput } from '@/components/ui/form-input';
 import { SectionHeader } from '@/components/ui/section-header';
 import { Separator } from '@/components/ui/separator';
 import { contactoGeneral, getWhatsappHref } from '@/data/contacto';
+
 import {
   CheckCircle,
   Clock,
@@ -128,7 +129,10 @@ export const ContactSection: React.FC = () => {
 
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
           {/* ── Contact Form ── */}
-          <div className="lg:col-span-3">
+          <div
+            className="scroll-reveal lg:col-span-3"
+            data-animation="fade-in-left"
+          >
             <Card className="rounded-2xl border-gray-100 shadow-sm">
               <CardContent className="p-6 sm:p-8">
                 {isSubmitted ? (
@@ -265,7 +269,11 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* ── Contact Info Sidebar ── */}
-          <div className="lg:col-span-2 space-y-4">
+          <div
+            className="scroll-reveal lg:col-span-2 space-y-4"
+            data-animation="fade-in-right"
+            data-delay="100"
+          >
             {contactInfo.map((item, index) => (
               <React.Fragment key={item.label}>
                 <Card className="rounded-2xl border-gray-100 shadow-sm hover:shadow-md transition-shadow">

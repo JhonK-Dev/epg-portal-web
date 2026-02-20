@@ -4,6 +4,7 @@ import { busquedasPopulares, getBusquedaUrl } from '@/data/busquedas-populares';
 import { estadisticasInstitucionales } from '@/data/estadisticas';
 import { programas } from '@/data/programas';
 import { getProgramTypeConfig } from '@/lib/config';
+
 import type { Programa } from '@/types';
 import type { LucideIcon } from 'lucide-react';
 import {
@@ -280,7 +281,15 @@ export const ProgramSearchWithStats: React.FC = () => {
               className="absolute top-full mt-2 w-full bg-white rounded-xl shadow-2xl border border-gray-200 py-2 z-50 max-h-96 overflow-y-auto"
             >
               {suggestions.map((programa, index) => {
-                const typeConfig = getProgramTypeConfig(programa.tipo);
+                const tipoToNumber: Record<string, number> = {
+                  maestria: 1,
+                  doctorado: 2,
+                  diplomado: 3,
+                  curso: 4,
+                };
+                const typeConfig = getProgramTypeConfig(
+                  tipoToNumber[programa.tipo] ?? 0
+                );
                 const Icon = typeConfig.icon || GraduationCap;
                 return (
                   <a
@@ -347,7 +356,7 @@ export const ProgramSearchWithStats: React.FC = () => {
         <div className="border-t border-white/10 mb-10" />
 
         {/* ── Stats Grid ── */}
-        <div className="max-w-7xl mx-auto">
+        <div className="scroll-reveal max-w-7xl mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6">
             {estadisticasInstitucionales.map((stat) => {
               const Icon = iconMap[stat.icon];
