@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Footer from "../features/navigation/components/Footer.astro";
 import ScrollToTop from "../components/ui/ScrollToTop.astro";
+import { FloatingContactButton } from "../components/ui/floating-contact-button";
 import { ClientRouter } from "astro:transitions";
 
 interface Props {
@@ -150,6 +151,7 @@ const keywordsString = keywords.join(", ");
 		<slot />
 		<Footer />
 		<ScrollToTop />
+		<FloatingContactButton client:load />
 		<script>
 			import "../scripts/scroll-reveal";
 		</script>

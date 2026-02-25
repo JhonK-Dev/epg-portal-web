@@ -180,7 +180,7 @@ export function ContactForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl text-epg-navy">
+        <CardTitle className="text-xl font-bold text-epg-navy">
           Envíanos un mensaje
         </CardTitle>
         <CardDescription>
