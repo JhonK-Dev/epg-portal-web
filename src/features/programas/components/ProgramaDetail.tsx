@@ -5,7 +5,7 @@ import {
   tipoProgramaColors,
   modalidadLabels,
   modalidadColors,
-} from '@/lib/constants'
+} from '@/lib/config'
 import {
   Calendar,
   Clock,

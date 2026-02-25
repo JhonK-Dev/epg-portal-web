@@ -1,17 +1,16 @@
-import React from 'react';
+import { IconCircle } from '@/components/ui/icon-circle';
+import { StatItem } from '@/components/ui/stat-item';
+import { estadisticasInstitucionales } from '@/data/estadisticas';
 import type { LucideIcon } from 'lucide-react';
 import {
-  GraduationCap,
-  Users,
   Award,
   BookOpen,
   Calendar,
+  GraduationCap,
   ThumbsUp,
+  Users,
 } from 'lucide-react';
-import { SectionHeader } from '@/components/ui/section-header';
-import { StatItem } from '@/components/ui/stat-item';
-import { IconCircle } from '@/components/ui/icon-circle';
-import { estadisticasInstitucionales } from '@/data/estadisticas';
+import React from 'react';
 
 // Map icon names to Lucide components
 const iconMap: Record<string, LucideIcon> = {
@@ -25,7 +24,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export const StatsSection: React.FC = () => {
   return (
-    <section className="section-py px-4 sm:px-6 lg:px-8 bg-epg-navy relative overflow-hidden">
+    <section className="home-section px-4 sm:px-6 lg:px-8 bg-epg-navy-dark relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full" aria-hidden="true">
         <div className="absolute top-10 left-10 w-64 h-64 bg-epg-gold/5 rounded-full blur-3xl" />
@@ -33,19 +32,6 @@ export const StatsSection: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
-        <SectionHeader
-          badge={{
-            label: 'Nuestros números',
-            className: 'text-epg-navy bg-epg-gold/80 px-2 py-1 rounded',
-          }}
-          title="Cifras que nos respaldan"
-          description="Más de tres décadas formando líderes para el desarrollo de la Amazonía peruana."
-          titleColor="text-white"
-          descriptionColor="text-gray-400"
-          className="mb-12"
-        />
-
         {/* Stats Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6">
           {estadisticasInstitucionales.map((stat, index) => {

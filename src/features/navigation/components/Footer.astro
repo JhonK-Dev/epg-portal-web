@@ -1,0 +1,244 @@
+---
+// Footer.astro — Pure Astro component, zero client-side JS
+import { contactoGeneral } from '@/data/contacto';
+import {
+  Clock,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+  Youtube,
+} from 'lucide-react';
+
+const footerLinks = {
+  programas: [
+    { label: 'Maestrías', href: '/programas/maestrias' },
+    { label: 'Doctorados', href: '/programas/doctorados' },
+    { label: 'Diplomados', href: '/programas/diplomados' },
+    { label: 'Cursos', href: '/programas/cursos' },
+  ],
+  laEscuela: [
+    { label: 'Presentación', href: '/escuela' },
+    { label: 'Autoridades', href: '/escuela/autoridades' },
+    { label: 'Directorio', href: '/escuela/directorio' },
+    { label: 'Contacto', href: '/contacto' },
+  ],
+  estudiantes: [
+    { label: 'Portal del Estudiante', href: '/estudiantes' },
+    { label: 'Trámites', href: '/estudiantes/tramites' },
+    { label: 'Sustentaciones', href: '/estudiantes/sustentaciones' },
+    { label: 'Biblioteca', href: '/servicios/biblioteca-virtual' },
+  ],
+  servicios: [
+    { label: 'SIGAE', href: '/servicios/sigae' },
+    { label: 'Aula Virtual', href: '/servicios/aula-virtual' },
+    { label: 'Correo Institucional', href: '/servicios/correo-institucional' },
+    { label: 'Mesa de Partes', href: '/servicios/mesa-partes' },
+  ],
+};
+
+const socialLinks = [
+  { Icon: Facebook, href: 'https://facebook.com/epgunap', label: 'Facebook' },
+  { Icon: Instagram, href: 'https://instagram.com/epgunap', label: 'Instagram' },
+  { Icon: Youtube, href: 'https://youtube.com/@epgunap', label: 'YouTube' },
+  { Icon: Linkedin, href: 'https://linkedin.com/company/epgunap', label: 'LinkedIn' },
+  { Icon: Twitter, href: 'https://twitter.com/epgunap', label: 'X (Twitter)' },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-epg-navy text-white">
+  <!-- Main Footer -->
+  <div class="container-main py-10 lg:py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+      <!-- Logo & Info -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <img
+            src="/images/logo/logo-epg.webp"
+            alt="Escuela de Postgrado Logo"
+            class="w-64 h-auto object-contain"
+          />
+        </div>
+        <p class="text-gray-400 text-sm mb-6">
+          Formando líderes para el desarrollo sostenible de la Amazonía
+          peruana desde 1990.
+        </p>
+
+        <!-- Contact Info -->
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 text-sm">
+            <MapPin className="w-5 h-5 text-epg-gold shrink-0 mt-0.5" />
+            <span class="text-gray-300">
+              {contactoGeneral.direccion}
+            </span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <Phone className="w-5 h-5 text-epg-gold shrink-0" />
+            <a
+              href={`tel:${contactoGeneral.telefono}`}
+              class="text-gray-300 hover:text-white transition-colors"
+            >
+              {contactoGeneral.telefonoDisplay}
+            </a>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <Mail className="w-5 h-5 text-epg-gold shrink-0" />
+            <a
+              href={`mailto:${contactoGeneral.email}`}
+              class="text-gray-300 hover:text-white transition-colors"
+            >
+              {contactoGeneral.email}
+            </a>
+          </div>
+          <div class="flex items-start gap-3 text-sm">
+            <Clock className="w-5 h-5 text-epg-gold shrink-0 mt-0.5" />
+            <span class="text-gray-300">
+              {contactoGeneral.horarioAtencion}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programas -->
+      <div>
+        <h4 class="font-semibold text-white mb-4">Programas</h4>
+        <ul class="space-y-2">
+          {footerLinks.programas.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-gray-400 hover:text-epg-gold transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- La Escuela -->
+      <div>
+        <h4 class="font-semibold text-white mb-4">La Escuela</h4>
+        <ul class="space-y-2">
+          {footerLinks.laEscuela.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-gray-400 hover:text-epg-gold transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Estudiantes -->
+      <div>
+        <h4 class="font-semibold text-white mb-4">Estudiantes</h4>
+        <ul class="space-y-2">
+          {footerLinks.estudiantes.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-gray-400 hover:text-epg-gold transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Servicios -->
+      <div>
+        <h4 class="font-semibold text-white mb-4">Servicios</h4>
+        <ul class="space-y-2">
+          {footerLinks.servicios.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-gray-400 hover:text-epg-gold transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 rounded-xl border border-white/10 bg-white/5 p-4 text-center text-sm text-gray-200">
+      <span class="text-gray-300">¿Listo para postular?</span>{' '}
+      <a
+        href="/admision"
+        class="text-epg-gold font-semibold hover:text-epg-gold-dark transition-colors"
+      >
+        Revisa la convocatoria vigente
+      </a>
+      <span class="text-gray-400"> o </span>
+      <a
+        href="/contacto"
+        class="text-epg-gold font-semibold hover:text-epg-gold-dark transition-colors"
+      >
+        habla con admisión
+      </a>.
+    </div>
+
+    <!-- Social Links -->
+    <div class="mt-8 pt-8 border-t border-gray-800">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <span class="text-sm text-gray-400">Síguenos:</span>
+          <div class="flex items-center gap-3">
+            {socialLinks.map((social) => (
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-epg-gold transition-colors group"
+                aria-label={social.label}
+              >
+                <social.Icon className="w-4 h-4 text-gray-400 group-hover:text-epg-navy" />
+              </a>
+            ))}
+          </div>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-gray-400">
+          <a
+            href="/politica-privacidad"
+            class="hover:text-white transition-colors"
+          >
+            Política de Privacidad
+          </a>
+          <a
+            href="/terminos-condiciones"
+            class="hover:text-white transition-colors"
+          >
+            Términos y Condiciones
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="bg-epg-navy-dark py-4 border-t border-gray-800">
+    <div class="container-main">
+      <div class="text-center text-sm text-gray-500">
+        <p>
+          © {currentYear} Escuela de Postgrado - Universidad Nacional de la
+          Amazonía Peruana. Todos los derechos reservados.
+        </p>
+        <p class="mt-1 text-xs text-gray-600">
+          Oficina de Soporte Informático
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

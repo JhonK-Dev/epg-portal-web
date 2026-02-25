@@ -1,7 +1,7 @@
 import React from 'react'
 import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react'
 import { formatShortDate, formatEventDate } from '@/lib/formatters'
-import { getPublicationTypeConfig } from '@/lib/constants'
+import { getPublicationTypeConfig } from '@/lib/config'
 import { getDestacadas, getEventos } from '@/data/publicaciones'
 import { SectionHeader } from '@/components/ui/section-header'
 import { LinkArrow } from '@/components/ui/link-arrow'
@@ -17,7 +17,7 @@ const events = getEventos()
 
 export const NewsAndEvents: React.FC = () => {
   return (
-    <section className="section-py px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="home-section px-4 sm:px-6 lg:px-8 bg-white">
       <div className="container-main">
         {/* Section Header */}
         <SectionHeader

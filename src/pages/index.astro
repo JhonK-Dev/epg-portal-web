@@ -1,14 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Navbar } from '../features/navigation';
+import Navbar from '../features/navigation/components/Navbar.astro';
+import Hero from '../features/home/components/Hero.astro';
+import FeaturedPrograms from '../features/home/components/FeaturedPrograms.astro';
+import AdmissionCTA from '../features/home/components/AdmissionCTA.astro';
 import { 
-  Hero, 
-  ProgramSearch, 
-  FeaturedPrograms,
-  StatsSection,
-  NewsAndEvents,
-  AdmissionCTA
+  ProgramSearchWithStats, 
+  ContactSection
 } from '../features/home';
+import { getFeaturedPrograms } from '../lib/api';
+import type { ApiProgram } from '../lib/api/programs/types';
+
+
+let apiPrograms: ApiProgram[] = [];
+let hasError = false;
+
+try {
+  apiPrograms = await getFeaturedPrograms();
+} catch (error) {
+  console.error('Error fetching programs:', error);
+  hasError = true;
+}
+
+
+const maestriasCount = apiPrograms.filter((p) => p.program_type === 1).length;
+const doctoradosCount = apiPrograms.filter((p) => p.program_type === 2).length;
+const formacionContinuaCount = 0; // La API no tiene este tipo aún
 ---
 
 <Layout 
@@ -16,24 +33,29 @@ import {
   description="Escuela de Postgrado de la Universidad Nacional de la Amazonía Peruana. Maestrías, Doctorados y Formación Continua de excelencia académica en Iquitos."
   keywords={["postgrado UNAP", "maestría Iquitos", "doctorado Amazonía", "universidad Iquitos", "educación superior Loreto"]}
 >
-  <Navbar client:load />
+  <Navbar />
   <main>
-    <!-- Hero Section con búsqueda y estadísticas -->
-    <Hero client:load />
+    <!-- Hero Section — Astro component, zero JS -->
+    <Hero />
     
-    <!-- Búsqueda de Programas -->
-    <ProgramSearch client:load />
+    <!-- Programas Destacados — Astro component, zero JS -->
+    <div class="scroll-reveal">
+      <FeaturedPrograms 
+        programs={apiPrograms}
+        maestriasCount={maestriasCount}
+        doctoradosCount={doctoradosCount}
+        formacionContinuaCount={formacionContinuaCount}
+        hasError={hasError}
+      />
+    </div>
     
-    <!-- Programas Destacados -->
-    <FeaturedPrograms client:load />
+    <!-- Búsqueda de Programas + Estadísticas — React, hydrates when visible -->
+    <ProgramSearchWithStats client:visible />
     
-    <!-- Estadísticas Institucionales -->
-    <StatsSection client:load />
+    <!-- CTA de Admisión — Astro component, zero JS -->
+    <AdmissionCTA />
     
-    <!-- Noticias y Eventos -->
-    <NewsAndEvents client:load />
-    
-    <!-- CTA de Admisión -->
-    <AdmissionCTA client:load />
+    <!-- Formulario de Contacto — React, hydrates when visible -->
+    <ContactSection client:visible />
   </main>
 </Layout>

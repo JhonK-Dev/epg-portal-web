@@ -1,6 +1,6 @@
 import type { Docente } from '@/types'
 import { getProgramaById } from '@/data/programas'
-import { getGradoInfo, getSocialNetworkClasses } from '@/lib/constants'
+import { getGradoInfo, getSocialNetworkClasses } from '@/lib/config'
 import {
   Mail,
   Phone,

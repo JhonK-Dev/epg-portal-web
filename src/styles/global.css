@@ -318,8 +318,31 @@
     @apply py-16 lg:py-24;
   }
 
+  /* Ritmo vertical del home */
+  .home-section {
+    @apply py-14 lg:py-20;
+  }
+
+  .home-section-compact {
+    @apply py-10 sm:py-12 lg:py-14;
+  }
+
   /* Link con flecha - estilo estándar para enlaces destacados */
   .link-arrow {
     @apply text-epg-gold font-medium text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all;
+  }
+
+  /* Scroll Reveal - animaciones al hacer scroll */
+  .scroll-reveal {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
   }
 }

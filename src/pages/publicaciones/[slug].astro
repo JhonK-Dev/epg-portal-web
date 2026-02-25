@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Navbar } from '../../features/navigation';
+import Navbar from '../../features/navigation/components/Navbar.astro';
 import { PublicacionDetail } from '../../features/publicaciones';
 import { publicaciones, getPublicacionBySlug, getUltimasPublicaciones } from '../../data/publicaciones';
 
@@ -41,7 +41,7 @@ const tipoLabels: Record<string, string> = {
   publishedTime={publicacionData.fecha}
   keywords={[tipoLabels[publicacionData.tipo], "EPG UNAP", "noticias postgrado", publicacionData.categoria || "educación"]}
 >
-  <Navbar client:load />
+  <Navbar />
   <main>
     <PublicacionDetail 
       publicacion={publicacionData} 

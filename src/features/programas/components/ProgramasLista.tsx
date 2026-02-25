@@ -1,160 +1,129 @@
-import { useState, useMemo } from 'react'
-import type { Programa, TipoPrograma } from '@/types'
-import { programas } from '@/data/programas'
-import {
-  tipoProgramaLabels,
-  tipoProgramaButtonColors,
-  tipoProgramaBadgeColors,
-  modalidadLabels,
-  modalidadColors,
-} from '@/lib/constants'
-import {
-  Filter,
-  GraduationCap,
-  Clock,
-  MapPin,
-  BookOpen,
-  ChevronDown,
-  X,
-} from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import { CTABanner } from '@/components/ui/cta-banner'
-import { SearchInput } from '@/components/ui/search-input'
-import { EmptyState } from '@/components/ui/empty-state'
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { CTABanner } from '@/components/ui/cta-banner';
+import { EmptyState } from '@/components/ui/empty-state';
+import { useDebounce } from '@/hooks/use-debounce';
+import type { ApiProgram } from '@/lib/api';
+import { GraduationCap, Search, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ProgramCard } from './program-card';
+import { navigate } from 'astro:transitions/client';
 
-type Modalidad = 'presencial' | 'semipresencial' | 'virtual' | 'todos'
-type TipoFiltro = TipoPrograma | 'todos'
+interface ProgramasListaProps {
+  programs: ApiProgram[];
+  hasError: boolean;
+  currentFilter: number | 'todos';
+  searchQuery: string;
+}
 
-// Use labels from constants, adding plural forms for display
+// Map program_type numbers to labels
 const tipoLabels: Record<string, string> = {
   todos: 'Todos los programas',
   maestria: 'Maestrías',
   doctorado: 'Doctorados',
   diplomado: 'Diplomados',
-  curso: 'Cursos',
-}
+};
 
-interface ProgramaCardProps {
-  programa: Programa
-}
+// Map filter value to URL param
+const getFilterUrl = (tipo: string, currentSearch: string) => {
+  const params = new URLSearchParams();
 
-function ProgramaCard({ programa }: ProgramaCardProps) {
-  return (
-    <a href={`/programas/${programa.slug}`} className="group block">
-      <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-transparent hover:border-l-epg-gold">
-        <CardHeader className="pb-3">
-          <div className="flex items-start justify-between gap-2 mb-2">
-            <Badge className={tipoProgramaBadgeColors[programa.tipo]}>
-              {tipoLabels[programa.tipo]}
-            </Badge>
-            <Badge className={modalidadColors[programa.modalidad]}>
-              {modalidadLabels[programa.modalidad]}
-            </Badge>
-          </div>
-          <CardTitle className="text-lg group-hover:text-epg-navy transition-colors leading-tight">
-            {programa.nombre}
-          </CardTitle>
-          <CardDescription className="line-clamp-2">
-            {programa.descripcionCorta}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-2 text-sm text-gray-600">
-            <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-gray-400" />
-              <span>{programa.duracion}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <BookOpen className="h-4 w-4 text-gray-400" />
-              <span>{programa.creditos} créditos</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-gray-400" />
-              <span className="truncate">{programa.facultad}</span>
-            </div>
-          </div>
-
-          {programa.inversion && (
-            <div className="mt-4 pt-4 border-t">
-              <p className="text-sm text-gray-500">Inversión</p>
-              <p className="font-semibold text-epg-navy">
-                {programa.inversion}
-              </p>
-            </div>
-          )}
-
-          <div className="mt-4">
-            <span className="text-epg-gold font-medium text-sm group-hover:underline">
-              Ver detalles →
-            </span>
-          </div>
-        </CardContent>
-      </Card>
-    </a>
-  )
-}
-
-export function ProgramasLista() {
-  const [tipoFiltro, setTipoFiltro] = useState<TipoFiltro>('todos')
-  const [modalidadFiltro, setModalidadFiltro] = useState<Modalidad>('todos')
-  const [busqueda, setBusqueda] = useState('')
-  const [mostrarFiltros, setMostrarFiltros] = useState(false)
-
-  const programasFiltrados = useMemo(() => {
-    return programas.filter((programa) => {
-      // Filtro por tipo
-      if (tipoFiltro !== 'todos' && programa.tipo !== tipoFiltro) {
-        return false
-      }
-
-      // Filtro por modalidad
-      if (
-        modalidadFiltro !== 'todos' &&
-        programa.modalidad !== modalidadFiltro
-      ) {
-        return false
-      }
-
-      // Filtro por búsqueda
-      if (busqueda.trim()) {
-        const searchLower = busqueda.toLowerCase()
-        return (
-          programa.nombre.toLowerCase().includes(searchLower) ||
-          programa.descripcion.toLowerCase().includes(searchLower) ||
-          programa.facultad.toLowerCase().includes(searchLower)
-        )
-      }
-
-      return true
-    })
-  }, [tipoFiltro, modalidadFiltro, busqueda])
-
-  const conteosPorTipo = useMemo(() => {
-    const conteos: Record<string, number> = { todos: programas.length }
-    programas.forEach((p) => {
-      conteos[p.tipo] = (conteos[p.tipo] || 0) + 1
-    })
-    return conteos
-  }, [])
-
-  const limpiarFiltros = () => {
-    setTipoFiltro('todos')
-    setModalidadFiltro('todos')
-    setBusqueda('')
+  if (tipo !== 'todos') {
+    const typeMap: Record<string, number> = {
+      maestria: 1,
+      doctorado: 2,
+      diplomado: 3,
+    };
+    params.set('program_type', String(typeMap[tipo]));
   }
 
-  const hayFiltrosActivos =
-    tipoFiltro !== 'todos' ||
-    modalidadFiltro !== 'todos' ||
-    busqueda.trim() !== ''
+  if (currentSearch) {
+    params.set('search', currentSearch);
+  }
+
+  const queryString = params.toString();
+  return queryString ? `/programas?${queryString}` : '/programas';
+};
+
+// Get search URL with new search term
+const getSearchUrl = (searchTerm: string, currentFilter: number | 'todos') => {
+  const params = new URLSearchParams();
+
+  if (searchTerm) {
+    params.set('search', searchTerm);
+  }
+
+  if (currentFilter !== 'todos') {
+    params.set('program_type', String(currentFilter));
+  }
+
+  const queryString = params.toString();
+  return queryString ? `/programas?${queryString}` : '/programas';
+};
+
+// Get clear filters URL
+const getClearUrl = () => '/programas';
+
+export function ProgramasLista({
+  programs,
+  hasError,
+  currentFilter,
+  searchQuery,
+}: ProgramasListaProps) {
+  const [searchValue, setSearchValue] = useState(searchQuery);
+  const debouncedSearch = useDebounce(searchValue, 400);
+  const isInitialMount = useRef(true);
+
+  // Navigate when debounced search value changes
+  useEffect(() => {
+    // Skip the initial mount to avoid navigating on page load
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    // Only navigate if the debounced value differs from the current URL query
+    if (debouncedSearch !== searchQuery) {
+      navigate(getSearchUrl(debouncedSearch, currentFilter));
+    }
+  }, [debouncedSearch]);
+
+  // Clear search input and navigate
+  const handleClearSearch = () => {
+    setSearchValue('');
+    navigate(getSearchUrl('', currentFilter));
+  };
+
+  const filterToTipo: Record<number, string> = {
+    1: 'maestria',
+    2: 'doctorado',
+    3: 'diplomado',
+  };
+
+  const tipoFiltro =
+    currentFilter === 'todos'
+      ? 'todos'
+      : (filterToTipo[currentFilter] ?? 'todos');
+
+  const hayFiltrosActivos = tipoFiltro !== 'todos' || searchQuery.trim() !== '';
+
+  // Estado de error
+  if (hasError) {
+    return (
+      <div className="text-center py-16">
+        <div className="bg-red-50 border border-red-200 rounded-xl p-8 max-w-lg mx-auto">
+          <GraduationCap className="h-16 w-16 text-red-400 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-red-800 mb-2">
+            No se pudieron cargar los programas
+          </h3>
+          <p className="text-red-600 mb-6">
+            Estamos experimentando problemas técnicos. Por favor, intenta
+            nuevamente más tarde.
+          </p>
+          <Button onClick={() => window.location.reload()}>Reintentar</Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -162,191 +131,103 @@ export function ProgramasLista() {
       <div className="bg-white rounded-xl shadow-sm p-4 mb-8">
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Búsqueda */}
-          <SearchInput
-            value={busqueda}
-            onChange={setBusqueda}
-            placeholder="Buscar por nombre, descripción o facultad..."
-            className="flex-1"
-            size="md"
-          />
-
-          {/* Botón de filtros (móvil) */}
-          <Button
-            variant="outline"
-            className="lg:hidden gap-2"
-            onClick={() => setMostrarFiltros(!mostrarFiltros)}
-          >
-            <Filter className="h-4 w-4" />
-            Filtros
-            <ChevronDown
-              className={`h-4 w-4 transition-transform ${mostrarFiltros ? 'rotate-180' : ''}`}
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              placeholder="Buscar por nombre o descripción..."
+              className="w-full pl-10 pr-10 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
             />
-          </Button>
-
-          {/* Filtros (desktop) */}
-          <div className="hidden lg:flex gap-4">
-            {/* Tipo de programa */}
-            <select
-              value={tipoFiltro}
-              onChange={(e) => setTipoFiltro(e.target.value as TipoFiltro)}
-              className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white min-w-[180px]"
-            >
-              <option value="todos">Todos los tipos</option>
-              <option value="maestria">
-                Maestrías ({conteosPorTipo.maestria || 0})
-              </option>
-              <option value="doctorado">
-                Doctorados ({conteosPorTipo.doctorado || 0})
-              </option>
-              <option value="diplomado">
-                Diplomados ({conteosPorTipo.diplomado || 0})
-              </option>
-              <option value="curso">
-                Cursos ({conteosPorTipo.curso || 0})
-              </option>
-            </select>
-
-            {/* Modalidad */}
-            <select
-              value={modalidadFiltro}
-              onChange={(e) => setModalidadFiltro(e.target.value as Modalidad)}
-              className="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white min-w-[180px]"
-            >
-              <option value="todos">Todas las modalidades</option>
-              <option value="presencial">Presencial</option>
-              <option value="semipresencial">Semipresencial</option>
-              <option value="virtual">Virtual</option>
-            </select>
+            {searchValue.trim() && (
+              <button
+                type="button"
+                onClick={handleClearSearch}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                aria-label="Limpiar búsqueda"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
         </div>
+      </div>
 
-        {/* Filtros móvil expandidos */}
-        {mostrarFiltros && (
-          <div className="lg:hidden mt-4 pt-4 border-t grid gap-4 sm:grid-cols-2">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Tipo de programa
-              </label>
-              <select
-                value={tipoFiltro}
-                onChange={(e) => setTipoFiltro(e.target.value as TipoFiltro)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
-              >
-                <option value="todos">Todos los tipos</option>
-                <option value="maestria">
-                  Maestrías ({conteosPorTipo.maestria || 0})
-                </option>
-                <option value="doctorado">
-                  Doctorados ({conteosPorTipo.doctorado || 0})
-                </option>
-                <option value="diplomado">
-                  Diplomados ({conteosPorTipo.diplomado || 0})
-                </option>
-                <option value="curso">
-                  Cursos ({conteosPorTipo.curso || 0})
-                </option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Modalidad
-              </label>
-              <select
-                value={modalidadFiltro}
-                onChange={(e) =>
-                  setModalidadFiltro(e.target.value as Modalidad)
+      {/* Tabs de tipo rápido + filtros activos */}
+      <div className="flex flex-wrap items-center gap-2 mb-6">
+        {(['todos', 'maestria', 'doctorado', 'diplomado'] as const).map(
+          (tipo) => (
+            <a key={tipo} href={getFilterUrl(tipo, searchQuery)}>
+              <Button
+                variant={tipoFiltro === tipo ? 'default' : 'outline'}
+                size="sm"
+                className={
+                  tipoFiltro === tipo
+                    ? 'bg-epg-navy hover:bg-epg-navy-dark text-white'
+                    : ''
                 }
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-epg-navy bg-white"
               >
-                <option value="todos">Todas las modalidades</option>
-                <option value="presencial">Presencial</option>
-                <option value="semipresencial">Semipresencial</option>
-                <option value="virtual">Virtual</option>
-              </select>
-            </div>
-          </div>
+                {tipoLabels[tipo]}
+              </Button>
+            </a>
+          )
         )}
 
-        {/* Filtros activos */}
+        {/* Filtros activos al lado de los botones */}
         {hayFiltrosActivos && (
-          <div className="mt-4 pt-4 border-t flex flex-wrap items-center gap-2">
+          <>
+            <span className="text-sm text-gray-400 ml-2">|</span>
             <span className="text-sm text-gray-500">Filtros activos:</span>
 
             {tipoFiltro !== 'todos' && (
               <Badge variant="secondary" className="gap-1">
                 {tipoLabels[tipoFiltro]}
-                <button onClick={() => setTipoFiltro('todos')} aria-label="Quitar filtro de tipo de programa">
+                <a
+                  href={getSearchUrl(searchQuery, 'todos')}
+                  aria-label="Quitar filtro de tipo"
+                >
                   <X className="h-3 w-3" />
-                </button>
+                </a>
               </Badge>
             )}
 
-            {modalidadFiltro !== 'todos' && (
+            {searchQuery.trim() && (
               <Badge variant="secondary" className="gap-1">
-                {modalidadLabels[modalidadFiltro]}
-                <button onClick={() => setModalidadFiltro('todos')} aria-label="Quitar filtro de modalidad">
+                "{searchQuery}"
+                <a
+                  href={getFilterUrl(tipoFiltro, '')}
+                  aria-label="Quitar búsqueda"
+                >
                   <X className="h-3 w-3" />
-                </button>
+                </a>
               </Badge>
             )}
 
-            {busqueda.trim() && (
-              <Badge variant="secondary" className="gap-1">
-                "{busqueda}"
-                <button onClick={() => setBusqueda('')} aria-label="Quitar filtro de búsqueda">
-                  <X className="h-3 w-3" />
-                </button>
-              </Badge>
-            )}
-
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={limpiarFiltros}
-              className="text-destructive hover:text-destructive/80 hover:bg-destructive/10"
+            <a
+              href={getClearUrl()}
+              className="text-sm text-destructive hover:text-destructive/80 hover:underline"
             >
               Limpiar todo
-            </Button>
-          </div>
+            </a>
+          </>
         )}
-      </div>
-
-      {/* Tabs de tipo rápido */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {(
-          ['todos', 'maestria', 'doctorado', 'diplomado', 'curso'] as const
-        ).map((tipo) => (
-          <Button
-            key={tipo}
-            variant={tipoFiltro === tipo ? 'default' : 'outline'}
-            size="sm"
-            onClick={() => setTipoFiltro(tipo)}
-            className={
-              tipoFiltro === tipo ? 'bg-epg-navy hover:bg-epg-navy-dark' : ''
-            }
-          >
-            {tipoLabels[tipo]}
-            <span className="ml-1 text-xs opacity-70">
-              ({conteosPorTipo[tipo] || 0})
-            </span>
-          </Button>
-        ))}
       </div>
 
       {/* Resultados */}
       <div className="mb-4 flex items-center justify-between">
         <p className="text-gray-600">
-          {programasFiltrados.length === 1
+          {programs.length === 1
             ? '1 programa encontrado'
-            : `${programasFiltrados.length} programas encontrados`}
+            : `${programs.length} programas encontrados`}
         </p>
       </div>
 
       {/* Grid de programas */}
-      {programasFiltrados.length > 0 ? (
+      {programs.length > 0 ? (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {programasFiltrados.map((programa) => (
-            <ProgramaCard key={programa.id} programa={programa} />
+          {programs.map((programa) => (
+            <ProgramCard key={programa.id} programa={programa} />
           ))}
         </div>
       ) : (
@@ -356,7 +237,7 @@ export function ProgramasLista() {
           description="Intenta ajustar los filtros o el término de búsqueda."
           action={{
             label: 'Limpiar filtros',
-            onClick: limpiarFiltros,
+            onClick: () => navigate(getClearUrl()),
           }}
           variant="inline"
         />
@@ -373,11 +254,11 @@ export function ProgramasLista() {
           }}
           secondaryAction={{
             label: 'Contactar asesor',
-            href: '#',
+            href: '/contacto',
           }}
           className="text-center"
         />
       </div>
     </div>
-  )
+  );
 }
