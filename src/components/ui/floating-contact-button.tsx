@@ -34,10 +34,10 @@ export function FloatingContactButton() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-epg-navy hover:bg-epg-navy-light rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-epg-gold focus:ring-offset-2"
+        className="fixed bottom-4 right-4 z-50 w-11 h-11 bg-epg-navy hover:bg-epg-navy-light rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-epg-gold focus:ring-offset-2"
         aria-label="Abrir formulario de contacto"
       >
-        <MessageCircle className="w-6 h-6 text-epg-gold" />
+        <MessageCircle className="w-5 h-5 text-epg-gold" />
       </button>
 
       {/* Overlay */}
