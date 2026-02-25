@@ -51,7 +51,7 @@ export function FloatingContactButton() {
 
       {/* Modal - iOS Style Sheet */}
       <div
-        className={`fixed inset-x-0 bottom-0 z-50 max-h-[90vh] bg-white rounded-t-3xl shadow-2xl overflow-hidden transition-transform duration-300 ease-out ${
+        className={`fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 max-h-[50vh] w-[98%] max-w-2xl bg-white rounded-t-2xl shadow-2xl overflow-hidden transition-transform duration-300 ease-out ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
         role="dialog"
@@ -59,27 +59,27 @@ export function FloatingContactButton() {
         aria-label="Formulario de contacto"
       >
         {/* Handle Bar */}
-        <div className="flex justify-center pt-3 pb-2">
-          <div className="w-10 h-1 bg-gray-300 rounded-full" />
+        <div className="flex justify-center pt-2 pb-1">
+          <div className="w-8 h-1 bg-gray-300 rounded-full" />
         </div>
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-3 border-b">
-          <h2 className="text-lg font-bold text-epg-navy">Escríbenos</h2>
+        <div className="flex items-center justify-between px-4 py-2 border-b">
+          <h2 className="text-base font-bold text-epg-navy">Escríbenos</h2>
           <button
             onClick={() => setIsOpen(false)}
-            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+            className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
             aria-label="Cerrar formulario"
           >
-            <X className="w-5 h-5 text-gray-500" />
+            <X className="w-4 h-4 text-gray-500" />
           </button>
         </div>
 
         {/* Form Content */}
-        <div className="overflow-y-auto max-h-[calc(90vh-80px)]">
-          <div className="px-6 py-4">
-            <p className="text-sm text-gray-600 mb-4">
-              Completa el formulario y nos pondremos en contacto contigo pronto.
+        <div className="overflow-y-auto max-h-[calc(50vh-50px)]">
+          <div className="px-4 py-3">
+            <p className="text-xs text-gray-500 mb-3">
+              Completa el formulario y te contactaremos pronto.
             </p>
             <ContactForm />
           </div>
