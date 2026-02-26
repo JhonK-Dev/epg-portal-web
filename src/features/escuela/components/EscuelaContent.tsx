@@ -1,9 +1,9 @@
 import { autoridades } from '@/data/autoridades'
 import {
   infoInstitucional,
-  estadisticas,
   documentos,
 } from '@/data/institucional'
+import { estadisticasInstitucionales } from '@/data/estadisticas'
 import {
   getGradoInfo,
   tipoDocumentoColors,
@@ -113,24 +113,25 @@ function EstadisticasGrid() {
     Award: <Award className="h-8 w-8" />,
     Users: <Users className="h-8 w-8" />,
     Calendar: <Calendar className="h-8 w-8" />,
-    UserCheck: <Users className="h-8 w-8" />,
+    BookOpen: <BookOpen className="h-8 w-8" />,
     ThumbsUp: <Heart className="h-8 w-8" />,
   }
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-      {estadisticas.map((stat, index) => (
+      {estadisticasInstitucionales.map((stat) => (
         <div
-          key={index}
+          key={stat.id}
           className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
         >
           <StatItem
-            value={stat.valor}
+            value={stat.value}
             label={stat.label}
             variant="card"
+            description={stat.description}
             icon={
               <IconCircle
-                icon={stat.icono && iconMap[stat.icono]}
+                icon={stat.icon && iconMap[stat.icon]}
                 size="xl"
                 variant="custom"
                 bgColor="bg-epg-gold/10"
@@ -294,24 +295,17 @@ export function EscuelaContent() {
           <Card className="bg-gradient-to-br from-epg-navy to-epg-navy-light text-white border-0">
             <CardContent className="pt-8">
               <div className="grid grid-cols-2 gap-8">
-                <div className="text-center">
-                  <p className="text-5xl font-bold text-epg-gold mb-2">35+</p>
-                  <p className="text-gray-300">Años de trayectoria</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-5xl font-bold text-epg-gold mb-2">
-                    2,500+
-                  </p>
-                  <p className="text-gray-300">Egresados</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-5xl font-bold text-epg-gold mb-2">15+</p>
-                  <p className="text-gray-300">Maestrías</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-5xl font-bold text-epg-gold mb-2">5</p>
-                  <p className="text-gray-300">Doctorados</p>
-                </div>
+                {[
+                  { value: estadisticasInstitucionales[0].value, label: estadisticasInstitucionales[0].label },
+                  { value: estadisticasInstitucionales[1].value, label: estadisticasInstitucionales[1].label },
+                  { value: estadisticasInstitucionales[2].value, label: estadisticasInstitucionales[2].label },
+                  { value: estadisticasInstitucionales[3].value, label: estadisticasInstitucionales[3].label },
+                ].map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <p className="text-5xl font-bold text-epg-gold mb-2">{stat.value}</p>
+                    <p className="text-gray-300">{stat.label}</p>
+                  </div>
+                ))}
               </div>
               <Separator className="my-8 bg-white/20" />
               <div className="text-center">
