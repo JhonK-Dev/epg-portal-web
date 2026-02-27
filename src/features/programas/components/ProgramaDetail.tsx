@@ -1,11 +1,11 @@
-import type { Programa } from '@/types'
-import { formatDateSafe } from '@/lib/formatters'
+import type { Programa } from '@/types';
+import { formatDateSafe } from '@/lib/formatters';
 import {
   tipoProgramaLabels,
   tipoProgramaColors,
   modalidadLabels,
   modalidadColors,
-} from '@/lib/config'
+} from '@/lib/config';
 import {
   Calendar,
   Clock,
@@ -18,21 +18,21 @@ import {
   FileText,
   ArrowLeft,
   Share2,
-} from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
-import { PageHero } from '@/components/ui/page-hero'
+} from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { PageHero } from '@/components/ui/page-hero';
 
 interface ProgramaDetailProps {
-  programa: Programa
+  programa: Programa;
 }
 
 export function ProgramaDetail({ programa }: ProgramaDetailProps) {
@@ -40,11 +40,6 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Header */}
       <PageHero
-        breadcrumbs={[
-          { label: 'Inicio', href: '/' },
-          { label: 'Programas', href: '/programas' },
-          { label: tipoProgramaLabels[programa.tipo] },
-        ]}
         title={programa.nombre}
         subtitle={programa.descripcionCorta}
         badge={{
@@ -270,5 +265,5 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,34 +1,34 @@
-import * as React from 'react'
-import { cn } from '@/lib/utils'
-import { Badge } from './badge'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
+import { Badge } from './badge';
 
 export interface BreadcrumbItem {
-  label: string
-  href?: string
+  label: string;
+  href?: string;
 }
 
 export interface PageHeroProps {
   /** Breadcrumb navigation items */
-  breadcrumbs: BreadcrumbItem[]
+  breadcrumbs: BreadcrumbItem[];
   /** Main page title */
-  title: string
+  title: string;
   /** Optional subtitle/description */
-  subtitle?: string
+  subtitle?: string;
   /** Optional badge to display */
   badge?: {
-    label: string
-    variant?: 'default' | 'secondary' | 'outline' | 'destructive'
-    className?: string
-    icon?: React.ReactNode
-  }
+    label: string;
+    variant?: 'default' | 'secondary' | 'outline' | 'destructive';
+    className?: string;
+    icon?: React.ReactNode;
+  };
   /** Additional content to render in the hero */
-  children?: React.ReactNode
+  children?: React.ReactNode;
   /** Visual variant for the hero background */
-  variant?: 'solid' | 'gradient'
+  variant?: 'solid' | 'gradient';
   /** Custom background color classes (overrides variant) */
-  bgColorClass?: string
+  bgColorClass?: string;
   /** Additional className for the hero container */
-  className?: string
+  className?: string;
 }
 
 /**
@@ -63,7 +63,6 @@ export interface PageHeroProps {
  * </PageHero>
  */
 export function PageHero({
-  breadcrumbs,
   title,
   subtitle,
   badge,
@@ -77,44 +76,11 @@ export function PageHero({
     bgColorClass ||
     (variant === 'gradient'
       ? 'bg-gradient-to-br from-epg-navy to-epg-navy-light'
-      : 'bg-epg-navy')
+      : 'bg-epg-navy');
 
   return (
     <div className={cn(bgClass, 'text-white', className)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        {/* Breadcrumb */}
-        <nav className="text-sm mb-6" aria-label="Breadcrumb">
-          <ol className="flex items-center gap-2">
-            {breadcrumbs.map((item, index) => {
-              const isLast = index === breadcrumbs.length - 1
-
-              return (
-                <React.Fragment key={index}>
-                  {index > 0 && (
-                    <li className="text-gray-400" aria-hidden="true">
-                      /
-                    </li>
-                  )}
-                  <li>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="text-gray-300 hover:text-white transition-colors"
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <span className={isLast ? 'text-epg-gold' : 'text-white'}>
-                        {item.label}
-                      </span>
-                    )}
-                  </li>
-                </React.Fragment>
-              )
-            })}
-          </ol>
-        </nav>
-
         {/* Badge */}
         {badge && (
           <div className="mb-4">
@@ -122,7 +88,7 @@ export function PageHero({
               variant={badge.variant}
               className={cn(
                 'bg-white/20 text-white hover:bg-white/30 gap-1',
-                badge.className,
+                badge.className
               )}
             >
               {badge.icon}
@@ -147,7 +113,7 @@ export function PageHero({
         {children}
       </div>
     </div>
-  )
+  );
 }
 
-export default PageHero
+export default PageHero;
