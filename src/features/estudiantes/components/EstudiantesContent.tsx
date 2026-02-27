@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import {
   accesosRapidos,
   tramitesEstudiantiles,
@@ -10,7 +10,7 @@ import {
   type DocumentoDescargable,
   type FechaCalendario,
   type PreguntaFrecuente,
-} from '@/data/estudiantes'
+} from '@/data/estudiantes';
 import {
   ClipboardList,
   Monitor,
@@ -39,23 +39,23 @@ import {
   CheckCircle,
   AlertCircle,
   HelpCircle,
-} from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import { SectionHeader } from '@/components/ui/section-header'
-import { Accordion, type AccordionItem } from '@/components/ui/accordion'
-import { DocumentDownloadItem } from '@/components/ui/document-download-item'
+} from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { SectionHeader } from '@/components/ui/section-header';
+import { Accordion, type AccordionItem } from '@/components/ui/accordion';
+import { DocumentDownloadItem } from '@/components/ui/document-download-item';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
-import { CTABannerSideBySide } from '@/components/ui/cta-banner'
-import { PageHero } from '@/components/ui/page-hero'
-import { IconCircle } from '@/components/ui/icon-circle'
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { CTABannerSideBySide } from '@/components/ui/cta-banner';
+import { PageHero } from '@/components/ui/page-hero';
+import { IconCircle } from '@/components/ui/icon-circle';
 
 // ========================================
 // ICON MAPPER HELPERS
@@ -69,7 +69,7 @@ const accesoIconMap: Record<string, React.ReactNode> = {
   'file-text': <FileText className="w-6 h-6 text-white" />,
   users: <Users className="w-6 h-6 text-white" />,
   award: <Award className="w-6 h-6 text-white" />,
-}
+};
 
 const tramiteIconMap: Record<string, (className: string) => React.ReactNode> = {
   'clipboard-check': (className) => <ClipboardCheck className={className} />,
@@ -80,7 +80,7 @@ const tramiteIconMap: Record<string, (className: string) => React.ReactNode> = {
   'file-text': (className) => <FileText className={className} />,
   'graduation-cap': (className) => <GraduationCap className={className} />,
   'credit-card': (className) => <CreditCard className={className} />,
-}
+};
 
 const recursoIconMap: Record<string, React.ReactNode> = {
   database: <Database className="w-5 h-5" />,
@@ -89,7 +89,7 @@ const recursoIconMap: Record<string, React.ReactNode> = {
   bookmark: <Bookmark className="w-5 h-5" />,
   'graduation-cap': <GraduationCap className="w-5 h-5" />,
   'user-check': <UserCheck className="w-5 h-5" />,
-}
+};
 
 // ========================================
 // ACCESOS RÁPIDOS COMPONENT
@@ -133,7 +133,7 @@ function AccesosRapidos() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // ========================================
@@ -141,7 +141,7 @@ function AccesosRapidos() {
 // ========================================
 function TramitesGrid() {
   const [selectedTramite, setSelectedTramite] =
-    useState<TramiteEstudiantil | null>(null)
+    useState<TramiteEstudiantil | null>(null);
 
   return (
     <section className="py-12 lg:py-16">
@@ -157,14 +157,14 @@ function TramitesGrid() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tramitesEstudiantiles.map((tramite) => {
-            const IconComponent = tramiteIconMap[tramite.icono]
+            const IconComponent = tramiteIconMap[tramite.icono];
             return (
               <Card
                 key={tramite.id}
                 className="hover:shadow-xl transition-all cursor-pointer group"
                 onClick={() =>
                   setSelectedTramite(
-                    selectedTramite?.id === tramite.id ? null : tramite,
+                    selectedTramite?.id === tramite.id ? null : tramite
                   )
                 }
               >
@@ -277,12 +277,12 @@ function TramitesGrid() {
                   )}
                 </CardContent>
               </Card>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // ========================================
@@ -296,15 +296,15 @@ function DocumentosDescargables() {
     pdf: { bg: 'bg-red-100', text: 'text-red-600' },
     docx: { bg: 'bg-blue-100', text: 'text-blue-600' },
     xlsx: { bg: 'bg-green-100', text: 'text-green-600' },
-  }
+  };
 
-  const categorias = ['reglamento', 'formato', 'guia', 'manual'] as const
+  const categorias = ['reglamento', 'formato', 'guia', 'manual'] as const;
   const categoriaLabels: Record<DocumentoDescargable['categoria'], string> = {
     reglamento: 'Reglamentos',
     formato: 'Formatos',
     guia: 'Guías',
     manual: 'Manuales',
-  }
+  };
 
   return (
     <section className="py-12 lg:py-16 bg-gray-50">
@@ -338,7 +338,7 @@ function DocumentosDescargables() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // ========================================
@@ -363,14 +363,14 @@ function CalendarioAcademico() {
     },
     evento: { bg: 'bg-amber-500', text: 'text-amber-500', label: 'Evento' },
     pago: { bg: 'bg-emerald-500', text: 'text-emerald-500', label: 'Pago' },
-  }
+  };
 
   const formatFecha = (fecha: string) => {
     return new Date(fecha).toLocaleDateString('es-PE', {
       day: 'numeric',
       month: 'short',
-    })
-  }
+    });
+  };
 
   return (
     <section className="py-12 lg:py-16">
@@ -386,7 +386,7 @@ function CalendarioAcademico() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {calendarioAcademico.slice(0, 8).map((fecha) => {
-            const style = tipoStyles[fecha.tipo]
+            const style = tipoStyles[fecha.tipo];
             return (
               <Card
                 key={fecha.id}
@@ -423,12 +423,12 @@ function CalendarioAcademico() {
                   )}
                 </CardContent>
               </Card>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // ========================================
@@ -471,7 +471,7 @@ function RecursosAcademicosGrid() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // ========================================
@@ -484,7 +484,7 @@ function PreguntasFrecuentesSection() {
     tesis: 'Tesis',
     pagos: 'Pagos',
     general: 'General',
-  }
+  };
 
   const accordionItems: AccordionItem[] = preguntasFrecuentes.map((faq) => ({
     id: faq.id,
@@ -502,7 +502,7 @@ function PreguntasFrecuentesSection() {
         <p className="text-gray-600">{faq.respuesta}</p>
       </div>
     ),
-  }))
+  }));
 
   return (
     <section className="py-12 lg:py-16">
@@ -534,7 +534,7 @@ function PreguntasFrecuentesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // ========================================
@@ -559,7 +559,7 @@ function CtaSection() {
         />
       </div>
     </section>
-  )
+  );
 }
 
 // ========================================
@@ -570,7 +570,6 @@ export function EstudiantesContent() {
     <div>
       {/* Hero Section */}
       <PageHero
-        breadcrumbs={[{ label: 'Inicio', href: '/' }, { label: 'Estudiantes' }]}
         title="Portal del Estudiante"
         subtitle="Accede a recursos, trámites y servicios exclusivos para estudiantes de la Escuela de Postgrado."
         variant="solid"
@@ -598,5 +597,5 @@ export function EstudiantesContent() {
       {/* CTA */}
       <CtaSection />
     </div>
-  )
+  );
 }

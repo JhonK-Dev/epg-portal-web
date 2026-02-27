@@ -1,6 +1,6 @@
-import type { Publicacion } from '@/types'
-import { formatDate, formatDateTime } from '@/lib/formatters'
-import { tipoPublicacionLabels, tipoPublicacionColors } from '@/lib/config'
+import type { Publicacion } from '@/types';
+import { formatDate, formatDateTime } from '@/lib/formatters';
+import { tipoPublicacionLabels, tipoPublicacionColors } from '@/lib/config';
 import {
   Calendar,
   User,
@@ -13,16 +13,16 @@ import {
   CalendarDays,
   Bell,
   Megaphone,
-} from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
-import { PageHero } from '@/components/ui/page-hero'
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { PageHero } from '@/components/ui/page-hero';
 
 interface PublicacionDetailProps {
-  publicacion: Publicacion
-  publicacionesRelacionadas?: Publicacion[]
+  publicacion: Publicacion;
+  publicacionesRelacionadas?: Publicacion[];
 }
 
 const tipoIcons: Record<string, React.ReactNode> = {
@@ -30,7 +30,7 @@ const tipoIcons: Record<string, React.ReactNode> = {
   evento: <CalendarDays className="h-5 w-5" />,
   aviso: <Bell className="h-5 w-5" />,
   comunicado: <Megaphone className="h-5 w-5" />,
-}
+};
 
 export function PublicacionDetail({
   publicacion,
@@ -40,11 +40,6 @@ export function PublicacionDetail({
     <div className="min-h-screen bg-gray-50">
       {/* Hero Header */}
       <PageHero
-        breadcrumbs={[
-          { label: 'Inicio', href: '/' },
-          { label: 'Publicaciones', href: '/publicaciones' },
-          { label: tipoPublicacionLabels[publicacion.tipo] },
-        ]}
         title={publicacion.titulo}
         bgColorClass={tipoPublicacionColors[publicacion.tipo]}
         variant="solid"
@@ -247,5 +242,5 @@ export function PublicacionDetail({
         </div>
       </div>
     </div>
-  )
+  );
 }
