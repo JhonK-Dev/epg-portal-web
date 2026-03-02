@@ -22,6 +22,10 @@ import { validateEmail } from '@/lib/validators'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
+interface ContactFormProps {
+  formspreeId?: string
+}
+
 interface FormData {
   nombre: string
   email: string
@@ -36,9 +40,6 @@ interface FormErrors {
   mensaje?: string
 }
 
-// Formspree endpoint - Replace with your actual Formspree form ID
-const FORMSPREE_CONTACT_ID = 'mzzboqpn'
-
 const asuntoOptions = [
   { value: '', label: 'Selecciona un asunto' },
   { value: 'informacion-programas', label: 'Información sobre programas' },
@@ -50,7 +51,7 @@ const asuntoOptions = [
   { value: 'otro', label: 'Otro' },
 ]
 
-export function ContactForm() {
+export function ContactForm({ formspreeId }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     nombre: '',
     email: '',
@@ -60,6 +61,8 @@ export function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [status, setStatus] = useState<FormStatus>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+
+  const formId = formspreeId || 'mzzboqpn' // fallback para desarrollo
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
@@ -118,7 +121,7 @@ export function ContactForm() {
         formData.asunto
 
       const response = await fetch(
-        `https://formspree.io/f/${FORMSPREE_CONTACT_ID}`,
+        `https://formspree.io/f/${formId}`,
         {
           method: 'POST',
           headers: {
