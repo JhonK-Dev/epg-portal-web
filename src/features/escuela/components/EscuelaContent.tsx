@@ -415,22 +415,6 @@ export function EscuelaContent() {
         />
         <Documentos />
       </section>
-
-      {/* CTA */}
-      <section>
-        <CTABannerSideBySide
-          title="¿Listo para ser parte de nuestra comunidad?"
-          description="Descubre nuestros programas y comienza tu formación de posgrado"
-          primaryAction={{
-            label: 'Ver programas',
-            href: '/programas',
-          }}
-          secondaryAction={{
-            label: 'Admisión',
-            href: '/admision',
-          }}
-        />
-      </section>
     </div>
   )
 }
