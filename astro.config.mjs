@@ -22,6 +22,12 @@ export default defineConfig({
         access: "public",
         default: 10000
       }),
+      FORMSPREE_ID: envField.string({
+        context: "server",
+        access: "public",
+        optional: true,
+        default: ""
+      }),
     }
   },
 
