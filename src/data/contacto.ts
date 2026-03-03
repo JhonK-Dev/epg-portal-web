@@ -1,16 +1,13 @@
 import type { InfoContacto } from '@/types';
 
-// ⚠️ IMPORTANTE: Reemplazar con datos reales antes de producción
-// Los datos actuales son placeholders y deben ser actualizados
-
 /**
  * Información de contacto general de la EPG
  */
 export const contactoGeneral: InfoContacto = {
   direccion: 'Calle los Rosales S/N - Sta cuadra San Juan Bautista',
-  telefono: '+51987654320',              // Formato internacional para links
-  telefonoDisplay: '(065) 987-654-320',  // Formato visual
-  email: 'postgradounap.edu.pe',              // Placeholder - reemplazar con email real
+  telefono: '+51987654320',
+  telefonoDisplay: '(065) 987-654-320',
+  email: 'postgrado@unap.edu.pe',
   whatsapp: '+51987654320',
   horarioAtencion: 'Lunes a Viernes: 7:00 a.m. - 2:00 p.m.',
   coordenadas: {
@@ -26,7 +23,7 @@ export const contactoAdmision: InfoContacto = {
   ...contactoGeneral,
   telefono: '+51987654321',
   telefonoDisplay: '(065) 987-654-321',
-  email: 'admision@unap.edu.pe',         // Placeholder - reemplazar con email real
+  email: 'admision@unap.edu.pe',
   whatsapp: '+51987654321',
 };
 
@@ -37,7 +34,7 @@ export const contactoSoporte: InfoContacto = {
   ...contactoGeneral,
   telefono: '+51987654322',
   telefonoDisplay: '(065) 987-654-322',
-  email: 'soporte@unap.edu.pe',          // Placeholder - reemplazar con email real
+  email: 'soporte@unap.edu.pe',
   whatsapp: '+51987654322',
 };
 
