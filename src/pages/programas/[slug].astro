@@ -5,6 +5,7 @@ import { ProgramaDetail } from '../../features/programas';
 import { programas, getProgramaBySlug } from '../../data/programas';
 import { getProgramBySlug } from '../../lib/api/programs';
 import type { Programa } from '../../types/programas';
+import { ErrorBoundary } from '../../components/ui/error-boundary';
 
 export async function getStaticPaths() {
   return programas.map((programa) => ({
@@ -65,6 +66,8 @@ const tipoLabels: Record<string, string> = {
 >
   <Navbar />
   <main>
-    <ProgramaDetail programa={programaData} client:load />
+    <ErrorBoundary client:load>
+      <ProgramaDetail programa={programaData} />
+    </ErrorBoundary>
   </main>
 </Layout>
