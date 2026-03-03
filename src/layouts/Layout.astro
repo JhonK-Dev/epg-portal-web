@@ -1,8 +1,16 @@
 ---
 import "../styles/global.css";
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/inter/800.css";
+import "@fontsource/inter/900.css";
 import Footer from "../features/navigation/components/Footer.astro";
 import ScrollToTop from "../components/ui/ScrollToTop.astro";
 import { FloatingContactButton } from "../components/ui/floating-contact-button";
+import { ErrorBoundary } from "../components/ui/error-boundary";
 import { ClientRouter } from "astro:transitions";
 
 interface Props {
@@ -61,11 +69,6 @@ const keywordsString = keywords.join(", ");
 		<link rel="icon" type="image/webp" href="/images/logo/Isotipo-EPG.webp" />
 		<link rel="icon" type="image/webp" sizes="32x32" href="/images/logo/Isotipo-EPG.webp" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/images/logo/Isotipo-EPG.webp" />
-		
-		<!-- Google Fonts - Inter -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 		
 		<!-- Primary Meta Tags -->
 		<title>{fullTitle}</title>
@@ -151,7 +154,9 @@ const keywordsString = keywords.join(", ");
 		<slot />
 		<Footer />
 		<ScrollToTop />
-		<FloatingContactButton client:load />
+		<ErrorBoundary client:load>
+			<FloatingContactButton />
+		</ErrorBoundary>
 		<script>
 			import "../scripts/scroll-reveal";
 		</script>
