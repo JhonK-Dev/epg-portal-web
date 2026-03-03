@@ -15,6 +15,17 @@ export async function getPrograms(
   return fetchApi<ApiProgram[]>(`${endpoints.programs.list}${queryString}`);
 }
 
+export async function getProgramBySlug(
+  slug: string
+): Promise<ApiProgram | undefined> {
+  try {
+    const programs = await getPrograms({ search: slug, is_active: true });
+    return programs.find((p) => p.uuid === slug || p.name.toLowerCase().includes(slug.toLowerCase()));
+  } catch {
+    return undefined;
+  }
+}
+
 export async function getProgramsList(params: ProgramFilters) {
   return getPrograms(params);
 }

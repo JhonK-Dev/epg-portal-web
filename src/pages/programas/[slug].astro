@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { ProgramaDetail } from '../../features/programas';
 import { programas, getProgramaBySlug } from '../../data/programas';
+import { getProgramBySlug } from '../../lib/api/programs';
+import type { Programa } from '../../types/programas';
 
 export async function getStaticPaths() {
   return programas.map((programa) => ({
@@ -12,10 +14,36 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const { programa } = Astro.props;
+const { programa: programaFromProps } = Astro.props;
 
-// Fallback in case props don't work as expected
-const programaData = programa || getProgramaBySlug(slug);
+let programaData: Programa | undefined = programaFromProps;
+
+if (!programaData) {
+  try {
+    const apiProgram = await getProgramBySlug(slug!);
+    if (apiProgram) {
+      programaData = {
+        id: String(apiProgram.id),
+        nombre: apiProgram.name,
+        tipo: 'maestria',
+        descripcion: apiProgram.description,
+        descripcionCorta: apiProgram.description.slice(0, 100),
+        duracion: 'Por definir',
+        creditos: 0,
+        modalidad: 'presencial',
+        estado: apiProgram.is_active ? 'activo' : 'inactivo',
+        slug: apiProgram.uuid,
+        facultad: 'Por definir',
+      };
+    }
+  } catch {
+    programaData = getProgramaBySlug(slug!);
+  }
+}
+
+if (!programaData) {
+  programaData = getProgramaBySlug(slug!);
+}
 
 if (!programaData) {
   return Astro.redirect('/404');
