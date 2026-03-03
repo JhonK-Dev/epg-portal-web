@@ -4,6 +4,7 @@ import Navbar from '../../features/navigation/components/Navbar.astro';
 import { ContactForm } from '../../features/contacto';
 import { contactoGeneral } from '../../data/contacto';
 import { FORMSPREE_ID } from 'astro:env/server';
+import { ErrorBoundary } from '../../components/ui/error-boundary';
 ---
 
 <Layout 
@@ -29,7 +30,9 @@ import { FORMSPREE_ID } from 'astro:env/server';
         <div class="grid lg:grid-cols-3 gap-12">
           <!-- Contact Form -->
           <div class="lg:col-span-2">
-            <ContactForm formspreeId={FORMSPREE_ID} client:load />
+            <ErrorBoundary client:load>
+              <ContactForm formspreeId={FORMSPREE_ID} />
+            </ErrorBoundary>
           </div>
 
           <!-- Contact Info -->
