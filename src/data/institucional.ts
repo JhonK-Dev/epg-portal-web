@@ -1,9 +1,13 @@
-import type { RedSocial, Estadistica, Documento, ProcesoEstudiantil, Sustentacion } from '@/types';
+import type { RedSocial, Documento, ProcesoEstudiantil, Sustentacion } from '@/types';
 import { contactoGeneral } from './contacto';
+import { estadisticasInstitucionales } from './estadisticas';
 
 // --- INFORMACIÓN DE CONTACTO ---
 // Re-exportar desde contacto.ts para mantener compatibilidad
 export const infoContacto = contactoGeneral;
+
+// Re-exportar estadísticas desde archivo centralizado
+export { estadisticasInstitucionales as estadisticas } from './estadisticas';
 
 // --- REDES SOCIALES ---
 export const redesSociales: RedSocial[] = [
@@ -34,41 +38,7 @@ export const redesSociales: RedSocial[] = [
   },
 ];
 
-// --- ESTADÍSTICAS INSTITUCIONALES ---
-export const estadisticas: Estadistica[] = [
-  {
-    valor: '15+',
-    label: 'Programas de Maestría',
-    icono: 'GraduationCap',
-  },
-  {
-    valor: '5',
-    label: 'Programas de Doctorado',
-    icono: 'Award',
-  },
-  {
-    valor: '2,500+',
-    label: 'Egresados',
-    icono: 'Users',
-  },
-  {
-    valor: '120+',
-    label: 'Docentes Especializados',
-    icono: 'UserCheck',
-  },
-  {
-    valor: '35',
-    label: 'Años de Trayectoria',
-    icono: 'Calendar',
-  },
-  {
-    valor: '98%',
-    label: 'Satisfacción Estudiantil',
-    icono: 'ThumbsUp',
-  },
-];
-
-// --- REGLAMENTOS Y DOCUMENTOS ---
+// --- REDES SOCIALES ---
 export const documentos: Documento[] = [
   {
     id: 'doc-reg-001',

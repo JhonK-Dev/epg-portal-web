@@ -5,8 +5,7 @@ import Hero from '../features/home/components/Hero.astro';
 import FeaturedPrograms from '../features/home/components/FeaturedPrograms.astro';
 import AdmissionCTA from '../features/home/components/AdmissionCTA.astro';
 import { 
-  ProgramSearchWithStats, 
-  ContactSection
+  ProgramSearchWithStats
 } from '../features/home';
 import { getFeaturedPrograms } from '../lib/api';
 import type { ApiProgram } from '../lib/api/programs/types';
@@ -54,8 +53,5 @@ const formacionContinuaCount = 0; // La API no tiene este tipo aún
     
     <!-- CTA de Admisión — Astro component, zero JS -->
     <AdmissionCTA />
-    
-    <!-- Formulario de Contacto — React, hydrates when visible -->
-    <ContactSection client:visible />
   </main>
 </Layout>

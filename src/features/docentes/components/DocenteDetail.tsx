@@ -1,6 +1,6 @@
-import type { Docente } from '@/types'
-import { getProgramaById } from '@/data/programas'
-import { getGradoInfo, getSocialNetworkClasses } from '@/lib/config'
+import type { Docente } from '@/types';
+import { getProgramaById } from '@/data/programas';
+import { getGradoInfo, getSocialNetworkClasses } from '@/lib/config';
 import {
   Mail,
   Phone,
@@ -18,34 +18,29 @@ import {
   Users,
   Building2,
   Globe,
-} from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
-import { PageHero } from '@/components/ui/page-hero'
+} from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { PageHero } from '@/components/ui/page-hero';
 
 interface DocenteDetailProps {
-  docente: Docente
+  docente: Docente;
 }
 
 export function DocenteDetail({ docente }: DocenteDetailProps) {
-  const gradoInfo = getGradoInfo(docente.grado)
-  const nombreCompleto = `${gradoInfo.label} ${docente.nombres} ${docente.apellidos}`
+  const gradoInfo = getGradoInfo(docente.grado);
+  const nombreCompleto = `${gradoInfo.label} ${docente.nombres} ${docente.apellidos}`;
 
   // Get programs where this teacher teaches
   const programasDocente =
-    docente.programas?.map((id) => getProgramaById(id)).filter(Boolean) || []
+    docente.programas?.map((id) => getProgramaById(id)).filter(Boolean) || [];
 
   return (
     <div>
       {/* Hero Section */}
       <PageHero
-        breadcrumbs={[
-          { label: 'Inicio', href: '/' },
-          { label: 'Docentes', href: '/docentes' },
-          { label: docente.apellidos },
-        ]}
         title={nombreCompleto}
         subtitle={docente.resumenPerfil}
         badge={{
@@ -138,7 +133,6 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                   <ExternalLink className="w-3 h-3" />
                 </a>
               )}
-
             </div>
           </div>
         </div>
@@ -329,10 +323,13 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
                         {docente.proyectosInvestigacion.map(
                           (proyecto, index) => (
                             <li key={index} className="flex items-start gap-2">
-                              <div className="w-2 h-2 bg-epg-gold rounded-full mt-2 flex-shrink-0" aria-hidden="true" />
+                              <div
+                                className="w-2 h-2 bg-epg-gold rounded-full mt-2 flex-shrink-0"
+                                aria-hidden="true"
+                              />
                               <span className="text-gray-600">{proyecto}</span>
                             </li>
-                          ),
+                          )
                         )}
                       </ul>
                     </CardContent>
@@ -431,5 +428,5 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
         </div>
       </section>
     </div>
-  )
+  );
 }

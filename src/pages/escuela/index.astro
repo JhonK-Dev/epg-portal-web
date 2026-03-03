@@ -12,8 +12,21 @@ import { EscuelaContent } from '../../features/escuela';
   <Navbar />
   <main class="min-h-screen">
     <!-- Hero Section -->
-    <section class="bg-linear-to-br from-epg-navy via-epg-navy-light to-epg-navy-light text-white py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative bg-epg-navy text-white py-20 lg:py-28 overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/images/hero/Docx.jpeg"
+          alt="Escuela de Postgrado UNAP"
+          class="w-full h-full object-cover object-[center_20%]"
+          loading="eager",
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-epg-navy/95 via-epg-navy/80 to-epg-navy/60" />
+        <div class="absolute inset-0 bg-gradient-to-t from-epg-navy/60 via-transparent to-transparent" />
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="text-sm mb-6">
           <ol class="flex items-center gap-2">
             <li><a href="/" class="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
