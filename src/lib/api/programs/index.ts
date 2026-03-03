@@ -5,6 +5,7 @@
 
 export {
   getFeaturedPrograms,
+  getProgramBySlug,
   getProgramByUuid,
   getPrograms,
   getProgramsList,
