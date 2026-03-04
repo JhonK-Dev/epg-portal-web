@@ -1,46 +1,91 @@
-# Astro Starter Kit: Basics
+# EPG Portal Web
 
-```sh
-pnpm create astro@latest -- --template basics
+Portal web de la Escuela de Postgrado de la Universidad Nacional de la Amazonía Peruana (UNAP).
+
+## Descripción
+
+Sitio web institucional de la EPG UNAP desarrollado con Astro y React. Presentan los programas académicos de maestría, doctorado y formación continua, información de admisión, noticias y eventos.
+
+## 🛠️ Tecnologías
+
+- **Framework**: [Astro](https://astro.build) 5.x con Islands Architecture
+- **UI**: React 19 (para componentes interactivos)
+- **Estilos**: Tailwind CSS 4.x
+- **Testing**: Vitest + Testing Library
+- **Deployment**: Node.js adapter
+
+## 📁 Estructura del Proyecto
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── public/                    # Assets estáticos
+│   └── images/               # Imágenes del sitio
+├── src/
+│   ├── components/           # Componentes reutilizables
+│   │   └── ui/              # Componentes UI (Button, Badge, etc.)
+│   ├── data/                # Datos estáticos del sitio
+│   ├── features/            # Features organizados por dominio
+│   │   ├── contacto/        # Página de contacto
+│   │   ├── docentes/        # Página de docentes
+│   │   ├── estudiantes/      # Página de estudiantes
+│   │   ├── escuela/         # Página de la escuela
+│   │   ├── home/            # Componentes del home
+│   │   ├── navigation/      # Navbar y Footer
+│   │   ├── programas/       # Listado y detalle de programas
+│   │   ├── publicaciones/   # Publicaciones y noticias
+│   │   └── servicios/      # Servicios de la EPG
+│   ├── hooks/               # Custom React hooks
+│   ├── layouts/             # Layouts de Astro
+│   ├── lib/                 # Utilidades y configuración
+│   │   ├── api/             # Cliente API y tipos
+│   │   └── config/          # Configuración (tipos programas, etc.)
+│   ├── pages/               # Páginas de Astro
+│   ├── scripts/             # Scripts del cliente
+│   ├── styles/              # Estilos globales
+│   └── types/               # Tipos TypeScript
+├── astro.config.mjs         # Configuración de Astro
+├── package.json
+├── tailwind.config.mjs      # Configuración de Tailwind
+├── tsconfig.json
+└── vitest.config.ts         # Configuración de tests
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Comandos
 
-## 🧞 Commands
+| Comando | Acción |
+|---------|--------|
+| `pnpm install` | Instalar dependencias |
+| `pnpm dev` | Iniciar servidor de desarrollo |
+| `pnpm build` | Construir para producción |
+| `pnpm preview` | Previsualizar build local |
+| `pnpm test` | Ejecutar tests en modo watch |
+| `pnpm test:run` | Ejecutar tests una vez |
+| `pnpm test:coverage` | Ejecutar tests con coverage |
 
-All commands are run from the root of the project, from a terminal:
+## 🔧 Variables de Entorno
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+Crear `.env.local` con las siguientes variables:
 
-## 👀 Want to learn more?
+```env
+# API de programas (opcional - usa fallback a datos mock si no está configurada)
+PUBLIC_API_URL=http://localhost:3000
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+# Formspree para formularios
+FORMSPREE_ID=your_formspree_id
+```
+
+## 🧪 Testing
+
+El proyecto incluye tests para:
+- Componentes UI de React
+- Hooks personalizados (use-debounce)
+- Utilidades y formateadores
+- Cliente API
+
+```bash
+pnpm test:coverage  # Coverage report
+```
+
+## 📝 Licencia
+
+MIT

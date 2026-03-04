@@ -6,7 +6,7 @@ import { useDebounce } from '@/hooks/use-debounce';
 import type { ApiProgram } from '@/lib/api';
 import { GraduationCap, Search, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { ProgramCard } from './program-card';
+import { ProgramCard } from './ProgramCard';
 import { navigate } from 'astro:transitions/client';
 
 interface ProgramasListaProps {
