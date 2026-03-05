@@ -19,7 +19,7 @@ import { EscuelaContent } from '../../features/escuela';
           src="/images/hero/Docx.jpeg"
           alt="Escuela de Postgrado UNAP"
           class="w-full h-full object-cover object-[center_20%]"
-          loading="eager",
+          loading="eager"
         />
         <div class="absolute inset-0 bg-gradient-to-r from-epg-navy/95 via-epg-navy/80 to-epg-navy/60" />
         <div class="absolute inset-0 bg-gradient-to-t from-epg-navy/60 via-transparent to-transparent" />
@@ -42,7 +42,7 @@ import { EscuelaContent } from '../../features/escuela';
     </section>
 
     <!-- Quick Navigation -->
-    <section class="bg-white border-b sticky top-0 z-40 shadow-sm">
+    <section id="escuela-tabs" class="bg-white border-b sticky top-16 md:top-[6.75rem] z-40 shadow-sm transition-[top] duration-500 ease-out">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="flex overflow-x-auto gap-8 py-4 scrollbar-hide">
           <a href="#historia" class="text-epg-navy font-medium whitespace-nowrap hover:text-epg-gold transition-colors border-b-2 border-transparent hover:border-epg-gold pb-1">Historia</a>
@@ -62,6 +62,42 @@ import { EscuelaContent } from '../../features/escuela';
       </div>
     </section>
   </main>
+
+  <script>
+    function initEscuelaTabs() {
+      const header = document.getElementById('main-header');
+      const tabs = document.getElementById('escuela-tabs');
+      if (!header || !tabs) return;
+
+      const isMd = () => window.matchMedia('(min-width: 768px)').matches;
+
+      const MAIN_NAV_HEIGHT = 64;
+      const SECONDARY_NAV_HEIGHT = 44;
+
+      const updateTabsPosition = () => {
+        const headerHidden = header.classList.contains('-translate-y-full');
+
+        if (headerHidden) {
+          tabs.style.top = '0px';
+        } else {
+          const totalHeight = isMd()
+            ? MAIN_NAV_HEIGHT + SECONDARY_NAV_HEIGHT
+            : MAIN_NAV_HEIGHT;
+          tabs.style.top = `${totalHeight}px`;
+        }
+      };
+
+      const observer = new MutationObserver(updateTabsPosition);
+      observer.observe(header, { attributes: true, attributeFilter: ['class'] });
+
+      window.addEventListener('resize', updateTabsPosition, { passive: true });
+
+      updateTabsPosition();
+    }
+
+    initEscuelaTabs();
+    document.addEventListener('astro:after-swap', initEscuelaTabs);
+  </script>
 </Layout>
 
 <style>
