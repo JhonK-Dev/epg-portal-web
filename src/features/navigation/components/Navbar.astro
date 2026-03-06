@@ -69,12 +69,12 @@ const secondaryNavItems: DropdownItem[] = [
 
 <header
   id="main-header"
-  class="w-full fixed top-0 z-50 transition-all duration-500 ease-out translate-y-0 opacity-100"
+  class="w-full fixed top-0 z-50"
 >
   <!-- Main Navigation - Navy Bar -->
   <nav
     id="main-nav"
-    class="transition-all duration-500 ease-out bg-epg-navy/5 text-white backdrop-blur-md"
+    class="bg-epg-navy text-white shadow-lg"
   >
     <div class="container-main">
       <div class="flex items-center justify-between h-16">
@@ -135,7 +135,7 @@ const secondaryNavItems: DropdownItem[] = [
   <!-- Secondary Navigation - Gold Bar - Desktop -->
   <nav
     id="secondary-nav"
-    class="hidden md:block transition-all duration-500 ease-out bg-epg-navy/5 text-white backdrop-blur-sm"
+    class="hidden md:block bg-epg-gold-dark text-white"
   >
     <div class="container-main">
       <div class="flex items-center justify-end h-11 gap-6">
@@ -248,24 +248,14 @@ const secondaryNavItems: DropdownItem[] = [
 
     if (!header || !mainNav || !secondaryNav || !mobileMenuBtn || !mobileMenu) return;
 
-    // ── Scroll behavior ──
+    // ── Scroll behavior (solo ocultar/mostrar navbar, sin cambio de color) ──
     let lastScrollY = 0;
     let hideTimeout: ReturnType<typeof setTimeout> | null = null;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const isAtTop = currentScrollY < 50;
 
-      // Update nav styling based on scroll position
-      if (isAtTop) {
-        mainNav.className = 'transition-all duration-500 ease-out bg-epg-navy/5 text-white backdrop-blur-md';
-        secondaryNav.className = 'hidden md:block transition-all duration-500 ease-out bg-epg-navy/5 text-white backdrop-blur-sm';
-      } else {
-        mainNav.className = 'transition-all duration-500 ease-out bg-epg-navy text-white shadow-lg';
-        secondaryNav.className = 'hidden md:block transition-all duration-500 ease-out bg-epg-gold-dark text-white';
-      }
-
-      // Hide/show header on scroll direction
+      // Hide/show header on scroll direction (no color change)
       if (currentScrollY > lastScrollY && currentScrollY > 150) {
         if (!hideTimeout) {
           hideTimeout = setTimeout(() => {
