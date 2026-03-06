@@ -41,10 +41,10 @@ import { EscuelaContent } from '../../features/escuela';
       </div>
     </section>
 
-    <!-- Quick Navigation: sticky bajo el navbar; cuando el navbar se oculta pasa a fixed top-0 -->
+    <!-- Quick Navigation: fixed - se ajusta dinámicamente cuando navbar se oculta -->
     <section
       id="escuela-tabs"
-      class="bg-white border-b sticky top-16 md:top-27 z-60 shadow-sm transition-[top] duration-300 ease-out"
+      class="fixed bg-white border-b z-40 w-full shadow-sm"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="flex overflow-x-auto gap-8 py-4 scrollbar-hide">
@@ -58,6 +58,9 @@ import { EscuelaContent } from '../../features/escuela';
       </div>
     </section>
 
+    <!-- Spacer para compensar el tab menu fixed (responsivo) -->
+    <div class="h-16 md:h-[108px]"></div>
+
     <!-- Content -->
     <section class="py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,46 +70,46 @@ import { EscuelaContent } from '../../features/escuela';
   </main>
 
   <script>
-    function initEscuelaTabs() {
-      const headerEl = document.getElementById('main-header');
-      const tabsEl   = document.getElementById('escuela-tabs');
-      if (!headerEl || !tabsEl) return;
+    function initTabs() {
+      const tabs = document.getElementById('escuela-tabs');
+      if (!tabs) return;
 
-      // Narrow to non-null for use inside callbacks
-      const header = headerEl as HTMLElement;
-      const tabs   = tabsEl   as HTMLElement;
+      const TAB_TOP_VISIBLE = '4rem';      // 64px - mobile
+      const TAB_TOP_VISIBLE_MD = '6.75rem'; // 108px - desktop
+      const TAB_TOP_HIDDEN = '0px';
 
-      const isMd = () => window.matchMedia('(min-width: 768px)').matches;
-      const MAIN_NAV_H      = 64;  // h-16
-      const SECONDARY_NAV_H = 44;  // secondary bar
+      let lastScrollY = 0;
+      let ticking = false;
 
-      function applyPosition() {
-        const navbarHidden = header.classList.contains('-translate-y-full');
+      function update() {
+        const header = document.getElementById('main-header');
+        if (!header) return;
 
-        if (navbarHidden) {
-          // Navbar oculto → tabs se fija al tope de la pantalla
-          tabs.style.position = 'fixed';
-          tabs.style.top      = '0px';
-          tabs.style.left     = '0';
-          tabs.style.right    = '0';
-        } else {
-          // Navbar visible → sticky justo debajo del navbar
-          const offset = isMd() ? MAIN_NAV_H + SECONDARY_NAV_H : MAIN_NAV_H;
-          tabs.style.position = 'sticky';
-          tabs.style.top      = `${offset}px`;
-          tabs.style.left     = '';
-          tabs.style.right    = '';
+        const isHidden = header.classList.contains('-translate-y-full');
+        const isMd = window.innerWidth >= 768;
+
+        tabs.style.top = isHidden 
+          ? TAB_TOP_HIDDEN 
+          : (isMd ? TAB_TOP_VISIBLE_MD : TAB_TOP_VISIBLE);
+
+        ticking = false;
+      }
+
+      function onScroll() {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+          requestAnimationFrame(update);
+          ticking = true;
         }
       }
 
-      const observer = new MutationObserver(applyPosition);
-      observer.observe(header, { attributes: true, attributeFilter: ['class'] });
-      window.addEventListener('resize', applyPosition, { passive: true });
-      applyPosition();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
     }
 
-    initEscuelaTabs();
-    document.addEventListener('astro:after-swap', initEscuelaTabs);
+    initTabs();
+    document.addEventListener('astro:after-swap', initTabs);
   </script>
 </Layout>
 
