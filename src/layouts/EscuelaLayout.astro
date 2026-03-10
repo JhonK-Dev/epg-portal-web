@@ -1,0 +1,148 @@
+---
+import Layout from './Layout.astro';
+import Navbar from '../features/navigation/components/Navbar.astro';
+
+interface TabItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  activeTab: string;
+}
+
+const {
+  title = 'La Escuela',
+  description = 'Historia, misión, visión y valores de la Escuela de Postgrado de la UNAP. Más de 35 años formando líderes para la Amazonía peruana.',
+  keywords = ['historia EPG UNAP', 'sobre escuela postgrado', 'misión visión UNAP', 'autoridades EPG Iquitos'],
+  activeTab,
+} = Astro.props;
+
+const tabs: TabItem[] = [
+  { label: 'Historia', href: '/escuela/historia' },
+  { label: 'Misión y Visión', href: '/escuela/mision-vision' },
+  { label: 'Valores', href: '/escuela/valores' },
+  { label: 'Estadísticas', href: '/escuela/estadisticas' },
+  { label: 'Autoridades', href: '/escuela/autoridades' },
+  { label: 'Documentos', href: '/escuela/documentos' },
+];
+---
+
+<Layout title={title} description={description} keywords={keywords}>
+  <Navbar />
+  <main class="min-h-screen">
+    <section class="relative bg-epg-navy text-white py-20 lg:py-28 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/images/hero/Docx.jpeg"
+          alt="Escuela de Postgrado UNAP"
+          class="w-full h-full object-cover object-[center_20%]"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-linear-to-r from-epg-navy/95 via-epg-navy/80 to-epg-navy/60" />
+        <div class="absolute inset-0 bg-linear-to-t from-epg-navy/60 via-transparent to-transparent" />
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="text-sm mb-6">
+          <ol class="flex items-center gap-2">
+            <li><a href="/" class="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
+            <li class="text-gray-400">/</li>
+            <li class="text-epg-gold">La Escuela</li>
+          </ol>
+        </nav>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">La Escuela de Postgrado</h1>
+        <p class="text-xl text-gray-300 max-w-3xl leading-relaxed">
+          Más de 35 años formando líderes y profesionales de excelencia comprometidos con el desarrollo sostenible de la Amazonía peruana.
+        </p>
+      </div>
+    </section>
+
+    <section
+      id="escuela-tabs"
+      class="bg-white border-b sticky top-16 md:top-[108px] z-60 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex overflow-x-auto gap-8 py-4 scrollbar-hide" aria-label="Secciones de la escuela">
+          {tabs.map((tab) => {
+            const isActive = tab.href === activeTab;
+
+            return (
+              <a
+                href={tab.href}
+                aria-current={isActive ? 'page' : undefined}
+                class:list={[
+                  'whitespace-nowrap transition-colors border-b-2 pb-1',
+                  isActive
+                    ? 'text-epg-navy font-medium border-epg-gold'
+                    : 'text-gray-600 border-transparent hover:text-epg-gold hover:border-epg-gold',
+                ]}
+              >
+                {tab.label}
+              </a>
+            );
+          })}
+        </nav>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <slot />
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function initEscuelaTabs() {
+      const headerEl = document.getElementById('main-header');
+      const tabsEl = document.getElementById('escuela-tabs');
+      if (!headerEl || !tabsEl) return;
+
+      const header = headerEl as HTMLElement;
+      const tabs = tabsEl as HTMLElement;
+
+      const isMd = () => window.matchMedia('(min-width: 768px)').matches;
+      const MAIN_NAV_H = 64;
+      const SECONDARY_NAV_H = 44;
+
+      function applyPosition() {
+        const navbarHidden = header.classList.contains('-translate-y-full');
+
+        if (navbarHidden) {
+          tabs.style.position = 'fixed';
+          tabs.style.top = '0px';
+          tabs.style.left = '0';
+          tabs.style.right = '0';
+        } else {
+          const offset = isMd() ? MAIN_NAV_H + SECONDARY_NAV_H : MAIN_NAV_H;
+          tabs.style.position = 'sticky';
+          tabs.style.top = `${offset}px`;
+          tabs.style.left = '';
+          tabs.style.right = '';
+        }
+      }
+
+      const observer = new MutationObserver(applyPosition);
+      observer.observe(header, { attributes: true, attributeFilter: ['class'] });
+      window.addEventListener('resize', applyPosition, { passive: true });
+      applyPosition();
+    }
+
+    initEscuelaTabs();
+    document.addEventListener('astro:after-swap', initEscuelaTabs);
+  </script>
+</Layout>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
