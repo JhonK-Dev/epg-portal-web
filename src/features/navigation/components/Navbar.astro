@@ -248,26 +248,17 @@ const secondaryNavItems: DropdownItem[] = [
 
     if (!header || !mainNav || !secondaryNav || !mobileMenuBtn || !mobileMenu) return;
 
-    // ── Scroll behavior (solo ocultar/mostrar navbar, sin cambio de color) ──
-    let lastScrollY = 0;
-    let hideTimeout: ReturnType<typeof setTimeout> | null = null;
+    // ── Scroll behavior (sin delay al ocultar/mostrar navbar) ──
+    let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY;
 
-      // Hide/show header on scroll direction (no color change)
-      if (currentScrollY > lastScrollY && currentScrollY > 150) {
-        if (!hideTimeout) {
-          hideTimeout = setTimeout(() => {
-            header.classList.add('-translate-y-full', 'opacity-0');
-            header.classList.remove('translate-y-0', 'opacity-100');
-          }, 800);
-        }
+      if (scrollingDown && currentScrollY > 150) {
+        header.classList.add('-translate-y-full', 'opacity-0');
+        header.classList.remove('translate-y-0', 'opacity-100');
       } else {
-        if (hideTimeout) {
-          clearTimeout(hideTimeout);
-          hideTimeout = null;
-        }
         header.classList.remove('-translate-y-full', 'opacity-0');
         header.classList.add('translate-y-0', 'opacity-100');
       }
