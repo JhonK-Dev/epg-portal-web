@@ -1,0 +1,6 @@
+export { AutoridadesSection } from './AutoridadesSection'
+export { DocumentosSection } from './DocumentosSection'
+export { EstadisticasSection } from './EstadisticasSection'
+export { HistoriaSection } from './HistoriaSection'
+export { MisionVisionSection } from './MisionVisionSection'
+export { ValoresSection } from './ValoresSection'
