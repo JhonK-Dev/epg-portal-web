@@ -4,6 +4,7 @@
  */
 
 import { buildQueryString, endpoints, fetchApi } from '../shared';
+import { getProgramRouteParam } from '@/lib/program-slugs';
 import type { ApiProgram, ProgramFilters } from './types';
 
 export async function getPrograms(
@@ -19,8 +20,12 @@ export async function getProgramBySlug(
   slug: string
 ): Promise<ApiProgram | undefined> {
   try {
-    const programs = await getPrograms({ search: slug, is_active: true });
-    return programs.find((p) => p.uuid === slug || p.name.toLowerCase().includes(slug.toLowerCase()));
+    const programs = await getPrograms({ is_active: true });
+    return programs.find(
+      (program) =>
+        program.uuid === slug ||
+        getProgramRouteParam({ name: program.name }) === slug
+    );
   } catch {
     return undefined;
   }

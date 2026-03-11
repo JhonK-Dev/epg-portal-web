@@ -56,6 +56,13 @@ export const tipoProgramaLabels: Record<number, string> = {
   4: 'Curso',
 };
 
+export const tipoProgramaTextLabels: Record<string, string> = {
+  maestria: 'Maestría',
+  doctorado: 'Doctorado',
+  diplomado: 'Diplomado',
+  curso: 'Curso',
+};
+
 // Colores de fondo para tipos de programa
 export const tipoProgramaColors: Record<string, string> = {
   maestria: 'bg-maestria',
