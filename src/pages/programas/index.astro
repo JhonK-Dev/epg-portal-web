@@ -6,6 +6,7 @@ import Navbar from '../../features/navigation/components/Navbar.astro';
 import { ProgramasLista } from '../../features/programas';
 import type { ApiProgram } from '../../lib/api/programs/types';
 import { getProgramsList } from '@/lib/api/programs';
+import { programas as mockPrograms } from '../../data/programas';
 
 // Get query parameters from URL
 const url = new URL(Astro.request.url);
@@ -32,7 +33,45 @@ try {
   apiPrograms = await getProgramsList(filters);
 } catch (error) {
   console.error('Error fetching programs:', error);
-  hasError = true;
+
+  const tipoToProgramType: Record<string, number> = {
+    maestria: 1,
+    doctorado: 2,
+    diplomado: 3,
+    curso: 4,
+  };
+
+  const filteredMockPrograms = mockPrograms.filter((programa) => {
+    const matchesType = programType
+      ? tipoToProgramType[programa.tipo] === programType
+      : true;
+
+    const normalizedSearch = searchQuery.trim().toLowerCase();
+    const matchesSearch = normalizedSearch
+      ? programa.nombre.toLowerCase().includes(normalizedSearch) ||
+        programa.descripcion.toLowerCase().includes(normalizedSearch)
+      : true;
+
+    return matchesType && matchesSearch;
+  });
+
+  apiPrograms = filteredMockPrograms.map((programa) => ({
+    id: Number.parseInt(programa.id.replace(/\D/g, ''), 10) || 0,
+    uuid: programa.slug,
+    unit_uuid: '',
+    name: programa.nombre,
+    code: programa.id,
+    description: programa.descripcion,
+    objetive: '',
+    aplicant_profile: '',
+    graduate_profile: '',
+    background: programa.imagen || '',
+    is_active: programa.estado === 'activo',
+    program_type: tipoToProgramType[programa.tipo] ?? 0,
+    area: [],
+  }));
+
+  hasError = false;
 }
 
 // Calculate dynamic counters
