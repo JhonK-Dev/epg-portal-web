@@ -1,5 +1,6 @@
 import type { ApiProgram } from '@/lib/api/programs/types';
 import { getProgramTypeConfig } from '@/lib/config';
+import { getProgramHref } from '@/lib/program-slugs';
 import { ArrowRight, GraduationCap } from 'lucide-react';
 
 interface ProgramCardProps {
@@ -15,9 +16,10 @@ export function ProgramCard({
   const typeConfig = getProgramTypeConfig(programa.program_type);
   const Icon = typeConfig.icon || GraduationCap;
   const imageHeight = variant === 'compact' ? 'h-32' : 'h-48';
+  const href = getProgramHref(programa);
 
   return (
-    <a href={`/programas/${programa.name}`} className="group block h-full">
+    <a href={href} className="group block h-full">
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
         {/* Imagen */}
         <div
