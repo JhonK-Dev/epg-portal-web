@@ -78,3 +78,10 @@ export const tipoProgramaBadgeColors: Record<number, string> = {
   3: 'bg-diplomado-light text-diplomado',
   4: 'bg-curso-light text-curso',
 };
+
+export const tipoProgramaTextBadgeColors: Record<string, string> = {
+  maestria: 'bg-maestria-light text-maestria',
+  doctorado: 'bg-doctorado-light text-doctorado',
+  diplomado: 'bg-diplomado-light text-diplomado',
+  curso: 'bg-curso-light text-curso',
+};
