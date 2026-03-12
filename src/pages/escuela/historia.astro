@@ -1,8 +1,11 @@
 ---
 import EscuelaLayout from '../../layouts/EscuelaLayout.astro';
 import { HistoriaSection } from '../../features/escuela';
+import { ErrorBoundary } from '../../components/ui/error-boundary';
 ---
 
 <EscuelaLayout activeTab="/escuela/historia">
-  <HistoriaSection client:load />
+  <ErrorBoundary client:load>
+    <HistoriaSection client:load />
+  </ErrorBoundary>
 </EscuelaLayout>

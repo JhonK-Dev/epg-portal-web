@@ -1,8 +1,11 @@
 ---
 import EscuelaLayout from '../../layouts/EscuelaLayout.astro';
 import { MisionVisionSection } from '../../features/escuela';
+import { ErrorBoundary } from '../../components/ui/error-boundary';
 ---
 
 <EscuelaLayout activeTab="/escuela/mision-vision">
-  <MisionVisionSection client:load />
+  <ErrorBoundary client:load>
+    <MisionVisionSection client:load />
+  </ErrorBoundary>
 </EscuelaLayout>
