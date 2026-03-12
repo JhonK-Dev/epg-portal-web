@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { PublicacionesLista } from '../../features/publicaciones';
+import { ErrorBoundary } from '../../components/ui/error-boundary';
 ---
 
 <Layout 
@@ -24,7 +25,9 @@ import { PublicacionesLista } from '../../features/publicaciones';
     <!-- Content -->
     <section class="py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <PublicacionesLista client:load />
+        <ErrorBoundary client:load>
+          <PublicacionesLista client:load />
+        </ErrorBoundary>
       </div>
     </section>
   </main>

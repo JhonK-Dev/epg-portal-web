@@ -1,49 +1,27 @@
 ---
+export const prerender = false;
+
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { ProgramaDetail } from '../../features/programas';
-import { programas, getProgramaBySlug } from '../../data/programas';
+import { getProgramaBySlug } from '../../data/programas';
 import { getProgramBySlug } from '../../lib/api/programs';
+import { mapApiProgramToPrograma } from '../../lib/program-mappers';
 import type { Programa } from '../../types/programas';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
 
-export async function getStaticPaths() {
-  return programas.map((programa) => ({
-    params: { slug: programa.slug },
-    props: { programa },
-  }));
-}
-
 const { slug } = Astro.params;
-const { programa: programaFromProps } = Astro.props;
+let programaData: Programa | undefined = slug ? getProgramaBySlug(slug) : undefined;
 
-let programaData: Programa | undefined = programaFromProps;
-
-if (!programaData) {
+if (slug) {
   try {
-    const apiProgram = await getProgramBySlug(slug!);
+    const apiProgram = await getProgramBySlug(slug);
     if (apiProgram) {
-      programaData = {
-        id: String(apiProgram.id),
-        nombre: apiProgram.name,
-        tipo: 'maestria',
-        descripcion: apiProgram.description,
-        descripcionCorta: apiProgram.description.slice(0, 100),
-        duracion: 'Por definir',
-        creditos: 0,
-        modalidad: 'presencial',
-        estado: apiProgram.is_active ? 'activo' : 'inactivo',
-        slug: apiProgram.uuid,
-        facultad: 'Por definir',
-      };
+      programaData = mapApiProgramToPrograma(apiProgram, programaData);
     }
   } catch {
-    programaData = getProgramaBySlug(slug!);
+    programaData = slug ? getProgramaBySlug(slug) : undefined;
   }
-}
-
-if (!programaData) {
-  programaData = getProgramaBySlug(slug!);
 }
 
 if (!programaData) {

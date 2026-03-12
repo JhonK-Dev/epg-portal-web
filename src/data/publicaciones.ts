@@ -20,7 +20,7 @@ El proceso de acreditación incluyó una exhaustiva evaluación de:
 
 "Este logro es resultado del trabajo comprometido de toda nuestra comunidad académica", señaló el Director de la Escuela de Postgrado.`,
     resumen: 'Nuestra escuela recibe reconocimiento internacional por la calidad de sus programas académicos.',
-    fecha: '2025-01-15',
+    fecha: '2026-02-10',
     imagen: '/images/publicaciones/acreditacion.jpg',
     slug: 'acreditacion-internacional-siaces',
     autor: 'Oficina de Comunicaciones',
@@ -39,7 +39,7 @@ Este logro demuestra el compromiso de nuestra planta docente con la investigaci�
 
 Los artículos publicados están disponibles para consulta en el repositorio institucional de la universidad.`,
     resumen: 'Cinco docentes publican investigaciones en revistas de alto impacto internacional.',
-    fecha: '2025-01-10',
+    fecha: '2026-02-04',
     imagen: '/images/publicaciones/publicaciones.jpg',
     slug: 'docentes-publican-revistas-indexadas',
     autor: 'Unidad de Investigación',
@@ -60,7 +60,7 @@ El convenio permitirá:
 
 Esta alianza fortalece la internacionalización de nuestra escuela y abre oportunidades para nuestros estudiantes y docentes.`,
     resumen: 'Nueva alianza estratégica con universidad brasileña para investigación y movilidad académica.',
-    fecha: '2025-01-05',
+    fecha: '2026-01-28',
     imagen: '/images/publicaciones/convenio.jpg',
     slug: 'convenio-universidad-brasilena',
     autor: 'Oficina de Relaciones Internacionales',
@@ -84,10 +84,10 @@ El evento contará con:
 
 La inscripción es gratuita para estudiantes y docentes de la EPG. Participantes externos tienen una tarifa especial.
 
-Fecha límite de inscripción: 10 de marzo de 2025.`,
+Fecha límite de inscripción: 4 de mayo de 2026.`,
     resumen: 'Congreso que reunirá investigadores de cuatro países para compartir avances científicos.',
-    fecha: '2025-01-20',
-    fechaEvento: '2025-03-20',
+    fecha: '2026-02-18',
+    fechaEvento: '2026-05-21',
     hora: '09:00',
     lugar: 'Auditorio Principal - EPG',
     imagen: '/images/publicaciones/congreso.jpg',
@@ -113,8 +113,8 @@ Ponente: Dr. Ricardo Martínez, consultor internacional del BID.
 Lugar: Auditorio Principal de la EPG
 Cupo limitado a 100 participantes.`,
     resumen: 'Seminario gratuito sobre tendencias actuales en gestión del sector público.',
-    fecha: '2025-01-18',
-    fechaEvento: '2025-02-15',
+    fecha: '2026-02-12',
+    fechaEvento: '2026-04-18',
     hora: '15:00',
     lugar: 'Auditorio Principal - EPG',
     imagen: '/images/publicaciones/seminario.jpg',
@@ -139,8 +139,8 @@ Contenido:
 Requisito: Estar cursando o haber egresado de un programa de postgrado.
 Certificación: 20 horas académicas.`,
     resumen: 'Aprende a redactar y publicar artículos en revistas científicas indexadas.',
-    fecha: '2025-01-12',
-    fechaEvento: '2025-02-22',
+    fecha: '2026-02-08',
+    fechaEvento: '2026-04-25',
     hora: '10:00',
     lugar: 'Sala de Capacitaciones',
     imagen: '/images/publicaciones/taller.jpg',
@@ -153,9 +153,9 @@ Certificación: 20 horas académicas.`,
   // AVISOS
   {
     id: 'avi-001',
-    titulo: 'Inicio de inscripciones para el proceso de admisión 2025-I',
+    titulo: 'Inicio de inscripciones para el proceso de admisión 2026-I',
     tipo: 'aviso',
-    contenido: `Se comunica a los interesados que las inscripciones para el proceso de admisión 2025-I están abiertas desde el 15 de enero hasta el 28 de febrero de 2025.
+    contenido: `Se comunica a los interesados que las inscripciones para el proceso de admisión 2026-I están abiertas desde el 16 de marzo hasta el 30 de abril de 2026.
 
 Programas con vacantes:
 - Maestría en Gestión Pública (40 vacantes)
@@ -168,27 +168,27 @@ Modalidad de inscripción: Virtual a través del portal de admisión.
 Costo de inscripción: S/. 350.00
 
 Para más información, visite la sección de Admisión o comuníquese con nuestra oficina.`,
-    resumen: 'Inscripciones abiertas para maestrías y doctorados del semestre 2025-I.',
-    fecha: '2025-01-14',
+    resumen: 'Inscripciones abiertas para maestrías y doctorados del semestre 2026-I.',
+    fecha: '2026-03-16',
     imagen: '/images/publicaciones/acreditacion.jpg',
-    slug: 'inscripciones-admision-2025-i',
+    slug: 'inscripciones-admision-2026-i',
     autor: 'Oficina de Admisión',
     destacado: true,
-    etiquetas: ['admisión', 'inscripciones', '2025'],
+    etiquetas: ['admisión', 'inscripciones', '2026'],
   },
   {
     id: 'avi-002',
-    titulo: 'Cronograma de sustentaciones de tesis - Febrero 2025',
+    titulo: 'Cronograma de sustentaciones de tesis - Mayo 2026',
     tipo: 'aviso',
-    contenido: `Se publica el cronograma de sustentaciones de tesis programadas para febrero de 2025.
+    contenido: `Se publica el cronograma de sustentaciones de tesis programadas para mayo de 2026.
 
 Las sustentaciones son de acceso público y se llevarán a cabo en el Auditorio de la Escuela de Postgrado.
 
 Consulte el cronograma completo en la sección de Estudiantes > Sustentaciones.
 
 Se recuerda a los tesistas confirmar su asistencia con 48 horas de anticipación.`,
-    resumen: 'Cronograma de defensas de tesis para el mes de febrero.',
-    fecha: '2025-01-20',
+    resumen: 'Cronograma de defensas de tesis para el mes de mayo.',
+    fecha: '2026-04-22',
     imagen: '/images/publicaciones/acreditacion.jpg',
     slug: 'cronograma-sustentaciones-febrero',
     autor: 'Secretaría Académica',
@@ -199,7 +199,7 @@ Se recuerda a los tesistas confirmar su asistencia con 48 horas de anticipación
     id: 'avi-003',
     titulo: 'Prórroga para regularización de matrícula',
     tipo: 'aviso',
-    contenido: `Se comunica a los estudiantes del semestre 2024-II que el plazo para regularización de matrícula se ha extendido hasta el 31 de enero de 2025.
+    contenido: `Se comunica a los estudiantes del semestre 2026-I que el plazo para regularización de matrícula se ha extendido hasta el 29 de mayo de 2026.
 
 Documentos requeridos:
 - Voucher de pago de matrícula
@@ -207,8 +207,8 @@ Documentos requeridos:
 - Declaración jurada de veracidad
 
 Acercarse a la Oficina de Registros Académicos en horario de atención: Lunes a Viernes de 8:00 a.m. a 4:00 p.m.`,
-    resumen: 'Extensión del plazo de regularización de matrícula hasta fin de enero.',
-    fecha: '2025-01-16',
+    resumen: 'Extensión del plazo de regularización de matrícula hasta fin de mayo.',
+    fecha: '2026-05-20',
     imagen: '/images/publicaciones/seminario.jpg',
     slug: 'prorroga-regularizacion-matricula',
     autor: 'Oficina de Registros Académicos',
@@ -221,16 +221,16 @@ Acercarse a la Oficina de Registros Académicos en horario de atención: Lunes a
     id: 'com-001',
     titulo: 'Horario de atención durante vacaciones',
     tipo: 'comunicado',
-    contenido: `Se informa a la comunidad universitaria que durante el período de vacaciones (del 1 al 28 de febrero), las oficinas de la Escuela de Postgrado atenderán en horario reducido:
+    contenido: `Se informa a la comunidad universitaria que durante el período de vacaciones (del 3 al 14 de agosto), las oficinas de la Escuela de Postgrado atenderán en horario reducido:
 
 - Lunes a Viernes: 9:00 a.m. a 1:00 p.m.
 - Sábados: Cerrado
 
-La atención regular se reanudará el 1 de marzo de 2025.
+La atención regular se reanudará el 17 de agosto de 2026.
 
 Para consultas urgentes, escribir a: ${contactoGeneral.email}`,
-    resumen: 'Horario especial de atención durante el período vacacional de febrero.',
-    fecha: '2025-01-25',
+    resumen: 'Horario especial de atención durante el período vacacional de agosto.',
+    fecha: '2026-07-30',
     imagen: '/images/publicaciones/congreso.jpg',
     slug: 'horario-vacaciones',
     autor: 'Dirección de la EPG',

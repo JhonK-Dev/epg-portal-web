@@ -1,8 +1,8 @@
 import type { Programa } from '@/types';
 import { formatDateSafe } from '@/lib/formatters';
 import {
-  tipoProgramaLabels,
   tipoProgramaColors,
+  tipoProgramaTextLabels,
   modalidadLabels,
   modalidadColors,
 } from '@/lib/config';
@@ -40,10 +40,15 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Header */}
       <PageHero
+        breadcrumbs={[
+          { label: 'Inicio', href: '/' },
+          { label: 'Programas', href: '/programas' },
+          { label: programa.nombre },
+        ]}
         title={programa.nombre}
         subtitle={programa.descripcionCorta}
         badge={{
-          label: tipoProgramaLabels[programa.tipo],
+          label: tipoProgramaTextLabels[programa.tipo],
           className: 'bg-white/20 text-white hover:bg-white/30',
         }}
         bgColorClass={tipoProgramaColors[programa.tipo]}
@@ -188,7 +193,7 @@ export function ProgramaDetail({ programa }: ProgramaDetailProps) {
                   <div>
                     <p className="text-sm text-gray-500">Tipo de Programa</p>
                     <p className="font-medium">
-                      {tipoProgramaLabels[programa.tipo]}
+                      {tipoProgramaTextLabels[programa.tipo]}
                     </p>
                   </div>
                 </div>

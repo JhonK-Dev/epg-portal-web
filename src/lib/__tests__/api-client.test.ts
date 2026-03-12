@@ -1,129 +1,131 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+
+import { ApiError, buildQueryString, fetchApi } from '@/lib/api/shared'
+
 describe('buildQueryString', () => {
-  const buildQueryString = (params: Record<string, unknown>): string => {
-    const searchParams = new URLSearchParams();
-
-    Object.entries(params).forEach(([key, value]) => {
-      if (value !== undefined && value !== null && value !== '') {
-        searchParams.append(key, String(value));
-      }
-    });
-
-    const queryString = searchParams.toString();
-    return queryString ? `?${queryString}` : '';
-  };
-
   it('returns empty string for empty object', () => {
-    const result = buildQueryString({});
-    expect(result).toBe('');
-  });
+    expect(buildQueryString({})).toBe('')
+  })
 
-  it('returns empty string for undefined values', () => {
-    const result = buildQueryString({
-      foo: undefined,
-      bar: null,
-    });
-    expect(result).toBe('');
-  });
-
-  it('returns empty string for empty string values', () => {
-    const result = buildQueryString({
-      foo: '',
-      bar: '',
-    });
-    expect(result).toBe('');
-  });
-
-  it('builds query string with single param', () => {
-    const result = buildQueryString({ search: 'test' });
-    expect(result).toBe('?search=test');
-  });
+  it('filters undefined, null, and empty string values', () => {
+    expect(
+      buildQueryString({
+        valid: 'value',
+        invalid: undefined,
+        empty: '',
+        nullValue: null,
+      }),
+    ).toBe('?valid=value')
+  })
 
   it('builds query string with multiple params', () => {
-    const result = buildQueryString({
-      search: 'test',
-      page: 1,
-      limit: 10,
-    });
-    expect(result).toContain('search=test');
-    expect(result).toContain('page=1');
-    expect(result).toContain('limit=10');
-  });
+    const result = buildQueryString({ search: 'test', page: 1, active: true })
 
-  it('converts numbers to strings', () => {
-    const result = buildQueryString({ page: 1, limit: 50 });
-    expect(result).toBe('?page=1&limit=50');
-  });
+    expect(result).toContain('search=test')
+    expect(result).toContain('page=1')
+    expect(result).toContain('active=true')
+  })
 
-  it('converts booleans to strings', () => {
-    const result = buildQueryString({ active: true, featured: false });
-    expect(result).toBe('?active=true&featured=false');
-  });
-
-  it('handles arrays by converting to comma-separated string', () => {
-    const result = buildQueryString({ tags: ['a', 'b', 'c'] });
-    expect(result).toBe('?tags=a%2Cb%2Cc');
-  });
-
-  it('filters out undefined, null, and empty string values', () => {
-    const result = buildQueryString({
-      valid: 'value',
-      invalid: undefined,
-      empty: '',
-      nullValue: null,
-    });
-    expect(result).toBe('?valid=value');
-  });
-
-  it('starts with ? when there are params', () => {
-    const result = buildQueryString({ foo: 'bar' });
-    expect(result.startsWith('?')).toBe(true);
-  });
-});
+  it('serializes arrays as comma-separated strings', () => {
+    expect(buildQueryString({ tags: ['a', 'b', 'c'] })).toBe('?tags=a%2Cb%2Cc')
+  })
+})
 
 describe('ApiError', () => {
-  class ApiError extends Error {
-    constructor(
-      message: string,
-      public status?: number,
-      public statusText?: string
-    ) {
-      super(message);
-      this.name = 'ApiError';
-    }
-  }
+  it('creates an ApiError with message and optional status info', () => {
+    const error = new ApiError('Not Found', 404, 'Not Found')
 
-  it('creates error with message only', () => {
-    const error = new ApiError('Something went wrong');
-    expect(error.message).toBe('Something went wrong');
-    expect(error.name).toBe('ApiError');
-    expect(error.status).toBeUndefined();
-    expect(error.statusText).toBeUndefined();
-  });
+    expect(error.message).toBe('Not Found')
+    expect(error.name).toBe('ApiError')
+    expect(error.status).toBe(404)
+    expect(error.statusText).toBe('Not Found')
+  })
 
-  it('creates error with message and status', () => {
-    const error = new ApiError('Not Found', 404, 'Not Found');
-    expect(error.message).toBe('Not Found');
-    expect(error.status).toBe(404);
-    expect(error.statusText).toBe('Not Found');
-  });
+  it('extends the base Error class', () => {
+    expect(new ApiError('Boom')).toBeInstanceOf(Error)
+  })
+})
 
-  it('creates error with status 500', () => {
-    const error = new ApiError('Server Error', 500, 'Internal Server Error');
-    expect(error.status).toBe(500);
-    expect(error.statusText).toBe('Internal Server Error');
-  });
+describe('fetchApi', () => {
+  beforeEach(() => {
+    vi.restoreAllMocks()
+  })
 
-  it('extends Error class', () => {
-    const error = new ApiError('Test');
-    expect(error instanceof Error).toBe(true);
-  });
+  it('calls fetch with the API base URL and default headers', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({ ok: true }),
+    } as Response)
 
-  it('can be caught as Error', () => {
-    try {
-      throw new ApiError('Caught me!');
-    } catch (e) {
-      expect(e).toBeInstanceOf(ApiError);
-      expect(e).toBeInstanceOf(Error);
-    }
-  });
-});
+    const result = await fetchApi<{ ok: boolean }>('/programs')
+
+    expect(result).toEqual({ ok: true })
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://api.example.com/programs',
+      expect.objectContaining({
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }),
+    )
+  })
+
+  it('merges custom headers into the request', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({ ok: true }),
+    } as Response)
+
+    await fetchApi('/programs', {
+      headers: {
+        Authorization: 'Bearer token',
+      },
+    })
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://api.example.com/programs',
+      expect.objectContaining({
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer token',
+        },
+      }),
+    )
+  })
+
+  it('throws ApiError when response is not ok', async () => {
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: false,
+      status: 404,
+      statusText: 'Not Found',
+    } as Response)
+
+    await expect(fetchApi('/missing')).rejects.toMatchObject({
+      name: 'ApiError',
+      message: 'API request failed: Not Found',
+      status: 404,
+      statusText: 'Not Found',
+    })
+  })
+
+  it('wraps generic fetch errors in ApiError', async () => {
+    vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Network down'))
+
+    await expect(fetchApi('/programs')).rejects.toMatchObject({
+      name: 'ApiError',
+      message: 'Network down',
+    })
+  })
+
+  it('converts AbortError into timeout ApiError', async () => {
+    const abortError = new Error('The operation was aborted')
+    abortError.name = 'AbortError'
+
+    vi.spyOn(globalThis, 'fetch').mockRejectedValue(abortError)
+
+    await expect(fetchApi('/programs')).rejects.toMatchObject({
+      name: 'ApiError',
+      message: 'Request timeout after 5000ms',
+    })
+  })
+})

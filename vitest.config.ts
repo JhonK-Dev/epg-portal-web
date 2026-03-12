@@ -18,6 +18,10 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
+			'astro:env/server': path.resolve(
+				__dirname,
+				'./src/test/mocks/astro-env-server.ts'
+			),
 		},
 	},
 });

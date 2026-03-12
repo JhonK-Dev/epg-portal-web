@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { EstudiantesContent } from '../../features/estudiantes';
+import { ErrorBoundary } from '../../components/ui/error-boundary';
 ---
 
 <Layout 
@@ -11,6 +12,8 @@ import { EstudiantesContent } from '../../features/estudiantes';
 >
   <Navbar />
   <main class="min-h-screen">
-    <EstudiantesContent client:load />
+    <ErrorBoundary client:load>
+      <EstudiantesContent client:load />
+    </ErrorBoundary>
   </main>
 </Layout>
