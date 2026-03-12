@@ -17,6 +17,7 @@ export {
   tipoProgramaBadgeColors,
   tipoProgramaColors,
   tipoProgramaLabels,
+  tipoProgramaTextBadgeColors,
   tipoProgramaTextLabels,
 } from './program-types';
 
