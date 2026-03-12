@@ -3,59 +3,59 @@ import type { ProcesoAdmision, FechaImportanteAdmision, EstadoConvocatoria } fro
 // Procesos de admisión disponibles
 const procesosAdmision: ProcesoAdmision[] = [
   {
-    id: 'adm-2025-I',
-    periodo: '2025-I',
-    anio: 2025,
-    fechaApertura: '2025-01-15',
-    fechaCierre: '2025-02-28',
+    id: 'adm-2026-I',
+    periodo: '2026-I',
+    anio: 2026,
+    fechaApertura: '2026-03-16',
+    fechaCierre: '2026-04-30',
     fechasImportantes: [
       { 
         etiqueta: 'Inscripciones', 
-        fechaInicio: '2025-01-15', 
-        fechaFin: '2025-02-28',
+        fechaInicio: '2026-03-16', 
+        fechaFin: '2026-04-30',
         descripcion: 'Período de inscripciones para el proceso de admisión'
       },
       { 
         etiqueta: 'Examen de admisión', 
-        fechaInicio: '2025-03-08',
+        fechaInicio: '2026-05-09',
         descripcion: 'Evaluación de conocimientos'
       },
       { 
         etiqueta: 'Resultados', 
-        fechaInicio: '2025-03-12',
+        fechaInicio: '2026-05-13',
         descripcion: 'Publicación de resultados'
       },
       { 
         etiqueta: 'Inicio de clases', 
-        fechaInicio: '2025-04-01',
+        fechaInicio: '2026-06-01',
         descripcion: 'Comienzo del semestre académico'
       },
     ],
     // Sin estadoOverride - se calcula automáticamente
   },
   {
-    id: 'adm-2025-II',
-    periodo: '2025-II',
-    anio: 2025,
-    fechaApertura: '2025-07-01',
-    fechaCierre: '2025-08-15',
+    id: 'adm-2026-II',
+    periodo: '2026-II',
+    anio: 2026,
+    fechaApertura: '2026-08-03',
+    fechaCierre: '2026-09-18',
     fechasImportantes: [
       { 
         etiqueta: 'Inscripciones', 
-        fechaInicio: '2025-07-01', 
-        fechaFin: '2025-08-15' 
+        fechaInicio: '2026-08-03', 
+        fechaFin: '2026-09-18' 
       },
       { 
         etiqueta: 'Examen de admisión', 
-        fechaInicio: '2025-08-30' 
+        fechaInicio: '2026-10-03' 
       },
       { 
         etiqueta: 'Resultados', 
-        fechaInicio: '2025-09-05' 
+        fechaInicio: '2026-10-07' 
       },
       { 
         etiqueta: 'Inicio de clases', 
-        fechaInicio: '2025-09-15' 
+        fechaInicio: '2026-10-26' 
       },
     ],
   },

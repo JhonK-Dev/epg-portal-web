@@ -362,54 +362,54 @@ export const documentosDescargables: DocumentoDescargable[] = [
 // ============================================
 export const calendarioAcademico: FechaCalendario[] = [
   {
-    id: 'matricula-2024-1',
-    titulo: 'Matrícula Regular 2024-I',
-    descripcion: 'Periodo de matrícula para el semestre 2024-I',
-    fechaInicio: '2024-03-01',
-    fechaFin: '2024-03-15',
+    id: 'matricula-2026-1',
+    titulo: 'Matrícula Regular 2026-I',
+    descripcion: 'Periodo de matrícula para el semestre 2026-I',
+    fechaInicio: '2026-05-18',
+    fechaFin: '2026-05-29',
     tipo: 'matricula',
     importante: true
   },
   {
-    id: 'inicio-clases-2024-1',
-    titulo: 'Inicio de Clases 2024-I',
-    descripcion: 'Inicio del semestre académico 2024-I',
-    fechaInicio: '2024-03-18',
+    id: 'inicio-clases-2026-1',
+    titulo: 'Inicio de Clases 2026-I',
+    descripcion: 'Inicio del semestre académico 2026-I',
+    fechaInicio: '2026-06-01',
     tipo: 'evento',
     importante: true
   },
   {
-    id: 'examen-parcial-2024-1',
-    titulo: 'Exámenes Parciales 2024-I',
+    id: 'examen-parcial-2026-1',
+    titulo: 'Exámenes Parciales 2026-I',
     descripcion: 'Semana de evaluaciones parciales',
-    fechaInicio: '2024-05-06',
-    fechaFin: '2024-05-11',
+    fechaInicio: '2026-07-20',
+    fechaFin: '2026-07-25',
     tipo: 'examen',
     importante: true
   },
   {
-    id: 'pago-cuota2-2024-1',
+    id: 'pago-cuota2-2026-1',
     titulo: 'Fecha límite pago 2da cuota',
     descripcion: 'Último día para pagar la segunda cuota del semestre',
-    fechaInicio: '2024-04-30',
+    fechaInicio: '2026-07-10',
     tipo: 'pago',
     importante: true
   },
   {
-    id: 'examen-final-2024-1',
-    titulo: 'Exámenes Finales 2024-I',
+    id: 'examen-final-2026-1',
+    titulo: 'Exámenes Finales 2026-I',
     descripcion: 'Semana de evaluaciones finales',
-    fechaInicio: '2024-07-08',
-    fechaFin: '2024-07-13',
+    fechaInicio: '2026-09-28',
+    fechaFin: '2026-10-03',
     tipo: 'examen',
     importante: true
   },
   {
-    id: 'sustentaciones-junio',
-    titulo: 'Sustentaciones de Tesis - Junio',
+    id: 'sustentaciones-septiembre',
+    titulo: 'Sustentaciones de Tesis - Septiembre',
     descripcion: 'Periodo programado para sustentaciones de tesis',
-    fechaInicio: '2024-06-17',
-    fechaFin: '2024-06-28',
+    fechaInicio: '2026-09-14',
+    fechaFin: '2026-09-25',
     tipo: 'sustentacion',
     importante: false
   },
@@ -417,17 +417,17 @@ export const calendarioAcademico: FechaCalendario[] = [
     id: 'vacaciones-medio-año',
     titulo: 'Vacaciones de Medio Año',
     descripcion: 'Periodo de vacaciones entre semestres',
-    fechaInicio: '2024-07-15',
-    fechaFin: '2024-08-04',
+    fechaInicio: '2026-08-10',
+    fechaFin: '2026-08-23',
     tipo: 'vacaciones',
     importante: false
   },
   {
-    id: 'matricula-2024-2',
-    titulo: 'Matrícula Regular 2024-II',
-    descripcion: 'Periodo de matrícula para el semestre 2024-II',
-    fechaInicio: '2024-08-05',
-    fechaFin: '2024-08-16',
+    id: 'matricula-2026-2',
+    titulo: 'Matrícula Regular 2026-II',
+    descripcion: 'Periodo de matrícula para el semestre 2026-II',
+    fechaInicio: '2026-10-19',
+    fechaFin: '2026-10-30',
     tipo: 'matricula',
     importante: true
   }
