@@ -222,7 +222,7 @@ export function DocentesGrid() {
           </a>
 
           <ResourceCard
-            href="https://aulavirtual.universidad.edu.pe"
+            href="https://aulavirtual.unapiquitos.edu.pe"
             icon={GraduationCap}
             title="Aula Virtual"
             description="Administra tus cursos en la plataforma Moodle"
