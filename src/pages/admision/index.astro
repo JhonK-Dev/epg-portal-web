@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { AdmisionContent } from '../../features/admision';
+import { ErrorBoundary } from '../../components/ui/error-boundary';
 ---
 
 <Layout 
@@ -170,12 +171,14 @@ import { AdmisionContent } from '../../features/admision';
       </div>
     </section>
 
-    <!-- Main Content -->
-    <section class="py-16 bg-gray-50">
-      <div class="container-main">
-        <AdmisionContent client:load />
-      </div>
-    </section>
+      <!-- Main Content -->
+      <section class="py-16 bg-gray-50">
+        <div class="container-main">
+        <ErrorBoundary client:load>
+          <AdmisionContent client:load />
+        </ErrorBoundary>
+        </div>
+      </section>
   </main>
 </Layout>
 

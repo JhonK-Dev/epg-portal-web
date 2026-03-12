@@ -1,8 +1,11 @@
 ---
 import EscuelaLayout from '../../layouts/EscuelaLayout.astro';
 import { EstadisticasSection } from '../../features/escuela';
+import { ErrorBoundary } from '../../components/ui/error-boundary';
 ---
 
 <EscuelaLayout activeTab="/escuela/estadisticas">
-  <EstadisticasSection client:load />
+  <ErrorBoundary client:load>
+    <EstadisticasSection client:load />
+  </ErrorBoundary>
 </EscuelaLayout>

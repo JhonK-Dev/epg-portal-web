@@ -9,6 +9,7 @@ import {
 } from '../features/home';
 import { getFeaturedPrograms } from '../lib/api';
 import type { ApiProgram } from '../lib/api/programs/types';
+import { ErrorBoundary } from '../components/ui/error-boundary';
 
 
 let apiPrograms: ApiProgram[] = [];
@@ -49,7 +50,9 @@ const formacionContinuaCount = 0; // La API no tiene este tipo aún
     </div>
     
     <!-- Búsqueda de Programas + Estadísticas — React, hydrates when visible -->
-    <ProgramSearchWithStats client:visible />
+    <ErrorBoundary client:load>
+      <ProgramSearchWithStats client:visible />
+    </ErrorBoundary>
     
     <!-- CTA de Admisión — Astro component, zero JS -->
     <AdmissionCTA />

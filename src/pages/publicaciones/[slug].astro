@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { PublicacionDetail } from '../../features/publicaciones';
+import { ErrorBoundary } from '../../components/ui/error-boundary';
 import { publicaciones, getPublicacionBySlug, getUltimasPublicaciones } from '../../data/publicaciones';
 
 export async function getStaticPaths() {
@@ -39,14 +40,16 @@ const tipoLabels: Record<string, string> = {
   description={publicacionData.resumen}
   type="article"
   publishedTime={publicacionData.fecha}
-  keywords={[tipoLabels[publicacionData.tipo], "EPG UNAP", "noticias postgrado", publicacionData.categoria || "educación"]}
+  keywords={[tipoLabels[publicacionData.tipo], "EPG UNAP", "noticias postgrado", "educación"]}
 >
   <Navbar />
   <main>
-    <PublicacionDetail 
-      publicacion={publicacionData} 
-      publicacionesRelacionadas={relacionadas}
-      client:load 
-    />
+    <ErrorBoundary client:load>
+      <PublicacionDetail 
+        publicacion={publicacionData} 
+        publicacionesRelacionadas={relacionadas}
+        client:load 
+      />
+    </ErrorBoundary>
   </main>
 </Layout>

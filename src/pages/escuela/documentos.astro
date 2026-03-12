@@ -1,8 +1,11 @@
 ---
 import EscuelaLayout from '../../layouts/EscuelaLayout.astro';
 import { DocumentosSection } from '../../features/escuela';
+import { ErrorBoundary } from '../../components/ui/error-boundary';
 ---
 
 <EscuelaLayout activeTab="/escuela/documentos">
-  <DocumentosSection client:load />
+  <ErrorBoundary client:load>
+    <DocumentosSection client:load />
+  </ErrorBoundary>
 </EscuelaLayout>
