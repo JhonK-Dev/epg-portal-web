@@ -15,6 +15,24 @@ interface DropdownItem {
   items?: NavItem[];
 }
 
+const normalizePath = (path: string) => {
+  if (path === '/') return '/';
+  return path.endsWith('/') ? path.slice(0, -1) : path;
+};
+
+const currentPath = normalizePath(Astro.url.pathname);
+
+const isActivePath = (href: string) => {
+  if (!href.startsWith('/')) return false;
+
+  const normalizedHref = normalizePath(href);
+  if (normalizedHref === '/') {
+    return currentPath === '/';
+  }
+
+  return currentPath === normalizedHref || currentPath.startsWith(`${normalizedHref}/`);
+};
+
 const mainNavItems: NavItem[] = [
   { label: 'Inicio', href: '/' },
   { label: 'La Escuela', href: '/escuela' },
@@ -92,14 +110,22 @@ const secondaryNavItems: DropdownItem[] = [
 
         <!-- Main Navigation Items - Desktop -->
         <div class="hidden md:flex items-center gap-8">
-          {mainNavItems.map((item) => (
-            <a
-              href={item.href}
-              class="text-sm font-medium hover:text-epg-gold transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
+          {mainNavItems.map((item) => {
+            const isActive = isActivePath(item.href);
+
+            return (
+              <a
+                href={item.href}
+                aria-current={isActive ? 'page' : undefined}
+                class:list={[
+                  'text-sm font-medium transition-colors',
+                  isActive ? 'text-epg-gold' : 'hover:text-epg-gold',
+                ]}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </div>
 
         <!-- CTA Button - Desktop -->
@@ -139,13 +165,20 @@ const secondaryNavItems: DropdownItem[] = [
   >
     <div class="container-main">
       <div class="flex items-center justify-end h-11 gap-6">
-        {secondaryNavItems.map((item) => (
+        {secondaryNavItems.map((item) => {
+          const isActive = isActivePath(item.href);
+
+          return (
           <div class="relative" data-dropdown>
             <a
               href={item.href}
-              class="flex items-center gap-1 text-sm font-medium hover:text-white/80 transition-colors py-3"
+              aria-current={isActive ? 'page' : undefined}
+              class:list={[
+                'flex items-center gap-1 text-sm font-medium transition-colors py-3',
+                isActive ? 'text-white' : 'hover:text-white/80',
+              ]}
             >
-              {item.label}
+              <span class:list={isActive ? 'border-b border-white/80' : undefined}>{item.label}</span>
               {item.items && <ChevronDown className="w-4 h-4" />}
             </a>
 
@@ -171,7 +204,7 @@ const secondaryNavItems: DropdownItem[] = [
               </div>
             )}
           </div>
-        ))}
+        )})}
       </div>
     </div>
   </nav>
@@ -180,22 +213,39 @@ const secondaryNavItems: DropdownItem[] = [
   <div id="mobile-menu" class="md:hidden bg-epg-navy border-t border-white/10 hidden">
     <div class="px-4 py-4 space-y-2">
       <!-- Main Nav Items -->
-      {mainNavItems.map((item) => (
+      {mainNavItems.map((item) => {
+        const isActive = isActivePath(item.href);
+
+        return (
         <a
           href={item.href}
-          class="block px-3 py-2 text-white font-medium hover:bg-white/10 rounded-lg transition-colors"
+          aria-current={isActive ? 'page' : undefined}
+          class:list={[
+            'block px-3 py-2 font-medium rounded-lg transition-colors',
+            isActive
+              ? 'bg-white/10 text-epg-gold'
+              : 'text-white hover:bg-white/10',
+          ]}
         >
           {item.label}
         </a>
-      ))}
+      )})}
 
       <div class="border-t border-white/10 my-4"></div>
 
       <!-- Secondary Nav Items with Dropdowns -->
-      {secondaryNavItems.map((item) => (
+      {secondaryNavItems.map((item) => {
+        const isActive = isActivePath(item.href);
+
+        return (
         <div>
           <button
-            class="flex items-center justify-between w-full px-3 py-2 text-white font-medium hover:bg-white/10 rounded-lg transition-colors"
+            class:list={[
+              'flex items-center justify-between w-full px-3 py-2 font-medium rounded-lg transition-colors',
+              isActive
+                ? 'bg-white/10 text-epg-gold'
+                : 'text-white hover:bg-white/10',
+            ]}
             data-mobile-dropdown-btn
             aria-expanded="false"
           >
@@ -221,7 +271,7 @@ const secondaryNavItems: DropdownItem[] = [
             </div>
           )}
         </div>
-      ))}
+      )})}
 
       <div class="border-t border-white/10 my-4"></div>
 
