@@ -47,7 +47,7 @@ import { IconCircle } from '@/components/ui/icon-circle'
 // ========================================
 function Timeline() {
   const fechasProximas = fechasImportantes
-    .filter((f) => new Date(f.fecha) >= new Date('2025-01-01'))
+    .filter((f) => new Date(f.fecha) >= new Date('2026-01-01'))
     .sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime())
 
   return (
@@ -506,9 +506,9 @@ function Costos() {
 function FAQ() {
   const preguntas = [
     {
-      pregunta: '¿Cuáles son las fechas del proceso de admisión 2025-I?',
+      pregunta: '¿Cuáles son las fechas del proceso de admisión 2026-I?',
       respuesta:
-        'Las inscripciones están abiertas del 15 de enero al 28 de febrero de 2025. El examen de admisión será el 8 de marzo y los resultados se publicarán el 12 de marzo de 2025.',
+        'Las inscripciones están abiertas del 16 de marzo al 30 de abril de 2026. El examen de admisión será el 9 de mayo y los resultados se publicarán el 13 de mayo de 2026.',
     },
     {
       pregunta:
@@ -619,7 +619,7 @@ export function AdmisionContent() {
             className: 'bg-epg-gold/10 text-epg-gold',
           }}
           title="Fechas Importantes"
-          description="Conoce las fechas clave del proceso de admisión 2025-I"
+          description="Conoce las fechas clave del proceso de admisión 2026-I"
         />
         <Card className="p-6">
           <Timeline />
@@ -717,7 +717,7 @@ export function AdmisionContent() {
         <CTABanner
           badge="¡Inscríbete ahora!"
           title="Da el siguiente paso en tu carrera"
-          description="Únete a la comunidad de profesionales que eligen la EPG UNAP para su formación de posgrado. Las inscripciones cierran el 28 de febrero de 2025."
+          description="Únete a la comunidad de profesionales que eligen la EPG UNAP para su formación de posgrado. Las inscripciones cierran el 30 de abril de 2026."
           primaryAction={{
             label: 'Inscripción en línea',
             href: '/contacto',
