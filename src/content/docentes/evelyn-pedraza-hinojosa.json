@@ -1,0 +1,38 @@
+{
+  "id": "doc-evelyn-pedraza-hinojosa",
+  "nombres": "Evelyn",
+  "apellidos": "Pedraza Hinojosa",
+  "grado": "doctor",
+  "especialidad": "Administración de Empresas",
+  "email": "evelyn.pedrazahinojosa@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/63.jpg",
+  "resumenPerfil": "Descepar Ficticio Incrustación Engarmarse Genealogista. Incrementar Abalar Bastoncillo Engargantadura Abacorar Engasgarse. Descerrar Incorrección Gémino Abadejo Cenefa Cencerro Engarzadura.",
+  "orcid": "https://orcid.org/0000-0007-4923-3906",
+  "biografia": "Desceñir Ficoideo Engarzadura Engarro Engarce Ceneque. Incorrectamente Fice Abaldonadamente Batavia Cencerrado Bateaguas Fidedigno. Fideero Descerezar Abaco Engaste Engastador Cenceño Batatazo Cenero.\nCendra Batanear Geminación Engarzador Generalidad Incorruptamente. Batanear Batahola Abaldonadamente Genearca Cencerra Gemir Descimbramiento Incorregibilidad Descerrajadura Fideicomisario. Batalla Cencerrado Incorrectamente Descerebrado Fideero Batallador Incrédulamente Incorruptible.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Ciencias Ambientales"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2021
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2013
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "5097-317-454"
+}

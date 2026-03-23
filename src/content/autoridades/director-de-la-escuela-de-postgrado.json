@@ -1,0 +1,11 @@
+{
+  "id": "aut-director-de-la-escuela-de-postgrado",
+  "nombres": "Reina",
+  "apellidos": "Karan Montez",
+  "cargo": "Director de la Escuela de Postgrado",
+  "grado": "doctor",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/64.jpg",
+  "email": "rkaranmontez@unapiquitos.edu.pe",
+  "telefono": "503 837 698",
+  "orden": 1
+}

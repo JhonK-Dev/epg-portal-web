@@ -1,14 +1,20 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { DocenteDetail } from '../../features/docentes';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
-import { docentes, getDocenteById, getAllDocenteIds } from '../../data/docentes';
 
-export function getStaticPaths() {
-  return docentes.map((docente) => ({
+export async function getStaticPaths() {
+  const docentesCollection = await getCollection('docentes');
+  return docentesCollection.map((docente) => ({
     params: { id: docente.id },
-    props: { docente },
+    props: { 
+      docente: {
+        id: docente.id,
+        ...docente.data
+      } 
+    },
   }));
 }
 

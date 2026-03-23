@@ -5,15 +5,6 @@
 // Programas Académicos
 export * from './programas';
 
-// Publicaciones (noticias, eventos, avisos)
-export * from './publicaciones';
-
-// Docentes
-export * from './docentes';
-
-// Autoridades
-export * from './autoridades';
-
 // Servicios
 export * from './servicios';
 

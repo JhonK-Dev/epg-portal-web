@@ -1,0 +1,39 @@
+{
+  "id": "doc-agustin-badillo-linares",
+  "nombres": "Agustín",
+  "apellidos": "Badillo Linares",
+  "grado": "doctor",
+  "especialidad": "Gestión Pública",
+  "email": "agustin.badillolinares@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/59.jpg",
+  "resumenPerfil": "Gemológico Abajeño Fidelidad Incorporeidad Cenagar Engarro Incruento Géminis. Abacero Fidelidad Cendradilla Cencerreo Batahola Engastadura Bateador. Batanar Cencha Abalanzar Bastonada Abacero Descifrador Abadí Increado Descentralizador.",
+  "orcid": "https://orcid.org/0000-0002-4041-2778",
+  "biografia": "Cencellada Batallar Batalloso. Incruentamente Generalidad Increpador Descerebrado Descerezar Fidelidad Descervigamiento Incredibilidad Incriminar Cencivera. Abadesa Descentrar Batea Cencivera Batacazo Fidelísimo Cencerra Abacorar Géminis Descervigar.\nGéminis Descercar Cendrada Incorregible. Fichero Fideicomiso Bátavo Genealógico Batallar Ficha Fidelidad. Abadiado Abaco Incorporal Gencianeo Batallona Incorruptibilidad Incorrectamente Céndea Generalísimo.",
+  "areasInvestigacion": [
+    "Ciencias Ambientales",
+    "Biología Molecular",
+    "Gestión Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2013
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "545 545 368"
+}

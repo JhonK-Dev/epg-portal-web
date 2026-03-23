@@ -1,0 +1,39 @@
+{
+  "id": "doc-maria-guadalupe-roque-enriquez",
+  "nombres": "María Guadalupe",
+  "apellidos": "Roque Enríquez",
+  "grado": "doctor",
+  "especialidad": "Ingeniería de Sistemas",
+  "email": "mariaguadalupe.roqueenriquez@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/69864505",
+  "resumenPerfil": "Genearca Ficoideo Cencerrear Abadernar. Bastonazo Batallaroso Cencha Generalísimo Descerco. Deschavetarse Cenceñada Bateaguas.",
+  "orcid": "https://orcid.org/0000-0000-8606-7377",
+  "biografia": "Incorregible Abadernar Fichar Abajadero Batanero Cencero Cencerrado Gemólogo Abadengo. Cenegar Incorporalmente Cendalí Geneático Genearca. Engaste Genealogista Engargolado Gemológico Descerebrado Cendrada.\nIncruento Descerrumarse Descifre Incristalizable. Basurear Abadejo Incristalizable. Engarzador Bástulo Descerco Geminado.",
+  "areasInvestigacion": [
+    "Ciencias Ambientales",
+    "Ingeniería de Sistemas",
+    "Salud Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2023
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2026 - Presente"
+    }
+  ],
+  "telefono": "549 712 319"
+}

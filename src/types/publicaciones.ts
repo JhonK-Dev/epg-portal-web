@@ -9,7 +9,7 @@ export interface Publicacion {
   id: string;
   titulo: string;
   tipo: TipoPublicacion;
-  contenido: string;
+  contenido?: string;
   resumen: string;
   fecha: string;
   fechaEvento?: string; // Solo para eventos

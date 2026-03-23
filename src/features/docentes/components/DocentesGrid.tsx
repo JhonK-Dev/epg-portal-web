@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
-import { docentes, getDoctores, getMagisteres } from '@/data/docentes'
 import { getGradoInfo } from '@/lib/config'
+import type { Docente } from '@/types/docentes'
 import {
   Search,
   Mail,
@@ -23,9 +23,16 @@ import { ResourceCard } from '@/components/ui/resource-card'
 
 type FiltroGrado = 'todos' | 'doctores' | 'magisteres'
 
-export function DocentesGrid() {
+interface DocentesGridProps {
+  docentes: Docente[];
+}
+
+export function DocentesGrid({ docentes }: DocentesGridProps) {
   const [filtroGrado, setFiltroGrado] = useState<FiltroGrado>('todos')
   const [busqueda, setBusqueda] = useState('')
+
+  const getDoctores = () => docentes.filter(d => d.grado === 'doctor' || d.grado === 'phd');
+  const getMagisteres = () => docentes.filter(d => d.grado === 'magister');
 
   const docentesFiltrados = useMemo(() => {
     let resultado = [...docentes]

@@ -1,0 +1,38 @@
+{
+  "id": "doc-jose-zepeda-baca",
+  "nombres": "José",
+  "apellidos": "Zepeda Baca",
+  "grado": "doctor",
+  "especialidad": "Biología Molecular",
+  "email": "jose.zepedabaca@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/84.jpg",
+  "resumenPerfil": "Batallaroso Cencuate Batatazo Engargante. Gemiqueo Incorporar Engarberar Bateaguas Descerco Incriminar Descimbrar Abajo Ceneque. Cencío Batayola Engarfiar Abacora Engarrar.",
+  "orcid": "https://orcid.org/0000-0008-0390-2759",
+  "biografia": "Batán Increíble Incorporación Abacora Genealogista Desciframiento Desciframiento. Descerco Gemiqueo Fido. Genealógico Incruento Cencerrear.\nFichaje Abalanzar Descenso Abacorar Cencido Cencerra Incremento Gemiquear Batanga. Gen Fiducia Deschavetado Bate Batahola Incriminación. Cenceño Cendra Batanero Cenagoso Ficción Engarmarse Incorrección Abacero Bata.",
+  "areasInvestigacion": [
+    "Docencia Universitaria",
+    "Ciencias Ambientales"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "516.543.694"
+}

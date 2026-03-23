@@ -1,11 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
 import EscuelaLayout from '../../layouts/EscuelaLayout.astro';
 import { AutoridadesSection } from '../../features/escuela';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
+
+const autoridadesCollection = await getCollection('autoridades');
+const autoridades = autoridadesCollection.map(a => ({
+  id: a.id,
+  ...a.data
+})) as any;
 ---
 
 <EscuelaLayout activeTab="/escuela/autoridades">
   <ErrorBoundary client:load>
-    <AutoridadesSection client:load />
+    <AutoridadesSection autoridades={autoridades} client:load />
   </ErrorBoundary>
 </EscuelaLayout>

@@ -23,6 +23,7 @@ import { PageHero } from '@/components/ui/page-hero';
 interface PublicacionDetailProps {
   publicacion: Publicacion;
   publicacionesRelacionadas?: Publicacion[];
+  children?: React.ReactNode;
 }
 
 const tipoIcons: Record<string, React.ReactNode> = {
@@ -35,6 +36,7 @@ const tipoIcons: Record<string, React.ReactNode> = {
 export function PublicacionDetail({
   publicacion,
   publicacionesRelacionadas = [],
+  children
 }: PublicacionDetailProps) {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -43,6 +45,11 @@ export function PublicacionDetail({
         title={publicacion.titulo}
         bgColorClass={tipoPublicacionColors[publicacion.tipo]}
         variant="solid"
+        breadcrumbs={[
+          { label: 'Inicio', href: '/' },
+          { label: 'Publicaciones', href: '/publicaciones' },
+          { label: publicacion.titulo, href: '#' }
+        ]}
       >
         <div className="flex items-center gap-3 mb-4">
           <Badge className="bg-white/20 text-white hover:bg-white/30 gap-1">
@@ -107,7 +114,7 @@ export function PublicacionDetail({
                 </p>
                 <Separator className="my-6" />
                 <div className="text-gray-700 whitespace-pre-line leading-relaxed">
-                  {publicacion.contenido}
+                  {children || publicacion.contenido}
                 </div>
               </div>
 

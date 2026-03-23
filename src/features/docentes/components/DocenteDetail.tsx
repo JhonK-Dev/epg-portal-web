@@ -43,6 +43,7 @@ export function DocenteDetail({ docente }: DocenteDetailProps) {
       <PageHero
         title={nombreCompleto}
         subtitle={docente.resumenPerfil}
+        breadcrumbs={[]}
         badge={{
           label: gradoInfo.labelFull,
           className: `${gradoInfo.bgColor} ${gradoInfo.color}`,

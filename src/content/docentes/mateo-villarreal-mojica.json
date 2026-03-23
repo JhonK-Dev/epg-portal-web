@@ -1,0 +1,38 @@
+{
+  "id": "doc-mateo-villarreal-mojica",
+  "nombres": "Mateo",
+  "apellidos": "Villarreal Mojica",
+  "grado": "doctor",
+  "especialidad": "Salud Pública",
+  "email": "mateo.villarrealmojica@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/52.jpg",
+  "resumenPerfil": "Deschavetarse Incordio Descercador. Engarrafador Increíble Abajamiento Engarnio Descenso Incremento Incorpóreo Descerrajadura. Desciframiento Fideicomisario Batanar Abajadero Incorporación Engastar.",
+  "orcid": "https://orcid.org/0000-0004-3171-9710",
+  "biografia": "Bata Cencerro Increpación Abacalero Gemir Bateaguas. Batallar Ficción Gemir Incorporalmente Fidedigno. Cencerrón Ceñar Bastonazo Engarrafar Incorregibilidad Cenagar Batán Deschavetarse.\nBatanar Gemiqueo Batatazo Gemoso. Gemoso Fidecomiso Generala Gemíparo Incorregible Ficticio Gen Deschavetarse Cencuate Incorregibilidad. Cenegar Batayola Ficticio Incorrección Fidelidad Engarrar Incremento Fido Abadernar.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Biología Molecular"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2017
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2011
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2026 - Presente"
+    }
+  ],
+  "telefono": "591.046.250"
+}

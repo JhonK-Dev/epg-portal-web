@@ -1,0 +1,37 @@
+{
+  "id": "doc-nicole-montemayor-madrigal",
+  "nombres": "Nicole",
+  "apellidos": "Montemayor Madrigal",
+  "grado": "magister",
+  "especialidad": "Ingeniería de Sistemas",
+  "email": "nicole.montemayormadrigal@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/91199457",
+  "resumenPerfil": "Batanero Batallón Batallón Genealogista Bastonazo Generación Basura Descimbrar Cencerril. Cencivera Incrustación Abajera Gemíparo Abadí Incriminar Abadiato Cenata Engastadura Gemoso. Ceneque Incriminación Descentralizador.",
+  "orcid": "https://orcid.org/0000-0003-7630-4954",
+  "biografia": "Ceneque Batallar Genealogista Genciana Engarberar Batallar Céndea Engaste Cendalí Incorruptible. Batanar Generala Genealógico Batahola Cenceñada Cencerro. Cencerrado Abajadero Abaldonamiento Bastonazo Bastonear Abajamiento Cenefa.\nGemoso Cencivera Fideero Batatazo Engargolado Generable Fideicomisario Cendrada Céndea Batalla. Engargantadura Generala Batayola Batallona Deschapar Incorporo. Cenceño Abajera Genealogía Abada Engarzadura Engarro Incorporar Geminación.",
+  "areasInvestigacion": [
+    "Gestión Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "5626-727-639"
+}

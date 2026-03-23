@@ -1,0 +1,37 @@
+{
+  "id": "doc-alfredo-brito-ceballos",
+  "nombres": "Alfredo",
+  "apellidos": "Brito Ceballos",
+  "grado": "magister",
+  "especialidad": "Docencia Universitaria",
+  "email": "alfredo.britoceballos@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/81.jpg",
+  "resumenPerfil": "Cencha Incorregibilidad Engarbullar Bastonazo. Abaco Engarronar Fideicomiso Incorrupción Abadesa Abadernar Ficha Cenestesia Gencianeo. Ceneque Incrédulamente Cenegar Engarzadura Fido Engargantar Abacorar.",
+  "orcid": "https://orcid.org/0000-0006-7024-2688",
+  "biografia": "Abadernar Generalísimo Engarrafador Gemiquear. Batallón Descepar Batanar Cenefa Descerrajar Gendarme Descentralizar Generalísimo Incorrupción Batata. Bastoncillo Cencerrillas Abajar Bataola.\nIncorruptamente Generala Gemiquear Incorruptamente Cenagoso. Gencianáceo Incorregiblemente Cencerrón Descepar Bataola Gendarmería Engarzador Bateaguas Fidecomiso. Batalán Fidedigno Fiducia Bátavo Descentrar Descerrajar Céndea.",
+  "areasInvestigacion": [
+    "Derecho Constitucional"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2021
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2014
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "5163-628-021"
+}

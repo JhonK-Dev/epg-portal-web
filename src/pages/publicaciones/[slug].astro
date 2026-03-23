@@ -1,31 +1,35 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { PublicacionDetail } from '../../features/publicaciones';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
-import { publicaciones, getPublicacionBySlug, getUltimasPublicaciones } from '../../data/publicaciones';
 
 export async function getStaticPaths() {
-  return publicaciones.map((publicacion) => ({
-    params: { slug: publicacion.slug },
-    props: { publicacion },
+  const noticias = await getCollection('noticias');
+  return noticias.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
 
-const { slug } = Astro.params;
-const { publicacion } = Astro.props;
+const { entry } = Astro.props;
 
-// Fallback in case props don't work as expected
-const publicacionData = publicacion || getPublicacionBySlug(slug);
-
-if (!publicacionData) {
+if (!entry) {
   return Astro.redirect('/404');
 }
 
-// Get related publications (same type, excluding current)
-const relacionadas = publicaciones
-  .filter(p => p.tipo === publicacionData.tipo && p.id !== publicacionData.id)
-  .slice(0, 3);
+const publicacionData = {
+  id: entry.id,
+  slug: entry.slug,
+  ...entry.data
+};
+
+const allNoticias = await getCollection('noticias');
+const relacionadas = allNoticias
+  .filter(p => p.data.tipo === publicacionData.tipo && p.id !== publicacionData.id)
+  .slice(0, 3)
+  .map(p => ({ id: p.id, slug: p.slug, ...p.data }));
 
 const tipoLabels: Record<string, string> = {
   noticia: 'Noticia',
@@ -33,6 +37,8 @@ const tipoLabels: Record<string, string> = {
   aviso: 'Aviso',
   comunicado: 'Comunicado',
 };
+
+const { Content } = await entry.render();
 ---
 
 <Layout 
@@ -49,7 +55,11 @@ const tipoLabels: Record<string, string> = {
         publicacion={publicacionData} 
         publicacionesRelacionadas={relacionadas}
         client:load 
-      />
+      >
+        <div class="prose prose-epg max-w-none">
+          <Content />
+        </div>
+      </PublicacionDetail>
     </ErrorBoundary>
   </main>
 </Layout>

@@ -1,0 +1,37 @@
+{
+  "id": "doc-valentina-regalado-castillo",
+  "nombres": "Valentina",
+  "apellidos": "Regalado Castillo",
+  "grado": "doctor",
+  "especialidad": "Salud Pública",
+  "email": "valentina.regaladocastillo@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/19402297",
+  "resumenPerfil": "Engarzador Cendolilla Cencerrear Genealogía Descharchar Generala Engastador. Batán Incrédulamente Geminar Genealógico Deschapar Batallador. Deschapar Incrustación Abacería Abadí Cencha Engarrafador Fido.",
+  "orcid": "https://orcid.org/0000-0007-7961-4718",
+  "biografia": "Batahola Descerezar Gemológico Generalísimo Abadernar Basurear Incremento Bastonada Bastonero Engarmarse. Descercar Descifrar Fideicomisario Engargante Descerar Cencapa Incrédulo Batalloso. Batallador Abajadero Generalísimo Abadengo Incorrectamente Incriminación Deschapar Bataola Abajera.\nAbalar Descerco Incorregible Genealógico Descentralizador Bate Incorporar. Descerebración Incorrupto Batalloso Engastar. Genealógico Engarnio Incriminar Fidecomiso Incrementar Incorporo Incruento.",
+  "areasInvestigacion": [
+    "Biología Molecular"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2021
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2012
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "5687-080-929"
+}
