@@ -1,0 +1,36 @@
+{
+  "id": "doc-ruben-olivares-figueroa",
+  "nombres": "Rubén",
+  "apellidos": "Olivares Figueroa",
+  "grado": "magister",
+  "especialidad": "Salud Pública",
+  "email": "ruben.olivares@unapiquitos.edu.pe",
+  "resumenPerfil": "Abaldonamiento Generable Batanear. Cencivera Ceneque Fice. Increpador Abalanzar Batavia Engarronar Fichar Abadiado.",
+  "orcid": "https://orcid.org/0000-0006-6879-1125",
+  "biografia": "Cenata Genearca Batea. Abalanzar Batallar Batallaroso Incorregibilidad Abacora Engarbullar Descerrar Abajo. Bástulo Abaco Cenegar Cendrazo Cencido Batallar Fideero.\nIncorporal Descentralizador Gemoterapia Basurear Increíblemente Descerezar Descifrador Increpación Fidedigno Descerrar. Descifrar Abadí Incorrectamente Gemíparo. Cencellada Descentrado Increpar.",
+  "areasInvestigacion": [
+    "Derecho Constitucional"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2026 - Presente"
+    }
+  ],
+  "telefono": "551 623 423"
+}

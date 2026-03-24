@@ -19,6 +19,7 @@ const especialidades = [
 const grados = ['magister', 'doctor', 'phd'] as const;
 
 export async function seedDocentes(count: number = 30) {
+  faker.seed(101);
   await fs.mkdir(DOCENTES_DIR, { recursive: true });
 
   for (let i = 0; i < count; i++) {

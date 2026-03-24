@@ -1,0 +1,38 @@
+{
+  "id": "doc-mario-zamudio-gaytan",
+  "nombres": "Mario",
+  "apellidos": "Zamudio Gaytán",
+  "grado": "magister",
+  "especialidad": "Docencia Universitaria",
+  "email": "mario.zamudio@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/34.jpg",
+  "resumenPerfil": "Fiducia Abacora Increíblemente Cendrado Cenagoso. Bastoncillo Cenegar Fichero Fideero Cencerrillas Bastonazo. Incruento Abacorar Incorregibilidad Incriminación Bástulo Fideo Ficticio Fideísmo.",
+  "orcid": "https://orcid.org/0000-0003-6536-9686",
+  "biografia": "Batallar Cencerreo Descerrajado Incorrupto Genciana Bata Cenero Engastadura Descifrar. Incruentamente Abadengo Cencerrillas Incruento Batallola Descentrado. Descerezar Incorrecto Bástulo.\nGemología Bastonada Bátavo Abadiato Increpación Increíblemente. Generalidad Cencío Abacería Fido Incorruptamente Descerar Batatazo. Genealogía Incorrectamente Incorruptibilidad Abajar Abadesa Bastonada Incruento Batalán Generador.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Biología Molecular"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2023
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2012
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "540456260"
+}

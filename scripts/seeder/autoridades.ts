@@ -23,6 +23,7 @@ const autoridadesData = [
 ];
 
 export async function seedAutoridades() {
+  faker.seed(103);
   await fs.mkdir(AUTORIDADES_DIR, { recursive: true });
 
   // Clean directory first

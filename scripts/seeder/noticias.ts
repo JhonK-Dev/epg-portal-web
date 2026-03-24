@@ -34,6 +34,7 @@ function generarTitulo() {
 }
 
 export async function seedNoticias(count: number = 20) {
+  faker.seed(102);
   await fs.mkdir(NOTICIAS_DIR, { recursive: true });
 
   for (let i = 0; i < count; i++) {

@@ -1,0 +1,39 @@
+{
+  "id": "doc-ana-reyna-yunta",
+  "nombres": "Ana",
+  "apellidos": "Reyna Yunta",
+  "grado": "phd",
+  "especialidad": "Ingeniería de Sistemas",
+  "email": "ana.reyna@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/11.jpg",
+  "resumenPerfil": "Abadesa Incredibilidad Fido Fideo Descervigamiento Fidecomiso Descentrar Cenceño Batavia Engargantadura. Fideicomisario Abadiato Descervigar Descercar Incorporal Cenata Incremento. Basural Bastonazo Cendra Gemíparo Engarmarse Descentralización Geminar Abajo Batacazo.",
+  "orcid": "https://orcid.org/0000-0000-3019-5184",
+  "biografia": "Bateaguas Cencerrear Bastonear Ficha Descercador Gemiqueo Gemoterapia. Incorporal Abad Bastonear Engargolar Abacalero Cenestesia. Cendal Abaldonadamente Fideicomiso.\nGendarme Engarrotar Ficoideo Gemiqueo Cencerril Engarce Abadernar. Descerebrar Geminación Descentralizar Engarbullar Basural Abalanzar. Abacora Gemiqueo Gémino Abaldonamiento.",
+  "areasInvestigacion": [
+    "Gestión Pública",
+    "Docencia Universitaria",
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2008
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "566 835 343"
+}
