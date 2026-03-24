@@ -1,0 +1,39 @@
+{
+  "id": "doc-camila-blanco-molina",
+  "nombres": "Camila",
+  "apellidos": "Blanco Molina",
+  "grado": "magister",
+  "especialidad": "Salud Pública",
+  "email": "camila.blanco molina@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/10.jpg",
+  "resumenPerfil": "Cendolilla Abacalero Engargolar Engastador Incrustación Fice Abajera Cencerrón Descervigar. Generalísimo Engarce Engarbarse Batalloso Descifrable Descerebrar Batata Géminis Cencero. Batanga Incorrupción Geminado Engargolar.",
+  "orcid": "https://orcid.org/0000-0000-3428-1951",
+  "biografia": "Abacero Batallón Engarrafador Abacería Cenaoscuras Gemonias Cenegar. Batalán Batanga Incruento. Cenal Ficoideo Incorporal.\nDescerrar Cencerrada Abacorar Abadesa Bastonazo Fichero. Incorpóreo Deschapar Incorregibilidad Engaritar Geminación Incremento Incorrupto. Fideicomitente Engaritar Batalla Batallón Fidelidad Incorregible Batallaroso Incorregible Descerrar.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas",
+    "Docencia Universitaria",
+    "Biología Molecular"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2021 - Presente"
+    }
+  ],
+  "telefono": "591771144"
+}

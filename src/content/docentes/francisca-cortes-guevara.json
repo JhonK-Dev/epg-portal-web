@@ -1,0 +1,39 @@
+{
+  "id": "doc-francisca-cortes-guevara",
+  "nombres": "Francisca",
+  "apellidos": "Cortés Guevara",
+  "grado": "phd",
+  "especialidad": "Ciencias Ambientales",
+  "email": "francisca.cortés guevara@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/73.jpg",
+  "resumenPerfil": "Batallador Incruento Descercado. Cendradilla Abajar Descentralizar Bastonazo Gencianáceo Abadejo. Ficticio Descentralizar Abajo Cenagoso.",
+  "orcid": "https://orcid.org/0000-0007-3711-0748",
+  "biografia": "Bateaguas Incruentamente Bateador Cencerra Gémino Batalán Engargolar Abajeño Engargolar. Bastoncillo Cencellada Engarfiar Incorporeidad Batanero Abajamiento Generacional. Abajadero Increpar Abajamiento Engarzador.\nAbacial Generala Bataola Batallola Abadí Cendrar Descerebrar Engarnio. Batanero Engargantar Engaritar Gemólogo. Abajamiento Incruentamente Basurear.",
+  "areasInvestigacion": [
+    "Biología Molecular",
+    "Ingeniería de Sistemas",
+    "Docencia Universitaria"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "522.275.070"
+}

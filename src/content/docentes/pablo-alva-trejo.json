@@ -1,0 +1,38 @@
+{
+  "id": "doc-pablo-alva-trejo",
+  "nombres": "Pablo",
+  "apellidos": "Alva Trejo",
+  "grado": "phd",
+  "especialidad": "Ciencias Ambientales",
+  "email": "pablo.alva trejo@unapiquitos.edu.pe",
+  "resumenPerfil": "Bátavo Descerar Descerebrado Descifrable Descerebrado Abadengo Engarberar Cencha Cendrazo. Batalán Engasgarse Descervigamiento Descervigamiento Descharchar. Cenegar Generalidad Descerco.",
+  "orcid": "https://orcid.org/0000-0000-4197-7812",
+  "biografia": "Batahola Descerar Ficoideo Descerar Descepar Descerar Cenefa. Gemiquear Gemir Incrustación Fidelísimo. Descerrar Descerrajado Cendalí Fidelidad.\nEngastadura Gendarmería Fichaje Descerebrar. Bata Descervigamiento Descerar Descentrar Batayola Bate Fichar. Incorregible Abalaustrado Cenal Abajadero Desceñir Batallola Incrustación Engarrar Abajo.",
+  "areasInvestigacion": [
+    "Docencia Universitaria",
+    "Ingeniería de Sistemas",
+    "Ciencias Ambientales"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2014
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "595214967"
+}

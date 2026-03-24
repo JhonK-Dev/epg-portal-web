@@ -1,0 +1,38 @@
+{
+  "id": "doc-renata-razo-kadar-rodriguez",
+  "nombres": "Renata",
+  "apellidos": "Razo Kadar rodriguez",
+  "grado": "phd",
+  "especialidad": "Administración de Empresas",
+  "email": "renata.razo kadar rodriguez@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/2.jpg",
+  "resumenPerfil": "Bataola Cencerra Incredibilidad Abadía Cenegar Cencido. Bastoncillo Incorruptible Basural Cendalí. Genealogista Batallola Descentrar Cendrar Fido Engarzar Increpar.",
+  "orcid": "https://orcid.org/0000-0001-5621-7694",
+  "biografia": "Engarce Abadí Engarrotar Batanero. Ceñar Engastador Descifrable Basural Incrédulo. Descerrar Batallador Descentralización Fichero Incorporeidad Cencerrado Fidecomiso Increado.\nAbacería Cencapa Basura. Ceneque Incrustación Batallar Batallaroso Batea. Abadesa Descercado Cenca Engargantadura Incorporal Géminis.",
+  "areasInvestigacion": [
+    "Gestión Pública",
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2009
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "5467-943-529"
+}

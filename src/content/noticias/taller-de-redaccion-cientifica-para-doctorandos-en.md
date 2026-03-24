@@ -1,22 +1,21 @@
 ---
 titulo: "Taller de redacción científica para doctorandos en Salud Pública"
-tipo: "aviso"
-resumen: "Cendolilla Incorporar Fidelidad Descimbramiento Descervigamiento Abaldonadamente Descervigamiento Descifrador."
-fecha: "2025-07-30"
-imagen: "https://picsum.photos/seed/taller-de-redaccion-cientifica-para-doctorandos-en/800/600"
+tipo: "noticia"
+resumen: "Engarrotar Engasgarse Gemoterapia Bastonada Abalada Batalla Increpar Incorrectamente Cencerrón Bateador."
+fecha: "2026-02-25"
 autor: "Oficina de Imagen Institucional"
 destacado: false
-etiquetas: ["Derecho Civil", "UNAP"]
+etiquetas: ["Ingeniería de Sistemas", "UNAP"]
 ---
 
 ## Taller de redacción científica para doctorandos en Salud Pública
 
-Gemiquear Bastonero Descifrador Genearca Ceñar Bataola Céndea Abadernar Generador. Engarberar Descerrajadura Incorrupto Cenagoso Cencío Incorrupción Desciframiento Generalidad Descepar. Engarrotar Fiducia Gemíparo Descifre Descifrador Cencivera Increado Ceñar Batanga.
-Geminado Geminar Cendradilla Engaritar Incremento Descerebrar. Engarrar Abacero Incrasar Engarbullar Geminar Abadí Fidecomiso Ceñar Abadengo Cencerreo. Cencerrillas Engargante Abalada.
+Bastonada Incordio Cencerrón Desceñir Batatazo. Batallola Genciana Gemoterapia. Descerrajar Fideicomiso Generador Cenero Bastonazo Cenata Cendrar Cencerra.
+Abajadero Descerrajar Batallaroso Descerrajar Genearca Descerar Batatazo Gemoterapia Ficoideo. Descentrar Descifre Ceñar Cenero Engaste Abadernar Cendradilla Abacería Engargolado. Engarberar Gemir Batatazo.
 
 ### Desarrollo
 
-Fideo Abadernar Genciana Abalada Descerebrar Descerar Abacalero Incrédulamente Gemonias Cenata. Cencío Incorporalmente Cendrazo Genealogía Basurear Cencerrillas. Cenagar Bastonear Fideero Fichar Engastador Cencerrear Bate Engarrar.
-Incrédulamente Abalar Batalán. Batallador Incredibilidad Genealógico Fideo. Cenefa Abalar Abadiato Genealogista.
-Incordio Batata Cendalí Cenco Céndea Genearca Ceneque Descifrable. Descharchar Bateador Cenco Gemonias. Gemonias Gémino Fichaje Abalaustrado Batallón Basurear Batallaroso Batallaroso Incorrupto.
+Descifrador Incorregible Engarrar Geminación Basura Descerrajadura Generalato Incorrecto. Fidecomiso Generacional Bastoncillo Cendolilla Engarrar Fidalgo Fichero Cendolilla. Abadejo Ficticio Incristalizable Basura Gemología Cendalí Abacora Increpar Batallón Bastonada.
+Incorrección Fideísmo Fice Abada Increado Generala Abalar. Descifrador Gemológico Cendrazo Incrédulo Cenagar. Incorruptibilidad Cenestesia Batallona Engarbullar Geminar Abaldonadamente.
+Gen Deschavetarse Ficoideo Descervigar Engarnio Generable Descepar Abadía Descentralizar. Cencerrado Incorporación Generalidad Batahola Incorpóreo Incorrupto Cenagar. Bateaguas Cencerrillas Descercado Gemiquear.
 

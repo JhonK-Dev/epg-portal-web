@@ -1,0 +1,39 @@
+{
+  "id": "doc-lucas-nino-manzanares",
+  "nombres": "Lucas",
+  "apellidos": "Niño Manzanares",
+  "grado": "phd",
+  "especialidad": "Ciencias Ambientales",
+  "email": "lucas.niño manzanares@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/16258319",
+  "resumenPerfil": "Descerar Descercar Batavia Abada Abad Batavia Geminado Basurear Geneático. Engarzar Gemonias Cencerril Abajadero Batallola Descervigar Engaritar. Batán Abalar Incrustación Fiducia Engaritar Engaste Cenestesia.",
+  "orcid": "https://orcid.org/0000-0003-6765-9223",
+  "biografia": "Abajera Cencerrada Cencerrear Gemir Bastonear Descerebrar Cenegar Cencuate Bateaguas. Descerrumarse Descifre Fido Fideicomisario Increpar Descifrador Gendarmería Descenso Abadernar Bastoncillo. Cencerrillas Cencellada Engarro Descentrar Abacial Incremento Abacería Engargolado Abadiato Batanar.\nEngarbullar Descensión Batallar Generala Engarrotar Descerebrado Bataola Abada. Abalaustrado Cendrado Generala Fidedigno Cencerro Gemir Batallón. Cenca Increpar Increpar Bátavo Incorrupción Incorruptible Descervigamiento Gen Gemiqueo.",
+  "areasInvestigacion": [
+    "Ciencias Ambientales",
+    "Derecho Constitucional",
+    "Salud Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2008
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "593617796"
+}

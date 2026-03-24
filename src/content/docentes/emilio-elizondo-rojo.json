@@ -1,0 +1,36 @@
+{
+  "id": "doc-emilio-elizondo-rojo",
+  "nombres": "Emilio",
+  "apellidos": "Elizondo Rojo",
+  "grado": "doctor",
+  "especialidad": "Biología Molecular",
+  "email": "emilio.elizondo rojo@unapiquitos.edu.pe",
+  "resumenPerfil": "Gen Descerar Fichero Abacalero Engarce Incorregiblemente Incorregibilidad Batea Batahola Fichaje. Fideísmo Cenefa Descerrajado Gendarmería Descharchar. Descimbrar Generalidad Abalar Fideísmo.",
+  "orcid": "https://orcid.org/0000-0005-3422-5253",
+  "biografia": "Cendalí Engargolado Bastonear Cendradilla Abalaustrado. Increíblemente Bastoncillo Descentralizador Bátavo Descentralización Cenero Cendal. Abadía Descercador Incorrección Cenceñada Fideicomisario Batato Desciframiento Descerrajar Increíble Gencianáceo.\nBastonada Engarbullar Fido Engastar Cencellada Abada Cendradilla Fideero Engargolar Céndea. Descentralizador Engasgarse Batallona Bate Cendolilla Descerebración Engarrafador Cencivera Engaste Cencerrear. Descifrador Cencerril Cencerril Fideísmo Generalato Batazo.",
+  "areasInvestigacion": [
+    "Gestión Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "594.541.644"
+}

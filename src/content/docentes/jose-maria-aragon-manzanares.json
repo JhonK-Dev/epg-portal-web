@@ -1,0 +1,39 @@
+{
+  "id": "doc-jose-maria-aragon-manzanares",
+  "nombres": "José María",
+  "apellidos": "Aragón Manzanares",
+  "grado": "doctor",
+  "especialidad": "Salud Pública",
+  "email": "josé maría.aragón manzanares@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/44650978",
+  "resumenPerfil": "Batallador Incriminar Increíble Fice Batallola. Cencellada Incorporal Fido Ficción Cencuate. Ficticio Gendarme Descifrar Fidalgo Cencerrear Engarrafar Descerebración.",
+  "orcid": "https://orcid.org/0000-0004-7052-8306",
+  "biografia": "Deschapar Geminado Genealogía Incorrupción Cendra Engarbarse Descerebrado Incorrección Increpador Batato. Batanar Engastador Descerebración Cencerrón Abadiado Engarro Descentralización Engargolado Incristalizable Engarzar. Geminar Descifrar Incorruptible Bastonada Incrédulo Abacorar Fiducia.\nBastoncillo Batahola Deschapar Incriminar. Batán Cencerril Incorporeidad Cenal Cenegar Fidecomiso Engarzadura Desceñir. Cendrada Ceñar Incredibilidad Descenso Descerrajar Geminado Basurero.",
+  "areasInvestigacion": [
+    "Biología Molecular",
+    "Ciencias Ambientales",
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2021
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2021
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "515 188 097"
+}

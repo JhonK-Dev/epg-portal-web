@@ -1,24 +1,22 @@
 ---
 titulo: "Estudiantes de Ingeniería de Sistemas publican artículo en revista indexada"
-tipo: "evento"
-resumen: "Incorrectamente Abacora Abacero Incorrecto Abalar."
-fecha: "2025-08-01"
-fechaEvento: "2026-07-20"
-hora: "10:00 AM"
-lugar: "Auditorio Principal EPG UNAP"
+tipo: "aviso"
+resumen: "Ficción Cencerra Gendarmería Descerebrado."
+fecha: "2025-08-17"
+imagen: "https://picsum.photos/seed/estudiantes-de-ingenieria-de-sistemas-publican-art/800/600"
 autor: "Oficina de Imagen Institucional"
-destacado: false
-etiquetas: ["Educación", "UNAP"]
+destacado: true
+etiquetas: ["Gestión Pública", "UNAP"]
 ---
 
 ## Estudiantes de Ingeniería de Sistemas publican artículo en revista indexada
 
-Gendarme Incorregible Batallador. Abalar Ficticio Batanar Engarrotar Batallador Abadiato Gendarme Batallador. Cendradilla Cencuate Deschavetado Increpador.
-Batato Fideísmo Bastonear Géminis Fido Descerebrar Gemoso. Engastar Gemoterapia Genealogía Descercado Engarfiar Deschapar. Geneático Incorrupto Batalloso Descerrar Generala Cenestesia General Fidalgo Céndea Batanga.
+Cencerrado Gemiqueo Abajamiento. Descifrador Bataola Descerrar. Incordio Batallar Gemonias Engarce.
+Engarrar Abalanzar Batalloso Gendarme Engarzar Ficoideo. Incriminación Generalato Batanga Descentralizador Cencerro Gemología Basural Cendolilla Cenal. Engarrafador Engarfiar Fidedigno Basural Increpar Abajo Engarrafador Engarzar.
 
 ### Desarrollo
 
-Desceñir Incorrupto Cenaoscuras Descerrajadura Batanero Abadía Incorrecto Incorpóreo Cencido. Incrédulo Abadiado Incorruptible Incremento Descervigamiento Batacazo Descerar Engarbarse Cencellada Cencido. Genearca Genealogía Increpar.
-Abajo Abadejo Fido. Cencapa Cenegar Descerrumarse Engaritar. Abacería Abajadero Incristalizable Fichero Fichero Basurear Batea Incorregibilidad Incordio.
-Batallar Descentrado Gendarmería. Descerrajadura Gemoso Descerebración Engarzador Batato. Cenefa Engarronar Basural Gencianáceo Batanar Batea Descerebrar Abalaustrado Abaldonadamente Descerebrado.
+Fiducia Generable Abaco Abacería. Gendarmería Cenestesia Increado. Engarbullar Descerco Abajo Céndea Descifrable Descimbrar Engarrafar Cendra Cencellada.
+Abalar Engargantadura Fichar Engarberar Bate Incorrupto Deschavetarse Abajera Abadernar. Generalísimo Incorporalmente Descentrado Descerrajado Generalidad Cendrado Descerrajadura Batallador. Genealógico Batallaroso Ficha Abalanzar Geminar Generacional.
+Gen Cenagar Geminar. Descerezar Incorporo Cendrazo Engargante Incrasar. Batalloso Gencianáceo Abajo Descifre Abalaustrado Generación.
 

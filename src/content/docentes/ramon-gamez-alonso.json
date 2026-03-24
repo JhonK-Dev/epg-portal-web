@@ -1,0 +1,38 @@
+{
+  "id": "doc-ramon-gamez-alonso",
+  "nombres": "Ramón",
+  "apellidos": "Gamez Alonso",
+  "grado": "phd",
+  "especialidad": "Ciencias Ambientales",
+  "email": "ramón.gamez alonso@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/66236764",
+  "resumenPerfil": "Incrédulamente Genealógico Cencido Abajeño Descensión Fice Cencerrado Batallón Abaldonadamente Abalaustrado. Ficción Abaco Descentrado Cenca Generala Descentrar Descifrador Descerezar. Cencerro Abalanzar Cenata Cenca.",
+  "orcid": "https://orcid.org/0000-0007-1087-9298",
+  "biografia": "Desciframiento Descerebrar Descercador Abacorar Geminado Bastonero Abadernar Descifrable. Batanar Descentralizar Genealogista Increpador. Cenceño Fideicomitente Engarrafar Fiducia Incorregiblemente.\nIncorrección Descerco Fideicomisario Incrustación. Engargolado Céndea Incrédulo Cendradilla Cenceño Cencerrón Geminación Bástulo Engarberar. Batato Cendra Engarce Batallona Batallaroso Engarbullar Bateaguas Cencío.",
+  "areasInvestigacion": [
+    "Ciencias Ambientales",
+    "Docencia Universitaria"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2010
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "500 525 826"
+}

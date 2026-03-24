@@ -1,0 +1,39 @@
+{
+  "id": "doc-manuela-cantu-de-najera",
+  "nombres": "Manuela",
+  "apellidos": "Cantú de Nájera",
+  "grado": "phd",
+  "especialidad": "Gestión Pública",
+  "email": "manuela.cantú de nájera@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/1.jpg",
+  "resumenPerfil": "Incorrupto Cencerril Cencellada Incredibilidad Batanar Batallador. Incorrección Batallona Cenco Geneático. Geneático Abadía Abalanzar Descharchar Cendrada Incrementar Increíble Deschavetarse Incorporeidad Engarrafar.",
+  "orcid": "https://orcid.org/0000-0000-8152-3559",
+  "biografia": "Ceneque Incorporalmente Abajadero Abaldonadamente Ceneque Incorpóreo Descerrar Abacero Cendrado Fichero. Abalar Engastadura Cencerreo Ceñar Cendrado. Abadesa Incriminar Descentralizador.\nBastonero Engarbullar Gemológico Gemir Fido Fideo Incorrecto Engarce. Engargante Descenso Cendradilla Descentrado Ficticio Incorrupto Descerco Abada. Géminis Incrédulamente Géminis Fidedigno Cenefa Gemiquear Incorrecto.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas",
+    "Administración de Empresas",
+    "Biología Molecular"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "515640705"
+}

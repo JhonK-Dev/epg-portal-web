@@ -1,0 +1,37 @@
+{
+  "id": "doc-manuela-tapia-alonzo",
+  "nombres": "Manuela",
+  "apellidos": "Tapia Alonzo",
+  "grado": "phd",
+  "especialidad": "Ingeniería de Sistemas",
+  "email": "manuela.tapia alonzo@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/22.jpg",
+  "resumenPerfil": "Abacial Cenco Batalán Gemoso Incorruptibilidad. Ceneque Descentrado Cencha Gencianeo Fido Bateador Fideero Engaritar Gemiquear Descercado. Cenata Descervigar Engarnio Cenestesia.",
+  "orcid": "https://orcid.org/0000-0000-6855-8745",
+  "biografia": "Batata Incorruptible Descerebración Descervigar Descerebración. Cencerrón Incorrectamente Engarzar Batallaroso Basurear Fichaje Gemir Gemoso Incristalizable. Cenaoscuras Descerebrado Desciframiento Incrédulamente Engargolar Abaldonamiento Cenceñada.\nFidelidad Descensión Fichar Abalanzar Bastonada Abacería. Deschapar Abajo Incriminación Gendarmería Cenco Batato Increíblemente Gencianáceo. Descimbramiento Incorrupto Batatazo Deschapar.",
+  "areasInvestigacion": [
+    "Docencia Universitaria"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2017
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2011
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "545 980 470"
+}

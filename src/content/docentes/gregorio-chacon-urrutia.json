@@ -1,0 +1,37 @@
+{
+  "id": "doc-gregorio-chacon-urrutia",
+  "nombres": "Gregorio",
+  "apellidos": "Chacón Urrutia",
+  "grado": "magister",
+  "especialidad": "Ciencias Ambientales",
+  "email": "gregorio.chacón urrutia@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/31523609",
+  "resumenPerfil": "Engastadura Descerco Cenca Abadiado Engarnio Fichar. Incorrecto Cendrar Genearca Increado Batazo Abadesa Descentrado Ficha Gemíparo Abacalero. Engarmarse Cencerrón Incorporo Gencianeo.",
+  "orcid": "https://orcid.org/0000-0000-4040-3104",
+  "biografia": "Fideicomisario Batahola Incriminación Engasgarse Incordio. Abajar Incorruptible Generable. Incorrupción Increpar Increíble Cencivera Bataola Descensión Descentrado.\nEngargantadura Incorporal Abadí Engargante Engastadura Basurear Descerebrado Incristalizable Cenegar Fidelidad. Fidecomiso Abadernar Geminar Fichar Engargante Increíble. Cenegar Gemoso Descerar Descifrar Fichar Fichar Abalar.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2026
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2019
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "578.774.958"
+}
