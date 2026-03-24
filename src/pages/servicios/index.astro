@@ -3,6 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { ServiciosGrid } from '../../features/servicios';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
+import { getServicios } from '../../data/servicios';
+
+const servicios = await getServicios();
 ---
 
 <Layout 
@@ -27,7 +30,7 @@ import { ErrorBoundary } from '../../components/ui/error-boundary';
     <section class="py-12 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ErrorBoundary client:load>
-          <ServiciosGrid client:load />
+          <ServiciosGrid client:load servicios={servicios} />
         </ErrorBoundary>
       </div>
     </section>

@@ -1,0 +1,11 @@
+{
+  "id": "srv-006",
+  "nombre": "Aula Virtual",
+  "descripcion": "Plataforma de aprendizaje en línea donde encontrarás los cursos, materiales, tareas y foros de discusión de tus asignaturas.",
+  "descripcionCorta": "Plataforma de aprendizaje Moodle.",
+  "icono": "Monitor",
+  "url": "https://aulavirtual.unapiquitos.edu.pe",
+  "esExterno": true,
+  "slug": "aula-virtual",
+  "instrucciones": "Use su código de estudiante como usuario y su DNI como contraseña inicial. Se recomienda cambiar la contraseña después del primer ingreso."
+}

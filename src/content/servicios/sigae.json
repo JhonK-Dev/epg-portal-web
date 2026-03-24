@@ -1,0 +1,11 @@
+{
+  "id": "srv-001",
+  "nombre": "SIGAE - Sistema de Gestión Académica",
+  "descripcion": "Sistema integrado para la gestión académica de estudiantes de postgrado. Permite consultar notas, horarios, estado de matrícula, realizar trámites en línea y acceder a recursos académicos.",
+  "descripcionCorta": "Gestión académica integral para estudiantes.",
+  "icono": "GraduationCap",
+  "url": "https://sigae.unapiquitos.edu.pe",
+  "esExterno": true,
+  "slug": "sigae",
+  "instrucciones": "Ingrese con su código de estudiante y contraseña proporcionada al momento de la matrícula. Si olvidó su contraseña, solicite recuperación en la oficina de sistemas."
+}

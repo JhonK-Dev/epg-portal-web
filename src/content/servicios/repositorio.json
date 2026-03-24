@@ -1,0 +1,11 @@
+{
+  "id": "srv-002",
+  "nombre": "Repositorio Institucional",
+  "descripcion": "Acceda a tesis, artículos científicos, libros y otros documentos producidos por la comunidad académica de la universidad. Repositorio digital de acceso abierto.",
+  "descripcionCorta": "Biblioteca digital de tesis y publicaciones.",
+  "icono": "Library",
+  "url": "https://repositorio.unapiquitos.edu.pe",
+  "esExterno": true,
+  "slug": "repositorio",
+  "instrucciones": "El repositorio es de acceso público. Para descargar documentos completos puede requerirse registro gratuito."
+}
