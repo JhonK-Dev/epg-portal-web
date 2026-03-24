@@ -1,4 +1,3 @@
-import { servicios } from '@/data/servicios'
 import { contactoSoporte } from '@/data/contacto'
 import { LinkArrow } from '@/components/ui/link-arrow'
 import {
@@ -43,7 +42,9 @@ const gradientColors = [
   'from-epg-gold to-epg-gold-dark',
 ]
 
-export function ServiciosGrid() {
+import type { Servicio } from '@/types'
+
+export function ServiciosGrid({ servicios }: { servicios: Servicio[] }) {
   return (
     <div className="space-y-12">
       {/* Grid de Servicios */}

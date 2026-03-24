@@ -1,0 +1,11 @@
+{
+  "id": "srv-005",
+  "nombre": "Biblioteca Virtual",
+  "descripcion": "Acceso a bases de datos científicas, eBooks, revistas electrónicas y recursos bibliográficos digitales. Incluye acceso a Scopus, Web of Science, EBSCO y más.",
+  "descripcionCorta": "Bases de datos y recursos bibliográficos digitales.",
+  "icono": "BookOpen",
+  "url": "https://biblioteca.unapiquitos.edu.pe",
+  "esExterno": true,
+  "slug": "biblioteca-virtual",
+  "instrucciones": "Ingrese con sus credenciales institucionales. El acceso remoto requiere VPN institucional o autenticación desde la red universitaria."
+}

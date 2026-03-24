@@ -117,7 +117,23 @@ const programasCollection = defineCollection({
   }),
 });
 
+const serviciosCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    nombre: z.string(),
+    descripcion: z.string(),
+    descripcionCorta: z.string(),
+    icono: z.string(),
+    url: z.string().optional(),
+    esExterno: z.boolean(),
+    slug: z.string(),
+    instrucciones: z.string().optional(),
+  }),
+});
+
 export const collections = {
+  servicios: serviciosCollection,
   programas: programasCollection,
   noticias: noticiasCollection,
   docentes: docentesCollection,

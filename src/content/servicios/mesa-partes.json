@@ -1,0 +1,11 @@
+{
+  "id": "srv-008",
+  "nombre": "Mesa de Partes Virtual",
+  "descripcion": "Sistema para presentar documentos y solicitudes de manera virtual. Incluye seguimiento de trámites y notificaciones automáticas.",
+  "descripcionCorta": "Trámites documentarios en línea.",
+  "icono": "FileText",
+  "url": "https://www.unapiquitos.edu.pe",
+  "esExterno": true,
+  "slug": "mesa-partes",
+  "instrucciones": "Registre su solicitud adjuntando los documentos requeridos en formato PDF. Recibirá un número de expediente para seguimiento."
+}
