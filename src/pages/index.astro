@@ -8,12 +8,14 @@ import {
   ProgramSearchWithStats
 } from '../features/home';
 import { getFeaturedPrograms } from '../lib/api';
+import { getProgramas } from '../data/programas';
 import type { ApiProgram } from '../lib/api/programs/types';
 import { ErrorBoundary } from '../components/ui/error-boundary';
 
 
 let apiPrograms: ApiProgram[] = [];
 let hasError = false;
+const programas = await getProgramas();
 
 try {
   apiPrograms = await getFeaturedPrograms();
@@ -51,7 +53,7 @@ const formacionContinuaCount = 0; // La API no tiene este tipo aún
     
     <!-- Búsqueda de Programas + Estadísticas — React, hydrates when visible -->
     <ErrorBoundary client:load>
-      <ProgramSearchWithStats client:visible />
+      <ProgramSearchWithStats client:visible programas={programas} />
     </ErrorBoundary>
     
     <!-- CTA de Admisión — Astro component, zero JS -->

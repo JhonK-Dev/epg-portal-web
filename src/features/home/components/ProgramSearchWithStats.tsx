@@ -2,7 +2,7 @@ import { IconCircle } from '@/components/ui/icon-circle';
 import { StatItem } from '@/components/ui/stat-item';
 import { busquedasPopulares, getBusquedaUrl } from '@/data/busquedas-populares';
 import { estadisticasInstitucionales } from '@/data/estadisticas';
-import { programas } from '@/data/programas';
+
 import { getProgramTypeConfig } from '@/lib/config';
 
 import type { Programa } from '@/types';
@@ -35,7 +35,7 @@ const iconMap: Record<string, LucideIcon> = {
   ThumbsUp,
 };
 
-export const ProgramSearchWithStats: React.FC = () => {
+export const ProgramSearchWithStats: React.FC<{ programas: Programa[] }> = ({ programas }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState('all');
   const [suggestions, setSuggestions] = useState<Programa[]>([]);
@@ -46,7 +46,7 @@ export const ProgramSearchWithStats: React.FC = () => {
 
   const getProgramCount = (tipo: string): number => {
     if (tipo === 'all') return programas.length;
-    return programas.filter((p) => p.tipo === tipo).length;
+    return programas.filter((p: Programa) => p.tipo === tipo).length;
   };
 
   const getButtonText = (): string => {
@@ -72,7 +72,7 @@ export const ProgramSearchWithStats: React.FC = () => {
   useEffect(() => {
     if (searchQuery.trim().length >= 2) {
       const filtered = programas
-        .filter((programa) => {
+        .filter((programa: Programa) => {
           const matchesType =
             selectedType === 'all' || programa.tipo === selectedType;
           const matchesQuery =

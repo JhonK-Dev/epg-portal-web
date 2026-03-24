@@ -1,0 +1,22 @@
+{
+  "id": "mae-003",
+  "nombre": "Maestría en Educación con mención en Docencia Universitaria",
+  "tipo": "maestria",
+  "descripcion": "Forma docentes universitarios con competencias pedagógicas avanzadas, capaces de diseñar, implementar y evaluar procesos de enseñanza-aprendizaje en educación superior. Incluye formación en investigación educativa y uso de tecnologías.",
+  "descripcionCorta": "Desarrolla competencias pedagógicas para la docencia universitaria.",
+  "duracion": "2 años (4 semestres)",
+  "creditos": 72,
+  "modalidad": "semipresencial",
+  "estado": "activo",
+  "fechaInicio": "2025-03-15",
+  "slug": "maestria-educacion-docencia-universitaria",
+  "facultad": "Ciencias de la Educación",
+  "requisitos": [
+    "Título profesional universitario",
+    "Experiencia docente mínima de 1 año (deseable)"
+  ],
+  "coordinador": "Dr. Roberto Sánchez Torres",
+  "inversion": "S/. 11,000.00 (total)",
+  "imagen": "/images/programas/educacion.jpg",
+  "destacado": true
+}

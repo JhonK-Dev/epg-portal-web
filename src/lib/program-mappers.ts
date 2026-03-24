@@ -25,18 +25,18 @@ export function createShortDescription(
   return `${description.slice(0, maxLength).trimEnd()}...`
 }
 
-export function findMockProgramForApiProgram(
+export async function findMockProgramForApiProgram(
   apiProgram: Pick<ApiProgram, 'name'>,
-): Programa | undefined {
+): Promise<Programa | undefined> {
   const slug = getProgramRouteParam({ name: apiProgram.name })
-  return getProgramaBySlug(slug)
+  return await getProgramaBySlug(slug)
 }
 
-export function mapApiProgramToPrograma(
+export async function mapApiProgramToPrograma(
   apiProgram: ApiProgram,
   fallbackProgram?: Programa,
-): Programa {
-  const matchedProgram = fallbackProgram ?? findMockProgramForApiProgram(apiProgram)
+): Promise<Programa> {
+  const matchedProgram = fallbackProgram ?? await findMockProgramForApiProgram(apiProgram)
   const slug = matchedProgram?.slug ?? getProgramRouteParam({ name: apiProgram.name })
   const tipo = matchedProgram?.tipo ?? mapApiProgramType(apiProgram.program_type)
 

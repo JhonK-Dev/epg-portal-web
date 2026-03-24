@@ -1,0 +1,23 @@
+{
+  "id": "mae-002",
+  "nombre": "Maestría en Derecho Civil y Comercial",
+  "tipo": "maestria",
+  "descripcion": "Programa que profundiza en el análisis del derecho civil y comercial, preparando profesionales para el ejercicio especializado del derecho en ámbitos contractuales, societarios y de negocios. Incluye análisis de jurisprudencia y casos prácticos.",
+  "descripcionCorta": "Especialización en derecho contractual, societario y de negocios.",
+  "duracion": "2 años (4 semestres)",
+  "creditos": 72,
+  "modalidad": "presencial",
+  "estado": "activo",
+  "fechaInicio": "2025-03-15",
+  "slug": "maestria-derecho-civil-comercial",
+  "facultad": "Derecho y Ciencias Políticas",
+  "requisitos": [
+    "Título de abogado",
+    "Colegiatura vigente",
+    "Constancia de habilitación profesional"
+  ],
+  "coordinador": "Dra. Patricia Vargas Lozano",
+  "inversion": "S/. 14,000.00 (total)",
+  "imagen": "/images/programas/derecho.jpg",
+  "destacado": true
+}
