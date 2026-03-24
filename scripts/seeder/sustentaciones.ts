@@ -5,9 +5,9 @@ import { fakerES_MX as faker } from '@faker-js/faker';
 const SUSTENTACIONES_DIR = path.join(process.cwd(), 'src/content/sustentaciones');
 
 export async function seedSustentaciones(count = 15) {
-  // We use a fixed seed here temporarily so it doesn't cause noise if re-run 
-  // until we globally fix faker randomness (Issue #260)
-  faker.seed(4242);
+  // Set a fixed seed to ensure deterministic data generation
+  
+  faker.seed(104);
   
   await fs.mkdir(SUSTENTACIONES_DIR, { recursive: true });
 

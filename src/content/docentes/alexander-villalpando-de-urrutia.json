@@ -1,0 +1,39 @@
+{
+  "id": "doc-alexander-villalpando-de-urrutia",
+  "nombres": "Alexander",
+  "apellidos": "Villalpando de Urrutia",
+  "grado": "magister",
+  "especialidad": "Administración de Empresas",
+  "email": "alexander.villalpando@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/42137134",
+  "resumenPerfil": "Cencerril Descentrado Genealogista. Descerrumarse Incredulidad Incordio Geminado Fichaje Geminar. Engarrafador Deschavetarse Cenaoscuras Abajera Incremento Descentralización Incorporalmente.",
+  "orcid": "https://orcid.org/0000-0005-2799-8903",
+  "biografia": "Incorporal Descercar Gemonias Gemonias Bástulo Engarce. Generación Engasgarse Abajamiento Engarce Fidelidad Basura. Engarfiar Engastadura Engargolado Engargantar Ficoideo Ceñar Cencerro Engargante.\nGenciana Engarbullar Cencuate Cendalí. Descimbrar Incrasar Batanar. Cencerrón Incorporar Cendrada Bata Cenata Engarrotar Cenceño.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Ciencias Ambientales",
+    "Biología Molecular"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2008
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2021 - Presente"
+    }
+  ],
+  "telefono": "567103295"
+}

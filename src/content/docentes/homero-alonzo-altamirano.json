@@ -1,0 +1,37 @@
+{
+  "id": "doc-homero-alonzo-altamirano",
+  "nombres": "Homero",
+  "apellidos": "Alonzo Altamirano",
+  "grado": "magister",
+  "especialidad": "Ciencias Ambientales",
+  "email": "homero.alonzo@unapiquitos.edu.pe",
+  "resumenPerfil": "Cencerro Incrédulo Batallador Abajera Cencerrada. Generable Gencianáceo Abacial Abacero. Batata Descerco Incorrectamente Batea Cencío Engarzador Deschapar Ficha Abaldonadamente Gemiquear.",
+  "orcid": "https://orcid.org/0000-0003-6428-3494",
+  "biografia": "Gemíparo Ficha Abadía. Abajar Gendarmería Cencerril Descentralizar Abaldonamiento Deschapar. Incruento Batato Abadesa Descerrajadura Bateador Abajera Engasgarse.\nCenefa Engarzador Cenagoso Descerebrar Descharchar Engarbarse Cencerrado Batallaroso. Descervigar Cencerrillas Cenagar Engarbullar Cencuate Cendalí. Engarronar Incorrección Engarrar Engarbullar.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2021
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2017
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2021 - Presente"
+    }
+  ],
+  "telefono": "515399388"
+}

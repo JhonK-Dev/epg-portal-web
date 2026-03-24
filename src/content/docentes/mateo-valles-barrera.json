@@ -1,0 +1,38 @@
+{
+  "id": "doc-mateo-valles-barrera",
+  "nombres": "Mateo",
+  "apellidos": "Valles Barrera",
+  "grado": "phd",
+  "especialidad": "Gestión Pública",
+  "email": "mateo.valles@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/74416206",
+  "resumenPerfil": "Abadiato Bastonear Descepar Descerar Cenagoso Gemología Cencuate Desceñir Engarfiar. Deschapar Descentrado Gemonias Engarfiar Incorporeidad Fideo Desciframiento. Cencerrillas Gémino Batallar Gemoso Abalada Abacalero Abaco Descerezar.",
+  "orcid": "https://orcid.org/0000-0005-4685-9650",
+  "biografia": "Gemoso Gencianáceo Bateador Incriminar Geminado Incorporación Fichero Increíble. Gemoterapia Gencianáceo Batalán. Engasgarse Incorregiblemente Fichar Fideísmo Increpación.\nAbadernar Abadengo Descercar. Fideicomisario Abadí Gemiquear Batayola Genealogista Incrédulamente Abada Abajera Descimbramiento. Cenefa Gemólogo Engasgarse Incorporación Descerrajado Batanga Fido.",
+  "areasInvestigacion": [
+    "Derecho Constitucional",
+    "Salud Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2017
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2017
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "518 296 178"
+}

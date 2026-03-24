@@ -1,0 +1,38 @@
+{
+  "id": "doc-federico-villegas-gil",
+  "nombres": "Federico",
+  "apellidos": "Villegas Gil",
+  "grado": "phd",
+  "especialidad": "Administración de Empresas",
+  "email": "federico.villegas@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/73.jpg",
+  "resumenPerfil": "Geneático Gemir Cenefa Batanear. Generala Cendolilla Descentrar Cendal Bate Fice Cendrazo Ficha. Cendal Batanar Incristalizable Abacorar Descimbrar.",
+  "orcid": "https://orcid.org/0000-0005-0816-1786",
+  "biografia": "Incorregiblemente Engargolado Cendalí Generalidad Batea. Abadesa Incorporo Cenca Engargolado Incorrupción Incruento Abadiato Incorrupto Deschavetarse. Descimbrar Cenal Engaste Descerebración Engasgarse Deschavetado Batato Geminado Gendarme Incorporar.\nEngarro Abajo Cencerril Genealogista Incorporalmente. Fidedigno Incorruptamente Cenestesia Batalla Batallona Batato Abacalero Batavia Incrasar Geminar. Engarrafar Descercador Cencerreo Cendrado Engastar Genealogía Bástulo Geminación Abacería Ficción.",
+  "areasInvestigacion": [
+    "Docencia Universitaria",
+    "Gestión Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "542.497.540"
+}

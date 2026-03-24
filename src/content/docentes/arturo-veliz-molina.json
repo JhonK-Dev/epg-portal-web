@@ -1,0 +1,38 @@
+{
+  "id": "doc-arturo-veliz-molina",
+  "nombres": "Arturo",
+  "apellidos": "Véliz Molina",
+  "grado": "doctor",
+  "especialidad": "Ciencias Ambientales",
+  "email": "arturo.veliz@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/32422062",
+  "resumenPerfil": "Engarrotar Cenco Engarce Cenagar Gemoterapia Batanero Descerrumarse. Cencero Descentralizador Engaste Descentrar Descerebración. Fidalgo Cenegar Descerrajado Cencerrear Batea Gencianáceo Increíblemente.",
+  "orcid": "https://orcid.org/0000-0004-6350-5918",
+  "biografia": "Bateaguas Cendrazo Abadejo Batanga Gémino Genealógico. Engarmarse Gen Basurero Descenso Batacazo Cenco Deschapar Genealogía Batazo. Incredibilidad Cenero Cenceñada Incriminar Abacorar Engarbarse Descervigar Cencerrillas Genearca.\nBatea Incorporalmente Descharchar Generación Cenceño Descentrado. Cencerrillas Incorporar Batatazo Deschapar Incorruptamente Deschuponar Cencerro Incorruptibilidad Incorrecto. Cencerrillas Genealogía Batanar.",
+  "areasInvestigacion": [
+    "Biología Molecular",
+    "Derecho Constitucional"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2023
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "594498992"
+}

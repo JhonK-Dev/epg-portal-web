@@ -1,0 +1,38 @@
+{
+  "id": "doc-elizabeth-acosta-de-perea",
+  "nombres": "Elizabeth",
+  "apellidos": "Acosta de Perea",
+  "grado": "doctor",
+  "especialidad": "Gestión Pública",
+  "email": "elizabeth.acosta@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/1.jpg",
+  "resumenPerfil": "Abaco Abaco Abalar Fideicomitente Incordio Incorporal Abadiato Engarrafador Engarberar Genealogía. Cenegar Descerrajadura Ceñar Engarrotar Engastar Descerrajado Incorruptible Fideero Gemólogo. Fideísmo Cenagar Incriminación Cencerreo Geminación.",
+  "orcid": "https://orcid.org/0000-0000-1022-0418",
+  "biografia": "Generable Descerrajadura Incorregibilidad Batayola Cencero Cencha Incorporar Cenaoscuras Descerezar. Descerebrado Fidelidad Cendrada Engarzador Gemiquear Incorruptamente Cenagar. Incrustación Descervigamiento Increpar.\nDescentralización Cendrar Descepar Descerrajadura Engarzar Cenal Incristalizable Abadernar Bástulo Engarzador. Incruento Descervigamiento Incorregibilidad Fideicomiso Batanar Incorruptible Abalanzar Descenso Gendarme. Incorrecto Batallona Engargolado Cendal Cencerrillas Cenegar Increpar Geneático.",
+  "areasInvestigacion": [
+    "Administración de Empresas",
+    "Salud Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2013
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "534465983"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "doc-aaron-camarillo-rosario",
+  "nombres": "Aarón",
+  "apellidos": "Camarillo Rosario",
+  "grado": "magister",
+  "especialidad": "Administración de Empresas",
+  "email": "aaron.camarillo@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/94647000",
+  "resumenPerfil": "Cenero Incrédulamente Abalaustrado Ficción. Gemólogo Abaco Incremento Engarberar Generacional Fideicomiso. Genciana Cencerrado Generación Batalloso Incorruptamente Bateaguas Ficha.",
+  "orcid": "https://orcid.org/0000-0002-7107-7645",
+  "biografia": "Generacional Fidalgo Descervigar Engargolar Engargolado Generalato Cendrada. Cencío Cencerrada Abadiado Ficoideo Cenestesia Bastonazo. Engargolado Batacazo Incorruptamente Cencerrón Generala Incorporeidad Incorrupción.\nAbadiado Incriminación Generala Bateaguas Cencuate Gemir Ficha Incorporalmente Batalloso Engarzadura. Ficha Engarro Cenceñada Descervigar Deschapar Engarberar Geneático Engarzador. Bastonada Incruento Descerebrar Incorregible Cenceñada.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Docencia Universitaria"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2010
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "517.126.538"
+}

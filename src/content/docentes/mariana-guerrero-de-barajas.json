@@ -1,0 +1,38 @@
+{
+  "id": "doc-mariana-guerrero-de-barajas",
+  "nombres": "Mariana",
+  "apellidos": "Guerrero de Barajas",
+  "grado": "phd",
+  "especialidad": "Docencia Universitaria",
+  "email": "mariana.guerrero@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/65013567",
+  "resumenPerfil": "Desciframiento Batanar Bastonear Increpar Bátavo Batavia Fichaje Descerrajado Fidelísimo Fideísmo. Bastonero Incorporo Bataola Descentralizador Incorrupción Incredibilidad. Incorporación Fidecomiso Descerrajado Descepar Bastonear Descepar Descentralizar.",
+  "orcid": "https://orcid.org/0000-0004-3800-6483",
+  "biografia": "Abadejo Incruentamente Incremento Increpador Abadernar Incorruptibilidad Fice Descerrajar Cencerro. Abalada Generalísimo Ceñar Deschuponar Descifrar Incorporalmente Abada Incorrectamente Abalaustrado Incorporación. Gemólogo Abadejo Cendal Engarzadura Basural Geneático Abacalero Fideicomisario Engarfiar Batata.\nIncordio Fidelidad Engastar Fidalgo Descerebración Cenegar Abaldonadamente. Descerar Engarzadura Cencerrillas. Fideero Abadengo Engastar General Gemólogo Abajadero Cendolilla.",
+  "areasInvestigacion": [
+    "Gestión Pública",
+    "Salud Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2021 - Presente"
+    }
+  ],
+  "telefono": "5058-324-490"
+}

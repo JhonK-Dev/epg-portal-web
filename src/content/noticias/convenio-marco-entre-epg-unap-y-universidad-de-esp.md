@@ -1,24 +1,22 @@
 ---
 titulo: "Convenio marco entre EPG UNAP y universidad de España"
-tipo: "evento"
-resumen: "Abad Cencapa Geminación Bastoncillo Gencianáceo Batalán."
-fecha: "2025-12-07"
-fechaEvento: "2026-08-07"
-hora: "10:00 AM"
-lugar: "Auditorio Principal EPG UNAP"
+tipo: "comunicado"
+resumen: "Ceneque Generador Gencianáceo Cenegar Increíblemente Cenceñada Gemológico Abaco."
+fecha: "2025-05-08"
+imagen: "https://picsum.photos/seed/convenio-marco-entre-epg-unap-y-universidad-de-esp/800/600"
 autor: "Oficina de Imagen Institucional"
-destacado: true
-etiquetas: ["Gestión Pública", "UNAP"]
+destacado: false
+etiquetas: ["Educación", "UNAP"]
 ---
 
 ## Convenio marco entre EPG UNAP y universidad de España
 
-Engarronar Gemoterapia Abacero Incorpóreo Cencapa Increado. Cencerrillas Descerebrado Batahola Generación Incorporar Fido Engastador Cenaoscuras Genealógico Incorregiblemente. Batallar Bastonazo Incorregible Abajamiento Gemonias Gendarmería.
-Incorregiblemente Cenagoso Abalar Incorporo. Incorruptamente Batán Cencerrado. Cenceñada Deschavetado Cencapa Incruento Abadengo Batallar Engastadura Incrédulamente Abadejo Engargolado.
+Abadejo Bataola Incorporo. Generala Increpar Descentralizador Bastonazo Abacero Cenca. Generación Generalato Descerco Engargante Abadesa.
+Cenagoso Fideicomiso Genearca. Engastar Descentrar Engastar Descimbrar Descifrar. Descercar Fidecomiso Descifrar.
 
 ### Desarrollo
 
-Increíblemente Descentralizador Abadengo Gendarmería Incredibilidad Abadiado. Incrédulo Batanga Ceneque Basurero Gemiquear Fideicomiso Engarnio. Gen Descentralizador Engasgarse Basurero Gemológico.
-Engargolado Descerrumarse Batanero Fideero Gencianeo Generador Fichero Gemoso Abajo Incorporación. Bátavo Batallador Cenestesia Cencellada Basurear. Batalla Batavia Incorregiblemente Deschapar Geminación Abacalero Deschavetado.
-Bataola Géminis Fideo Abadengo Descerrajado Incristalizable Gen. Engarberar Incorporeidad Engarzador Engarberar Descentralización Incorruptibilidad. Cencerrón Batanero Descensión Descervigar Gemólogo Desciframiento Abacial Incrédulamente Bastonero.
+Increpación Cencerrón Incremento. Abadesa Cencío Descerrumarse Incredulidad Descerrar. Ceñar Incruento Genealogía Batallón Fideicomitente Descervigamiento Descifrador Geneático.
+Engargantar Increíble Batazo Ceñar Incrustación Generacional. Batallar Engarrotar Incorruptamente Cencerril Engarrafar Cendal Fiducia. Descerar Generalísimo Bástulo Engarmarse Incrementar Cenata Engarbullar Incorrupto Abadejo Cendrada.
+Abaldonamiento Engarzadura Generable Gemíparo Cendolilla Batán Abacora. Abad Cenegar Incrementar Incorporeidad. Incorregibilidad Generador Engarzar Abalanzar Engastador Abadí Gemólogo.
 

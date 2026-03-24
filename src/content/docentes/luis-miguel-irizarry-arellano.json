@@ -1,0 +1,39 @@
+{
+  "id": "doc-luis-miguel-irizarry-arellano",
+  "nombres": "Luis Miguel",
+  "apellidos": "Irizarry Arellano",
+  "grado": "phd",
+  "especialidad": "Docencia Universitaria",
+  "email": "luis.irizarry@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/15868028",
+  "resumenPerfil": "Cendradilla Engargolado Descervigar. Abalar Batallador Gemoterapia Descerebrar. Generalidad Incristalizable Cencapa Descerebrado Incrementar Abadengo Descentrar Fice.",
+  "orcid": "https://orcid.org/0000-0000-8015-4805",
+  "biografia": "Batallón Bastonero Generacional Abacero Incredibilidad Abadejo. Descerebrado Gemonias Gemoso Batato Bastoncillo. Fidalgo Deschapar Abajadero.\nGendarme Gendarmería Descharchar Descentralizador Descimbrar Batalán Incorpóreo Fido. Descentralización Cendrazo Descercador Incriminar Bate Batallón Fidelísimo Ficha. Ficción Basurero Bastonero Descensión.",
+  "areasInvestigacion": [
+    "Derecho Constitucional",
+    "Salud Pública",
+    "Gestión Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2026
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "588 694 836"
+}
