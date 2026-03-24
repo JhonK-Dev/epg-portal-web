@@ -1,0 +1,9 @@
+{
+  "id": "formato-informe-asesor",
+  "nombre": "Formato de Informe de Asesor",
+  "descripcion": "Plantilla para el informe de avance del asesor de tesis",
+  "tipo": "docx",
+  "categoria": "formato",
+  "url": "/documentos/formato-informe-asesor.docx",
+  "fechaActualizacion": "2024-02-15"
+}

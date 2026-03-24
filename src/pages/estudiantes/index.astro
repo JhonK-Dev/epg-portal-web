@@ -3,6 +3,22 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { EstudiantesContent } from '../../features/estudiantes';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
+
+import {
+  getAccesosRapidos,
+  getTramitesEstudiantiles,
+  getCalendarioAcademico,
+  getDocumentosDescargables,
+  getRecursosAcademicos,
+  getPreguntasFrecuentes,
+} from '../../data/estudiantes';
+
+const accesosRapidos = await getAccesosRapidos();
+const tramites = await getTramitesEstudiantiles();
+const calendario = await getCalendarioAcademico();
+const documentos = await getDocumentosDescargables();
+const recursos = await getRecursosAcademicos();
+const faq = await getPreguntasFrecuentes();
 ---
 
 <Layout 
@@ -13,7 +29,15 @@ import { ErrorBoundary } from '../../components/ui/error-boundary';
   <Navbar />
   <main class="min-h-screen">
     <ErrorBoundary client:load>
-      <EstudiantesContent client:load />
+      <EstudiantesContent 
+        client:load 
+        accesosRapidos={accesosRapidos}
+        tramites={tramites}
+        calendario={calendario}
+        documentos={documentos}
+        recursos={recursos}
+        faq={faq}
+      />
     </ErrorBoundary>
   </main>
 </Layout>

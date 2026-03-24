@@ -1,0 +1,8 @@
+{
+  "id": "biblioteca",
+  "nombre": "Biblioteca Virtual",
+  "descripcion": "Acceso a recursos bibliográficos",
+  "icono": "book-open",
+  "href": "https://biblioteca.unapiquitos.edu.pe",
+  "color": "bg-epg-navy"
+}

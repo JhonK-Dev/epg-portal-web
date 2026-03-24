@@ -1,16 +1,12 @@
 import { useState } from 'react';
-import {
-  accesosRapidos,
-  tramitesEstudiantiles,
-  documentosDescargables,
-  calendarioAcademico,
-  recursosAcademicos,
-  preguntasFrecuentes,
-  type TramiteEstudiantil,
-  type DocumentoDescargable,
-  type FechaCalendario,
-  type PreguntaFrecuente,
-} from '@/data/estudiantes';
+import type {
+  AccesoRapido,
+  TramiteEstudiantil,
+  DocumentoDescargable,
+  FechaCalendario,
+  RecursoAcademico,
+  PreguntaFrecuente,
+} from '@/types';
 import {
   ClipboardList,
   Monitor,
@@ -94,7 +90,7 @@ const recursoIconMap: Record<string, React.ReactNode> = {
 // ========================================
 // ACCESOS RÁPIDOS COMPONENT
 // ========================================
-function AccesosRapidos() {
+function AccesosRapidos({ items }: { items: AccesoRapido[] }) {
   return (
     <section className="py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,7 +103,7 @@ function AccesosRapidos() {
         />
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {accesosRapidos.map((acceso) => (
+          {items.map((acceso) => (
             <a
               key={acceso.id}
               href={acceso.href}
@@ -139,7 +135,7 @@ function AccesosRapidos() {
 // ========================================
 // TRÁMITES COMPONENT
 // ========================================
-function TramitesGrid() {
+function TramitesGrid({ items }: { items: TramiteEstudiantil[] }) {
   const [selectedTramite, setSelectedTramite] =
     useState<TramiteEstudiantil | null>(null);
 
@@ -156,7 +152,7 @@ function TramitesGrid() {
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tramitesEstudiantiles.map((tramite) => {
+          {items.map((tramite) => {
             const IconComponent = tramiteIconMap[tramite.icono];
             return (
               <Card
@@ -288,7 +284,7 @@ function TramitesGrid() {
 // ========================================
 // DOCUMENTOS COMPONENT
 // ========================================
-function DocumentosDescargables() {
+function DocumentosDescargables({ items }: { items: DocumentoDescargable[] }) {
   const tipoIcon: Record<
     DocumentoDescargable['tipo'],
     { bg: string; text: string }
@@ -316,7 +312,7 @@ function DocumentosDescargables() {
         />
 
         <div className="grid md:grid-cols-2 gap-4">
-          {documentosDescargables.map((doc) => (
+          {items.map((doc) => (
             <DocumentDownloadItem
               key={doc.id}
               name={doc.nombre}
@@ -344,7 +340,7 @@ function DocumentosDescargables() {
 // ========================================
 // CALENDARIO COMPONENT
 // ========================================
-function CalendarioAcademico() {
+function CalendarioAcademico({ items }: { items: FechaCalendario[] }) {
   const tipoStyles: Record<
     FechaCalendario['tipo'],
     { bg: string; text: string; label: string }
@@ -385,7 +381,7 @@ function CalendarioAcademico() {
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {calendarioAcademico.slice(0, 8).map((fecha) => {
+          {items.slice(0, 8).map((fecha) => {
             const style = tipoStyles[fecha.tipo];
             return (
               <Card
@@ -434,7 +430,7 @@ function CalendarioAcademico() {
 // ========================================
 // RECURSOS ACADÉMICOS COMPONENT
 // ========================================
-function RecursosAcademicosGrid() {
+function RecursosAcademicosGrid({ items }: { items: RecursoAcademico[] }) {
   return (
     <section className="py-12 lg:py-16 bg-epg-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -447,7 +443,7 @@ function RecursosAcademicosGrid() {
         />
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {recursosAcademicos.map((recurso) => (
+          {items.map((recurso) => (
             <a
               key={recurso.id}
               href={recurso.href}
@@ -477,7 +473,7 @@ function RecursosAcademicosGrid() {
 // ========================================
 // FAQ COMPONENT
 // ========================================
-function PreguntasFrecuentesSection() {
+function PreguntasFrecuentesSection({ items }: { items: PreguntaFrecuente[] }) {
   const categoriaLabels: Record<PreguntaFrecuente['categoria'], string> = {
     matricula: 'Matrícula',
     tramites: 'Trámites',
@@ -486,7 +482,7 @@ function PreguntasFrecuentesSection() {
     general: 'General',
   };
 
-  const accordionItems: AccordionItem[] = preguntasFrecuentes.map((faq) => ({
+  const accordionItems: AccordionItem[] = items.map((faq) => ({
     id: faq.id,
     title: (
       <div className="flex items-center gap-3">
@@ -565,7 +561,23 @@ function CtaSection() {
 // ========================================
 // MAIN EXPORT COMPONENT
 // ========================================
-export function EstudiantesContent() {
+export interface EstudiantesContentProps {
+  accesosRapidos: AccesoRapido[];
+  tramites: TramiteEstudiantil[];
+  calendario: FechaCalendario[];
+  documentos: DocumentoDescargable[];
+  recursos: RecursoAcademico[];
+  faq: PreguntaFrecuente[];
+}
+
+export function EstudiantesContent({
+  accesosRapidos,
+  tramites,
+  calendario,
+  documentos,
+  recursos,
+  faq,
+}: EstudiantesContentProps) {
   return (
     <div>
       {/* Hero Section */}
@@ -578,22 +590,22 @@ export function EstudiantesContent() {
       />
 
       {/* Accesos Rápidos */}
-      <AccesosRapidos />
+      <AccesosRapidos items={accesosRapidos} />
 
       {/* Trámites */}
-      <TramitesGrid />
+      <TramitesGrid items={tramites} />
 
       {/* Calendario */}
-      <CalendarioAcademico />
+      <CalendarioAcademico items={calendario} />
 
       {/* Documentos */}
-      <DocumentosDescargables />
+      <DocumentosDescargables items={documentos} />
 
       {/* Recursos Académicos */}
-      <RecursosAcademicosGrid />
+      <RecursosAcademicosGrid items={recursos} />
 
       {/* FAQ */}
-      <PreguntasFrecuentesSection />
+      <PreguntasFrecuentesSection items={faq} />
 
       {/* CTA */}
       <CtaSection />

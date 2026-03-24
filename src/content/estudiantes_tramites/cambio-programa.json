@@ -1,0 +1,30 @@
+{
+  "id": "cambio-programa",
+  "nombre": "Cambio de Programa",
+  "descripcion": "Procedimiento para trasladarse a otro programa de la EPG.",
+  "icono": "shuffle",
+  "color": "bg-indigo-100",
+  "iconColor": "text-indigo-600",
+  "href": "/estudiantes/cambio-programa",
+  "requisitos": [
+    "Haber cursado al menos un semestre",
+    "Promedio mínimo de 14",
+    "Vacante disponible en el programa destino",
+    "Estar al día en pagos"
+  ],
+  "pasos": [
+    "Solicitar informe de estudios y notas",
+    "Presentar solicitud de cambio de programa",
+    "Esperar evaluación del Comité Académico",
+    "Recibir resolución de aprobación",
+    "Realizar convalidación de asignaturas"
+  ],
+  "documentos": [
+    "Solicitud dirigida al Director",
+    "Record de notas",
+    "Sílabos de asignaturas aprobadas",
+    "Carta de motivación"
+  ],
+  "costo": "S/ 150.00",
+  "duracion": "15-20 días hábiles"
+}

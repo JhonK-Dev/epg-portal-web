@@ -1,0 +1,8 @@
+{
+  "id": "turnitin",
+  "nombre": "Turnitin",
+  "descripcion": "Sistema de detección de similitud",
+  "icono": "shield-check",
+  "href": "https://www.turnitin.com",
+  "externo": true
+}

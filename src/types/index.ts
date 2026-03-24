@@ -50,6 +50,12 @@ export type {
 export type {
   ProcesoEstudiantil,
   Sustentacion,
+  AccesoRapido,
+  TramiteEstudiantil,
+  DocumentoDescargable,
+  FechaCalendario,
+  RecursoAcademico,
+  PreguntaFrecuente,
 } from './estudiantes';
 
 // Institucional

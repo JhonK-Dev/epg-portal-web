@@ -1,0 +1,9 @@
+{
+  "id": "vacaciones-medio-ano",
+  "titulo": "Vacaciones de Medio Año",
+  "descripcion": "Periodo de vacaciones entre semestres",
+  "fechaInicio": "2026-08-10",
+  "fechaFin": "2026-08-23",
+  "tipo": "vacaciones",
+  "importante": false
+}

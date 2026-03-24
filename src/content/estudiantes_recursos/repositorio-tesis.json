@@ -1,0 +1,8 @@
+{
+  "id": "repositorio-tesis",
+  "nombre": "Repositorio de Tesis",
+  "descripcion": "Acceso a tesis de maestría y doctorado",
+  "icono": "database",
+  "href": "https://repositorio.unapiquitos.edu.pe",
+  "externo": true
+}
