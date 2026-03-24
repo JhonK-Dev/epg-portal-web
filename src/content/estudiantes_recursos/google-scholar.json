@@ -1,0 +1,8 @@
+{
+  "id": "google-scholar",
+  "nombre": "Google Scholar",
+  "descripcion": "Buscador de literatura académica",
+  "icono": "graduation-cap",
+  "href": "https://scholar.google.com",
+  "externo": true
+}

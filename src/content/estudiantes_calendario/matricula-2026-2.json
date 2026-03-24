@@ -1,0 +1,9 @@
+{
+  "id": "matricula-2026-2",
+  "titulo": "Matrícula Regular 2026-II",
+  "descripcion": "Periodo de matrícula para el semestre 2026-II",
+  "fechaInicio": "2026-10-19",
+  "fechaFin": "2026-10-30",
+  "tipo": "matricula",
+  "importante": true
+}

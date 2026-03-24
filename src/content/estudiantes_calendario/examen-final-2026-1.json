@@ -1,0 +1,9 @@
+{
+  "id": "examen-final-2026-1",
+  "titulo": "Exámenes Finales 2026-I",
+  "descripcion": "Semana de evaluaciones finales",
+  "fechaInicio": "2026-09-28",
+  "fechaFin": "2026-10-03",
+  "tipo": "examen",
+  "importante": true
+}

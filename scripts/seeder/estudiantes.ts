@@ -1,0 +1,506 @@
+import { faker } from '@faker-js/faker';
+import fs from 'fs/promises';
+import path from 'path';
+
+const accesosRapidos = [
+  {
+    id: 'sigae',
+    nombre: 'SIGAE',
+    descripcion: 'Sistema Integrado de Gestión Académica',
+    icono: 'clipboard',
+    href: 'https://sigae.unapiquitos.edu.pe',
+    color: 'bg-epg-navy'
+  },
+  {
+    id: 'aula-virtual',
+    nombre: 'Aula Virtual',
+    descripcion: 'Plataforma de aprendizaje en línea',
+    icono: 'monitor',
+    href: 'https://aulavirtual.unapiquitos.edu.pe',
+    color: 'bg-epg-navy'
+  },
+  {
+    id: 'biblioteca',
+    nombre: 'Biblioteca Virtual',
+    descripcion: 'Acceso a recursos bibliográficos',
+    icono: 'book-open',
+    href: 'https://biblioteca.unapiquitos.edu.pe',
+    color: 'bg-epg-navy'
+  },
+  {
+    id: 'correo',
+    nombre: 'Correo Institucional',
+    descripcion: 'Email @unapiquitos.edu.pe',
+    icono: 'mail',
+    href: 'https://mail.google.com',
+    color: 'bg-epg-navy'
+  }
+];
+
+const tramitesEstudiantiles = [
+  {
+    id: 'matricula',
+    nombre: 'Matrícula',
+    descripcion: 'Proceso de inscripción a las asignaturas del semestre académico.',
+    icono: 'clipboard-check',
+    color: 'bg-blue-100',
+    iconColor: 'text-blue-600',
+    href: '/estudiantes/matricula',
+    requisitos: [
+      'Estar al día en pagos',
+      'No tener deudas con biblioteca',
+      'Haber aprobado requisitos previos de las asignaturas'
+    ],
+    pasos: [
+      'Ingresar al SIGAE con usuario y contraseña',
+      'Seleccionar "Matrícula" en el menú principal',
+      'Elegir las asignaturas disponibles',
+      'Confirmar matrícula y generar boleta de pago',
+      'Realizar el pago en ventanilla o banca electrónica'
+    ],
+    documentos: [
+      'Constancia de no adeudo (si aplica)',
+      'Ficha de matrícula firmada'
+    ],
+    duracion: '1-2 días hábiles'
+  },
+  {
+    id: 'tramite-grado',
+    nombre: 'Trámite de Grado',
+    descripcion: 'Proceso para obtener el grado académico de Magíster o Doctor.',
+    icono: 'award',
+    color: 'bg-amber-100',
+    iconColor: 'text-amber-600',
+    href: '/estudiantes/tramite-grado',
+    requisitos: [
+      'Haber aprobado todas las asignaturas del plan de estudios',
+      'Tesis aprobada y sustentada',
+      'Constancia de no adeudo de biblioteca',
+      'Estar al día en pagos administrativos'
+    ],
+    pasos: [
+      'Solicitar expedito en la Unidad de Postgrado',
+      'Presentar documentación completa en mesa de partes',
+      'Esperar revisión y aprobación del expediente',
+      'Participar en ceremonia de graduación o recojo individual'
+    ],
+    documentos: [
+      'Solicitud dirigida al Director de la EPG',
+      'Acta de sustentación de tesis',
+      'Tesis empastada (3 ejemplares)',
+      'CD con tesis en formato digital',
+      'Constancia de no adeudo',
+      'Fotos tamaño pasaporte (6 unidades)',
+      'Copia de DNI',
+      'Recibo de pago por derechos de grado'
+    ],
+    costo: 'S/ 500.00',
+    duracion: '30-45 días hábiles'
+  },
+  {
+    id: 'sustentaciones',
+    nombre: 'Sustentaciones',
+    descripcion: 'Cronograma y requisitos para la defensa de tesis.',
+    icono: 'users',
+    color: 'bg-green-100',
+    iconColor: 'text-green-600',
+    href: '/estudiantes/sustentaciones',
+    requisitos: [
+      'Proyecto de tesis aprobado',
+      'Informe de asesor con visto bueno',
+      'Revisión de similitud (Turnitin) menor al 25%',
+      'Constancia de no adeudo'
+    ],
+    pasos: [
+      'Presentar borrador de tesis al asesor',
+      'Obtener visto bueno del asesor',
+      'Presentar solicitud de designación de jurado',
+      'Esperar resolución de designación de jurado',
+      'Entregar tesis a jurados para revisión',
+      'Levantar observaciones (si las hubiera)',
+      'Programar fecha de sustentación',
+      'Sustentar tesis ante el jurado'
+    ],
+    documentos: [
+      'Tesis en formato PDF (4 ejemplares)',
+      'Informe del asesor',
+      'Constancia de Turnitin',
+      'Solicitud de sustentación'
+    ],
+    duracion: '15-30 días hábiles'
+  },
+  {
+    id: 'licencia-estudios',
+    nombre: 'Licencia de Estudios',
+    descripcion: 'Solicitud de suspensión temporal de estudios por motivos justificados.',
+    icono: 'pause-circle',
+    color: 'bg-purple-100',
+    iconColor: 'text-purple-600',
+    href: '/estudiantes/licencia-estudios',
+    requisitos: [
+      'Estar matriculado en el semestre actual',
+      'Tener motivo justificado (salud, trabajo, viaje, etc.)',
+      'No tener deudas pendientes'
+    ],
+    pasos: [
+      'Presentar solicitud en mesa de partes',
+      'Adjuntar documentos sustentatorios',
+      'Esperar resolución de la Dirección',
+      'Recibir resolución de licencia aprobada'
+    ],
+    documentos: [
+      'Solicitud dirigida al Director',
+      'Documentos que justifiquen la licencia',
+      'Constancia de no adeudo'
+    ],
+    duracion: '5-10 días hábiles'
+  },
+  {
+    id: 'cambio-programa',
+    nombre: 'Cambio de Programa',
+    descripcion: 'Procedimiento para trasladarse a otro programa de la EPG.',
+    icono: 'shuffle',
+    color: 'bg-indigo-100',
+    iconColor: 'text-indigo-600',
+    href: '/estudiantes/cambio-programa',
+    requisitos: [
+      'Haber cursado al menos un semestre',
+      'Promedio mínimo de 14',
+      'Vacante disponible en el programa destino',
+      'Estar al día en pagos'
+    ],
+    pasos: [
+      'Solicitar informe de estudios y notas',
+      'Presentar solicitud de cambio de programa',
+      'Esperar evaluación del Comité Académico',
+      'Recibir resolución de aprobación',
+      'Realizar convalidación de asignaturas'
+    ],
+    documentos: [
+      'Solicitud dirigida al Director',
+      'Record de notas',
+      'Sílabos de asignaturas aprobadas',
+      'Carta de motivación'
+    ],
+    costo: 'S/ 150.00',
+    duracion: '15-20 días hábiles'
+  },
+  {
+    id: 'certificados',
+    nombre: 'Certificados y Constancias',
+    descripcion: 'Solicitud de documentos académicos oficiales.',
+    icono: 'file-text',
+    color: 'bg-red-100',
+    iconColor: 'text-red-600',
+    href: '/estudiantes/certificados',
+    requisitos: [
+      'Ser estudiante o egresado de la EPG',
+      'Estar al día en pagos'
+    ],
+    pasos: [
+      'Realizar pago por derecho de certificado',
+      'Presentar solicitud con recibo de pago',
+      'Esperar procesamiento del documento',
+      'Recoger documento en mesa de partes'
+    ],
+    documentos: [
+      'Solicitud simple',
+      'Recibo de pago',
+      'Copia de DNI'
+    ],
+    costo: 'S/ 30.00 - S/ 80.00',
+    duracion: '3-5 días hábiles'
+  }
+];
+
+const documentosDescargables = [
+  {
+    id: 'reglamento-general',
+    nombre: 'Reglamento General de la EPG',
+    descripcion: 'Normativa general que rige el funcionamiento de la Escuela de Postgrado',
+    tipo: 'pdf',
+    categoria: 'reglamento',
+    url: '/documentos/reglamento-general-epg.pdf',
+    fechaActualizacion: '2024-03-15'
+  },
+  {
+    id: 'reglamento-grados',
+    nombre: 'Reglamento de Grados y Títulos',
+    descripcion: 'Procedimientos para la obtención de grados académicos',
+    tipo: 'pdf',
+    categoria: 'reglamento',
+    url: '/documentos/reglamento-grados-titulos.pdf',
+    fechaActualizacion: '2024-02-20'
+  },
+  {
+    id: 'formato-proyecto-tesis',
+    nombre: 'Formato de Proyecto de Tesis',
+    descripcion: 'Plantilla oficial para la presentación del proyecto de investigación',
+    tipo: 'docx',
+    categoria: 'formato',
+    url: '/documentos/formato-proyecto-tesis.docx',
+    fechaActualizacion: '2024-01-10'
+  },
+  {
+    id: 'guia-elaboracion-tesis',
+    nombre: 'Guía de Elaboración de Tesis',
+    descripcion: 'Manual con lineamientos para la redacción de tesis',
+    tipo: 'pdf',
+    categoria: 'guia',
+    url: '/documentos/guia-elaboracion-tesis.pdf',
+    fechaActualizacion: '2024-03-01'
+  },
+  {
+    id: 'formato-informe-asesor',
+    nombre: 'Formato de Informe de Asesor',
+    descripcion: 'Plantilla para el informe de avance del asesor de tesis',
+    tipo: 'docx',
+    categoria: 'formato',
+    url: '/documentos/formato-informe-asesor.docx',
+    fechaActualizacion: '2024-02-15'
+  },
+  {
+    id: 'solicitud-general',
+    nombre: 'Formato de Solicitud General (FUT)',
+    descripcion: 'Formulario único de trámite para diversas solicitudes',
+    tipo: 'docx',
+    categoria: 'formato',
+    url: '/documentos/fut-solicitud-general.docx',
+    fechaActualizacion: '2024-01-05'
+  },
+  {
+    id: 'manual-apa7',
+    nombre: 'Manual de Estilo APA 7ma Edición',
+    descripcion: 'Guía de citación y referencias bibliográficas',
+    tipo: 'pdf',
+    categoria: 'manual',
+    url: '/documentos/manual-apa7.pdf',
+    fechaActualizacion: '2023-12-01'
+  },
+  {
+    id: 'formato-constancia-no-adeudo',
+    nombre: 'Solicitud de Constancia de No Adeudo',
+    descripcion: 'Formato para solicitar constancia de no adeudo',
+    tipo: 'docx',
+    categoria: 'formato',
+    url: '/documentos/solicitud-constancia-no-adeudo.docx',
+    fechaActualizacion: '2024-01-20'
+  }
+];
+
+const calendarioAcademico = [
+  {
+    id: 'matricula-2026-1',
+    titulo: 'Matrícula Regular 2026-I',
+    descripcion: 'Periodo de matrícula para el semestre 2026-I',
+    fechaInicio: '2026-05-18',
+    fechaFin: '2026-05-29',
+    tipo: 'matricula',
+    importante: true
+  },
+  {
+    id: 'inicio-clases-2026-1',
+    titulo: 'Inicio de Clases 2026-I',
+    descripcion: 'Inicio del semestre académico 2026-I',
+    fechaInicio: '2026-06-01',
+    tipo: 'evento',
+    importante: true
+  },
+  {
+    id: 'examen-parcial-2026-1',
+    titulo: 'Exámenes Parciales 2026-I',
+    descripcion: 'Semana de evaluaciones parciales',
+    fechaInicio: '2026-07-20',
+    fechaFin: '2026-07-25',
+    tipo: 'examen',
+    importante: true
+  },
+  {
+    id: 'pago-cuota2-2026-1',
+    titulo: 'Fecha límite pago 2da cuota',
+    descripcion: 'Último día para pagar la segunda cuota del semestre',
+    fechaInicio: '2026-07-10',
+    tipo: 'pago',
+    importante: true
+  },
+  {
+    id: 'examen-final-2026-1',
+    titulo: 'Exámenes Finales 2026-I',
+    descripcion: 'Semana de evaluaciones finales',
+    fechaInicio: '2026-09-28',
+    fechaFin: '2026-10-03',
+    tipo: 'examen',
+    importante: true
+  },
+  {
+    id: 'sustentaciones-septiembre',
+    titulo: 'Sustentaciones de Tesis - Septiembre',
+    descripcion: 'Periodo programado para sustentaciones de tesis',
+    fechaInicio: '2026-09-14',
+    fechaFin: '2026-09-25',
+    tipo: 'sustentacion',
+    importante: false
+  },
+  {
+    id: 'vacaciones-medio-ano',
+    titulo: 'Vacaciones de Medio Año',
+    descripcion: 'Periodo de vacaciones entre semestres',
+    fechaInicio: '2026-08-10',
+    fechaFin: '2026-08-23',
+    tipo: 'vacaciones',
+    importante: false
+  },
+  {
+    id: 'matricula-2026-2',
+    titulo: 'Matrícula Regular 2026-II',
+    descripcion: 'Periodo de matrícula para el semestre 2026-II',
+    fechaInicio: '2026-10-19',
+    fechaFin: '2026-10-30',
+    tipo: 'matricula',
+    importante: true
+  }
+];
+
+const recursosAcademicos = [
+  {
+    id: 'repositorio-tesis',
+    nombre: 'Repositorio de Tesis',
+    descripcion: 'Acceso a tesis de maestría y doctorado',
+    icono: 'database',
+    href: 'https://repositorio.unapiquitos.edu.pe',
+    externo: true
+  },
+  {
+    id: 'bases-datos',
+    nombre: 'Bases de Datos Científicas',
+    descripcion: 'Scopus, Web of Science, Scielo y más',
+    icono: 'search',
+    href: '/servicios/bases-datos',
+    externo: false
+  },
+  {
+    id: 'turnitin',
+    nombre: 'Turnitin',
+    descripcion: 'Sistema de detección de similitud',
+    icono: 'shield-check',
+    href: 'https://www.turnitin.com',
+    externo: true
+  },
+  {
+    id: 'mendeley',
+    nombre: 'Mendeley',
+    descripcion: 'Gestor de referencias bibliográficas',
+    icono: 'bookmark',
+    href: 'https://www.mendeley.com',
+    externo: true
+  },
+  {
+    id: 'google-scholar',
+    nombre: 'Google Scholar',
+    descripcion: 'Buscador de literatura académica',
+    icono: 'graduation-cap',
+    href: 'https://scholar.google.com',
+    externo: true
+  },
+  {
+    id: 'orcid',
+    nombre: 'ORCID',
+    descripcion: 'Identificador de investigador',
+    icono: 'user-check',
+    href: 'https://orcid.org',
+    externo: true
+  }
+];
+
+const preguntasFrecuentes = [
+  {
+    id: 'faq-1',
+    pregunta: '¿Cuál es el plazo máximo para terminar la maestría?',
+    respuesta: 'El plazo máximo para culminar los estudios de maestría es de 4 años contados desde la fecha de ingreso. En casos excepcionales, se puede solicitar una ampliación de plazo presentando una solicitud debidamente justificada.',
+    categoria: 'general'
+  },
+  {
+    id: 'faq-2',
+    pregunta: '¿Cómo puedo solicitar una constancia de estudios?',
+    respuesta: 'Debe presentar una solicitud (FUT) en mesa de partes adjuntando el recibo de pago correspondiente (S/ 30.00). El documento estará listo en 3 a 5 días hábiles.',
+    categoria: 'tramites'
+  },
+  {
+    id: 'faq-3',
+    pregunta: '¿Cuántas veces puedo sustentar mi tesis si desapruebo?',
+    respuesta: 'El estudiante tiene derecho a dos (2) oportunidades adicionales para sustentar su tesis en caso de desaprobación. Cada nueva sustentación requiere un pago adicional por derecho de sustentación.',
+    categoria: 'tesis'
+  },
+  {
+    id: 'faq-4',
+    pregunta: '¿Puedo realizar pagos fraccionados?',
+    respuesta: 'Sí, la pensión de estudios puede pagarse en cuotas mensuales según el cronograma establecido por la EPG. El incumplimiento de pagos puede generar intereses y restricciones en el acceso a servicios académicos.',
+    categoria: 'pagos'
+  },
+  {
+    id: 'faq-5',
+    pregunta: '¿Qué porcentaje de similitud acepta Turnitin?',
+    respuesta: 'El porcentaje máximo de similitud permitido es del 25%. Si la tesis supera este porcentaje, deberá realizar las correcciones necesarias antes de poder sustentar.',
+    categoria: 'tesis'
+  },
+  {
+    id: 'faq-6',
+    pregunta: '¿Cómo solicito cambio de asesor de tesis?',
+    respuesta: 'Debe presentar una solicitud (FUT) indicando los motivos del cambio, adjuntando una carta de aceptación del nuevo asesor propuesto. La solicitud será evaluada por el Comité de Investigación.',
+    categoria: 'tesis'
+  },
+  {
+    id: 'faq-7',
+    pregunta: '¿Puedo matricularme en asignaturas de otro programa?',
+    respuesta: 'Sí, puede llevar asignaturas electivas de otros programas siempre que existan vacantes disponibles y cuente con la autorización del coordinador de su programa.',
+    categoria: 'matricula'
+  },
+  {
+    id: 'faq-8',
+    pregunta: '¿Qué pasa si no me matriculo en un semestre?',
+    respuesta: 'Si no se matricula en un semestre sin haber solicitado licencia, será considerado como abandono de estudios. Para reingresar, deberá solicitar reincorporación y regularizar su situación académica.',
+    categoria: 'matricula'
+  }
+];
+
+export async function seedEstudiantes() {
+  faker.seed(456); // Determinism
+  
+  const writeCollection = async (dirName: string, data: any[]) => {
+    const contentDir = path.join(process.cwd(), 'src/content', dirName);
+    
+    await fs.mkdir(contentDir, { recursive: true });
+    
+    // Clear existing
+    const files = await fs.readdir(contentDir);
+    for (const file of files) {
+      if (file.endsWith('.json')) {
+        await fs.unlink(path.join(contentDir, file));
+      }
+    }
+    
+    for (const item of data) {
+      const fileName = `${item.id}.json`;
+      const filePath = path.join(contentDir, fileName);
+      
+      await fs.writeFile(
+        filePath,
+        JSON.stringify(item, null, 2),
+        'utf-8'
+      );
+    }
+    
+    console.log(`✅ ${data.length} items generados en src/content/${dirName}`);
+  };
+
+  try {
+    await writeCollection('estudiantes_accesos', accesosRapidos);
+    await writeCollection('estudiantes_tramites', tramitesEstudiantiles);
+    await writeCollection('estudiantes_documentos', documentosDescargables);
+    await writeCollection('estudiantes_calendario', calendarioAcademico);
+    await writeCollection('estudiantes_recursos', recursosAcademicos);
+    await writeCollection('estudiantes_faq', preguntasFrecuentes);
+  } catch (error) {
+    console.error('Error seeding estudiantes:', error);
+  }
+}

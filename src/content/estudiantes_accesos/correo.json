@@ -1,0 +1,8 @@
+{
+  "id": "correo",
+  "nombre": "Correo Institucional",
+  "descripcion": "Email @unapiquitos.edu.pe",
+  "icono": "mail",
+  "href": "https://mail.google.com",
+  "color": "bg-epg-navy"
+}

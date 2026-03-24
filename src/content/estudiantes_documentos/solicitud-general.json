@@ -1,0 +1,9 @@
+{
+  "id": "solicitud-general",
+  "nombre": "Formato de Solicitud General (FUT)",
+  "descripcion": "Formulario único de trámite para diversas solicitudes",
+  "tipo": "docx",
+  "categoria": "formato",
+  "url": "/documentos/fut-solicitud-general.docx",
+  "fechaActualizacion": "2024-01-05"
+}

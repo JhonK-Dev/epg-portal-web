@@ -1,0 +1,26 @@
+{
+  "id": "licencia-estudios",
+  "nombre": "Licencia de Estudios",
+  "descripcion": "Solicitud de suspensión temporal de estudios por motivos justificados.",
+  "icono": "pause-circle",
+  "color": "bg-purple-100",
+  "iconColor": "text-purple-600",
+  "href": "/estudiantes/licencia-estudios",
+  "requisitos": [
+    "Estar matriculado en el semestre actual",
+    "Tener motivo justificado (salud, trabajo, viaje, etc.)",
+    "No tener deudas pendientes"
+  ],
+  "pasos": [
+    "Presentar solicitud en mesa de partes",
+    "Adjuntar documentos sustentatorios",
+    "Esperar resolución de la Dirección",
+    "Recibir resolución de licencia aprobada"
+  ],
+  "documentos": [
+    "Solicitud dirigida al Director",
+    "Documentos que justifiquen la licencia",
+    "Constancia de no adeudo"
+  ],
+  "duracion": "5-10 días hábiles"
+}

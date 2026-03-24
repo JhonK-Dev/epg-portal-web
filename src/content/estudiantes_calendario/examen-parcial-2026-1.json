@@ -1,0 +1,9 @@
+{
+  "id": "examen-parcial-2026-1",
+  "titulo": "Exámenes Parciales 2026-I",
+  "descripcion": "Semana de evaluaciones parciales",
+  "fechaInicio": "2026-07-20",
+  "fechaFin": "2026-07-25",
+  "tipo": "examen",
+  "importante": true
+}

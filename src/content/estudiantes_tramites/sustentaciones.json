@@ -1,0 +1,32 @@
+{
+  "id": "sustentaciones",
+  "nombre": "Sustentaciones",
+  "descripcion": "Cronograma y requisitos para la defensa de tesis.",
+  "icono": "users",
+  "color": "bg-green-100",
+  "iconColor": "text-green-600",
+  "href": "/estudiantes/sustentaciones",
+  "requisitos": [
+    "Proyecto de tesis aprobado",
+    "Informe de asesor con visto bueno",
+    "Revisión de similitud (Turnitin) menor al 25%",
+    "Constancia de no adeudo"
+  ],
+  "pasos": [
+    "Presentar borrador de tesis al asesor",
+    "Obtener visto bueno del asesor",
+    "Presentar solicitud de designación de jurado",
+    "Esperar resolución de designación de jurado",
+    "Entregar tesis a jurados para revisión",
+    "Levantar observaciones (si las hubiera)",
+    "Programar fecha de sustentación",
+    "Sustentar tesis ante el jurado"
+  ],
+  "documentos": [
+    "Tesis en formato PDF (4 ejemplares)",
+    "Informe del asesor",
+    "Constancia de Turnitin",
+    "Solicitud de sustentación"
+  ],
+  "duracion": "15-30 días hábiles"
+}
