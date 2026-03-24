@@ -1,0 +1,26 @@
+{
+  "id": "matricula",
+  "nombre": "Matrícula",
+  "descripcion": "Proceso de inscripción a las asignaturas del semestre académico.",
+  "icono": "clipboard-check",
+  "color": "bg-blue-100",
+  "iconColor": "text-blue-600",
+  "href": "/estudiantes/matricula",
+  "requisitos": [
+    "Estar al día en pagos",
+    "No tener deudas con biblioteca",
+    "Haber aprobado requisitos previos de las asignaturas"
+  ],
+  "pasos": [
+    "Ingresar al SIGAE con usuario y contraseña",
+    "Seleccionar \"Matrícula\" en el menú principal",
+    "Elegir las asignaturas disponibles",
+    "Confirmar matrícula y generar boleta de pago",
+    "Realizar el pago en ventanilla o banca electrónica"
+  ],
+  "documentos": [
+    "Constancia de no adeudo (si aplica)",
+    "Ficha de matrícula firmada"
+  ],
+  "duracion": "1-2 días hábiles"
+}

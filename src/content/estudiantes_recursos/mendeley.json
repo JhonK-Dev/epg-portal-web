@@ -1,0 +1,8 @@
+{
+  "id": "mendeley",
+  "nombre": "Mendeley",
+  "descripcion": "Gestor de referencias bibliográficas",
+  "icono": "bookmark",
+  "href": "https://www.mendeley.com",
+  "externo": true
+}

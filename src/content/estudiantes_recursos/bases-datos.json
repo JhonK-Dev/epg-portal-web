@@ -1,0 +1,8 @@
+{
+  "id": "bases-datos",
+  "nombre": "Bases de Datos Científicas",
+  "descripcion": "Scopus, Web of Science, Scielo y más",
+  "icono": "search",
+  "href": "/servicios/bases-datos",
+  "externo": false
+}

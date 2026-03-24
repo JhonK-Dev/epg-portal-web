@@ -1,0 +1,9 @@
+{
+  "id": "formato-constancia-no-adeudo",
+  "nombre": "Solicitud de Constancia de No Adeudo",
+  "descripcion": "Formato para solicitar constancia de no adeudo",
+  "tipo": "docx",
+  "categoria": "formato",
+  "url": "/documentos/solicitud-constancia-no-adeudo.docx",
+  "fechaActualizacion": "2024-01-20"
+}

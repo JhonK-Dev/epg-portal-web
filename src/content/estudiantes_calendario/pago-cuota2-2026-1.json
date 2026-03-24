@@ -1,0 +1,8 @@
+{
+  "id": "pago-cuota2-2026-1",
+  "titulo": "Fecha límite pago 2da cuota",
+  "descripcion": "Último día para pagar la segunda cuota del semestre",
+  "fechaInicio": "2026-07-10",
+  "tipo": "pago",
+  "importante": true
+}

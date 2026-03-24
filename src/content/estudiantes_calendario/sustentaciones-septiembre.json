@@ -1,0 +1,9 @@
+{
+  "id": "sustentaciones-septiembre",
+  "titulo": "Sustentaciones de Tesis - Septiembre",
+  "descripcion": "Periodo programado para sustentaciones de tesis",
+  "fechaInicio": "2026-09-14",
+  "fechaFin": "2026-09-25",
+  "tipo": "sustentacion",
+  "importante": false
+}

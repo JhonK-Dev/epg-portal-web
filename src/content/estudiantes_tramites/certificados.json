@@ -1,0 +1,26 @@
+{
+  "id": "certificados",
+  "nombre": "Certificados y Constancias",
+  "descripcion": "Solicitud de documentos académicos oficiales.",
+  "icono": "file-text",
+  "color": "bg-red-100",
+  "iconColor": "text-red-600",
+  "href": "/estudiantes/certificados",
+  "requisitos": [
+    "Ser estudiante o egresado de la EPG",
+    "Estar al día en pagos"
+  ],
+  "pasos": [
+    "Realizar pago por derecho de certificado",
+    "Presentar solicitud con recibo de pago",
+    "Esperar procesamiento del documento",
+    "Recoger documento en mesa de partes"
+  ],
+  "documentos": [
+    "Solicitud simple",
+    "Recibo de pago",
+    "Copia de DNI"
+  ],
+  "costo": "S/ 30.00 - S/ 80.00",
+  "duracion": "3-5 días hábiles"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "orcid",
+  "nombre": "ORCID",
+  "descripcion": "Identificador de investigador",
+  "icono": "user-check",
+  "href": "https://orcid.org",
+  "externo": true
+}

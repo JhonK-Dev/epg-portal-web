@@ -1,0 +1,33 @@
+{
+  "id": "tramite-grado",
+  "nombre": "Trámite de Grado",
+  "descripcion": "Proceso para obtener el grado académico de Magíster o Doctor.",
+  "icono": "award",
+  "color": "bg-amber-100",
+  "iconColor": "text-amber-600",
+  "href": "/estudiantes/tramite-grado",
+  "requisitos": [
+    "Haber aprobado todas las asignaturas del plan de estudios",
+    "Tesis aprobada y sustentada",
+    "Constancia de no adeudo de biblioteca",
+    "Estar al día en pagos administrativos"
+  ],
+  "pasos": [
+    "Solicitar expedito en la Unidad de Postgrado",
+    "Presentar documentación completa en mesa de partes",
+    "Esperar revisión y aprobación del expediente",
+    "Participar en ceremonia de graduación o recojo individual"
+  ],
+  "documentos": [
+    "Solicitud dirigida al Director de la EPG",
+    "Acta de sustentación de tesis",
+    "Tesis empastada (3 ejemplares)",
+    "CD con tesis en formato digital",
+    "Constancia de no adeudo",
+    "Fotos tamaño pasaporte (6 unidades)",
+    "Copia de DNI",
+    "Recibo de pago por derechos de grado"
+  ],
+  "costo": "S/ 500.00",
+  "duracion": "30-45 días hábiles"
+}

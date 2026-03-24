@@ -132,7 +132,91 @@ const serviciosCollection = defineCollection({
   }),
 });
 
+const estudiantesAccesosCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    nombre: z.string(),
+    descripcion: z.string(),
+    icono: z.string(),
+    href: z.string(),
+    color: z.string(),
+  }),
+});
+
+const estudiantesTramitesCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    nombre: z.string(),
+    descripcion: z.string(),
+    icono: z.string(),
+    color: z.string(),
+    iconColor: z.string(),
+    href: z.string(),
+    requisitos: z.array(z.string()),
+    pasos: z.array(z.string()),
+    documentos: z.array(z.string()),
+    costo: z.string().optional(),
+    duracion: z.string().optional(),
+  }),
+});
+
+const estudiantesDocumentosCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    nombre: z.string(),
+    descripcion: z.string(),
+    tipo: z.enum(['pdf', 'docx', 'xlsx']),
+    categoria: z.enum(['reglamento', 'formato', 'guia', 'manual']),
+    url: z.string(),
+    fechaActualizacion: z.string(),
+  }),
+});
+
+const estudiantesCalendarioCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    titulo: z.string(),
+    descripcion: z.string(),
+    fechaInicio: z.string(),
+    fechaFin: z.string().optional(),
+    tipo: z.enum(['matricula', 'examen', 'sustentacion', 'vacaciones', 'evento', 'pago']),
+    importante: z.boolean(),
+  }),
+});
+
+const estudiantesRecursosCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    nombre: z.string(),
+    descripcion: z.string(),
+    icono: z.string(),
+    href: z.string(),
+    externo: z.boolean(),
+  }),
+});
+
+const estudiantesFaqCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    pregunta: z.string(),
+    respuesta: z.string(),
+    categoria: z.enum(['matricula', 'tramites', 'tesis', 'pagos', 'general']),
+  }),
+});
+
 export const collections = {
+  estudiantes_accesos: estudiantesAccesosCollection,
+  estudiantes_tramites: estudiantesTramitesCollection,
+  estudiantes_documentos: estudiantesDocumentosCollection,
+  estudiantes_calendario: estudiantesCalendarioCollection,
+  estudiantes_recursos: estudiantesRecursosCollection,
+  estudiantes_faq: estudiantesFaqCollection,
   servicios: serviciosCollection,
   programas: programasCollection,
   noticias: noticiasCollection,
