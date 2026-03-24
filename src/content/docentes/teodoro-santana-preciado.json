@@ -1,0 +1,37 @@
+{
+  "id": "doc-teodoro-santana-preciado",
+  "nombres": "Teodoro",
+  "apellidos": "Santana Preciado",
+  "grado": "phd",
+  "especialidad": "Biología Molecular",
+  "email": "teodoro.santana@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/85.jpg",
+  "resumenPerfil": "Descimbrar Abadesa Batata. Desciframiento Gemológico Gemología Ceneque Cencerrado Engarzadura Descercador. Géminis Gemíparo Incorporar Ficha Batato Abada.",
+  "orcid": "https://orcid.org/0000-0000-1988-4279",
+  "biografia": "Generacional Incorrupto Cenagar Fiducia. Descercado Generacional Cencerro Ceñar Genearca Incruentamente Descercar Bastonero Descerrumarse Ficticio. Generalato Batavia Cencerro Descercador Descerar Engasgarse.\nDescimbramiento Fideo Increpar. Incorporación Abadía Bastonada. Abadengo Genealógico Batallón Descercador Geminación Bátavo.",
+  "areasInvestigacion": [
+    "Derecho Constitucional"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2023
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2009
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "5267-287-779"
+}

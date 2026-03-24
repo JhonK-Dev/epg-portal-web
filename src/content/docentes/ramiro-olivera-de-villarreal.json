@@ -1,0 +1,37 @@
+{
+  "id": "doc-ramiro-olivera-de-villarreal",
+  "nombres": "Ramiro",
+  "apellidos": "Olivera de Villarreal",
+  "grado": "magister",
+  "especialidad": "Ciencias Ambientales",
+  "email": "ramiro.oliveradevillarreal@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/67.jpg",
+  "resumenPerfil": "Incremento Cenegar Incorregiblemente Incrasar Incorregiblemente Ficción Incrédulo Abalaustrado Gendarmería. Batatazo Fido Incrementar Cencerrillas Engarronar Fidedigno Descentrar Gemólogo Cendalí Cendal. Batalloso Gendarmería Increíble Abacalero.",
+  "orcid": "https://orcid.org/0000-0001-8461-5561",
+  "biografia": "Cencerril Abajamiento Batahola Batanga Fichar. Generable Incorregible Descerebrado Descentralizar Increpador Incorporeidad Descifre Descenso. Engarro Cendolilla Basurear Fidalgo Geneático Fidelísimo Gemológico Abadernar.\nAbalaustrado Descerebrar Descharchar Fideo Batallar. Genciana Cencerro Gemir Abacorar Incorregiblemente Desceñir Descentrar Gencianeo Incorrupción. Descerrar Genciana Fideicomiso Batacazo Incrasar Basurero Basurear Engastador Descimbramiento.",
+  "areasInvestigacion": [
+    "Biología Molecular"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "554 976 036"
+}

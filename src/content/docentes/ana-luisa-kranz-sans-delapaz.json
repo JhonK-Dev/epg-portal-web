@@ -1,0 +1,38 @@
+{
+  "id": "doc-ana-luisa-kranz-sans-delapaz",
+  "nombres": "Ana Luisa",
+  "apellidos": "Kranz sans Delapaz",
+  "grado": "magister",
+  "especialidad": "Docencia Universitaria",
+  "email": "analuisa.kranzsansdelapaz@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/39246831",
+  "resumenPerfil": "Abadernar Abajar Increpación Bastonazo Cenegar Bastonazo Descerebrado Batán. Abajadero Cencerrado Incorregible Incorrupto Batata Deschapar. Descifrable Batanar Fichar Gemiqueo Batallar.",
+  "orcid": "https://orcid.org/0000-0003-3128-0487",
+  "biografia": "Desceñir Fideo Engarnio Incorporación Batayola Generalidad Batanear Fidalgo. Incriminar Cenca Abaco Geminar Engarro Gemir Cencerrear Incorregible Basural. Engarbullar Genealogista Cenero.\nBatanga Gemiquear Descerebrado. Abacero Increpación Fice Batato Batatazo Descerebrar Bastonazo. Descentralizador Cencerrado Cenata Batanar Bateador Descervigar Cencerrada Batanero Genealogista Batata.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas",
+    "Ciencias Ambientales"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2009
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2021 - Presente"
+    }
+  ],
+  "telefono": "587.314.190"
+}

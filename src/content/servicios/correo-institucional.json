@@ -1,0 +1,11 @@
+{
+  "id": "srv-003",
+  "nombre": "Correo Institucional",
+  "descripcion": "Servicio de correo electrónico institucional para estudiantes y docentes de la Escuela de Postgrado. Incluye almacenamiento en la nube y herramientas de colaboración.",
+  "descripcionCorta": "Email institucional con herramientas de Office 365.",
+  "icono": "Mail",
+  "url": "https://outlook.office.com",
+  "esExterno": true,
+  "slug": "correo-institucional",
+  "instrucciones": "Su cuenta es su código de estudiante seguido de @unap.edu.pe. La contraseña inicial se proporciona junto con su carnet universitario."
+}

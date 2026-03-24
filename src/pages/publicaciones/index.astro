@@ -1,8 +1,16 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { PublicacionesLista } from '../../features/publicaciones';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
+
+const noticiasCollection = await getCollection('noticias');
+const publicaciones = noticiasCollection.map(p => ({
+  id: p.id,
+  slug: p.slug,
+  ...p.data
+}));
 ---
 
 <Layout 
@@ -26,7 +34,7 @@ import { ErrorBoundary } from '../../components/ui/error-boundary';
     <section class="py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ErrorBoundary client:load>
-          <PublicacionesLista client:load />
+          <PublicacionesLista publicaciones={publicaciones} client:load />
         </ErrorBoundary>
       </div>
     </section>

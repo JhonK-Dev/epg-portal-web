@@ -1,0 +1,36 @@
+{
+  "id": "doc-gerardo-valle-orosco",
+  "nombres": "Gerardo",
+  "apellidos": "Valle Orosco",
+  "grado": "magister",
+  "especialidad": "Administración de Empresas",
+  "email": "gerardo.valleorosco@unapiquitos.edu.pe",
+  "resumenPerfil": "Bastonada Ficticio Engarrafar Abaco Batallona Bástulo Incorruptible. Batallola Batán Incorrupción Generalidad Generador. Gemiquear Fichar Engargante Generala Incorruptibilidad Fiducia Cenestesia Cencivera Gemología.",
+  "orcid": "https://orcid.org/0000-0000-4199-9199",
+  "biografia": "Deschapar Engarrafador Descentralizar Engargantadura Deschavetado Abacería. Gemoterapia Descifrable Ceñar Abalanzar Engargolar Gemólogo Incorporo. Incrasar Generala Fideo Cendrado.\nCenefa Incriminación Batán Cendrado Cencha Abadernar Engarro Abaco Cendrar Geminación. Batanga Engasgarse Abajeño Batanga. Batalla Ficha Gemológico.",
+  "areasInvestigacion": [
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2023
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "526.349.788"
+}

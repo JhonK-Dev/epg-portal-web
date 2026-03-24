@@ -1,0 +1,37 @@
+{
+  "id": "doc-hugo-calderon-urias",
+  "nombres": "Hugo",
+  "apellidos": "Calderón Urías",
+  "grado": "magister",
+  "especialidad": "Derecho Constitucional",
+  "email": "hugo.calderon@unapiquitos.edu.pe",
+  "resumenPerfil": "Engargolado Descenso Cendrada Incorporalmente Incorregible Cencerrear. Incremento Gemólogo Fidalgo Batatazo Batea Engarmarse Fido. Deschavetado Fice Cencivera Incrementar Engarfiar Fidelísimo Fiducia.",
+  "orcid": "https://orcid.org/0000-0002-7241-4585",
+  "biografia": "Descentrado Batalán Gemología Engarrar Abalanzar Desceñir Cendradilla Batalla Engarberar. Descentralizador Fichaje Fido Fidecomiso. Batanear Cendalí Batalán Increíblemente Descifre Engastadura Cendalí Abacero Abadía Incrédulamente.\nCencido Fideísmo Ficción Engargolar Fideicomisario Descimbramiento Abajera Descentralización Incrementar Abalada. Descercador Descervigar Descerezar. Engarmarse Fichar Fichar Desciframiento Engarce Descerrajadura Cenceñada Descharchar.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Ciencias Ambientales"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2019
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "591212871"
+}

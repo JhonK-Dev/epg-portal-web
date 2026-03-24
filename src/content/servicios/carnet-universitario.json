@@ -1,0 +1,10 @@
+{
+  "id": "srv-004",
+  "nombre": "Carnet Universitario",
+  "descripcion": "Información sobre el carnet universitario de postgrado. Trámite de emisión, renovación y beneficios asociados como medio pasaje y descuentos en establecimientos.",
+  "descripcionCorta": "Trámite y beneficios del carnet universitario.",
+  "icono": "IdCard",
+  "esExterno": false,
+  "slug": "carnet-universitario",
+  "instrucciones": "El carnet se tramita automáticamente al completar la matrícula. La entrega se realiza en la oficina de Bienestar Universitario."
+}

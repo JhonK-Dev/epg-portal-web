@@ -1,14 +1,22 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { DocenteDetail } from '../../features/docentes';
+import { getProgramaById } from '../../data/programas';
+import type { Programa } from '../../types/programas';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
-import { docentes, getDocenteById, getAllDocenteIds } from '../../data/docentes';
 
-export function getStaticPaths() {
-  return docentes.map((docente) => ({
+export async function getStaticPaths() {
+  const docentesCollection = await getCollection('docentes');
+  return docentesCollection.map((docente) => ({
     params: { id: docente.id },
-    props: { docente },
+    props: { 
+      docente: {
+        id: docente.id,
+        ...docente.data
+      } 
+    },
   }));
 }
 
@@ -27,6 +35,11 @@ const gradoLabels: Record<string, string> = {
 };
 
 const nombreCompleto = `${gradoLabels[docente.grado] || ''} ${docente.nombres} ${docente.apellidos}`;
+
+const programasDocenteUnresolved = await Promise.all(
+  (docente.programas || []).map(id => getProgramaById(id))
+);
+const programasDocente = programasDocenteUnresolved.filter(Boolean) as Programa[];
 ---
 
 <Layout 
@@ -38,7 +51,7 @@ const nombreCompleto = `${gradoLabels[docente.grado] || ''} ${docente.nombres} $
   <Navbar />
   <main class="min-h-screen">
     <ErrorBoundary client:load>
-      <DocenteDetail client:load docente={docente} />
+      <DocenteDetail client:load docente={docente} programasDocente={programasDocente} />
     </ErrorBoundary>
   </main>
 </Layout>

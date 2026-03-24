@@ -1,0 +1,39 @@
+{
+  "id": "doc-jimena-lovato-karem",
+  "nombres": "Jimena",
+  "apellidos": "Lovato Karem",
+  "grado": "doctor",
+  "especialidad": "Salud Pública",
+  "email": "jimena.lovato@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/64270961",
+  "resumenPerfil": "Fidelidad Descervigamiento Batallar Descercar Cendrar Bateador. Cencerro Batata Engargolar Descerrajadura Engastar Abajamiento Abada Engarrotar. Cencerrado Cencerrada Incorrupción Engargantadura Gencianáceo Generacional Bateaguas Cenagoso Geminación.",
+  "orcid": "https://orcid.org/0000-0000-7558-1024",
+  "biografia": "Géminis Fideicomitente Generador Cendrar Incorporal Bataola Cencerrón. Incorregibilidad Descercar Cenagoso Descepar Engaste Cendrada Incorruptamente Desciframiento Cenco. Batata Cendalí Incorporo Deschavetado Bastonear Incorruptamente.\nDescerrajadura Fidalgo Abajadero Abadejo. Incorporalmente Descensión Batallar Engarmarse Incredulidad Abaco Engarrotar. Geminar Fice Incorporación Gemoterapia.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas",
+    "Gestión Pública",
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2011
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "513.393.407"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "doc-esperanza-peralta-nino",
+  "nombres": "Esperanza",
+  "apellidos": "Peralta Niño",
+  "grado": "doctor",
+  "especialidad": "Salud Pública",
+  "email": "esperanza.peraltanino@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/22.jpg",
+  "resumenPerfil": "Incorregibilidad Engarronar Cenestesia Abadía Engaritar Gen. Bateaguas Descentralizar Batea Deschavetado Abajar. Abadesa Cencha Cenceñada Batallón Abacalero Cenco.",
+  "orcid": "https://orcid.org/0000-0001-2279-7097",
+  "biografia": "Cendrazo Geminar Abaldonadamente Batallola Gemológico Cencellada. Batata Bastonear Ceneque Generación. Cencuate Descerebrar Batatazo Incrédulamente Descerezar Genealógico Descerezar.\nIncorpóreo Geminación Incorporo Incorporación Engarzador. Incorrupto Incorporal Cenagar Batallar Generalísimo Cencerra Abacalero General Basura. Generable Batallón Incorrección Gemoterapia Incorrupto Cenca Fiducia Incremento.",
+  "areasInvestigacion": [
+    "Administración de Empresas",
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "547448227"
+}

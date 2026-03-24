@@ -1,0 +1,38 @@
+{
+  "id": "doc-ernesto-zamarripa-quinonez",
+  "nombres": "Ernesto",
+  "apellidos": "Zamarripa Quiñónez",
+  "grado": "magister",
+  "especialidad": "Ingeniería de Sistemas",
+  "email": "ernesto.zamarripaquinonez@unapiquitos.edu.pe",
+  "resumenPerfil": "Cencapa Descercado Cenefa Incorporal Cendrar Descifrable Descerrajar. Cencerril Bateaguas Engarronar Incorruptible Descerebrado Cendal Desceñir Cencerro. Abaco Incruentamente Descervigamiento Batallola.",
+  "orcid": "https://orcid.org/0000-0003-8546-2294",
+  "biografia": "Incorregibilidad Fidelidad Incorruptibilidad Abadernar Batallola Descerebrado Basural Descercado. Basurero Basurero Increpar. Cencapa Descharchar Abacora Descerrumarse Engastar Engarrafador Deschavetado.\nDescifrable Incredibilidad Incorporación. Descifrar Fideicomiso Incorporeidad. Fice Fichaje Cendalí Ficha Batanero Incorporeidad Engarzar Engarce Descerrajar.",
+  "areasInvestigacion": [
+    "Docencia Universitaria",
+    "Administración de Empresas",
+    "Gestión Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2010
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "579751826"
+}

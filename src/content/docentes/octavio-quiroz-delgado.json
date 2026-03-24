@@ -1,0 +1,37 @@
+{
+  "id": "doc-octavio-quiroz-delgado",
+  "nombres": "Octavio",
+  "apellidos": "Quiroz Delgado",
+  "grado": "doctor",
+  "especialidad": "Salud Pública",
+  "email": "octavio.quirozdelgado@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/31345348",
+  "resumenPerfil": "Gemoso Abadengo Céndea. Cendolilla Descifrador Descimbramiento Engarrafar Ficha Engarrafador Engasgarse. Descenso Cencerrear Descerebrado Batata Bátavo Descentrado Descerrajadura Abadesa Abalada.",
+  "orcid": "https://orcid.org/0000-0002-2254-0135",
+  "biografia": "Incorregible Fideicomitente Generador Incorrupto Batanar. Bastoncillo Batanear Abacero. Cenaoscuras Cenaoscuras Batazo Cencerril Gemoso Ceneque Bateaguas.\nIncorrección Deschapar Cencuate. Cenegar Incredibilidad Abacorar Engarrafador Fiducia. Incrustación Cenefa Increíblemente Generación.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2019
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "569105779"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "doc-benito-rolon-fonseca",
+  "nombres": "Benito",
+  "apellidos": "Rolón Fonseca",
+  "grado": "magister",
+  "especialidad": "Ciencias Ambientales",
+  "email": "benito.rolonfonseca@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/30.jpg",
+  "resumenPerfil": "Genealógico Abajar Deschavetarse Descensión Batanga Descerrajar Fichero Fichaje Gemología Incrédulamente. Engastador Batatazo Fidelidad. Bastonada Generacional Abadesa Incrédulamente Fichar Incorpóreo Genealógico.",
+  "orcid": "https://orcid.org/0000-0005-1408-5519",
+  "biografia": "Gendarme Deschavetado Batallón Gemólogo Cencerro Batallaroso Genealogista Incrustación. Generala Abajadero Cencuate Incruentamente. Bastonero Cencido Increpar Incrédulamente Descifrar Cenca Incorporal.\nFicticio Cendrar Fideero. Ficción Fichaje Batanar Batazo Descharchar Deschapar Increpador Engargolado. Geminado Cenata Engarce Incredibilidad Incruento Batallona Deschapar Ceñar Batallola.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2012
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "573 733 125"
+}

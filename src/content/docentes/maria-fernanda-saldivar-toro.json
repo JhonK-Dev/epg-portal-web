@@ -1,0 +1,38 @@
+{
+  "id": "doc-maria-fernanda-saldivar-toro",
+  "nombres": "María Fernanda",
+  "apellidos": "Saldivar Toro",
+  "grado": "phd",
+  "especialidad": "Docencia Universitaria",
+  "email": "maria.saldivar@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/37178630",
+  "resumenPerfil": "Cencío Gemología Increpador Abalar Fichar. Descervigamiento Fice Desciframiento Descerebración Abacora Engarzar Descentralizador Gemoterapia Cendrar. Bateaguas Incorporal Descenso Ficción.",
+  "orcid": "https://orcid.org/0000-0002-3551-0135",
+  "biografia": "Gencianáceo Gen Genearca Ceneque Batacazo Deschapar. Bastoncillo Engarrafar Bátavo Cencerrón Batallador Cenal Bastoncillo. Engarrar Cenagar Cendrado Batallón.\nIncreíble Engasgarse Descercador Ficticio Cendrar. Gemólogo Batanear Fidelidad Fideicomisario Engarzadura Incrédulo Descepar Fideísmo Cenca. Céndea Batea Ceneque Engarnio.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Docencia Universitaria"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2021
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2014
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "597.448.861"
+}

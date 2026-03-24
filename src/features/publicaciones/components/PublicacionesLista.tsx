@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { publicaciones, getDestacadas } from '@/data/publicaciones'
+import type { Publicacion } from '@/types/publicaciones'
 import { formatDate } from '@/lib/formatters'
 import { LinkArrow } from '@/components/ui/link-arrow'
 import {
@@ -55,11 +55,18 @@ const tipoConfig: Record<
   },
 }
 
-export function PublicacionesLista() {
+interface PublicacionesListaProps {
+  publicaciones: Publicacion[]
+}
+
+export function PublicacionesLista({ publicaciones }: PublicacionesListaProps) {
   const [tipoActivo, setTipoActivo] = useState<TipoPublicacion>('todas')
   const [busqueda, setBusqueda] = useState('')
 
-  const destacadas = getDestacadas()
+  const destacadas = useMemo(
+    () => publicaciones.filter((p) => p.destacado),
+    [publicaciones]
+  )
 
   const publicacionesFiltradas = useMemo(() => {
     let resultado = [...publicaciones]

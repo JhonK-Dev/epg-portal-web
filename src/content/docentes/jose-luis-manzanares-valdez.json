@@ -1,0 +1,39 @@
+{
+  "id": "doc-jose-luis-manzanares-valdez",
+  "nombres": "José Luis",
+  "apellidos": "Manzanares Valdez",
+  "grado": "doctor",
+  "especialidad": "Administración de Empresas",
+  "email": "jose.manzanares@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/87.jpg",
+  "resumenPerfil": "Descervigamiento Batayola Increpar Cencivera Bastonero Gendarmería Fideo. Ceneque Abaco Engargante. Engarzar Incorrección Bateaguas Descerrajadura.",
+  "orcid": "https://orcid.org/0000-0009-3504-7846",
+  "biografia": "Cenefa Engastador Abacero Abadesa Gencianáceo Abaco Engarberar. Engargantadura Descifre Abadesa Increpación Cencha. Abacorar Descifre Incrasar Bate.\nGenciana Engarmarse Fidelísimo Descerrajado. Batallaroso Batallona Increíblemente Engasgarse. Batanear Cenca Fichero Gencianeo Fice Batalla Deschuponar.",
+  "areasInvestigacion": [
+    "Ciencias Ambientales",
+    "Biología Molecular",
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2019
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "517046119"
+}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { convocatorias, fechasImportantes } from '@/data/convocatorias'
 import { contactoAdmision, getEmailHref } from '@/data/contacto'
-import { programas, getProgramaBySlug } from '@/data/programas'
+import type { Programa } from '@/types/programas'
 import { formatShortDate } from '@/lib/formatters'
 import {
   tipoFechaAdmisionColors,
@@ -559,7 +559,7 @@ function FAQ() {
 // ========================================
 // PROGRAMAS CON VACANTES
 // ========================================
-function ProgramasVacantes() {
+function ProgramasVacantes({ programas }: { programas: Programa[] }) {
   const programasConVacantes = [
     { slug: 'maestria-gestion-publica', vacantes: 40 },
     { slug: 'maestria-derecho-civil-comercial', vacantes: 30 },
@@ -574,7 +574,7 @@ function ProgramasVacantes() {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       {programasConVacantes.map(({ slug, vacantes }) => {
-        const programa = programas.find((p) => p.slug === slug)
+        const programa = programas.find((p: Programa) => p.slug === slug)
         if (!programa) return null
 
         return (
@@ -608,7 +608,7 @@ function ProgramasVacantes() {
 // ========================================
 // MAIN EXPORT COMPONENT
 // ========================================
-export function AdmisionContent() {
+export function AdmisionContent({ programas }: { programas: Programa[] }) {
   return (
     <div className="space-y-16">
       {/* Timeline */}
@@ -649,7 +649,7 @@ export function AdmisionContent() {
           title="Programas con Vacantes"
           description="Selecciona el programa que mejor se adapte a tus objetivos profesionales"
         />
-        <ProgramasVacantes />
+        <ProgramasVacantes programas={programas} />
         <div className="text-center mt-6">
           <Button variant="outline" asChild>
             <a href="/programas" className="gap-2">

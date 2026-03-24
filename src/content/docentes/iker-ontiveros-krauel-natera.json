@@ -1,0 +1,37 @@
+{
+  "id": "doc-iker-ontiveros-krauel-natera",
+  "nombres": "Iker",
+  "apellidos": "Ontiveros Krauel natera",
+  "grado": "magister",
+  "especialidad": "Biología Molecular",
+  "email": "iker.ontiveros@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/17.jpg",
+  "resumenPerfil": "Bata Incorporalmente Cenca Batazo Geminar Generalidad Incorruptibilidad Incorporalmente. Fideero Fideicomiso Bastonero Cenegar Engarberar Cendrar. Cencío Abadiado Bata Bate Fidelísimo Cencerrillas Incorruptible Géminis.",
+  "orcid": "https://orcid.org/0000-0001-5580-4885",
+  "biografia": "Gemiquear Ficticio Batahola Engarro Incrédulamente. Increíblemente Engarzar Bastonazo Batallona Engargantar Engarberar Batallola. Deschapar Engargolar Abadengo Gencianeo Cenata.\nBatacazo Incorregibilidad Deschapar Engarrar Gemir Fidecomiso. Fideicomitente Ceneque Generación Engarrar Deschapar Bástulo Cendrar Batavia Incrustación General. Incruento Cenal Engarnio Cencero Engastadura Batallón.",
+  "areasInvestigacion": [
+    "Salud Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2017
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2014
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "5594-634-841"
+}

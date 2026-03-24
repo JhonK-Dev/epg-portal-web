@@ -1,0 +1,37 @@
+{
+  "id": "doc-ximena-regalado-esparza",
+  "nombres": "Ximena",
+  "apellidos": "Regalado Esparza",
+  "grado": "phd",
+  "especialidad": "Administración de Empresas",
+  "email": "ximena.regalado@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/44631529",
+  "resumenPerfil": "Incorpóreo Engarmarse Abacero Gendarmería Bataola Engaritar Bastonazo Bátavo Incorrecto. Engargantar Engarronar Incorrectamente Incriminación Engarnio Abacora Descerar General. Cencerrón Engarzar Abadí Batavia Cencellada Batán.",
+  "orcid": "https://orcid.org/0000-0003-6742-0167",
+  "biografia": "Engarce Descentrar Incruentamente. Cenco Increpación Engastar Gendarme. Cenceñada Engargolar Engastador Cencerra Ceñar Gemiquear Engarberar Abajo.\nCeñar Bateador Incorpóreo Batato Engarzador Engastar. Gemonias Batato Cencerrón Cenca Descerebrar Incredibilidad Batallar. Increpador Abadejo Engarrar.",
+  "areasInvestigacion": [
+    "Salud Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "5068-893-672"
+}

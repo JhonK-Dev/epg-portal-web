@@ -1,0 +1,38 @@
+{
+  "id": "doc-luis-gabino-montanez-herrera",
+  "nombres": "Luis Gabino",
+  "apellidos": "Montañez Herrera",
+  "grado": "doctor",
+  "especialidad": "Biología Molecular",
+  "email": "luisgabino.montanezherrera@unapiquitos.edu.pe",
+  "resumenPerfil": "Cenceño Cendrazo Bate Gendarme Incorregibilidad. Incorporación Engargantar General Fido Batata Cendalí Engarbullar Batallador Abacial Incorruptamente. Batanero Cendrado Incorporalmente Abacalero.",
+  "orcid": "https://orcid.org/0000-0000-0045-2176",
+  "biografia": "Desceñir Descimbrar Descerebración Generación. Abad Cendrar Cendolilla Engarrafar Geneático. Abad Fideicomiso Engarrafador Engargolar Deschavetado Gemonias Ceñar Incorrupción Basurear.\nAbadiato Engargantar Geminar Gendarmería Bastonazo Abajera Bate. Generalato Incorporal Bastonazo Bástulo. Genealogista Cencha Abacería Descerrajado Batanero Engaritar Abacalero Incrementar Batatazo Incorregiblemente.",
+  "areasInvestigacion": [
+    "Biología Molecular",
+    "Gestión Pública",
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2023
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "511.608.849"
+}

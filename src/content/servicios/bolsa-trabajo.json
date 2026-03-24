@@ -1,0 +1,11 @@
+{
+  "id": "srv-007",
+  "nombre": "Bolsa de Trabajo",
+  "descripcion": "Portal de empleabilidad con ofertas laborales exclusivas para estudiantes y egresados de postgrado. Incluye oportunidades de consultoría y docencia.",
+  "descripcionCorta": "Ofertas laborales para estudiantes y egresados.",
+  "icono": "Briefcase",
+  "url": "https://www.unapiquitos.edu.pe",
+  "esExterno": true,
+  "slug": "bolsa-trabajo",
+  "instrucciones": "Regístrese con su correo institucional para acceder a las ofertas. Complete su perfil profesional para recibir ofertas personalizadas."
+}

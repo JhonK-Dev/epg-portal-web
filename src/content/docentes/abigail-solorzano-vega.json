@@ -1,0 +1,36 @@
+{
+  "id": "doc-abigail-solorzano-vega",
+  "nombres": "Abigail",
+  "apellidos": "Solorzano Vega",
+  "grado": "doctor",
+  "especialidad": "Docencia Universitaria",
+  "email": "abigail.solorzano@unapiquitos.edu.pe",
+  "resumenPerfil": "Cencha Fideicomisario Incorpóreo Abadiato Fice Cencivera Cencerreo Incorregibilidad Cencío. Fidecomiso Engargolado Incruentamente Batayola Abajamiento Abadernar Incorrectamente Geminación Fideo Gemonias. Abajeño Descentrado Cendrazo Descerrajado Engargolado Abadernar Incredibilidad Engarnio Cendradilla.",
+  "orcid": "https://orcid.org/0000-0009-2294-6051",
+  "biografia": "Cencero Batalán Cenco Increado Gemonias. Abajar Cendra Cencío Basura Incorporalmente Abadengo Batanear Descervigamiento Increíble Abaco. Cenceñada Engarce Abajo Engasgarse Cenco Engarbullar Gendarmería Increíblemente Engarzadura.\nDescensión Cenaoscuras Gemoso. Engarrafador Descercar Batahola Cencivera Descervigar Engargantadura Abadejo Ficha Cencero. Engarrar Descerezar Fichaje Engarnio Generable Cencha Cencapa.",
+  "areasInvestigacion": [
+    "Salud Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2010
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2026 - Presente"
+    }
+  ],
+  "telefono": "5551-167-202"
+}

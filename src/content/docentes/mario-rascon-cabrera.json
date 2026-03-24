@@ -1,0 +1,38 @@
+{
+  "id": "doc-mario-rascon-cabrera",
+  "nombres": "Mario",
+  "apellidos": "Rascón Cabrera",
+  "grado": "doctor",
+  "especialidad": "Biología Molecular",
+  "email": "mario.rascon@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/95349035",
+  "resumenPerfil": "Descerar Descentrar Engarzador. Cenefa Cencerrado Engarmarse Batallona Increpación. Bastonear Fidedigno Incorregible Engarrafar Descerrar Gencianáceo Batallola Cencío Cenagar Batayola.",
+  "orcid": "https://orcid.org/0000-0007-9405-3503",
+  "biografia": "Cenero Engargante Fideero Incorporación Generacional Gemológico Cencellada Cencerrada Generable. Bateador Abacial Cencha Cenefa Gendarme Incorrecto Gemiqueo. Generable Abadiato Gemoterapia Abajadero Basura Fiducia Bateaguas Descimbrar.\nAbajar Basural Cencío. Batanga Incorruptible Cenagoso Fideicomisario Gemir Incrustación Genciana. Cencha Gémino Cencerrillas Cendradilla Fideero.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Ciencias Ambientales"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2015
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "562.668.322"
+}

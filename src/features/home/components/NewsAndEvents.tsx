@@ -1,21 +1,29 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Calendar, ArrowRight, Clock, MapPin } from 'lucide-react'
 import { formatShortDate, formatEventDate } from '@/lib/formatters'
 import { getPublicationTypeConfig } from '@/lib/config'
-import { getDestacadas, getEventos } from '@/data/publicaciones'
+import type { Publicacion } from '@/types'
 import { SectionHeader } from '@/components/ui/section-header'
 import { LinkArrow } from '@/components/ui/link-arrow'
 
-// Obtener publicaciones destacadas (máximo 3)
-const publications = getDestacadas().slice(0, 3)
+interface NewsAndEventsProps {
+  publicaciones: Publicacion[];
+}
 
-// Obtener eventos futuros ordenados por fecha
-const events = getEventos()
-  .filter(event => event.fechaEvento && new Date(event.fechaEvento) >= new Date())
-  .sort((a, b) => new Date(a.fechaEvento!).getTime() - new Date(b.fechaEvento!).getTime())
-  .slice(0, 3)
+export const NewsAndEvents: React.FC<NewsAndEventsProps> = ({ publicaciones }) => {
+  // Obtener publicaciones destacadas (máximo 3)
+  const publications = useMemo(() => 
+    publicaciones.filter(p => p.destacado).slice(0, 3)
+  , [publicaciones]);
 
-export const NewsAndEvents: React.FC = () => {
+  // Obtener eventos futuros ordenados por fecha
+  const events = useMemo(() => 
+    publicaciones
+      .filter(event => event.tipo === 'evento' && event.fechaEvento && new Date(event.fechaEvento) >= new Date())
+      .sort((a, b) => new Date(a.fechaEvento!).getTime() - new Date(b.fechaEvento!).getTime())
+      .slice(0, 3)
+  , [publicaciones]);
+
   return (
     <section className="home-section px-4 sm:px-6 lg:px-8 bg-white">
       <div className="container-main">

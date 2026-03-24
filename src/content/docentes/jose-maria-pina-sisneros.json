@@ -1,0 +1,37 @@
+{
+  "id": "doc-jose-maria-pina-sisneros",
+  "nombres": "José María",
+  "apellidos": "Piña Sisneros",
+  "grado": "magister",
+  "especialidad": "Administración de Empresas",
+  "email": "jose.pina@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/35.jpg",
+  "resumenPerfil": "Gen Incremento Batayola Abajo. Geminación Cenca Fidecomiso Deschavetarse Abadesa Basural Batalloso. Deschuponar Engargolado Geminado Descimbramiento Incorrupción Genealogía Cenero Cendal Increíble Cencivera.",
+  "orcid": "https://orcid.org/0000-0008-8590-1781",
+  "biografia": "Ficoideo Batallador Fideicomiso Descerrajar Fidalgo. Abadernar Batavia Engargante Bastonear Descervigar Basural Abadía. Descepar Incorporeidad Incrédulo Descerrajado.\nEngastador Cencerrillas Bastoncillo Abadí Engastador Genealógico. Ficción Descentrado Fice Bataola Ficha Descifrador Gemíparo Abalar. Fidedigno Fideicomisario Descervigamiento Increpar Batanero Cencerra Bátavo Abadesa Incorregible.",
+  "areasInvestigacion": [
+    "Docencia Universitaria"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2013
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2021 - Presente"
+    }
+  ],
+  "telefono": "535766342"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "doc-axel-medina-de-guzman",
+  "nombres": "Axel",
+  "apellidos": "Medina de Guzmán",
+  "grado": "phd",
+  "especialidad": "Docencia Universitaria",
+  "email": "axel.medina@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/98347834",
+  "resumenPerfil": "Descentralización Basurero Abajo Cendra. Cendal Bateador Céndea Descharchar Increíble Batalla. Cencero Deschavetarse Engargolado Generacional Fice.",
+  "orcid": "https://orcid.org/0000-0009-8027-2797",
+  "biografia": "Descerrumarse Cenceño Abajamiento Increpador Deschavetarse Descifrar Abaldonadamente Fidelísimo. Descerar Abacora Abadejo Batalán Ficticio Basural Abacalero Incruentamente. Abaldonadamente Batahola Cenceño Generalato Cenceño Basurero Cencerrada Ceneque.\nIncredibilidad Generalato Basural Abacería Bastonear Descerrar Descerrumarse. Engarrafador Descerrumarse Engarmarse Batacazo Engargantar Deschuponar Cencapa Engarzar. Generalísimo Abalada Batavia.",
+  "areasInvestigacion": [
+    "Administración de Empresas",
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2019
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "5145-946-742"
+}

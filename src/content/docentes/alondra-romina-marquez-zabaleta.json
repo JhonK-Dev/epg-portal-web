@@ -1,0 +1,37 @@
+{
+  "id": "doc-alondra-romina-marquez-zabaleta",
+  "nombres": "Alondra Romina",
+  "apellidos": "Márquez Zabaleta",
+  "grado": "phd",
+  "especialidad": "Administración de Empresas",
+  "email": "alondraromina.marquezzabaleta@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/99.jpg",
+  "resumenPerfil": "Cenestesia Incorregible Geminación Descepar Engargolar Ficha Cenero Descerezar Fice Cencapa. Cendra Fichar Ceñar Abacero Cenestesia Cencha Cencido Genealogía. Incorporar Descerebrado Bátavo Batanga Incorporalmente Descentrado Bástulo Batallador Batanar Descerrajar.",
+  "orcid": "https://orcid.org/0000-0003-4672-2091",
+  "biografia": "Geneático Cenco Generacional Deschavetado Cencío Ficha Descercado. Batalloso Batanear Batacazo Abaldonadamente Batato Cencido Generación. Abaco Abadiato Incredibilidad Incorporeidad Incorporar Céndea Cencerrón.\nIncrementar Bastonada Descercar Increpador Genciana Engaste Cenero. Cencapa Descepar Gemiquear Cendra Cendra Gemológico Batahola. Abaldonadamente Generación Bátavo Gencianáceo Descifrable Engastador.",
+  "areasInvestigacion": [
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2015
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2021 - Presente"
+    }
+  ],
+  "telefono": "557.085.591"
+}

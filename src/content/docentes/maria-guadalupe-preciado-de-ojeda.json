@@ -1,0 +1,36 @@
+{
+  "id": "doc-maria-guadalupe-preciado-de-ojeda",
+  "nombres": "María Guadalupe",
+  "apellidos": "Preciado de Ojeda",
+  "grado": "magister",
+  "especialidad": "Ingeniería de Sistemas",
+  "email": "maria.preciado@unapiquitos.edu.pe",
+  "resumenPerfil": "Gendarmería Descercador Engastadura Ficoideo. Abacería Ceneque Fideicomisario Gen Batanar Increíblemente Incorregible Descenso Fichaje Incorruptible. Cenco Descerrumarse Batato Batalán Bata.",
+  "orcid": "https://orcid.org/0000-0003-3431-9471",
+  "biografia": "Descentralizador Incrédulo Fice Descerrajadura. General Engarnio Batayola Desciframiento Gencianáceo Batazo Incremento Descenso Cencerro. Engargolado Generalato Abadejo Bataola Batato Incorregiblemente Abad Incrementar Cencerrón Increíblemente.\nAbadernar Cencío Incrasar Cencerril. Incorpóreo Basura Incorruptibilidad Batata Generala Abajadero Abalada. Cencío Abajo Incorporeidad Cenegar Abajeño Abalar.",
+  "areasInvestigacion": [
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2015
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "563 129 967"
+}

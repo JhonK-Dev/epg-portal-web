@@ -1,0 +1,36 @@
+{
+  "id": "doc-catalina-hidalgo-villarreal",
+  "nombres": "Catalina",
+  "apellidos": "Hidalgo Villarreal",
+  "grado": "phd",
+  "especialidad": "Biología Molecular",
+  "email": "catalina.hidalgovillarreal@unapiquitos.edu.pe",
+  "resumenPerfil": "Batán Gemonias Batalloso Cencerrada Bata. Descimbrar Generable Generalidad. Batatazo Cenceñada Abada Cencerrón Incorporación Deschavetarse Batayola Abadiato Descifrar Batallador.",
+  "orcid": "https://orcid.org/0000-0006-2953-6993",
+  "biografia": "Incredibilidad Batallola Cencha Abajo Descercar Batata Fideísmo Generala. Descensión Batahola Deschapar Abajera. Cencío Batahola Incruentamente Bástulo Fidecomiso Engarrafador.\nCendrazo Bastonear Genearca Cendalí Bataola Ficticio. Geminación Batallador Engarmarse Engaste Cenca Batallón Increado. Fidecomiso Abajamiento Engastador Engarronar Cencerrillas Generador Incredulidad Engarro Cendrada.",
+  "areasInvestigacion": [
+    "Biología Molecular"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2019
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2024 - Presente"
+    }
+  ],
+  "telefono": "588.842.266"
+}

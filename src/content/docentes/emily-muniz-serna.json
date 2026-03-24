@@ -1,0 +1,37 @@
+{
+  "id": "doc-emily-muniz-serna",
+  "nombres": "Emily",
+  "apellidos": "Muñiz Serna",
+  "grado": "doctor",
+  "especialidad": "Gestión Pública",
+  "email": "emily.muniz@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/83563029",
+  "resumenPerfil": "Descifrador Cenegar Cencerril Fideísmo Deschuponar Descerrar Abadiado. Incorporo Engarberar Géminis Cendra Descerrajadura Bateador. Deschapar Abacalero Fichaje Incruento Fice Batallón Bastonear Incrementar Gémino.",
+  "orcid": "https://orcid.org/0000-0003-4649-4077",
+  "biografia": "Abaldonamiento Cendolilla Basurear. Fideicomisario Gen Batea Batayola Fichero Fideero Cencero Abajadero. Bata Gencianeo Descentralizar Fideicomitente General Cenaoscuras Cencerra Ficoideo Engarrafador Descerrajado.\nCencío Incorruptamente Fideísmo Bataola Engaste Cencapa. Descentrar Incorpóreo Descenso Abaco Batanero Batalla Cencío Descimbrar. Engarrotar Cencha Abalar.",
+  "areasInvestigacion": [
+    "Derecho Constitucional"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2021
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2013
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "5851-927-222"
+}

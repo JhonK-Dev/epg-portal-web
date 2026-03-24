@@ -1,0 +1,39 @@
+{
+  "id": "doc-alberto-delao-tapia",
+  "nombres": "Alberto",
+  "apellidos": "Delao Tapia",
+  "grado": "magister",
+  "especialidad": "Administración de Empresas",
+  "email": "alberto.delaotapia@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/22459139",
+  "resumenPerfil": "Descifrador Gendarmería Abacería Engargantadura Ceneque Cencellada Abadía Basura. Cencido Cencivera Cenceñada Batallón Cendra Batallona. Incremento Bastonazo Engarfiar.",
+  "orcid": "https://orcid.org/0000-0009-7008-9353",
+  "biografia": "Batata Abalada Descerar Geminación Descerebración Increíblemente Cenefa Cenefa. Cenestesia Cendalí Incorruptibilidad Cencuate. Cenegar Generalidad Gemonias Incruentamente.\nDescercador Bateaguas Abadernar Cenata Incorrupto Batatazo Fidelidad Descenso Gencianeo Increado. Incredibilidad Generacional Gen Engastador Ceñar Descercador Céndea Descercador. Descervigamiento Incruentamente Incorporalmente Fiducia Batatazo Fideero Incredulidad.",
+  "areasInvestigacion": [
+    "Ciencias Ambientales",
+    "Biología Molecular",
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "5704-708-811"
+}

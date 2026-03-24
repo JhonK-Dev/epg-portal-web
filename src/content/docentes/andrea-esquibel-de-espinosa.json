@@ -1,0 +1,39 @@
+{
+  "id": "doc-andrea-esquibel-de-espinosa",
+  "nombres": "Andrea",
+  "apellidos": "Esquibel de Espinosa",
+  "grado": "doctor",
+  "especialidad": "Derecho Constitucional",
+  "email": "andrea.esquibel@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/77192644",
+  "resumenPerfil": "Abadengo Incorruptibilidad Gendarme. Cendolilla Incorruptamente Descimbramiento Incrustación Batayola Engarzadura. Deschavetado Abadernar Gemiquear Descerrajadura.",
+  "orcid": "https://orcid.org/0000-0002-1884-8819",
+  "biografia": "Abajera Incorruptibilidad Cenaoscuras Ficticio. Batallador Batallón Deschapar Gendarmería Descervigamiento Gemonias Fiducia. Bastoncillo Incorporalmente Abalaustrado Bastoncillo Incorruptamente Batato Gemólogo Batán.\nAbaldonamiento Gemir Descerco Ficticio Abalanzar Deschapar Céndea. Cencerra Descepar Engastadura Batea General Fideero Batazo Abajamiento. Incorporal Cenegar Deschapar Increpación Abajeño Abajadero Descervigamiento Genealogista.",
+  "areasInvestigacion": [
+    "Biología Molecular",
+    "Derecho Constitucional",
+    "Gestión Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2021
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "568130718"
+}

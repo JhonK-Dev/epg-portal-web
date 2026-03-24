@@ -1,0 +1,39 @@
+{
+  "id": "doc-samuel-saldivar-aponte",
+  "nombres": "Samuel",
+  "apellidos": "Saldivar Aponte",
+  "grado": "phd",
+  "especialidad": "Ingeniería de Sistemas",
+  "email": "samuel.saldivar@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/16709712",
+  "resumenPerfil": "Incorporar Fichero Bata Batayola Abadernar Incorporación Cenegar Engarzador Engarberar Basural. Engarzador Gen Batanear. Gemoso Engarro Descepar Incorregible Gencianeo.",
+  "orcid": "https://orcid.org/0000-0003-2545-1089",
+  "biografia": "Basural Batatazo Genealogista Gémino Abadiado. Abadiado Abadejo Generable Bastonada Abadernar Ceneque. Incorporalmente Batalla Deschuponar Ficha Batanga Batalán Gemoterapia Batatazo Cenal.\nFidecomiso Descentralizar Descerebración. Incorporal Bastonero Gendarme Incordio Incrasar. Batanear Incorpóreo Engarronar Bata Cendrado Descentrar Cenegar.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas",
+    "Ciencias Ambientales",
+    "Derecho Constitucional"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2007
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "598 293 556"
+}

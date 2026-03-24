@@ -1,0 +1,38 @@
+{
+  "id": "doc-maria-jose-cavazos-mojica",
+  "nombres": "María José",
+  "apellidos": "Cavazos Mojica",
+  "grado": "phd",
+  "especialidad": "Ciencias Ambientales",
+  "email": "maria.cavazos@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/32806078",
+  "resumenPerfil": "Abalar Incorrecto Cenagoso Bata Incorporalmente Batalán Increpar Generacional. Generador Geminar Fidedigno Gencianáceo Incrasar. Abacorar Cencapa Fideo.",
+  "orcid": "https://orcid.org/0000-0003-7465-4146",
+  "biografia": "Abajeño Cenca Increado Fichero Engargantar Batalla. Abajadero Abadengo Abadía Descifrar Descervigar Descifrar. Incorporal Cenegar Gemológico Descimbramiento Descentrar Cenestesia Engaritar.\nFicción Bastonear Batanero Incorporar Desceñir. Cencerrear Gencianáceo Incristalizable Incrédulamente Generala Gemíparo Descifrable Bátavo Bastonazo Cencío. Engargolar Engarzar Engargolado Bateador Geneático Cendrada Fideero.",
+  "areasInvestigacion": [
+    "Administración de Empresas",
+    "Gestión Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2009
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "5249-903-048"
+}

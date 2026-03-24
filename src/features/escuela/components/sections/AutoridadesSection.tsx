@@ -1,11 +1,15 @@
-import { autoridades } from '@/data/autoridades'
 import { getGradoInfo } from '@/lib/config'
 import { Badge } from '@/components/ui/badge'
 import { SectionHeader } from '@/components/ui/section-header'
 import { Card, CardContent } from '@/components/ui/card'
 import { Mail, Phone } from 'lucide-react'
+import type { Autoridad } from '@/types/institucional'
 
-export function AutoridadesSection() {
+interface AutoridadesSectionProps {
+  autoridades: Autoridad[];
+}
+
+export function AutoridadesSection({ autoridades }: AutoridadesSectionProps) {
   const autoridadesOrdenadas = [...autoridades].sort((a, b) => a.orden - b.orden)
 
   return (

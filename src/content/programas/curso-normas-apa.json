@@ -1,0 +1,20 @@
+{
+  "id": "cur-001",
+  "nombre": "Curso de Actualización en Normas APA 7ma Edición",
+  "tipo": "curso",
+  "descripcion": "Curso práctico sobre el uso de las normas APA en su séptima edición para la redacción de trabajos académicos, tesis y artículos científicos.",
+  "descripcionCorta": "Redacción académica con normas APA.",
+  "duracion": "4 semanas",
+  "creditos": 4,
+  "modalidad": "virtual",
+  "estado": "activo",
+  "fechaInicio": "2025-02-10",
+  "slug": "curso-normas-apa",
+  "facultad": "Escuela de Postgrado",
+  "requisitos": [
+    "Estudiante o egresado universitario"
+  ],
+  "coordinador": "Mg. Carmen Díaz Ruiz",
+  "inversion": "S/. 180.00 (total)",
+  "imagen": "/images/programas/metodologia.jpg"
+}

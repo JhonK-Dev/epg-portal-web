@@ -1,0 +1,38 @@
+{
+  "id": "doc-mariano-quintanilla-de-perez",
+  "nombres": "Mariano",
+  "apellidos": "Quintanilla de Pérez",
+  "grado": "doctor",
+  "especialidad": "Salud Pública",
+  "email": "mariano.quintanilla@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/25.jpg",
+  "resumenPerfil": "Cencerro Fido Cenefa Desceñir Descepar Ceñar Engarbarse Engastar Abalaustrado. Incorregibilidad Bastonero Abajamiento. Increpación Cenagoso Bastoncillo Cencido Fidelidad Abajar Cencellada.",
+  "orcid": "https://orcid.org/0000-0008-4981-5084",
+  "biografia": "Cenefa Descenso Bástulo Engaste Engastar Batea Generable Batea Bateador Gemíparo. Batato Cencerrado Abacalero Abacero. Batazo Descepar Descentrado Cendrada Basurear.\nFideicomiso Abalada Generador Abalanzar Batallador Abadesa Bateaguas. Descifrar Generable Batayola Descentrado. Descerco Genealogía Abacalero Batayola Cencerra Genealogista Batahola.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Biología Molecular"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2022
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "5712-683-803"
+}

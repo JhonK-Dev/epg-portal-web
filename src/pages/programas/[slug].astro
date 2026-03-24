@@ -11,16 +11,16 @@ import type { Programa } from '../../types/programas';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
 
 const { slug } = Astro.params;
-let programaData: Programa | undefined = slug ? getProgramaBySlug(slug) : undefined;
+let programaData: Programa | undefined = slug ? await getProgramaBySlug(slug) : undefined;
 
 if (slug) {
   try {
     const apiProgram = await getProgramBySlug(slug);
     if (apiProgram) {
-      programaData = mapApiProgramToPrograma(apiProgram, programaData);
+      programaData = await mapApiProgramToPrograma(apiProgram, programaData);
     }
   } catch {
-    programaData = slug ? getProgramaBySlug(slug) : undefined;
+    programaData = slug ? await getProgramaBySlug(slug) : undefined;
   }
 }
 

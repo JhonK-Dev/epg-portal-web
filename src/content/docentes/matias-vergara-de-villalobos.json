@@ -1,0 +1,39 @@
+{
+  "id": "doc-matias-vergara-de-villalobos",
+  "nombres": "Matías",
+  "apellidos": "Vergara de Villalobos",
+  "grado": "phd",
+  "especialidad": "Salud Pública",
+  "email": "matias.vergaradevillalobos@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/32.jpg",
+  "resumenPerfil": "Gemología Engargantar Batalán Generador. Engarzador Cendalí Gemológico Incorrección Bátavo Engargolar Cencero Batata. Generalato Batallar Batacazo Incorrectamente Bateaguas Ceneque Incriminar.",
+  "orcid": "https://orcid.org/0000-0003-3496-8614",
+  "biografia": "Incorrectamente Descifrable Fideicomiso Cencerrón. Cencerro Abadengo Fidalgo. Abajeño Fido Descerco Geminar Cenceñada.\nBatato Incorporar Engarbarse Batallar Incorregible. Incrédulamente Fideo Incrasar Incrustación Descimbrar Incorporar Cenaoscuras Cencerrado Bastonazo Batallador. Descerezar Gencianáceo Céndea Cenal.",
+  "areasInvestigacion": [
+    "Docencia Universitaria",
+    "Administración de Empresas",
+    "Derecho Constitucional"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2011
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "520.365.430"
+}

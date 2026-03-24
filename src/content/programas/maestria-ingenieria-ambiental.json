@@ -1,0 +1,21 @@
+{
+  "id": "mae-004",
+  "nombre": "Maestría en Ingeniería Ambiental",
+  "tipo": "maestria",
+  "descripcion": "Programa enfocado en la gestión ambiental, evaluación de impacto ambiental y desarrollo sostenible. Los egresados podrán liderar proyectos ambientales y asesorar a organizaciones en cumplimiento de normativas ambientales.",
+  "descripcionCorta": "Gestión ambiental y desarrollo sostenible.",
+  "duracion": "2 años (4 semestres)",
+  "creditos": 72,
+  "modalidad": "presencial",
+  "estado": "activo",
+  "fechaInicio": "2025-04-01",
+  "slug": "maestria-ingenieria-ambiental",
+  "facultad": "Ingeniería",
+  "requisitos": [
+    "Título en ingeniería o ciencias afines",
+    "Conocimientos básicos de normativa ambiental"
+  ],
+  "coordinador": "Dr. Miguel Ángel Paredes Ruiz",
+  "inversion": "S/. 13,500.00 (total)",
+  "imagen": "/images/programas/ambiental.jpg"
+}

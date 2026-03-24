@@ -1,0 +1,38 @@
+{
+  "id": "doc-renata-kaplan-malave",
+  "nombres": "Renata",
+  "apellidos": "Kaplan Malave",
+  "grado": "phd",
+  "especialidad": "Docencia Universitaria",
+  "email": "renata.kaplanmalave@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/78.jpg",
+  "resumenPerfil": "Cenero Gemología Cenal Fideero Cendrada. Batato Descimbramiento Fidalgo Engasgarse Abalanzar Incrédulamente Deschavetado Cencuate. Descerebración Engaste Gen Gemiqueo Cenca Bateaguas Basurear Incrementar.",
+  "orcid": "https://orcid.org/0000-0009-9667-0528",
+  "biografia": "Batea Engargolar Incredulidad Descenso Engarrar Fido Batea. Incorporo Incorporación Incristalizable. Cencuate Incrustación Gemoterapia.\nDeschavetarse Engargolar Increpación Cencerrear. Descervigamiento Abalanzar Cencerra Genciana Cencero Descentrado Abaldonamiento Genealógico Cencuate. Incorporalmente Cenaoscuras Fideo Descharchar Gencianeo Engarrotar Increpador.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas",
+    "Derecho Constitucional"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "513.070.877"
+}
