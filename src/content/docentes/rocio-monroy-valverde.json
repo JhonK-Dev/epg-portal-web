@@ -1,0 +1,39 @@
+{
+  "id": "doc-rocio-monroy-valverde",
+  "nombres": "Rocio",
+  "apellidos": "Monroy Valverde",
+  "grado": "magister",
+  "especialidad": "Administración de Empresas",
+  "email": "rocio.monroyvalverde@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/71761786",
+  "resumenPerfil": "Increado Gencianáceo Descerrar Gemología Fideicomiso Cendal Abadejo Incredibilidad. Geminación Batán Increpar Incorpóreo. Batanar Incorporal Engarbullar Batavia.",
+  "orcid": "https://orcid.org/0000-0008-9957-3126",
+  "biografia": "Batalla Engarzadura Incruento Engarrotar Increpar Descerebrar Fichaje Batalla Cencerrillas Ceñar. Gemoterapia Genealogía Batato Cendal Cendra Descercado Engarbullar Engastadura Incorrecto. Cencero Cencerrillas Abajadero Basural Batazo Abadernar Incredibilidad Bastonada Engargante Abada.\nIncrédulamente Incriminación Abada Descervigar Engastar Batayola Gemológico Bastonear Genealógico Cencerrear. Descercado Engargantar Incorrupción. Abalar Descerebrar Batanero Increpador Cencha Batazo Gemológico.",
+  "areasInvestigacion": [
+    "Derecho Constitucional",
+    "Biología Molecular",
+    "Gestión Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2010
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "597.513.400"
+}

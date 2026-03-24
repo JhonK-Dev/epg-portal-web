@@ -1,0 +1,38 @@
+{
+  "id": "doc-anita-guillen-zamudio",
+  "nombres": "Anita",
+  "apellidos": "Guillen Zamudio",
+  "grado": "phd",
+  "especialidad": "Administración de Empresas",
+  "email": "anita.guillenzamudio@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/24.jpg",
+  "resumenPerfil": "Gen Descensión Incrementar Incriminación Abajadero Incrustación. Geminar Descentrar Engaritar Cenagoso Deschavetado Engargolado Incorporal Batazo Céndea. Ficticio Cencido Abadesa Fichaje Increpar Gemólogo.",
+  "orcid": "https://orcid.org/0000-0001-1060-5869",
+  "biografia": "Fichar Gendarmería Fichaje. Engarrafador Abalada Batalán. Cencerrear Geneático Cenco Engarmarse Incorporeidad Batanero Deschavetarse Abajeño.\nBatacazo Engarnio Gemoso. Incorruptamente Engarberar Batallar Abaldonamiento Batacazo. Increado Generalato Batahola Gémino Batayola Incorrecto Abalar Batallar.",
+  "areasInvestigacion": [
+    "Ciencias Ambientales",
+    "Salud Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2017
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2010
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "512167310"
+}

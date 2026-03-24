@@ -1,0 +1,36 @@
+{
+  "id": "doc-jose-emilio-alva-ontiveros",
+  "nombres": "José Emilio",
+  "apellidos": "Alva Ontiveros",
+  "grado": "doctor",
+  "especialidad": "Biología Molecular",
+  "email": "joseemilio.alvaontiveros@unapiquitos.edu.pe",
+  "resumenPerfil": "Fichaje Batán Gemoso Fidelidad Genciana Cendrada. Cenata Fidedigno Engarnio. Gencianeo Fichero Cencerrear Descerrajado Incredibilidad.",
+  "orcid": "https://orcid.org/0000-0005-4199-5476",
+  "biografia": "Bataola Cendrada Engarrafador Cendrado Fideicomiso Abajadero Incredulidad. Descerezar Abacería Abadí Abalaustrado Ceñar Descerezar Incrementar Abalaustrado Cencha Cencapa. Gemíparo Cenal Ficha Cenero Batata.\nFiducia Abaldonamiento General Abajo Cendrada Batayola Bátavo. Fidedigno Batayola Batazo Gémino Gencianeo Descerezar. Engargante Descentralizador Generador Generador Cendra Deschavetado Abajamiento Cencero Cendradilla.",
+  "areasInvestigacion": [
+    "Docencia Universitaria"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2023
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "594 438 944"
+}

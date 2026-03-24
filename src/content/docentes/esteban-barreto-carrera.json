@@ -1,0 +1,38 @@
+{
+  "id": "doc-esteban-barreto-carrera",
+  "nombres": "Esteban",
+  "apellidos": "Barreto Carrera",
+  "grado": "doctor",
+  "especialidad": "Biología Molecular",
+  "email": "esteban.barretocarrera@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/29168968",
+  "resumenPerfil": "Incrementar Abacero Cencivera Gemoterapia Engargante Desciframiento Batayola Descerrajar. Engargantar Gendarmería Abajar Engaritar Abajera Fichaje Abacora Batea Fido. Abalar Descifrar Ceñar Cenegar Increpación Abajamiento Batán Bata Fido.",
+  "orcid": "https://orcid.org/0000-0008-9118-1134",
+  "biografia": "Abacalero Engargantar Incrustación Gendarmería Abaldonadamente Cenegar Céndea Batatazo Generalidad Cencerrón. Engarzar Engarfiar Incrementar Fichaje Cencapa Gemólogo. Abacora Abacora Incorporar Engaste Geminar Genealogía Fichero Incorrecto Increpador Batavia.\nIncorrupto Batazo Incorruptibilidad Gemológico Descimbramiento Bastonada Genealogista Genealógico Gencianáceo. Incordio Cenceñada Abada Descervigamiento Gemológico Incordio Abajar Incrédulo Incorporal. Geneático Batavia Abadía Descenso Descifrable Incorporación.",
+  "areasInvestigacion": [
+    "Biología Molecular",
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2020
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "556 687 124"
+}

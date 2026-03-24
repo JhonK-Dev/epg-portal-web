@@ -572,6 +572,7 @@ export function EstudiantesContent() {
       <PageHero
         title="Portal del Estudiante"
         subtitle="Accede a recursos, trámites y servicios exclusivos para estudiantes de la Escuela de Postgrado."
+        breadcrumbs={[]}
         variant="solid"
         bgColorClass="bg-epg-navy"
       />

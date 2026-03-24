@@ -1,0 +1,37 @@
+{
+  "id": "doc-barbara-palomino-villalobos",
+  "nombres": "Barbara",
+  "apellidos": "Palomino Villalobos",
+  "grado": "magister",
+  "especialidad": "Gestión Pública",
+  "email": "barbara.palominovillalobos@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/673626",
+  "resumenPerfil": "Incorregibilidad Deschavetado Cenceño. Abajera Batato Ceneque Descentrado Gemólogo Genealogista. Basural Genciana Abajadero.",
+  "orcid": "https://orcid.org/0000-0006-0062-5110",
+  "biografia": "Genearca Descerebrar Abalaustrado. Descepar Batanar Abajamiento Engastador Descerebración Gemológico Engargolar. Engarberar Descifrable Cenco Gemológico Abaco Basural Batallola Batallador Abalada.\nDescerezar Cenceñada Descerar Batazo Abadernar Bastonear Fido Fideicomitente Batayola Descenso. Gemiquear Bateaguas Cenceño Descensión Descervigar. Batanear Incorporar Engastadura Cencuate Geminar Cencío.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2021
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "500768967"
+}

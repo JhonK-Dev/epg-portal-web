@@ -1,0 +1,39 @@
+{
+  "id": "doc-julio-tejada-blanco",
+  "nombres": "Julio",
+  "apellidos": "Tejada Blanco",
+  "grado": "magister",
+  "especialidad": "Gestión Pública",
+  "email": "julio.tejadablanco@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/29081020",
+  "resumenPerfil": "Descentrar Incorporeidad Cenca Batanear Incorporar Fidelidad Descifrable Abajo. Abaldonamiento Engarrafador Incorrupción Abadía Batanar Gemólogo Incriminación Cendrado Engarzar Descerar. Deschapar Cendra Cendolilla Engargantar Batallona Incriminar Engarrar Descimbrar Fideicomiso Gemiqueo.",
+  "orcid": "https://orcid.org/0000-0005-5938-5721",
+  "biografia": "Descifre Incredulidad Deschuponar Ficoideo Gemológico. Descharchar Cendrada Incremento Batalla. Engaste Cenestesia Engargante.\nBasurero Incorruptible Engarrafar Abacial Batato Gemir. Engaritar Basura Genearca Incorporación Descerebrado Engargolar Cencapa Bastonero. Fideero Incorporal Cenal Incorporar Incorregiblemente Gendarmería Generador Batea Engargante.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Gestión Pública",
+    "Derecho Constitucional"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2023
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2011
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "5271-412-171"
+}

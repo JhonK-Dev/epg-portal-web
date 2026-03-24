@@ -1,0 +1,37 @@
+{
+  "id": "doc-olivia-lozada-ordonez",
+  "nombres": "Olivia",
+  "apellidos": "Lozada Ordóñez",
+  "grado": "magister",
+  "especialidad": "Gestión Pública",
+  "email": "olivia.lozadaordonez@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/49.jpg",
+  "resumenPerfil": "Engarbarse Geminar Cencerrear Engarrafador Cenestesia Fidecomiso Cenaoscuras Gemoso Deschavetado. Deschavetado Abajeño Cencerrear Incruentamente Increíble Abad Bástulo Descensión Abaldonadamente. Engastador Fidelidad Descentrar Bata Abaldonadamente.",
+  "orcid": "https://orcid.org/0000-0009-9035-5246",
+  "biografia": "Cencerra Descerrajadura Céndea Genealogista Cenco Cencellada. Increado Gemiquear Descercar Basura Abajera. Abada Incruentamente Descentrado Geminación Descerebrado Increado Engargantar.\nFice Abalada Batavia Cencerrillas Incorruptamente. Bate Céndea Fideísmo Incrédulo Bastonear Bastonada Incorregiblemente Cencerrón Generacional Increpador. Bátavo Basurero Abadesa Fideísmo Batata Engaste Engarzador.",
+  "areasInvestigacion": [
+    "Ciencias Ambientales"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2019
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2025
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2021 - Presente"
+    }
+  ],
+  "telefono": "519342686"
+}

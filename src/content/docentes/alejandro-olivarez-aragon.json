@@ -1,0 +1,38 @@
+{
+  "id": "doc-alejandro-olivarez-aragon",
+  "nombres": "Alejandro",
+  "apellidos": "Olivárez Aragón",
+  "grado": "magister",
+  "especialidad": "Biología Molecular",
+  "email": "alejandro.olivarezaragon@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/87346532",
+  "resumenPerfil": "Generalidad Engarfiar Engargolar Descervigamiento. Ceñar Incruento Engarnio Fideero Descentralizar Geminación Engarzar Engarzar Engasgarse Cenca. Ficha Batavia Bastonero Cenceño Incrustación Cenata Gencianáceo Abacora.",
+  "orcid": "https://orcid.org/0000-0005-9531-8455",
+  "biografia": "Engarce Cencerril Generación Incrédulo Batanar Cenco Descervigamiento Incrasar. Incristalizable Cencerrear Gencianeo Batata Abajadero Cencido. Bastonazo Batallola Incorporal Fiducia Geneático Engarberar Increpar Cencerrillas Engargolado.\nBatán Gémino Batanero Bateador. Batatazo General Cencapa Descepar Gemíparo Engastar Incorrupto Gemir Batayola. Gen Fidelidad Incorporar Abadengo.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas",
+    "Derecho Constitucional"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2008
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "528 331 971"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "doc-mariana-leyva-arguello",
+  "nombres": "Mariana",
+  "apellidos": "Leyva Arguello",
+  "grado": "phd",
+  "especialidad": "Ciencias Ambientales",
+  "email": "mariana.leyvaarguello@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/96.jpg",
+  "resumenPerfil": "Abajadero Engarbullar Descercador Incorrupto Incorrupción. Genealogista Abad Incorporalmente Abadí Incorporo Basurear Increpador Descervigar. Basura Ceneque Abajeño.",
+  "orcid": "https://orcid.org/0000-0003-0517-1939",
+  "biografia": "Ficoideo Bastonada Cendal Engaste Abadengo Batanear Abalanzar Incriminar Engarrotar Descifrable. Abadiado Descharchar Cencerrillas Engarbullar Incorregible Gemonias Engaste. Descifrador Engasgarse Cencerrado.\nIncrepador Desciframiento Descentrar Batavia Cencerrear Céndea. Incristalizable Abadernar Incristalizable Descerar Engasgarse Cenagoso. Incorpóreo Batahola Fidedigno Genealógico Cendrar Engaritar Batalla Cencerrear Batanga Descercador.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas",
+    "Biología Molecular"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2019
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2014
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "507 505 397"
+}

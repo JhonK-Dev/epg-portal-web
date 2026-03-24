@@ -1,0 +1,37 @@
+{
+  "id": "doc-amalia-hinojosa-bonilla",
+  "nombres": "Amalia",
+  "apellidos": "Hinojosa Bonilla",
+  "grado": "doctor",
+  "especialidad": "Ciencias Ambientales",
+  "email": "amalia.hinojosabonilla@unapiquitos.edu.pe",
+  "resumenPerfil": "Gemología Cencivera Engargantar Descifrador Fichaje Bate Incorpóreo Gemonias. Batanear Incorruptible Cenefa Gencianáceo. Descerrumarse Ficha Cencha Descercador Descervigamiento Gencianeo Cendrado Bastonear Incorporo.",
+  "orcid": "https://orcid.org/0000-0006-1207-1353",
+  "biografia": "Batalán Batalloso Fidedigno Incorrupción Engastar Ceneque Increado Ficha Generación. Céndea Incorporalmente Increpar Cenco Cencapa Cencivera Descharchar Cendal. Descimbramiento Bastoncillo Incordio Gemíparo.\nAbadejo Cencuate Fidecomiso Descercado. Gemiquear Cencido Fidalgo Incorruptibilidad Cencapa Engarbarse Incorrecto Cenefa Descercar Deschuponar. Incrédulo Engarzador Ceñar Generalato Cencerrear Abadí.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2017
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2021 - Presente"
+    }
+  ],
+  "telefono": "5420-815-297"
+}

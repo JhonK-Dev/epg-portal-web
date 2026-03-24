@@ -1,0 +1,38 @@
+{
+  "id": "doc-ramiro-gurule-osorio",
+  "nombres": "Ramiro",
+  "apellidos": "Gurule Osorio",
+  "grado": "phd",
+  "especialidad": "Salud Pública",
+  "email": "ramiro.guruleosorio@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/66.jpg",
+  "resumenPerfil": "Cenagar Descerrumarse Generacional Incorporo Engarbullar Increpar Descharchar. Batallona Descimbramiento Abadengo Generala Engarmarse Batallar. Descentralización Increíble Descerrajar Basura Basural Batea Batalloso Batatazo Engargolado.",
+  "orcid": "https://orcid.org/0000-0000-5790-2685",
+  "biografia": "Bastonada Deschavetarse Fideísmo Abadiado Incristalizable. Incorregibilidad Batalla Generala Cencerril Geminación Abadernar Cenco Desciframiento Fidelidad. Basurero Incristalizable Abalada Engarrafador.\nIncorruptible Abajo Cencerrado Incrédulo Cencerrillas Batán Incruentamente Descerco. Batallón Cencero Batea Gemoso Descerar Engarzar Cencerreo. Engarnio Engarberar Cenata Gemonias Engasgarse Incredulidad Descentralización Descepar.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas",
+    "Salud Pública"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2006
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "5327-515-838"
+}

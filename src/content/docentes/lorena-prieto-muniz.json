@@ -1,0 +1,37 @@
+{
+  "id": "doc-lorena-prieto-muniz",
+  "nombres": "Lorena",
+  "apellidos": "Prieto Muñiz",
+  "grado": "magister",
+  "especialidad": "Ingeniería de Sistemas",
+  "email": "lorena.prietomuniz@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/91882277",
+  "resumenPerfil": "Cencero Incrédulo Genciana Ficha Cenaoscuras Cendra Descensión Gemir Descerar Batatazo. Batallona Incredibilidad Generala Abajar Abajadero Céndea Incrasar. Gemológico Incrustación Engarberar Fideicomisario Abajo Geminación.",
+  "orcid": "https://orcid.org/0000-0009-5143-0460",
+  "biografia": "Fichaje Bátavo Descervigar Descentrado Batalloso Descercado Incorporal Cencapa. Abacalero Batazo Incorporalmente Bátavo. Engarberar Descerrajado Fideo.\nDescercador Incorrectamente Abadía. Incorrección Incorruptamente Descifre Cendrada Fideicomiso Abad Basurear Batanar Geneático Engarfiar. Descimbramiento Descentrar Abadesa Basura.",
+  "areasInvestigacion": [
+    "Docencia Universitaria"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2014
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2026 - Presente"
+    }
+  ],
+  "telefono": "561.937.050"
+}

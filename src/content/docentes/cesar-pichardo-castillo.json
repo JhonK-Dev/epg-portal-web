@@ -1,0 +1,36 @@
+{
+  "id": "doc-cesar-pichardo-castillo",
+  "nombres": "César",
+  "apellidos": "Pichardo Castillo",
+  "grado": "phd",
+  "especialidad": "Docencia Universitaria",
+  "email": "cesar.pichardocastillo@unapiquitos.edu.pe",
+  "resumenPerfil": "Incorruptamente Gemiqueo Cencerrear Cencerrón Batalán Abajamiento Engarnio. Genciana Abajamiento Abadernar. Bateaguas Engarberar Fice Cenagoso.",
+  "orcid": "https://orcid.org/0000-0005-9283-0675",
+  "biografia": "Engarrafador Fideicomisario Cencío Batanear Deschapar Descifrar. Generala Incriminar Descerrar Cenaoscuras Fideicomiso Batayola Batazo. Abaco Descerebrado Gemir Cencerra Cendrado Cencerrada Generable.\nFicha Descercado Céndea Deschuponar Incorporalmente. Engarnio Geminado Abajo Bateaguas. Descervigar Fichaje Engarfiar Incristalizable Incorrección Descerar Cendrar Incredibilidad Descerrajado.",
+  "areasInvestigacion": [
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2018
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2007
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "5633-793-767"
+}

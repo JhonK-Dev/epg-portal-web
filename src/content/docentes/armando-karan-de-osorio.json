@@ -1,0 +1,37 @@
+{
+  "id": "doc-armando-karan-de-osorio",
+  "nombres": "Armando",
+  "apellidos": "Karan de Osorio",
+  "grado": "phd",
+  "especialidad": "Docencia Universitaria",
+  "email": "armando.karandeosorio@unapiquitos.edu.pe",
+  "foto": "https://avatars.githubusercontent.com/u/77880833",
+  "resumenPerfil": "Engarce Genealogista Fideo Batallola Abacora Abacora. Abacero Geminado Abalar. Engarzador Cenca Gencianeo Fichar Gemoterapia Incorruptibilidad Geminación.",
+  "orcid": "https://orcid.org/0000-0006-4308-9990",
+  "biografia": "Incremento Cendal Abad Descharchar Increíble. Increpación Bataola Generalidad Ceñar Basural. Engarbullar Gemíparo Fideicomisario Incrasar.\nAbacería Incorrección Fice Batata Deschavetarse. Abalanzar Cencerra Incorrupto Incorregibilidad Cencivera Abadesa Ficticio General Fideicomisario. Engarzadura Gemiqueo Cencivera Genealogía Engarberar Genearca Batahola Gendarmería.",
+  "areasInvestigacion": [
+    "Ciencias Ambientales"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2023
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2006
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2025 - Presente"
+    }
+  ],
+  "telefono": "553.299.210"
+}

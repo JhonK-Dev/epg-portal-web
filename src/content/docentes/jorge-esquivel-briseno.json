@@ -1,0 +1,38 @@
+{
+  "id": "doc-jorge-esquivel-briseno",
+  "nombres": "Jorge",
+  "apellidos": "Esquivel Briseño",
+  "grado": "phd",
+  "especialidad": "Ingeniería de Sistemas",
+  "email": "jorge.esquivelbriseno@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/90.jpg",
+  "resumenPerfil": "Batato Genealógico Ficción Incorporo Abadiato Genealógico Fiducia Incrédulo. Cenegar Descerco Engarmarse Fideicomisario Cencerreo Abadiado. Cencerrón Ficoideo Gemológico Descentralización Incorporalmente Gencianáceo Engargante Incremento Batatazo Abadengo.",
+  "orcid": "https://orcid.org/0000-0002-4812-0708",
+  "biografia": "Gencianáceo Descercador Abaldonadamente Batatazo Cencerrada. Fidedigno Cendrar Cencero Cendrado Cencerril Cencha Cenagoso. Descepar Increíble Cendalí Generable Batata Cendolilla Descerebración Engarfiar Descifrador Engarro.\nBatea Descerrajar Fichar Cencuate Increpación Cencellada Gendarme Geneático Descenso. Deschapar Descensión Cencerra Gen Abadejo. Cencha Increíble Fideísmo Generala.",
+  "areasInvestigacion": [
+    "Salud Pública",
+    "Administración de Empresas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2024
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2023 - Presente"
+    }
+  ],
+  "telefono": "522955825"
+}

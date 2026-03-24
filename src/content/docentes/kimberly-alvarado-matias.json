@@ -1,0 +1,38 @@
+{
+  "id": "doc-kimberly-alvarado-matias",
+  "nombres": "Kimberly",
+  "apellidos": "Alvarado Matías",
+  "grado": "doctor",
+  "especialidad": "Derecho Constitucional",
+  "email": "kimberly.alvaradomatias@unapiquitos.edu.pe",
+  "foto": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/75.jpg",
+  "resumenPerfil": "Gendarmería Geminado Incorrupción Gendarme Cencerrear Cendrazo. Gendarme Batacazo Engarbarse Cencerrado Cendrazo Descervigar Incrustación Descerezar. Abajar Geneático Descervigar Abajar Genealogía Fice Abaldonadamente Abalanzar.",
+  "orcid": "https://orcid.org/0000-0000-5232-6761",
+  "biografia": "Gemológico Abadengo Cenaoscuras Cendrar. Incredibilidad Deschavetado Abajadero. Gencianeo Basural Abadiado Descervigar Cencerrón Cenceñada Cendolilla Cendrado Abad.\nDescerar Engarro Abalada Desceñir. Deschavetarse Descercado Gemoterapia Ceneque Generalísimo Generador Fideicomisario. Incorregiblemente Abacalero Batallar.",
+  "areasInvestigacion": [
+    "Biología Molecular",
+    "Ingeniería de Sistemas"
+  ],
+  "formacionAcademica": [
+    {
+      "grado": "Magíster",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2016
+    },
+    {
+      "grado": "Bachiller",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "pais": "Perú",
+      "anio": 2012
+    }
+  ],
+  "experienciaProfesional": [
+    {
+      "cargo": "Docente Investigador",
+      "institucion": "Universidad Nacional de la Amazonía Peruana",
+      "periodo": "2022 - Presente"
+    }
+  ],
+  "telefono": "505.024.792"
+}

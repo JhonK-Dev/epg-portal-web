@@ -1,5 +1,4 @@
 import {
-  AutoridadesSection,
   DocumentosSection,
   EstadisticasSection,
   HistoriaSection,
@@ -17,7 +16,6 @@ export function EscuelaContent() {
       <MisionVisionSection />
       <ValoresSection />
       <EstadisticasSection />
-      <AutoridadesSection />
       <DocumentosSection />
     </div>
   )
