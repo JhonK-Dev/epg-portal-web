@@ -35,13 +35,16 @@ export async function seedDocentes(count: number = 30) {
     const hasPhoto = faker.datatype.boolean({ probability: 0.8 });
     const fotoUrl = hasPhoto ? faker.image.avatar() : undefined;
     
+    const emailBase = `${nombres.split(' ')[0].toLowerCase()}.${apellidos.split(' ')[0].toLowerCase()}`;
+    const emailNormalizado = emailBase.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9.]/g, '');
+
     const docente = {
       id: `doc-${slug}`,
       nombres,
       apellidos,
       grado,
       especialidad,
-      email: `${nombres.toLowerCase()}.${apellidos.toLowerCase()}@unapiquitos.edu.pe`,
+      email: `${emailNormalizado}@unapiquitos.edu.pe`,
       foto: fotoUrl,
       resumenPerfil: faker.lorem.paragraph(),
       orcid: `https://orcid.org/0000-000${faker.string.numeric(1)}-${faker.string.numeric(4)}-${faker.string.numeric(4)}`,
