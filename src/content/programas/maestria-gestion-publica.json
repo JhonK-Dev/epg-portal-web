@@ -1,0 +1,23 @@
+{
+  "id": "mae-001",
+  "nombre": "Maestría en Gestión Pública",
+  "tipo": "maestria",
+  "descripcion": "Programa orientado a formar profesionales con competencias avanzadas en gestión y administración pública, capaces de liderar procesos de modernización del Estado y diseñar políticas públicas efectivas. Los egresados estarán preparados para ocupar cargos directivos en instituciones gubernamentales.",
+  "descripcionCorta": "Forma líderes en administración y modernización del Estado.",
+  "duracion": "2 años (4 semestres)",
+  "creditos": 72,
+  "modalidad": "semipresencial",
+  "estado": "activo",
+  "fechaInicio": "2025-03-15",
+  "slug": "maestria-gestion-publica",
+  "facultad": "Ciencias Económicas y Administrativas",
+  "requisitos": [
+    "Título profesional universitario",
+    "Experiencia laboral mínima de 2 años",
+    "Constancia de trabajo o declaración jurada"
+  ],
+  "coordinador": "Dr. Carlos Mendoza Ríos",
+  "inversion": "S/. 12,500.00 (total)",
+  "imagen": "/images/programas/gestion-publica.jpg",
+  "destacado": true
+}

@@ -1,0 +1,22 @@
+{
+  "id": "doc-002",
+  "nombre": "Doctorado en Educación",
+  "tipo": "doctorado",
+  "descripcion": "Forma investigadores educativos capaces de generar conocimiento científico sobre procesos educativos. El programa enfatiza metodologías de investigación educativa y análisis crítico de políticas educativas.",
+  "descripcionCorta": "Investigación científica en educación.",
+  "duracion": "3 años (6 semestres)",
+  "creditos": 96,
+  "modalidad": "semipresencial",
+  "estado": "activo",
+  "fechaInicio": "2025-04-01",
+  "slug": "doctorado-educacion",
+  "facultad": "Ciencias de la Educación",
+  "requisitos": [
+    "Grado de Magíster en Educación o áreas afines",
+    "Proyecto de investigación doctoral",
+    "Publicación académica previa (deseable)"
+  ],
+  "coordinador": "Dra. Lucía Ramírez Delgado",
+  "inversion": "S/. 22,000.00 (total)",
+  "imagen": "/images/programas/educacion.jpg"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "cur-002",
+  "nombre": "Curso de Metodología de la Investigación Científica",
+  "tipo": "curso",
+  "descripcion": "Fundamentos de la investigación científica, diseño de proyectos de investigación, métodos cuantitativos y cualitativos, y elaboración de instrumentos de recolección de datos.",
+  "descripcionCorta": "Fundamentos para la investigación académica.",
+  "duracion": "6 semanas",
+  "creditos": 6,
+  "modalidad": "virtual",
+  "estado": "activo",
+  "fechaInicio": "2025-02-17",
+  "slug": "curso-metodologia-investigacion",
+  "facultad": "Escuela de Postgrado",
+  "requisitos": [
+    "Bachiller o estudiante de postgrado"
+  ],
+  "coordinador": "Dr. Alberto Ramos García",
+  "inversion": "S/. 350.00 (total)",
+  "imagen": "/images/programas/metodologia.jpg"
+}

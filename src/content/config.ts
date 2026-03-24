@@ -92,7 +92,33 @@ const sustentacionesCollection = defineCollection({
   }),
 });
 
+
+const programasCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    nombre: z.string(),
+    tipo: z.enum(['maestria', 'doctorado', 'diplomado', 'curso']),
+    descripcion: z.string(),
+    descripcionCorta: z.string(),
+    duracion: z.string(),
+    creditos: z.number(),
+    modalidad: z.enum(['presencial', 'semipresencial', 'virtual']),
+    estado: z.enum(['activo', 'inactivo', 'proximamente']),
+    fechaInicio: z.string().optional(),
+    imagen: z.string().optional(),
+    slug: z.string(),
+    facultad: z.string(),
+    requisitos: z.array(z.string()).optional(),
+    planEstudios: z.string().optional(),
+    coordinador: z.string().optional(),
+    inversion: z.string().optional(),
+    destacado: z.boolean().optional(),
+  }),
+});
+
 export const collections = {
+  programas: programasCollection,
   noticias: noticiasCollection,
   docentes: docentesCollection,
   autoridades: autoridadesCollection,

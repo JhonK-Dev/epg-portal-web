@@ -1,0 +1,21 @@
+{
+  "id": "mae-005",
+  "nombre": "Maestría en Salud Pública",
+  "tipo": "maestria",
+  "descripcion": "Forma profesionales capaces de analizar, diseñar e implementar políticas y programas de salud pública. Incluye epidemiología, gestión de servicios de salud y promoción de la salud comunitaria.",
+  "descripcionCorta": "Políticas y programas de salud para la comunidad.",
+  "duracion": "2 años (4 semestres)",
+  "creditos": 72,
+  "modalidad": "semipresencial",
+  "estado": "activo",
+  "fechaInicio": "2025-03-15",
+  "slug": "maestria-salud-publica",
+  "facultad": "Medicina Humana",
+  "requisitos": [
+    "Título en ciencias de la salud",
+    "Experiencia en sector salud (deseable)"
+  ],
+  "coordinador": "Dra. Ana María Gutiérrez Flores",
+  "inversion": "S/. 15,000.00 (total)",
+  "imagen": "/images/programas/salud.jpg"
+}

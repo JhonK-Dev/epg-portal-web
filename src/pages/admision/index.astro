@@ -2,7 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { AdmisionContent } from '../../features/admision';
+import { getProgramas } from '../../data/programas';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
+
+const programas = await getProgramas();
 ---
 
 <Layout 
@@ -175,7 +178,7 @@ import { ErrorBoundary } from '../../components/ui/error-boundary';
       <section class="py-16 bg-gray-50">
         <div class="container-main">
         <ErrorBoundary client:load>
-          <AdmisionContent client:load />
+          <AdmisionContent client:load programas={programas} />
         </ErrorBoundary>
         </div>
       </section>

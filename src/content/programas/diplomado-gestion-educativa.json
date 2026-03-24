@@ -1,0 +1,21 @@
+{
+  "id": "dip-003",
+  "nombre": "Diplomado en Gestión Educativa",
+  "tipo": "diplomado",
+  "descripcion": "Desarrolla competencias de liderazgo y gestión para directivos de instituciones educativas. Incluye planificación estratégica, gestión del talento humano y mejora continua.",
+  "descripcionCorta": "Liderazgo y gestión para directivos educativos.",
+  "duracion": "5 meses",
+  "creditos": 22,
+  "modalidad": "virtual",
+  "estado": "activo",
+  "fechaInicio": "2025-03-01",
+  "slug": "diplomado-gestion-educativa",
+  "facultad": "Ciencias de la Educación",
+  "requisitos": [
+    "Título profesional en educación o áreas afines",
+    "Experiencia en gestión educativa (deseable)"
+  ],
+  "coordinador": "Mg. Elena Torres Campos",
+  "inversion": "S/. 2,500.00 (total)",
+  "imagen": "/images/programas/educacion.jpg"
+}

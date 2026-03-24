@@ -1,0 +1,20 @@
+{
+  "id": "dip-002",
+  "nombre": "Diplomado en Derecho Administrativo",
+  "tipo": "diplomado",
+  "descripcion": "Proporciona conocimientos actualizados sobre el derecho administrativo peruano, procedimientos administrativos, contrataciones del Estado y responsabilidad administrativa.",
+  "descripcionCorta": "Actualización en derecho administrativo peruano.",
+  "duracion": "4 meses",
+  "creditos": 20,
+  "modalidad": "semipresencial",
+  "estado": "activo",
+  "fechaInicio": "2025-02-01",
+  "slug": "diplomado-derecho-administrativo",
+  "facultad": "Derecho y Ciencias Políticas",
+  "requisitos": [
+    "Bachiller o título profesional"
+  ],
+  "coordinador": "Mg. Sandra López Medina",
+  "inversion": "S/. 2,200.00 (total)",
+  "imagen": "/images/programas/derecho.jpg"
+}

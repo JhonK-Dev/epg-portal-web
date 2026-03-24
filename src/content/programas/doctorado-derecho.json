@@ -1,0 +1,23 @@
+{
+  "id": "doc-001",
+  "nombre": "Doctorado en Derecho",
+  "tipo": "doctorado",
+  "descripcion": "Programa de alto nivel académico orientado a la investigación jurídica. Los doctorandos desarrollarán capacidades para producir conocimiento original en el campo del derecho y contribuir al debate académico nacional e internacional.",
+  "descripcionCorta": "Investigación jurídica de alto nivel.",
+  "duracion": "3 años (6 semestres)",
+  "creditos": 96,
+  "modalidad": "presencial",
+  "estado": "activo",
+  "fechaInicio": "2025-03-15",
+  "slug": "doctorado-derecho",
+  "facultad": "Derecho y Ciencias Políticas",
+  "requisitos": [
+    "Grado de Magíster en Derecho o áreas afines",
+    "Proyecto de investigación doctoral",
+    "Dominio de idioma extranjero (inglés o portugués)"
+  ],
+  "coordinador": "Dr. Fernando Castillo Mendoza",
+  "inversion": "S/. 25,000.00 (total)",
+  "imagen": "/images/programas/derecho.jpg",
+  "destacado": true
+}

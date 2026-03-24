@@ -1,5 +1,5 @@
-import type { Docente } from '@/types';
-import { getProgramaById } from '@/data/programas';
+import type { Docente, Programa } from '@/types';
+
 import { getGradoInfo, getSocialNetworkClasses } from '@/lib/config';
 import {
   Mail,
@@ -27,15 +27,15 @@ import { PageHero } from '@/components/ui/page-hero';
 
 interface DocenteDetailProps {
   docente: Docente;
+  programasDocente: Programa[];
 }
 
-export function DocenteDetail({ docente }: DocenteDetailProps) {
+export function DocenteDetail({ docente, programasDocente }: DocenteDetailProps) {
   const gradoInfo = getGradoInfo(docente.grado);
   const nombreCompleto = `${gradoInfo.label} ${docente.nombres} ${docente.apellidos}`;
 
   // Get programs where this teacher teaches
-  const programasDocente =
-    docente.programas?.map((id) => getProgramaById(id)).filter(Boolean) || [];
+  
 
   return (
     <div>

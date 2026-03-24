@@ -1,0 +1,21 @@
+{
+  "id": "dip-001",
+  "nombre": "Diplomado en Gestión de Proyectos de Inversión Pública",
+  "tipo": "diplomado",
+  "descripcion": "Capacita profesionales en la formulación, evaluación y gestión de proyectos de inversión pública bajo el marco del Sistema Nacional de Programación Multianual y Gestión de Inversiones (Invierte.pe).",
+  "descripcionCorta": "Formulación y gestión de proyectos bajo Invierte.pe.",
+  "duracion": "6 meses",
+  "creditos": 24,
+  "modalidad": "virtual",
+  "estado": "activo",
+  "fechaInicio": "2025-02-15",
+  "slug": "diplomado-proyectos-inversion-publica",
+  "facultad": "Ciencias Económicas y Administrativas",
+  "requisitos": [
+    "Título profesional o bachiller universitario",
+    "Acceso a computadora e internet"
+  ],
+  "coordinador": "Mg. Ricardo Flores Pérez",
+  "inversion": "S/. 2,800.00 (total)",
+  "imagen": "/images/programas/proyectos.jpg"
+}
