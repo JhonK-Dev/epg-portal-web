@@ -1,65 +1,19 @@
+import { getCollection } from 'astro:content';
 import type { ProcesoAdmision, FechaImportanteAdmision, EstadoConvocatoria } from '@/types';
 
-// Procesos de admisión disponibles
-const procesosAdmision: ProcesoAdmision[] = [
-  {
-    id: 'adm-2026-I',
-    periodo: '2026-I',
-    anio: 2026,
-    fechaApertura: '2026-03-16',
-    fechaCierre: '2026-04-30',
-    fechasImportantes: [
-      { 
-        etiqueta: 'Inscripciones', 
-        fechaInicio: '2026-03-16', 
-        fechaFin: '2026-04-30',
-        descripcion: 'Período de inscripciones para el proceso de admisión'
-      },
-      { 
-        etiqueta: 'Examen de admisión', 
-        fechaInicio: '2026-05-09',
-        descripcion: 'Evaluación de conocimientos'
-      },
-      { 
-        etiqueta: 'Resultados', 
-        fechaInicio: '2026-05-13',
-        descripcion: 'Publicación de resultados'
-      },
-      { 
-        etiqueta: 'Inicio de clases', 
-        fechaInicio: '2026-06-01',
-        descripcion: 'Comienzo del semestre académico'
-      },
-    ],
-    // Sin estadoOverride - se calcula automáticamente
-  },
-  {
-    id: 'adm-2026-II',
-    periodo: '2026-II',
-    anio: 2026,
-    fechaApertura: '2026-08-03',
-    fechaCierre: '2026-09-18',
-    fechasImportantes: [
-      { 
-        etiqueta: 'Inscripciones', 
-        fechaInicio: '2026-08-03', 
-        fechaFin: '2026-09-18' 
-      },
-      { 
-        etiqueta: 'Examen de admisión', 
-        fechaInicio: '2026-10-03' 
-      },
-      { 
-        etiqueta: 'Resultados', 
-        fechaInicio: '2026-10-07' 
-      },
-      { 
-        etiqueta: 'Inicio de clases', 
-        fechaInicio: '2026-10-26' 
-      },
-    ],
-  },
-];
+async function fetchProcesosAdmision(): Promise<ProcesoAdmision[]> {
+  const collection = await getCollection('admision');
+
+  return collection
+    .map((entry) => ({
+      ...entry.data,
+      id: entry.data.id ?? entry.id,
+    }))
+    .sort(
+      (a, b) =>
+        new Date(a.fechaApertura).getTime() - new Date(b.fechaApertura).getTime(),
+    ) as ProcesoAdmision[];
+}
 
 /**
  * Calcula el estado de un proceso de admisión basado en las fechas o override manual
@@ -88,22 +42,27 @@ export const calcularEstadoProceso = (proceso: ProcesoAdmision): EstadoConvocato
 /**
  * Obtiene todos los procesos de admisión
  */
-export const getProcesosAdmision = (): ProcesoAdmision[] => {
+export const getProcesosAdmision = async (): Promise<ProcesoAdmision[]> => {
+  const procesosAdmision = await fetchProcesosAdmision();
   return [...procesosAdmision];
 };
 
 /**
  * Obtiene los procesos con convocatoria abierta
  */
-export const getProcesosActivos = (): ProcesoAdmision[] => {
+export const getProcesosActivos = async (): Promise<ProcesoAdmision[]> => {
+  const procesosAdmision = await fetchProcesosAdmision();
   return procesosAdmision.filter(p => calcularEstadoProceso(p) === 'abierta');
 };
 
 /**
  * Obtiene el proceso actual (primero activo, o el más próximo si no hay activos)
  */
-export const getProcesoActual = (): ProcesoAdmision | null => {
-  const activos = getProcesosActivos();
+export const getProcesoActual = async (): Promise<ProcesoAdmision | null> => {
+  const procesosAdmision = await fetchProcesosAdmision();
+  const activos = procesosAdmision.filter(
+    (p) => calcularEstadoProceso(p) === 'abierta',
+  );
   
   if (activos.length > 0) {
     return activos[0];
@@ -126,15 +85,16 @@ export const getProcesoActual = (): ProcesoAdmision | null => {
 /**
  * Verifica si hay al menos una convocatoria abierta
  */
-export const estaConvocatoriaAbierta = (): boolean => {
-  return getProcesosActivos().length > 0;
+export const estaConvocatoriaAbierta = async (): Promise<boolean> => {
+  const activos = await getProcesosActivos();
+  return activos.length > 0;
 };
 
 /**
  * Obtiene el estado del proceso actual
  */
-export const getEstadoProcesoActual = (): EstadoConvocatoria => {
-  const proceso = getProcesoActual();
+export const getEstadoProcesoActual = async (): Promise<EstadoConvocatoria> => {
+  const proceso = await getProcesoActual();
   if (!proceso) return 'cerrada';
   return calcularEstadoProceso(proceso);
 };

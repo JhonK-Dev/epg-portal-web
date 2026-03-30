@@ -1,0 +1,30 @@
+{
+  "id": "adm-2026-I",
+  "periodo": "2026-I",
+  "anio": 2026,
+  "fechaApertura": "2026-03-16",
+  "fechaCierre": "2026-04-30",
+  "fechasImportantes": [
+    {
+      "etiqueta": "Inscripciones",
+      "fechaInicio": "2026-03-16",
+      "fechaFin": "2026-04-30",
+      "descripcion": "Período de inscripciones para el proceso de admisión"
+    },
+    {
+      "etiqueta": "Examen de admisión",
+      "fechaInicio": "2026-05-09",
+      "descripcion": "Evaluación de conocimientos"
+    },
+    {
+      "etiqueta": "Resultados",
+      "fechaInicio": "2026-05-13",
+      "descripcion": "Publicación de resultados"
+    },
+    {
+      "etiqueta": "Inicio de clases",
+      "fechaInicio": "2026-06-01",
+      "descripcion": "Comienzo del semestre académico"
+    }
+  ]
+}

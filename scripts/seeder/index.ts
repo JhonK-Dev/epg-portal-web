@@ -4,6 +4,7 @@ import { seedAutoridades } from './autoridades';
 import { seedSustentaciones } from './sustentaciones';
 import { seedProgramas } from './programas';
 import { seedServicios } from './servicios';
+import { seedAdmision } from './admision';
 
 async function runSeeders() {
   console.log('🌱 Iniciando generación de datos (Seeders)...');
@@ -15,6 +16,7 @@ async function runSeeders() {
     await seedSustentaciones(15);
     await seedProgramas();
     await seedServicios();
+    await seedAdmision();
     
     console.log('✅ Todos los seeders se ejecutaron correctamente.');
   } catch (error) {

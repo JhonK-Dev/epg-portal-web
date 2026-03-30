@@ -132,6 +132,24 @@ const serviciosCollection = defineCollection({
   }),
 });
 
+const admisionCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    periodo: z.string(),
+    anio: z.number(),
+    fechaApertura: z.string(),
+    fechaCierre: z.string(),
+    fechasImportantes: z.array(z.object({
+      etiqueta: z.string(),
+      fechaInicio: z.string(),
+      fechaFin: z.string().optional(),
+      descripcion: z.string().optional(),
+    })),
+    estadoOverride: z.enum(['abierta', 'cerrada', 'proximamente', 'en_evaluacion']).optional(),
+  }),
+});
+
 const estudiantesAccesosCollection = defineCollection({
   type: 'data',
   schema: z.object({
@@ -211,6 +229,7 @@ const estudiantesFaqCollection = defineCollection({
 });
 
 export const collections = {
+  admision: admisionCollection,
   estudiantes_accesos: estudiantesAccesosCollection,
   estudiantes_tramites: estudiantesTramitesCollection,
   estudiantes_documentos: estudiantesDocumentosCollection,
