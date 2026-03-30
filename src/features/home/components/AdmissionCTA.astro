@@ -11,9 +11,9 @@ import {
 import { contactoAdmision } from '@/data/contacto';
 import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react';
 
-const proceso = getProcesoActual();
+const proceso = await getProcesoActual();
 const estado = proceso ? calcularEstadoProceso(proceso) : 'cerrada';
-const convocatoriaAbierta = estaConvocatoriaAbierta();
+const convocatoriaAbierta = await estaConvocatoriaAbierta();
 
 const badgeClass = convocatoriaAbierta
   ? 'bg-epg-navy text-white'
