@@ -56,3 +56,13 @@ export interface Documento {
   tipo: 'reglamento' | 'formato' | 'manual' | 'guia';
   fechaActualizacion?: string;
 }
+
+export interface InfoInstitucional {
+  nombreCompleto: string;
+  nombreCorto: string;
+  lema: string;
+  historia: string;
+  mision: string;
+  vision: string;
+  valores: string[];
+}

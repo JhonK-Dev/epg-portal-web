@@ -9,6 +9,8 @@ import {
 } from '../features/home';
 import { getFeaturedPrograms } from '../lib/api';
 import { getProgramas } from '../data/programas';
+import { getBusquedasPopulares } from '../data/busquedas-populares';
+import { getEstadisticasInstitucionales } from '../data/estadisticas';
 import type { ApiProgram } from '../lib/api/programs/types';
 import { ErrorBoundary } from '../components/ui/error-boundary';
 
@@ -16,6 +18,8 @@ import { ErrorBoundary } from '../components/ui/error-boundary';
 let apiPrograms: ApiProgram[] = [];
 let hasError = false;
 const programas = await getProgramas();
+const busquedasPopulares = await getBusquedasPopulares();
+const estadisticasInstitucionales = await getEstadisticasInstitucionales();
 
 try {
   apiPrograms = await getFeaturedPrograms();
@@ -53,7 +57,12 @@ const formacionContinuaCount = 0; // La API no tiene este tipo aún
     
     <!-- Búsqueda de Programas + Estadísticas — React, hydrates when visible -->
     <ErrorBoundary client:load>
-      <ProgramSearchWithStats client:visible programas={programas} />
+      <ProgramSearchWithStats
+        client:visible
+        programas={programas}
+        busquedasPopulares={busquedasPopulares}
+        estadisticasInstitucionales={estadisticasInstitucionales}
+      />
     </ErrorBoundary>
     
     <!-- CTA de Admisión — Astro component, zero JS -->

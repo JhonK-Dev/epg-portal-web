@@ -3,9 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { AdmisionContent } from '../../features/admision';
 import { getProgramas } from '../../data/programas';
+import { getConvocatorias, getFechasImportantesAdmision } from '../../data/convocatorias';
+import { getContactoAdmision } from '../../data/contacto';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
 
 const programas = await getProgramas();
+const convocatorias = await getConvocatorias();
+const fechasImportantes = await getFechasImportantesAdmision();
+const contactoAdmision = await getContactoAdmision();
 ---
 
 <Layout 
@@ -178,7 +183,13 @@ const programas = await getProgramas();
       <section class="py-16 bg-gray-50">
         <div class="container-main">
         <ErrorBoundary client:load>
-          <AdmisionContent client:load programas={programas} />
+          <AdmisionContent
+            client:load
+            programas={programas}
+            convocatorias={convocatorias}
+            fechasImportantes={fechasImportantes}
+            contactoAdmision={contactoAdmision}
+          />
         </ErrorBoundary>
         </div>
       </section>

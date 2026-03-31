@@ -12,6 +12,7 @@ import ScrollToTop from "../components/ui/ScrollToTop.astro";
 import { FloatingContactButton } from "../components/ui/floating-contact-button";
 import { ErrorBoundary } from "../components/ui/error-boundary";
 import { ClientRouter } from "astro:transitions";
+import { getContactoGeneral } from "../data/contacto";
 
 interface Props {
 	title?: string;
@@ -56,6 +57,7 @@ const imageURL = image.startsWith("http") ? image : new URL(image, siteUrl).href
 
 // Keywords as string
 const keywordsString = keywords.join(", ");
+const contactoGeneral = await getContactoGeneral();
 ---
 
 <!doctype html>
@@ -152,7 +154,7 @@ const keywordsString = keywords.join(", ");
 	</head>
 	<body class="min-h-screen bg-background flex flex-col">
 		<slot />
-		<Footer />
+		<Footer contactoGeneral={contactoGeneral} />
 		<ScrollToTop />
 		<ErrorBoundary client:load>
 			<FloatingContactButton />

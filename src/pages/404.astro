@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../features/navigation/components/Navbar.astro';
-import { contactoGeneral } from '../data/contacto';
+import { getContactoGeneral } from '../data/contacto';
+
+const contactoGeneral = await getContactoGeneral();
 ---
 
 <Layout 

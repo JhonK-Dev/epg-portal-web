@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { convocatorias, fechasImportantes } from '@/data/convocatorias'
-import { contactoAdmision, getEmailHref } from '@/data/contacto'
+import { getEmailHref } from '@/lib/contact-helpers'
 import type { Programa } from '@/types/programas'
+import type { Convocatoria, FechaImportante, InfoContacto } from '@/types'
 import { formatShortDate } from '@/lib/formatters'
 import {
   tipoFechaAdmisionColors,
@@ -45,7 +45,7 @@ import { IconCircle } from '@/components/ui/icon-circle'
 // ========================================
 // TIMELINE COMPONENT
 // ========================================
-function Timeline() {
+function Timeline({ fechasImportantes }: { fechasImportantes: FechaImportante[] }) {
   const fechasProximas = fechasImportantes
     .filter((f) => new Date(f.fecha) >= new Date('2026-01-01'))
     .sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime())
@@ -215,7 +215,7 @@ function ProcesoAdmision() {
 // ========================================
 // REQUISITOS COMPONENT
 // ========================================
-function Requisitos() {
+function Requisitos({ convocatorias }: { convocatorias: Convocatoria[] }) {
   const [tipoSeleccionado, setTipoSeleccionado] = useState<
     'maestria' | 'doctorado'
   >('maestria')
@@ -608,7 +608,17 @@ function ProgramasVacantes({ programas }: { programas: Programa[] }) {
 // ========================================
 // MAIN EXPORT COMPONENT
 // ========================================
-export function AdmisionContent({ programas }: { programas: Programa[] }) {
+export function AdmisionContent({
+  programas,
+  convocatorias,
+  fechasImportantes,
+  contactoAdmision,
+}: {
+  programas: Programa[]
+  convocatorias: Convocatoria[]
+  fechasImportantes: FechaImportante[]
+  contactoAdmision: InfoContacto
+}) {
   return (
     <div className="space-y-16">
       {/* Timeline */}
@@ -622,7 +632,7 @@ export function AdmisionContent({ programas }: { programas: Programa[] }) {
           description="Conoce las fechas clave del proceso de admisión 2026-I"
         />
         <Card className="p-6">
-          <Timeline />
+          <Timeline fechasImportantes={fechasImportantes} />
         </Card>
       </section>
 
@@ -670,7 +680,7 @@ export function AdmisionContent({ programas }: { programas: Programa[] }) {
           title="Requisitos de Admisión"
           description="Prepara la documentación necesaria para tu inscripción"
         />
-        <Requisitos />
+        <Requisitos convocatorias={convocatorias} />
       </section>
 
       {/* Costos */}

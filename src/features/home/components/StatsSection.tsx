@@ -1,6 +1,6 @@
 import { IconCircle } from '@/components/ui/icon-circle';
 import { StatItem } from '@/components/ui/stat-item';
-import { estadisticasInstitucionales } from '@/data/estadisticas';
+import type { Estadistica } from '@/types';
 import type { LucideIcon } from 'lucide-react';
 import {
   Award,
@@ -22,7 +22,9 @@ const iconMap: Record<string, LucideIcon> = {
   ThumbsUp,
 };
 
-export const StatsSection: React.FC = () => {
+export const StatsSection: React.FC<{
+  estadisticasInstitucionales: Estadistica[];
+}> = ({ estadisticasInstitucionales }) => {
   return (
     <section className="home-section px-4 sm:px-6 lg:px-8 bg-epg-navy-dark relative overflow-hidden">
       {/* Decorative elements */}

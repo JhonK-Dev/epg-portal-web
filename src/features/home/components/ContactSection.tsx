@@ -3,7 +3,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { FormInput } from '@/components/ui/form-input';
 import { SectionHeader } from '@/components/ui/section-header';
 import { Separator } from '@/components/ui/separator';
-import { contactoGeneral, getWhatsappHref } from '@/data/contacto';
+import { getWhatsappHref } from '@/lib/contact-helpers';
+import type { InfoContacto } from '@/types';
 
 import {
   CheckCircle,
@@ -35,33 +36,35 @@ const asuntoOptions = [
   { value: 'otro', label: 'Otro' },
 ];
 
-const contactInfo = [
-  {
-    icon: MapPin,
-    label: 'Dirección',
-    value: contactoGeneral.direccion,
-    href: `https://www.google.com/maps?q=${contactoGeneral.coordenadas?.lat},${contactoGeneral.coordenadas?.lng}`,
-  },
-  {
-    icon: Phone,
-    label: 'Teléfono',
-    value: contactoGeneral.telefonoDisplay,
-    href: `tel:${contactoGeneral.telefono}`,
-  },
-  {
-    icon: Mail,
-    label: 'Correo',
-    value: contactoGeneral.email,
-    href: `mailto:${contactoGeneral.email}`,
-  },
-  {
-    icon: Clock,
-    label: 'Horario',
-    value: contactoGeneral.horarioAtencion,
-  },
-];
+export const ContactSection: React.FC<{ contactoGeneral: InfoContacto }> = ({
+  contactoGeneral,
+}) => {
+  const contactInfo = [
+    {
+      icon: MapPin,
+      label: 'Dirección',
+      value: contactoGeneral.direccion,
+      href: `https://www.google.com/maps?q=${contactoGeneral.coordenadas?.lat},${contactoGeneral.coordenadas?.lng}`,
+    },
+    {
+      icon: Phone,
+      label: 'Teléfono',
+      value: contactoGeneral.telefonoDisplay,
+      href: `tel:${contactoGeneral.telefono}`,
+    },
+    {
+      icon: Mail,
+      label: 'Correo',
+      value: contactoGeneral.email,
+      href: `mailto:${contactoGeneral.email}`,
+    },
+    {
+      icon: Clock,
+      label: 'Horario',
+      value: contactoGeneral.horarioAtencion,
+    },
+  ];
 
-export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     nombre: '',
     email: '',

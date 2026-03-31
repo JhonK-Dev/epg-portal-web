@@ -1,0 +1,47 @@
+{
+  "id": "conv-003",
+  "nombre": "Proceso de Admisión 2026-II",
+  "descripcion": "Segundo proceso de admisión del año 2026 para programas de maestría y doctorado.",
+  "estado": "proximamente",
+  "fechaInicio": "2026-08-03",
+  "fechaFin": "2026-09-18",
+  "fechaExamen": "2026-10-03",
+  "fechaResultados": "2026-10-07",
+  "requisitos": [
+    "Grado de Bachiller (para maestría) o Magíster (para doctorado)",
+    "DNI o Carnet de Extranjería vigente",
+    "Certificado de estudios original",
+    "Curriculum vitae documentado",
+    "Pago de derecho de inscripción: S/. 350.00"
+  ],
+  "documentos": [
+    {
+      "nombre": "Copia de DNI",
+      "descripcion": "Copia legible del DNI vigente",
+      "obligatorio": true
+    },
+    {
+      "nombre": "Grado académico",
+      "descripcion": "Copia legalizada del diploma",
+      "obligatorio": true
+    },
+    {
+      "nombre": "Certificado de estudios",
+      "descripcion": "Certificado original",
+      "obligatorio": true
+    },
+    {
+      "nombre": "Curriculum vitae",
+      "descripcion": "CV documentado",
+      "obligatorio": true
+    }
+  ],
+  "programas": [
+    "mae-001",
+    "mae-002",
+    "mae-003",
+    "doc-001",
+    "doc-002"
+  ],
+  "slug": "admision-2026-ii"
+}

@@ -8,12 +8,13 @@ import {
   getProcesoActual,
   getTextoEstado,
 } from '@/data/admision';
-import { contactoAdmision } from '@/data/contacto';
+import { getContactoAdmision } from '@/data/contacto';
 import { ArrowRight, Calendar, FileText, Phone } from 'lucide-react';
 
 const proceso = await getProcesoActual();
 const estado = proceso ? calcularEstadoProceso(proceso) : 'cerrada';
 const convocatoriaAbierta = await estaConvocatoriaAbierta();
+const contactoAdmision = await getContactoAdmision();
 
 const badgeClass = convocatoriaAbierta
   ? 'bg-epg-navy text-white'

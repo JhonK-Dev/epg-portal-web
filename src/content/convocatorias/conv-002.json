@@ -1,0 +1,39 @@
+{
+  "id": "conv-002",
+  "nombre": "Diplomados y Cursos de Actualización - Invierno 2026",
+  "descripcion": "Oferta de diplomados y cursos cortos de actualización profesional para el período de invierno 2026.",
+  "estado": "proximamente",
+  "fechaInicio": "2026-06-15",
+  "fechaFin": "2026-07-10",
+  "requisitos": [
+    "Título profesional o bachiller universitario",
+    "DNI vigente",
+    "Acceso a computadora e internet (para cursos virtuales)",
+    "Pago de inscripción según programa"
+  ],
+  "documentos": [
+    {
+      "nombre": "Copia de DNI",
+      "descripcion": "Copia legible del DNI",
+      "obligatorio": true
+    },
+    {
+      "nombre": "Título o bachiller",
+      "descripcion": "Copia simple del grado académico",
+      "obligatorio": true
+    },
+    {
+      "nombre": "Ficha de inscripción",
+      "descripcion": "Formulario de inscripción completado",
+      "obligatorio": true
+    }
+  ],
+  "programas": [
+    "dip-001",
+    "dip-002",
+    "dip-003",
+    "cur-001",
+    "cur-002"
+  ],
+  "slug": "diplomados-invierno-2026"
+}

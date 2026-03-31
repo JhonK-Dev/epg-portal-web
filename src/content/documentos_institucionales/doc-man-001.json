@@ -1,0 +1,8 @@
+{
+  "id": "doc-man-001",
+  "nombre": "Manual de Usuario SIGAE",
+  "descripcion": "Instrucciones para el uso del Sistema de Gestión Académica.",
+  "url": "/documentos/manual-sigae.pdf",
+  "tipo": "manual",
+  "fechaActualizacion": "2024-02-28"
+}
