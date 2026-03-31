@@ -2,10 +2,19 @@
 import EscuelaLayout from '../../layouts/EscuelaLayout.astro';
 import { HistoriaSection } from '../../features/escuela';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
+import { getInfoInstitucional } from '../../data/institucional';
+import { getEstadisticasInstitucionales } from '../../data/estadisticas';
+
+const infoInstitucional = await getInfoInstitucional();
+const estadisticasInstitucionales = await getEstadisticasInstitucionales();
 ---
 
 <EscuelaLayout activeTab="/escuela/historia">
   <ErrorBoundary client:load>
-    <HistoriaSection client:load />
+    <HistoriaSection
+      client:load
+      infoInstitucional={infoInstitucional}
+      estadisticasInstitucionales={estadisticasInstitucionales}
+    />
   </ErrorBoundary>
 </EscuelaLayout>

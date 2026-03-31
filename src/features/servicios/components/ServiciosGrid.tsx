@@ -1,4 +1,3 @@
-import { contactoSoporte } from '@/data/contacto'
 import { LinkArrow } from '@/components/ui/link-arrow'
 import {
   GraduationCap,
@@ -43,8 +42,15 @@ const gradientColors = [
 ]
 
 import type { Servicio } from '@/types'
+import type { InfoContacto } from '@/types'
 
-export function ServiciosGrid({ servicios }: { servicios: Servicio[] }) {
+export function ServiciosGrid({
+  servicios,
+  contactoSoporte,
+}: {
+  servicios: Servicio[]
+  contactoSoporte: InfoContacto
+}) {
   return (
     <div className="space-y-12">
       {/* Grid de Servicios */}

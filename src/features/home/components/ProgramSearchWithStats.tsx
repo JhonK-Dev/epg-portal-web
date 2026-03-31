@@ -1,11 +1,10 @@
 import { IconCircle } from '@/components/ui/icon-circle';
 import { StatItem } from '@/components/ui/stat-item';
-import { busquedasPopulares, getBusquedaUrl } from '@/data/busquedas-populares';
-import { estadisticasInstitucionales } from '@/data/estadisticas';
+import { getBusquedaUrl } from '@/lib/busquedas-helpers';
 
 import { getProgramTypeConfig } from '@/lib/config';
 
-import type { Programa } from '@/types';
+import type { BusquedaPopular, Estadistica, Programa } from '@/types';
 import type { LucideIcon } from 'lucide-react';
 import {
   ArrowRight,
@@ -35,7 +34,11 @@ const iconMap: Record<string, LucideIcon> = {
   ThumbsUp,
 };
 
-export const ProgramSearchWithStats: React.FC<{ programas: Programa[] }> = ({ programas }) => {
+export const ProgramSearchWithStats: React.FC<{
+  programas: Programa[];
+  busquedasPopulares: BusquedaPopular[];
+  estadisticasInstitucionales: Estadistica[];
+}> = ({ programas, busquedasPopulares, estadisticasInstitucionales }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState('all');
   const [suggestions, setSuggestions] = useState<Programa[]>([]);

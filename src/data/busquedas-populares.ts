@@ -1,4 +1,6 @@
+import { getCollection } from 'astro:content';
 import type { BusquedaPopular } from '@/types';
+export { getBusquedaUrl } from '@/lib/busquedas-helpers';
 
 /**
  * Búsquedas populares para el home
@@ -11,47 +13,8 @@ import type { BusquedaPopular } from '@/types';
  * - Query: Parámetro de búsqueda (se codifica automáticamente en la URL)
  * - Tipo: (Opcional) Filtrar resultados por tipo de programa
  */
-export const busquedasPopulares: BusquedaPopular[] = [
-  {
-    id: 'gestion-publica',
-    label: 'Gestión Pública',
-    query: 'gestion publica',
-  },
-  {
-    id: 'derecho',
-    label: 'Derecho',
-    query: 'derecho',
-  },
-  {
-    id: 'educacion',
-    label: 'Educación',
-    query: 'educacion',
-  },
-  {
-    id: 'ambiental',
-    label: 'Ambiental',
-    query: 'ambiental',
-  },
-  {
-    id: 'salud',
-    label: 'Salud',
-    query: 'salud',
-  },
-];
-
-/**
- * Construye la URL de búsqueda con los parámetros apropiados
- * 
- * @param busqueda - Objeto BusquedaPopular
- * @returns URL completa para la búsqueda
- */
-export function getBusquedaUrl(busqueda: BusquedaPopular): string {
-  const params = new URLSearchParams();
-  params.set('q', busqueda.query);
-  
-  if (busqueda.tipo) {
-    params.set('tipo', busqueda.tipo);
-  }
-  
-  return `/programas?${params.toString()}`;
+export async function getBusquedasPopulares(): Promise<BusquedaPopular[]> {
+  const collection = await getCollection('busquedas_populares');
+  return collection.map((entry) => ({ ...entry.data, id: entry.data.id ?? entry.id })) as BusquedaPopular[];
 }
+

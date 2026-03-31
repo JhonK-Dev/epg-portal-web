@@ -1,11 +1,16 @@
-import { infoInstitucional } from '@/data/institucional'
-import { estadisticasInstitucionales } from '@/data/estadisticas'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Building2 } from 'lucide-react'
+import type { Estadistica, InfoInstitucional } from '@/types'
 
-export function HistoriaSection() {
+export function HistoriaSection({
+  infoInstitucional,
+  estadisticasInstitucionales,
+}: {
+  infoInstitucional: InfoInstitucional
+  estadisticasInstitucionales: Estadistica[]
+}) {
   const destacados = estadisticasInstitucionales.slice(0, 4)
 
   return (

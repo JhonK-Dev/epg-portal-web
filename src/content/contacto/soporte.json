@@ -1,0 +1,13 @@
+{
+  "id": "soporte",
+  "direccion": "Calle los Rosales S/N - Sta cuadra San Juan Bautista",
+  "telefono": "+51987654322",
+  "telefonoDisplay": "(065) 987-654-322",
+  "email": "soporte@unap.edu.pe",
+  "whatsapp": "+51987654322",
+  "horarioAtencion": "Lunes a Viernes: 7:00 a.m. - 2:00 p.m.",
+  "coordenadas": {
+    "lat": -3.7437,
+    "lng": -73.2516
+  }
+}

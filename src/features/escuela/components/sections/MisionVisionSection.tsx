@@ -1,9 +1,13 @@
-import { infoInstitucional } from '@/data/institucional'
 import { SectionHeader } from '@/components/ui/section-header'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Eye, Target } from 'lucide-react'
+import type { InfoInstitucional } from '@/types'
 
-export function MisionVisionSection() {
+export function MisionVisionSection({
+  infoInstitucional,
+}: {
+  infoInstitucional: InfoInstitucional
+}) {
   return (
     <section id="mision-vision">
       <SectionHeader

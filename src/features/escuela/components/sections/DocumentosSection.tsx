@@ -1,6 +1,6 @@
-import { documentos } from '@/data/institucional'
 import { DocumentDownloadItem } from '@/components/ui/document-download-item'
 import { SectionHeader } from '@/components/ui/section-header'
+import type { Documento } from '@/types'
 import {
   Card,
   CardContent,
@@ -10,7 +10,11 @@ import {
 } from '@/components/ui/card'
 import { BookOpen, FileText } from 'lucide-react'
 
-export function DocumentosSection() {
+export function DocumentosSection({
+  documentos,
+}: {
+  documentos: Documento[]
+}) {
   const reglamentos = documentos.filter((documento) => documento.tipo === 'reglamento')
   const formatos = documentos.filter((documento) => documento.tipo === 'formato')
   const guias = documentos.filter(

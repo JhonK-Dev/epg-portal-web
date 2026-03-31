@@ -1,6 +1,5 @@
 ---
 // Footer.astro — Pure Astro component, zero client-side JS
-import { contactoGeneral } from '@/data/contacto';
 import {
   Clock,
   Facebook,
@@ -12,6 +11,13 @@ import {
   Twitter,
   Youtube,
 } from 'lucide-react';
+import type { InfoContacto } from '@/types';
+
+interface Props {
+  contactoGeneral: InfoContacto;
+}
+
+const { contactoGeneral } = Astro.props as Props;
 
 const footerLinks = {
   programas: [
