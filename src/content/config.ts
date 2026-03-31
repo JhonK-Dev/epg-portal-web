@@ -249,7 +249,6 @@ const fechasImportantesAdmisionCollection = defineCollection({
     tipo: z.enum(['inscripcion', 'examen', 'resultados', 'matricula', 'inicio_clases']),
   }),
 });
-
 const estudiantesAccesosCollection = defineCollection({
   type: 'data',
   schema: z.object({
