@@ -1,0 +1,13 @@
+{
+  "id": "general",
+  "direccion": "Calle los Rosales S/N - Sta cuadra San Juan Bautista",
+  "telefono": "+51987654320",
+  "telefonoDisplay": "(065) 987-654-320",
+  "email": "postgrado@unap.edu.pe",
+  "whatsapp": "+51987654320",
+  "horarioAtencion": "Lunes a Viernes: 7:00 a.m. - 2:00 p.m.",
+  "coordenadas": {
+    "lat": -3.7437,
+    "lng": -73.2516
+  }
+}

@@ -132,6 +132,123 @@ const serviciosCollection = defineCollection({
   }),
 });
 
+const admisionCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    periodo: z.string(),
+    anio: z.number(),
+    fechaApertura: z.string(),
+    fechaCierre: z.string(),
+    fechasImportantes: z.array(z.object({
+      etiqueta: z.string(),
+      fechaInicio: z.string(),
+      fechaFin: z.string().optional(),
+      descripcion: z.string().optional(),
+    })),
+    estadoOverride: z.enum(['abierta', 'cerrada', 'proximamente', 'en_evaluacion']).optional(),
+  }),
+});
+
+const contactoCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    direccion: z.string(),
+    telefono: z.string(),
+    telefonoDisplay: z.string(),
+    email: z.string().email(),
+    whatsapp: z.string().optional(),
+    horarioAtencion: z.string(),
+    coordenadas: z
+      .object({
+        lat: z.number(),
+        lng: z.number(),
+      })
+      .optional(),
+  }),
+});
+
+const busquedasPopularesCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    label: z.string(),
+    query: z.string(),
+    tipo: z.enum(['maestria', 'doctorado', 'diplomado', 'curso']).optional(),
+  }),
+});
+
+const estadisticasCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    value: z.string(),
+    label: z.string(),
+    description: z.string(),
+    icon: z.string(),
+  }),
+});
+
+const infoInstitucionalCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    nombreCompleto: z.string(),
+    nombreCorto: z.string(),
+    lema: z.string(),
+    historia: z.string(),
+    mision: z.string(),
+    vision: z.string(),
+    valores: z.array(z.string()),
+  }),
+});
+
+const documentosInstitucionalesCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    nombre: z.string(),
+    descripcion: z.string().optional(),
+    url: z.string(),
+    tipo: z.enum(['reglamento', 'formato', 'manual', 'guia']),
+    fechaActualizacion: z.string().optional(),
+  }),
+});
+
+const convocatoriasCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    nombre: z.string(),
+    descripcion: z.string(),
+    estado: z.enum(['abierta', 'cerrada', 'proximamente', 'en_evaluacion']),
+    fechaInicio: z.string(),
+    fechaFin: z.string(),
+    fechaExamen: z.string().optional(),
+    fechaResultados: z.string().optional(),
+    requisitos: z.array(z.string()),
+    documentos: z.array(
+      z.object({
+        nombre: z.string(),
+        descripcion: z.string(),
+        obligatorio: z.boolean(),
+      }),
+    ),
+    programas: z.array(z.string()),
+    slug: z.string(),
+  }),
+});
+
+const fechasImportantesAdmisionCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().optional(),
+    fecha: z.string(),
+    descripcion: z.string(),
+    tipo: z.enum(['inscripcion', 'examen', 'resultados', 'matricula', 'inicio_clases']),
+  }),
+});
 const estudiantesAccesosCollection = defineCollection({
   type: 'data',
   schema: z.object({
@@ -211,6 +328,14 @@ const estudiantesFaqCollection = defineCollection({
 });
 
 export const collections = {
+  contacto: contactoCollection,
+  busquedas_populares: busquedasPopularesCollection,
+  estadisticas: estadisticasCollection,
+  info_institucional: infoInstitucionalCollection,
+  documentos_institucionales: documentosInstitucionalesCollection,
+  convocatorias: convocatoriasCollection,
+  fechas_importantes_admision: fechasImportantesAdmisionCollection,
+  admision: admisionCollection,
   estudiantes_accesos: estudiantesAccesosCollection,
   estudiantes_tramites: estudiantesTramitesCollection,
   estudiantes_documentos: estudiantesDocumentosCollection,

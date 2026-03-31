@@ -1,0 +1,26 @@
+{
+  "id": "adm-2026-II",
+  "periodo": "2026-II",
+  "anio": 2026,
+  "fechaApertura": "2026-08-03",
+  "fechaCierre": "2026-09-18",
+  "fechasImportantes": [
+    {
+      "etiqueta": "Inscripciones",
+      "fechaInicio": "2026-08-03",
+      "fechaFin": "2026-09-18"
+    },
+    {
+      "etiqueta": "Examen de admisión",
+      "fechaInicio": "2026-10-03"
+    },
+    {
+      "etiqueta": "Resultados",
+      "fechaInicio": "2026-10-07"
+    },
+    {
+      "etiqueta": "Inicio de clases",
+      "fechaInicio": "2026-10-26"
+    }
+  ]
+}

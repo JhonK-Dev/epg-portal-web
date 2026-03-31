@@ -2,9 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { ContactForm } from '../../features/contacto';
-import { contactoGeneral } from '../../data/contacto';
+import { getContactoGeneral } from '../../data/contacto';
 import { FORMSPREE_ID } from 'astro:env/server';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
+
+const contactoGeneral = await getContactoGeneral();
 ---
 
 <Layout 

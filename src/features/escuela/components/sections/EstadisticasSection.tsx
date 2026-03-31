@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
-import { estadisticasInstitucionales } from '@/data/estadisticas'
 import { StatItem } from '@/components/ui/stat-item'
 import { SectionHeader } from '@/components/ui/section-header'
 import { IconCircle } from '@/components/ui/icon-circle'
+import type { Estadistica } from '@/types'
 import {
   Award,
   BookOpen,
@@ -21,7 +21,11 @@ const iconMap: Record<string, ReactNode> = {
   ThumbsUp: <Heart className="h-8 w-8" />,
 }
 
-export function EstadisticasSection() {
+export function EstadisticasSection({
+  estadisticasInstitucionales,
+}: {
+  estadisticasInstitucionales: Estadistica[]
+}) {
   return (
     <section id="estadisticas">
       <SectionHeader

@@ -65,6 +65,7 @@ export type {
   InfoContacto,
   RedSocial,
   Documento,
+  InfoInstitucional,
 } from './institucional';
 
 // Navegación

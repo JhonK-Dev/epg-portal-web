@@ -2,10 +2,13 @@
 import EscuelaLayout from '../../layouts/EscuelaLayout.astro';
 import { DocumentosSection } from '../../features/escuela';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
+import { getDocumentosInstitucionales } from '../../data/institucional';
+
+const documentos = await getDocumentosInstitucionales();
 ---
 
 <EscuelaLayout activeTab="/escuela/documentos">
   <ErrorBoundary client:load>
-    <DocumentosSection client:load />
+    <DocumentosSection client:load documentos={documentos} />
   </ErrorBoundary>
 </EscuelaLayout>

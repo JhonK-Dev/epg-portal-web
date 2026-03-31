@@ -2,10 +2,16 @@
 import EscuelaLayout from '../../layouts/EscuelaLayout.astro';
 import { MisionVisionSection } from '../../features/escuela';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
+import { getInfoInstitucional } from '../../data/institucional';
+
+const infoInstitucional = await getInfoInstitucional();
 ---
 
 <EscuelaLayout activeTab="/escuela/mision-vision">
   <ErrorBoundary client:load>
-    <MisionVisionSection client:load />
+    <MisionVisionSection
+      client:load
+      infoInstitucional={infoInstitucional}
+    />
   </ErrorBoundary>
 </EscuelaLayout>
