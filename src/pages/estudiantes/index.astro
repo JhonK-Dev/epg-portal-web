@@ -12,6 +12,7 @@ import {
   getRecursosAcademicos,
   getPreguntasFrecuentes,
 } from '../../data/estudiantes';
+import { getServicios } from '../../data/servicios';
 
 const accesosRapidos = await getAccesosRapidos();
 const tramites = await getTramitesEstudiantiles();
@@ -19,6 +20,7 @@ const calendario = await getCalendarioAcademico();
 const documentos = await getDocumentosDescargables();
 const recursos = await getRecursosAcademicos();
 const faq = await getPreguntasFrecuentes();
+const servicios = await getServicios();
 ---
 
 <Layout 
@@ -37,6 +39,7 @@ const faq = await getPreguntasFrecuentes();
         documentos={documentos}
         recursos={recursos}
         faq={faq}
+        servicios={servicios}
       />
     </ErrorBoundary>
   </main>
