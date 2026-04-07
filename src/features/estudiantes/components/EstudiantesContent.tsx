@@ -52,6 +52,7 @@ import { Separator } from '@/components/ui/separator';
 import { CTABannerSideBySide } from '@/components/ui/cta-banner';
 import { PageHero } from '@/components/ui/page-hero';
 import { IconCircle } from '@/components/ui/icon-circle';
+import type { Servicio } from '@/types';
 
 // ========================================
 // ICON MAPPER HELPERS
@@ -576,7 +577,7 @@ function PreguntasFrecuentesSection({ items }: { items: PreguntaFrecuente[] }) {
 
         <div className="text-center mt-8">
           <p className="text-gray-600 mb-4">¿No encontraste lo que buscabas?</p>
-          <Button className="bg-epg-navy hover:bg-epg-navy-dark" asChild>
+          <Button className="bg-epg-navy text-white hover:bg-epg-navy-dark" asChild>
             <a
               href="mailto:epg@unapiquitos.edu.pe"
               className="flex items-center gap-2"
@@ -594,7 +595,7 @@ function PreguntasFrecuentesSection({ items }: { items: PreguntaFrecuente[] }) {
 // ========================================
 // CTA COMPONENT
 // ========================================
-function CtaSection() {
+function CtaSection({ totalServicios }: { totalServicios: number }) {
   return (
     <section className="py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -607,7 +608,7 @@ function CtaSection() {
             external: true,
           }}
           secondaryAction={{
-            label: 'Ver todos los servicios',
+            label: `Ver todos los servicios (${totalServicios})`,
             href: '/servicios',
           }}
         />
@@ -626,6 +627,7 @@ export interface EstudiantesContentProps {
   documentos: DocumentoDescargable[];
   recursos: RecursoAcademico[];
   faq: PreguntaFrecuente[];
+  servicios: Servicio[];
 }
 
 export function EstudiantesContent({
@@ -635,6 +637,7 @@ export function EstudiantesContent({
   documentos,
   recursos,
   faq,
+  servicios,
 }: EstudiantesContentProps) {
   return (
     <div>
@@ -666,7 +669,7 @@ export function EstudiantesContent({
       <PreguntasFrecuentesSection items={faq} />
 
       {/* CTA */}
-      <CtaSection />
+      <CtaSection totalServicios={servicios.length} />
     </div>
   );
 }
