@@ -42,6 +42,11 @@ export function CTABanner({
       ? 'btn-gold'
       : 'bg-epg-navy text-white hover:bg-epg-navy-light font-semibold'
 
+  const secondaryButtonClass =
+    variant === 'navy'
+      ? 'bg-white text-epg-navy hover:bg-gray-100 border border-white font-semibold'
+      : 'bg-transparent text-epg-navy border border-epg-navy hover:bg-epg-navy/10 font-semibold'
+
   return (
     <Card
       className={cn(
@@ -81,8 +86,8 @@ export function CTABanner({
           {secondaryAction && (
             <Button
               size="lg"
-              variant="outline"
-              className="btn-outline-white"
+              variant="ghost"
+              className={secondaryButtonClass}
               asChild
             >
               <a
@@ -123,6 +128,11 @@ export function CTABannerSideBySide({
       ? 'btn-gold'
       : 'bg-epg-navy text-white hover:bg-epg-navy-light font-semibold'
 
+  const secondaryButtonClass =
+    variant === 'navy'
+      ? 'bg-white text-epg-navy hover:bg-gray-100 border border-white font-semibold'
+      : 'bg-transparent text-epg-navy border border-epg-navy hover:bg-epg-navy/10 font-semibold'
+
   return (
     <Card
       className={cn(gradientClass, 'text-white border-0 p-8', className)}
@@ -149,8 +159,8 @@ export function CTABannerSideBySide({
           {secondaryAction && (
             <Button
               size="lg"
-              variant="outline"
-              className="btn-outline-white"
+              variant="ghost"
+              className={secondaryButtonClass}
               asChild
             >
               <a

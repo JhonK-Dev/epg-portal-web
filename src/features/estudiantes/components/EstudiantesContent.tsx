@@ -577,7 +577,7 @@ function PreguntasFrecuentesSection({ items }: { items: PreguntaFrecuente[] }) {
 
         <div className="text-center mt-8">
           <p className="text-gray-600 mb-4">¿No encontraste lo que buscabas?</p>
-          <Button className="bg-epg-navy hover:bg-epg-navy-dark" asChild>
+          <Button className="bg-epg-navy text-white hover:bg-epg-navy-dark" asChild>
             <a
               href="mailto:epg@unapiquitos.edu.pe"
               className="flex items-center gap-2"
