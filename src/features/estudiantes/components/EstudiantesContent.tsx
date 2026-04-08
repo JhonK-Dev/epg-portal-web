@@ -52,6 +52,7 @@ import { Separator } from '@/components/ui/separator';
 import { CTABannerSideBySide } from '@/components/ui/cta-banner';
 import { PageHero } from '@/components/ui/page-hero';
 import { IconCircle } from '@/components/ui/icon-circle';
+import type { Servicio } from '@/types';
 
 // ========================================
 // ICON MAPPER HELPERS
@@ -343,22 +344,56 @@ function DocumentosDescargables({ items }: { items: DocumentoDescargable[] }) {
 function CalendarioAcademico({ items }: { items: FechaCalendario[] }) {
   const tipoStyles: Record<
     FechaCalendario['tipo'],
-    { bg: string; text: string; label: string }
+    {
+      accent: string;
+      badge: string;
+      dateBg: string;
+      dateText: string;
+      label: string;
+    }
   > = {
-    matricula: { bg: 'bg-blue-500', text: 'text-blue-500', label: 'Matrícula' },
-    examen: { bg: 'bg-red-500', text: 'text-red-500', label: 'Examen' },
+    matricula: {
+      accent: 'from-blue-600 to-blue-400',
+      badge: 'border-blue-200 text-blue-700 bg-blue-50',
+      dateBg: 'bg-blue-50',
+      dateText: 'text-blue-800',
+      label: 'Matrícula',
+    },
+    examen: {
+      accent: 'from-red-600 to-rose-400',
+      badge: 'border-red-200 text-red-700 bg-red-50',
+      dateBg: 'bg-red-50',
+      dateText: 'text-red-800',
+      label: 'Examen',
+    },
     sustentacion: {
-      bg: 'bg-purple-500',
-      text: 'text-purple-500',
+      accent: 'from-purple-600 to-fuchsia-400',
+      badge: 'border-purple-200 text-purple-700 bg-purple-50',
+      dateBg: 'bg-purple-50',
+      dateText: 'text-purple-800',
       label: 'Sustentación',
     },
     vacaciones: {
-      bg: 'bg-green-500',
-      text: 'text-green-500',
+      accent: 'from-green-600 to-emerald-400',
+      badge: 'border-green-200 text-green-700 bg-green-50',
+      dateBg: 'bg-green-50',
+      dateText: 'text-green-800',
       label: 'Vacaciones',
     },
-    evento: { bg: 'bg-amber-500', text: 'text-amber-500', label: 'Evento' },
-    pago: { bg: 'bg-emerald-500', text: 'text-emerald-500', label: 'Pago' },
+    evento: {
+      accent: 'from-amber-600 to-yellow-400',
+      badge: 'border-amber-200 text-amber-700 bg-amber-50',
+      dateBg: 'bg-amber-50',
+      dateText: 'text-amber-800',
+      label: 'Evento',
+    },
+    pago: {
+      accent: 'from-emerald-600 to-teal-400',
+      badge: 'border-emerald-200 text-emerald-700 bg-emerald-50',
+      dateBg: 'bg-emerald-50',
+      dateText: 'text-emerald-800',
+      label: 'Pago',
+    },
   };
 
   const formatFecha = (fecha: string) => {
@@ -368,8 +403,23 @@ function CalendarioAcademico({ items }: { items: FechaCalendario[] }) {
     });
   };
 
+  const formatRango = (fechaInicio: string, fechaFin?: string) => {
+    if (!fechaFin) {
+      return formatFecha(fechaInicio);
+    }
+
+    return `${formatFecha(fechaInicio)} - ${formatFecha(fechaFin)}`;
+  };
+
+  const eventos = [...items]
+    .sort(
+      (a, b) =>
+        new Date(a.fechaInicio).getTime() - new Date(b.fechaInicio).getTime(),
+    )
+    .slice(0, 8);
+
   return (
-    <section className="py-12 lg:py-16">
+    <section className="py-12 lg:py-16 bg-gray-50/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={{
@@ -380,43 +430,52 @@ function CalendarioAcademico({ items }: { items: FechaCalendario[] }) {
           description="Fechas importantes del semestre"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.slice(0, 8).map((fecha) => {
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+          {eventos.map((fecha) => {
             const style = tipoStyles[fecha.tipo];
+
             return (
               <Card
                 key={fecha.id}
-                className={`relative overflow-hidden ${fecha.importante ? 'ring-2 ring-epg-gold' : ''}`}
+                className={`group relative overflow-hidden border border-gray-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                  fecha.importante ? 'ring-2 ring-epg-gold/70' : ''
+                }`}
               >
-                <div
-                  className={`absolute top-0 left-0 w-1 h-full ${style.bg}`}
-                />
-                <CardContent className="pt-4">
-                  <Badge
-                    variant="outline"
-                    className={`mb-2 ${style.text} border-current`}
-                  >
-                    {style.label}
-                  </Badge>
-                  <h4 className="font-semibold text-epg-navy mb-1">
+                <div className={`h-1 w-full bg-gradient-to-r ${style.accent}`} />
+
+                <CardContent className="p-5">
+                  <div className="mb-4 flex items-start justify-between gap-3">
+                    <Badge
+                      variant="outline"
+                      className={`font-medium ${style.badge}`}
+                    >
+                      {style.label}
+                    </Badge>
+
+                    {fecha.importante && (
+                      <Badge className="bg-epg-gold text-epg-navy font-semibold">
+                        <AlertCircle className="w-3 h-3 mr-1" />
+                        Prioritario
+                      </Badge>
+                    )}
+                  </div>
+
+                  <h4 className="text-xl leading-tight font-semibold text-epg-navy mb-2">
                     {fecha.titulo}
                   </h4>
-                  <p className="text-sm text-gray-600 mb-2">
+
+                  <p className="text-sm text-gray-600 mb-4 min-h-[44px]">
                     {fecha.descripcion}
                   </p>
-                  <div className="flex items-center gap-2 text-sm text-gray-500">
+
+                  <div
+                    className={`flex items-center gap-2 rounded-lg px-3 py-2 ${style.dateBg}`}
+                  >
                     <Calendar className="w-4 h-4" />
-                    <span>
-                      {formatFecha(fecha.fechaInicio)}
-                      {fecha.fechaFin && ` - ${formatFecha(fecha.fechaFin)}`}
+                    <span className={`text-sm font-medium ${style.dateText}`}>
+                      {formatRango(fecha.fechaInicio, fecha.fechaFin)}
                     </span>
                   </div>
-                  {fecha.importante && (
-                    <Badge className="mt-2 bg-epg-gold text-epg-navy">
-                      <AlertCircle className="w-3 h-3 mr-1" />
-                      Importante
-                    </Badge>
-                  )}
                 </CardContent>
               </Card>
             );
@@ -518,7 +577,7 @@ function PreguntasFrecuentesSection({ items }: { items: PreguntaFrecuente[] }) {
 
         <div className="text-center mt-8">
           <p className="text-gray-600 mb-4">¿No encontraste lo que buscabas?</p>
-          <Button className="bg-epg-navy hover:bg-epg-navy-dark" asChild>
+          <Button className="bg-epg-navy text-white hover:bg-epg-navy-dark" asChild>
             <a
               href="mailto:epg@unapiquitos.edu.pe"
               className="flex items-center gap-2"
@@ -536,7 +595,7 @@ function PreguntasFrecuentesSection({ items }: { items: PreguntaFrecuente[] }) {
 // ========================================
 // CTA COMPONENT
 // ========================================
-function CtaSection() {
+function CtaSection({ totalServicios }: { totalServicios: number }) {
   return (
     <section className="py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -549,7 +608,7 @@ function CtaSection() {
             external: true,
           }}
           secondaryAction={{
-            label: 'Ver todos los servicios',
+            label: `Ver todos los servicios (${totalServicios})`,
             href: '/servicios',
           }}
         />
@@ -568,6 +627,7 @@ export interface EstudiantesContentProps {
   documentos: DocumentoDescargable[];
   recursos: RecursoAcademico[];
   faq: PreguntaFrecuente[];
+  servicios: Servicio[];
 }
 
 export function EstudiantesContent({
@@ -577,6 +637,7 @@ export function EstudiantesContent({
   documentos,
   recursos,
   faq,
+  servicios,
 }: EstudiantesContentProps) {
   return (
     <div>
@@ -608,7 +669,7 @@ export function EstudiantesContent({
       <PreguntasFrecuentesSection items={faq} />
 
       {/* CTA */}
-      <CtaSection />
+      <CtaSection totalServicios={servicios.length} />
     </div>
   );
 }
