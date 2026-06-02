@@ -25,7 +25,7 @@ const slides = [
       />
     ))}
     <!-- Dark Navy Overlay with gradient for text readability -->
-    <div class="absolute inset-0 bg-epg-navy/70" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-epg-navy/40" aria-hidden="true"></div>
     <div
       class="absolute inset-0 bg-linear-to-r from-epg-navy/80 via-epg-navy/60 to-transparent"
       aria-hidden="true"
@@ -159,7 +159,7 @@ const slides = [
 
   function startAutoPlay() {
     stopAutoPlay();
-    intervalId = setInterval(nextSlide, 5000);
+    intervalId = setInterval(nextSlide, 4000);
   }
 
   function stopAutoPlay() {
