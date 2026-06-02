@@ -1,5 +1,5 @@
 ---
-export const prerender = false;
+export const prerender = !process.env.VERCEL;
 
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';

@@ -1,5 +1,5 @@
 ---
-export const prerender = false;
+export const prerender = !process.env.VERCEL;
 
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
@@ -9,6 +9,14 @@ import { getProgramBySlug } from '../../lib/api/programs';
 import { mapApiProgramToPrograma } from '../../lib/program-mappers';
 import type { Programa } from '../../types/programas';
 import { ErrorBoundary } from '../../components/ui/error-boundary';
+import { getProgramas } from '../../data/programas';
+
+export async function getStaticPaths() {
+  const programas = await getProgramas();
+  return programas.map((p) => ({
+    params: { slug: p.slug ?? p.id },
+  }));
+}
 
 const { slug } = Astro.params;
 let programaData: Programa | undefined = slug ? await getProgramaBySlug(slug) : undefined;

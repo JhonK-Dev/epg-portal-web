@@ -6,9 +6,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 import vercel from '@astrojs/vercel';
 
+const isVercel = process.env.VERCEL === '1';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://epg.unapiquitos.edu.pe',
+
+  output: isVercel ? undefined : 'static',
 
   env: {
     schema: {
@@ -50,5 +54,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  adapter: vercel()
+  adapter: isVercel ? vercel() : undefined,
 });
