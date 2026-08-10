@@ -8,7 +8,7 @@ import { ErrorBoundary } from '../../components/ui/error-boundary';
 const noticiasCollection = await getCollection('noticias');
 const publicaciones = noticiasCollection.map(p => ({
   id: p.id,
-  slug: p.slug,
+  slug: p.id,
   ...p.data
 }));
 ---

@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../features/navigation/components/Navbar.astro';
 import { PublicacionDetail } from '../../features/publicaciones';
@@ -8,7 +8,7 @@ import { ErrorBoundary } from '../../components/ui/error-boundary';
 export async function getStaticPaths() {
   const noticias = await getCollection('noticias');
   return noticias.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
@@ -21,7 +21,7 @@ if (!entry) {
 
 const publicacionData = {
   id: entry.id,
-  slug: entry.slug,
+  slug: entry.id,
   ...entry.data
 };
 
@@ -29,7 +29,7 @@ const allNoticias = await getCollection('noticias');
 const relacionadas = allNoticias
   .filter(p => p.data.tipo === publicacionData.tipo && p.id !== publicacionData.id)
   .slice(0, 3)
-  .map(p => ({ id: p.id, slug: p.slug, ...p.data }));
+  .map(p => ({ id: p.id, slug: p.id, ...p.data }));
 
 const tipoLabels: Record<string, string> = {
   noticia: 'Noticia',
@@ -38,7 +38,7 @@ const tipoLabels: Record<string, string> = {
   comunicado: 'Comunicado',
 };
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <Layout 

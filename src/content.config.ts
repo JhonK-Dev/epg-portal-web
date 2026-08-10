@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const noticiasCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/noticias' }),
   schema: z.object({
     id: z.string().optional(),
     titulo: z.string(),
@@ -19,7 +20,7 @@ const noticiasCollection = defineCollection({
 });
 
 const docentesCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/docentes' }),
   schema: z.object({
     id: z.string().optional(),
     nombres: z.string(),
@@ -62,7 +63,7 @@ const docentesCollection = defineCollection({
 });
 
 const autoridadesCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/autoridades' }),
   schema: z.object({
     id: z.string().optional(),
     nombres: z.string(),
@@ -77,7 +78,7 @@ const autoridadesCollection = defineCollection({
 });
 
 const sustentacionesCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/sustentaciones' }),
   schema: z.object({
     id: z.string().optional(),
     tesista: z.string(),
@@ -92,9 +93,8 @@ const sustentacionesCollection = defineCollection({
   }),
 });
 
-
 const programasCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/programas' }),
   schema: z.object({
     id: z.string().optional(),
     nombre: z.string(),
@@ -118,7 +118,7 @@ const programasCollection = defineCollection({
 });
 
 const serviciosCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/servicios' }),
   schema: z.object({
     id: z.string().optional(),
     nombre: z.string(),
@@ -133,7 +133,7 @@ const serviciosCollection = defineCollection({
 });
 
 const admisionCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/admision' }),
   schema: z.object({
     id: z.string().optional(),
     periodo: z.string(),
@@ -151,7 +151,7 @@ const admisionCollection = defineCollection({
 });
 
 const contactoCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/contacto' }),
   schema: z.object({
     id: z.string().optional(),
     direccion: z.string(),
@@ -170,7 +170,7 @@ const contactoCollection = defineCollection({
 });
 
 const busquedasPopularesCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/busquedas_populares' }),
   schema: z.object({
     id: z.string().optional(),
     label: z.string(),
@@ -180,7 +180,7 @@ const busquedasPopularesCollection = defineCollection({
 });
 
 const estadisticasCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/estadisticas' }),
   schema: z.object({
     id: z.string().optional(),
     value: z.string(),
@@ -191,7 +191,7 @@ const estadisticasCollection = defineCollection({
 });
 
 const infoInstitucionalCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/info_institucional' }),
   schema: z.object({
     id: z.string().optional(),
     nombreCompleto: z.string(),
@@ -205,7 +205,7 @@ const infoInstitucionalCollection = defineCollection({
 });
 
 const documentosInstitucionalesCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/documentos_institucionales' }),
   schema: z.object({
     id: z.string().optional(),
     nombre: z.string(),
@@ -217,7 +217,7 @@ const documentosInstitucionalesCollection = defineCollection({
 });
 
 const convocatoriasCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/convocatorias' }),
   schema: z.object({
     id: z.string().optional(),
     nombre: z.string(),
@@ -241,7 +241,7 @@ const convocatoriasCollection = defineCollection({
 });
 
 const fechasImportantesAdmisionCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/fechas_importantes_admision' }),
   schema: z.object({
     id: z.string().optional(),
     fecha: z.string(),
@@ -249,8 +249,9 @@ const fechasImportantesAdmisionCollection = defineCollection({
     tipo: z.enum(['inscripcion', 'examen', 'resultados', 'matricula', 'inicio_clases']),
   }),
 });
+
 const estudiantesAccesosCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/estudiantes_accesos' }),
   schema: z.object({
     id: z.string().optional(),
     nombre: z.string(),
@@ -262,7 +263,7 @@ const estudiantesAccesosCollection = defineCollection({
 });
 
 const estudiantesTramitesCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/estudiantes_tramites' }),
   schema: z.object({
     id: z.string().optional(),
     nombre: z.string(),
@@ -280,7 +281,7 @@ const estudiantesTramitesCollection = defineCollection({
 });
 
 const estudiantesDocumentosCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/estudiantes_documentos' }),
   schema: z.object({
     id: z.string().optional(),
     nombre: z.string(),
@@ -293,7 +294,7 @@ const estudiantesDocumentosCollection = defineCollection({
 });
 
 const estudiantesCalendarioCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/estudiantes_calendario' }),
   schema: z.object({
     id: z.string().optional(),
     titulo: z.string(),
@@ -306,7 +307,7 @@ const estudiantesCalendarioCollection = defineCollection({
 });
 
 const estudiantesRecursosCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/estudiantes_recursos' }),
   schema: z.object({
     id: z.string().optional(),
     nombre: z.string(),
@@ -318,7 +319,7 @@ const estudiantesRecursosCollection = defineCollection({
 });
 
 const estudiantesFaqCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/estudiantes_faq' }),
   schema: z.object({
     id: z.string().optional(),
     pregunta: z.string(),
